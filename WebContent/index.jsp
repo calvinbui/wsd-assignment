@@ -18,8 +18,12 @@
 <title>Index</title>
 </head>
 <body>
-	<h1 class="text-center">Hello World! hellovhi</h1>
-	<p>Date: <input type="text" id="datepicker"></p>
+	<div class="container">
+	<h1 class="text-center">Hello World!</h1>
+	<div class="form-group">
+	<p>Date: <input class="form-control" type="text" id="datepicker"></p>
+	</div>
+	</div>
 </body>
 
 
