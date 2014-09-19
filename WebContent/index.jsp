@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 <script src="js/bootstrap/bootstrap.min.js"></script>
 <script src="js/jquery/jquery-1.11.1.min.js"></script>
+<link href="css/font-awesome/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/jquery-ui/jquery-ui.min.css">
 <link rel="stylesheet" href="css/jquery-ui/jquery-ui.structure.min.css">
@@ -21,6 +22,7 @@
 	<div class="container">
 	<h1 class="text-center">Hello World!</h1>
 	<div class="form-group">
+	<i class="fa fa-car"></i>
 	<p>Date: <input class="form-control" type="text" id="datepicker"></p>
 	</div>
 	</div>
