@@ -5,6 +5,7 @@
     xmlns="http://www.uts.edu.au/31284/log"
     elementFormDefault="qualified">
     
+    <!-- This simple type is for description -->
     <xs:simpleType name="description" >
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
