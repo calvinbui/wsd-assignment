@@ -4,7 +4,7 @@
         targetNamespace="http://www.uts.edu.au/31284/vehicle"
         xmlns="http://www.uts.edu.au/31284/vehicle"
         elementFormDefault="qualified">
-<!-- ([a-zA-Z]([-.\w]*[a-zA-Z])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9}) -->
+
         <xs:simpleType name="registration">
         	<xs:restriction base="xs:string">
         		<xs:minLength value="1"/>
