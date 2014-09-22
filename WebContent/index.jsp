@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1 class="text-center">Hello World! hello</h1>
+	<h1 class="text-center">Hello World! test</h1>
 	<div class="form-group">
 	<i class="fa fa-car"></i>
 	<p>Date: <input class="form-control" type="text" id="datepicker"></p>
