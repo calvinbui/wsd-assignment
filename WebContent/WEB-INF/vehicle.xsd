@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.uts.edu.au/31284/vehicle"
+        xmlns="http://www.uts.edu.au/31284/vehicle"
+        elementFormDefault="qualified">
+
+        
+</xs:schema>
