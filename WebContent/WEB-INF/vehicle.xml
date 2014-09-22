@@ -12,6 +12,7 @@
 		<colour>Grey</colour>
 		<kilometres>60000</kilometres>
 	</vehicle>
+	
 	<vehicle>
 		<registration>AE08SM</registration>
 		<type>Car</type>
@@ -21,14 +22,15 @@
 		<colour>Red</colour>
 		<kilometres>2000000</kilometres>
 	</vehicle>
+	
 	<vehicle>
-		<registration>BA30HS</registration>
-		<type>Car</type>
-		<make>Toyota</make>
-		<model>Corolla</model>
-		<year>2020</year>
-		<colour>Grey</colour>
-		<kilometres>60000</kilometres>
+		<registration>RU486A</registration>
+		<type>Minibus</type>
+		<make>Hyundai</make>
+		<model>i30</model>
+		<year>19282</year>
+		<colour>White</colour>
+		<kilometres>1</kilometres>
 	</vehicle>
 
 </vehicles>
