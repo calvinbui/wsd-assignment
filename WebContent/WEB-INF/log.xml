@@ -1,1 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<logs xmlns="http://www.uts.edu.au/31284/log"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uts.edu.au/31284/log log.xsd">
+	
+	<log>
+		<id>1</id>
+		<driver>3</driver>
+		<startdate>2012-09-24</startdate>
+		<enddate>2015-11-11</enddate>
+		<starttime>09:00:11</starttime>
+		<endtime>23:11:24</endtime>
+		<description>My first drive</description>
+		<kilometres>232123</kilometres>
+		<hidden value="true">1</hidden>
+	</log>
+	<log>
+		<id>1</id>
+		<driver>1</driver>
+		<startdate>2012-09-24</startdate>
+		<enddate>2015-11-11</enddate>
+		<starttime>09:00:11</starttime>
+		<endtime>23:11:24</endtime>
+		<description>My first drive</description>
+		<kilometres>232123</kilometres>
+		<hidden value="false">1</hidden>
+	</log>
+	<log>
+		<id>1</id>
+		<driver>1</driver>
+		<startdate>2012-09-24</startdate>
+		<enddate>2015-11-11</enddate>
+		<starttime>09:00:11</starttime>
+		<endtime>23:11:24</endtime>
+		<description>My first drive</description>
+		<kilometres>232123</kilometres>
+		<hidden value="true">1</hidden>
+	</log>
+	
+</logs>

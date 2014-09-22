@@ -4,19 +4,10 @@
     targetNamespace="http://www.uts.edu.au/31284/log"
     xmlns="http://www.uts.edu.au/31284/log"
     elementFormDefault="qualified">
-
-
-	<xs:simpleType name="driver" >
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-            <xs:pattern value="([A-Z][a-z]*\s?)+"/>
-        </xs:restriction>
-    </xs:simpleType>
     
     <xs:simpleType name="description" >
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
-            <xs:pattern value="([A-Z][a-z]*\s?)+"/>
         </xs:restriction>
     </xs:simpleType>
     
@@ -26,28 +17,35 @@
         	</xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="flaggedby" >
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-            <xs:pattern value="([A-Z][a-z]*\s?)+"/>
+    <xs:simpleType name="hidden" >
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
         </xs:restriction>
     </xs:simpleType>
     
 	<xs:element name="logs">
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="log" maxOccurs="unbounded">
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="log" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="id" type="xs:integer"/>
-							<xs:element name="driver" type="driver"/>
+							<xs:element name="id" type="xs:int"/>
+							<xs:element name="driver" type="xs:int"/>
 							<xs:element name="startdate" type="xs:date"/>
 							<xs:element name="enddate" type="xs:date"/>
 							<xs:element name="starttime" type="xs:time"/>
 							<xs:element name="endtime" type="xs:time"/>
 							<xs:element name="description" type="description"/>
 							<xs:element name="kilometres" type="kilometres"/>
-							<xs:element name="flaggedby" type="flaggedby"/>
+							<xs:element name="hidden">	 
+								<xs:complexType>
+									<xs:simpleContent>
+      									<xs:extension base="hidden">
+											<xs:attribute name="value" type="xs:boolean" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
