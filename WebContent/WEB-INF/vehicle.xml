@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vehicle xmlns="http://www.uts.edu.au/31284/vehicle"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.uts.edu.au/31284/vehicle vehicle.xsd">
+
+	<registration>BA30HS</registration>
+	<type>Car</type>
+	<make>Toyota</make>
+	<model>Corolla</model>
+	<year>2009</year>
+	<colour>Grey</colour>
+	<kilometres>60000</kilometres>
+    
+    <registration>AE08SM</registration>
+	<type>Car</type>
+	<make>Toyota</make>
+	<model>Corolla</model>
+	<year>1993</year>
+	<colour>Red</colour>
+	<kilometres>2000000</kilometres>
+	
+	<registration>BA30HS</registration>
+	<type>Car</type>
+	<make>Toyota</make>
+	<model>Corolla</model>
+	<year>2020</year>
+	<colour>Grey</colour>
+	<kilometres>60000</kilometres>
+       
+</vehicle>
