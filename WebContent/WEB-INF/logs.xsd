@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uts.edu.au/31284/logs"
+    xmlns="http://www.uts.edu.au/31284/logs"
+    elementFormDefault="qualified">
+
+
+	<xs:simpleType name="driver" >
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:pattern value="([A-Z][a-z]*\s?)+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="description" >
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:pattern value="([A-Z][a-z]*\s?)+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="kilometres">
+        	<xs:restriction base="xs:integer">
+        		<xs:minInclusive value="0"/>
+        	</xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="flaggedby" >
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:pattern value="([A-Z][a-z]*\s?)+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+	<xs:element name="logs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="log" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:integer"/>
+							<xs:element name="driver" type="driver"/>
+							<xs:element name="startdate" type="xs:date"/>
+							<xs:element name="enddate" type="xs:date"/>
+							<xs:element name="starttime" type="xs:time"/>
+							<xs:element name="endtime" type="xs:time"/>
+							<xs:element name="description" type="description"/>
+							<xs:element name="kilometres" type="kilometres"/>
+							<xs:element name="flaggedby" type="flaggedby"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+        
+</xs:schema>
