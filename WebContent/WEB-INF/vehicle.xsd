@@ -48,16 +48,22 @@
         	</xs:restriction>
         </xs:simpleType>
         
-        <xs:element name="vehicle">
+        <xs:element name="vehicles">
         	<xs:complexType>
         		<xs:sequence  maxOccurs="unbounded">
-        			<xs:element name="registration" type="registration"/>
-        			<xs:element name="type" type="type"/>
-        			<xs:element name="make" type="make"/>
-        			<xs:element name="model" type="model"/>
-        			<xs:element name="year" type="year"/>
-        			<xs:element name="colour" type="colour"/>
-        			<xs:element name="kilometres" type="kilometres"/>
+        			<xs:element name="vehicle" minOccurs="0">
+        				<xs:complexType>
+        					<xs:sequence>
+			        			<xs:element name="registration" type="registration"/>
+			        			<xs:element name="type" type="type"/>
+			        			<xs:element name="make" type="make"/>
+			        			<xs:element name="model" type="model"/>
+			        			<xs:element name="year" type="year"/>
+			        			<xs:element name="colour" type="colour"/>
+			        			<xs:element name="kilometres" type="kilometres"/>
+	        				</xs:sequence>
+        				</xs:complexType>
+        			</xs:element>
         		</xs:sequence>
         	</xs:complexType>
         </xs:element>

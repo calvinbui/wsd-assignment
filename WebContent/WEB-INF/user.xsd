@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.uts.edu.au/31284/user"
+        xmlns="http://www.uts.edu.au/31284/user"
+        elementFormDefault="qualified">
+
+	<xs:simpleType name="name">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z][a-zA-z]*" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="username">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-zA-Z]([-.\w]*[a-zA-Z])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="password">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-zA-Z0-9]*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+<xs:element name="users">   
+	<xs:complexType>
+		<xs:sequence>     
+			<xs:element name="user" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="id" type="xs:int" />
+						<xs:element name="type" type="xs:string" />
+						<xs:element name="username" type="username" />
+						<xs:element name="password" type="password" />
+						<xs:element name="firstname" type="name" />
+						<xs:element name="lastname" type="name" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+</xs:schema>
