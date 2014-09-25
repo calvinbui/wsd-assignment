@@ -26,6 +26,24 @@
 	<p>Date: <input class="form-control" type="text" id="datepicker"></p>
 	</div>
 	</div>
+	
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:page>
+
+    <jsp:attribute name="header">
+    	<h1>Welcome Chau</h1>
+    </jsp:attribute>
+    
+    <jsp:attribute name="footer">
+    	<p id="copyright">Copyright Test</p>
+    </jsp:attribute>
+    
+    <jsp:body>
+    	<p>Yay, welcome!</p>
+    </jsp:body>
+    
+</t:page>
+	
 </body>
 
 
