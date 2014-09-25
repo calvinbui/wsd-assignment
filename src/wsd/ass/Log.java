@@ -12,10 +12,10 @@ public class Log implements Serializable {
 	private int id;
 	@XmlElement (name="driver")
 	private String driver;
-	@XmlElement (name="startString")
-	private String startString;
-	@XmlElement (name="endString")
-	private String endString;
+	@XmlElement (name="startdate")
+	private String startDate;
+	@XmlElement (name="enddate")
+	private String endDate;
 	@XmlElement (name="starttime")
 	private String startTime;
 	@XmlElement (name="endtime")
@@ -26,13 +26,13 @@ public class Log implements Serializable {
 	private int kilometres;
 	private Hidden hidden;	
 	
-	public Log(int id, String driver, String startString, String endString,
+	public Log(int id, String driver, String startDate, String endDate,
 			String startTime, String endTime, String description, int kilometres, Hidden hidden) {
 		super();
 		this.id = id;
 		this.driver = driver;
-		this.startString = startString;
-		this.endString = endString;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.description = description;
@@ -89,17 +89,17 @@ public class Log implements Serializable {
 	public void setDriver(String driver) {
 		this.driver = driver;
 	}
-	public String getStartString() {
-		return startString;
+	public String getStartDate() {
+		return startDate;
 	}
-	public void setStartString(String startString) {
-		this.startString = startString;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
-	public String getEndString() {
-		return endString;
+	public String getEndDate() {
+		return endDate;
 	}
-	public void setEndString(String endString) {
-		this.endString = endString;
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 	public String getStartTime() {
 		return startTime;
