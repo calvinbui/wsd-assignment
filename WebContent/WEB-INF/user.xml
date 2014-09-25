@@ -2,7 +2,6 @@
 <users xmlns="http://www.uts.edu.au/31284/user" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.uts.edu.au/31284/user user.xsd">
 	<user>
-		<id>1</id>
 		<type>driver</type>
 		<username>hello@world.com</username> 
 		<password>lol</password>
@@ -11,7 +10,6 @@
 	</user>
 	
 	<user>
-		<id>2</id>
 		<type>admin</type>
 		<username>hello@world.com</username> 
 		<password>lol</password>
@@ -20,7 +18,6 @@
 	</user> 
 	
 	<user>
-		<id>3</id>
 		<type>driver</type>
 		<username>hello@world.com</username> 
 		<password>lol</password>
