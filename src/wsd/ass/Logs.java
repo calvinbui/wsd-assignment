@@ -10,7 +10,7 @@ public class Logs implements Serializable {
     /**
 	 * 
 	 */
-	@XmlElement(name = "logs")
+	@XmlElement(name = "log")
 	private ArrayList<Log> logs = new ArrayList<Log>();
 
 	public ArrayList<Log> getLogs() {

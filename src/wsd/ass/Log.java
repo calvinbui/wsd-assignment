@@ -26,6 +26,10 @@ public class Log implements Serializable {
 	private int kilometres;
 	private Hidden hidden;	
 	
+	public Log() {
+		super();
+	}
+	
 	public Log(int id, String driver, String startDate, String endDate,
 			String startTime, String endTime, String description, int kilometres, Hidden hidden) {
 		super();
@@ -41,12 +45,12 @@ public class Log implements Serializable {
 	}
 	@XmlAccessorType(XmlAccessType.FIELD)
 	@XmlRootElement(name="hidden")
-	public class Hidden {
+	public static class Hidden {
 		@XmlAttribute
-		private boolean value;
+		protected boolean value;
 		
 		@XmlValue
-		private String hidden;
+		protected String hidden;
 
 		public Hidden() {
 
