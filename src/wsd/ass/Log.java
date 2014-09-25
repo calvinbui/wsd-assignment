@@ -3,7 +3,6 @@ package wsd.ass;
 import javax.xml.bind.annotation.*;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="log")
@@ -13,27 +12,27 @@ public class Log implements Serializable {
 	private int id;
 	@XmlElement (name="driver")
 	private String driver;
-	@XmlElement (name="startdate")
-	private Date startDate;
-	@XmlElement (name="enddate")
-	private Date endDate;
+	@XmlElement (name="startString")
+	private String startString;
+	@XmlElement (name="endString")
+	private String endString;
 	@XmlElement (name="starttime")
-	private Date startTime;
+	private String startTime;
 	@XmlElement (name="endtime")
-	private Date endTime;
+	private String endTime;
 	@XmlElement (name="description")
 	private String description;
 	@XmlElement (name="kilometres")
 	private int kilometres;
 	private Hidden hidden;	
 	
-	public Log(int id, String driver, Date startDate, Date endDate,
-			Date startTime, Date endTime, String description, int kilometres, Hidden hidden) {
+	public Log(int id, String driver, String startString, String endString,
+			String startTime, String endTime, String description, int kilometres, Hidden hidden) {
 		super();
 		this.id = id;
 		this.driver = driver;
-		this.startDate = startDate;
-		this.endDate = endDate;
+		this.startString = startString;
+		this.endString = endString;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.description = description;
@@ -90,28 +89,28 @@ public class Log implements Serializable {
 	public void setDriver(String driver) {
 		this.driver = driver;
 	}
-	public Date getStartDate() {
-		return startDate;
+	public String getStartString() {
+		return startString;
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setStartString(String startString) {
+		this.startString = startString;
 	}
-	public Date getEndDate() {
-		return endDate;
+	public String getEndString() {
+		return endString;
 	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setEndString(String endString) {
+		this.endString = endString;
 	}
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 	public String getDescription() {
