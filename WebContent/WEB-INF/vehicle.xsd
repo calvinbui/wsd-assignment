@@ -4,7 +4,8 @@
         targetNamespace="http://www.uts.edu.au/31284/vehicle"
         xmlns="http://www.uts.edu.au/31284/vehicle"
         elementFormDefault="qualified">
-
+		
+		<!-- Vehicle registration in Australia is up to 6 characters. -->
         <xs:simpleType name="registration">
         	<xs:restriction base="xs:string">
         		<xs:minLength value="1"/>
