@@ -3,6 +3,7 @@ package wsd.ass;
 import javax.xml.bind.annotation.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="log")
@@ -24,7 +25,8 @@ public class Log implements Serializable {
 	private String description;
 	@XmlElement (name="kilometres")
 	private int kilometres;
-	private Hidden hidden;	
+	@XmlElement (name="hidden")
+	private ArrayList<Hidden> hidden = new ArrayList<Hidden>();	
 	
 	public Log() {
 		super();
@@ -41,16 +43,16 @@ public class Log implements Serializable {
 		this.endTime = endTime;
 		this.description = description;
 		this.kilometres = kilometres;
-		this.hidden = new Hidden();
+		this.hidden.add(hidden);
 	}
 	@XmlAccessorType(XmlAccessType.FIELD)
 	@XmlRootElement(name="hidden")
 	public static class Hidden {
 		@XmlAttribute
-		protected boolean value;
+		private boolean value;
 		
 		@XmlValue
-		protected String hidden;
+		private String hidden;
 
 		public Hidden() {
 
