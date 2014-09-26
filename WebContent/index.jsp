@@ -27,7 +27,6 @@
 	</div>
 	</div>
 	
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:page>
 
     <jsp:attribute name="header">
