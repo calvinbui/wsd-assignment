@@ -31,9 +31,9 @@
 	
 	<xsl:template match="vehicle:vehicles">
 		<thead>
-			<th>Registration</th>
-			<th>Type</th>
-			<th>Kilometres</th>
+			<th><i class="fa fa-barcode"></i> Registration</th>
+			<th><i class="fa fa-car"></i> Type</th>
+			<th><i class="fa fa-dashboard"></i> Kilometres</th>
 		</thead>
 		<tbody>
 			<xsl:apply-templates />
