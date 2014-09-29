@@ -10,23 +10,23 @@
 	xsi:schemaLocation="http://www.wsd.com/vehicle xsd/vehicle.xsd">
 
 	<vehicle>
-		<registration>BA30HS</registration>
-		<type>Car</type>
-		<make>Toyota</make>
-		<model>Corolla</model>
-		<year>2009</year>
-		<colour>Grey</colour>
-		<kilometres>60000</kilometres>
+		<registration>HOLSS1</registration>
+		<type>Ute</type>
+		<make>Holden</make>
+		<model>SS</model>
+		<year>2014</year>
+		<colour>Red</colour>
+		<kilometres>160</kilometres>
 	</vehicle>
 
 	<vehicle>
-		<registration>AE08SM</registration>
-		<type>Car</type>
-		<make>Toyota</make>
-		<model>Corolla</model>
-		<year>1993</year>
-		<colour>Red</colour>
-		<kilometres>2000000</kilometres>
+		<registration>FORD88</registration>
+		<type>Ute</type>
+		<make>Ford</make>
+		<model>Falcon</model>
+		<year>2008</year>
+		<colour>Blue</colour>
+		<kilometres>2222</kilometres>
 	</vehicle>
 
 	<vehicle>
