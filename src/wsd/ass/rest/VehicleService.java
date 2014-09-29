@@ -1,15 +1,18 @@
 package wsd.ass.rest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
+import wsd.ass.Vehicle;
 import wsd.ass.VehicleApplication;
 import wsd.ass.Vehicles;
 
@@ -54,5 +57,16 @@ public class VehicleService {
 	@Produces(MediaType.APPLICATION_XML)
 	public Vehicles getAll() throws JAXBException, IOException {
 		return getVehicleApp().getVehicles();
+	}
+	
+	@Path("{rego}")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
+		ArrayList<Vehicle> vehicles = getVehicleApp().getVehicles().getVehicles();
+        for (Vehicle vehicle : vehicles)
+            if (registration.equals(vehicle.getRegistration()))
+                return vehicle;
+        return null;
 	}
 }
