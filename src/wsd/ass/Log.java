@@ -11,6 +11,8 @@ public class Log implements Serializable {
 	
 	@XmlElement (name="id")
 	private int id;
+	@XmlElement (name="vehicle")
+	private String vehicle;
 	@XmlElement (name="driver")
 	private String driver;
 	@XmlElement (name="startdate")
@@ -25,17 +27,18 @@ public class Log implements Serializable {
 	private String description;
 	@XmlElement (name="kilometres")
 	private int kilometres;
-	@XmlElement (name="hidden")
-	private ArrayList<Hidden> hidden = new ArrayList<Hidden>();	
+	@XmlElement (name="hiddenBy")
+	private String hiddenBy;
 	
 	public Log() {
 		super();
 	}
 	
-	public Log(int id, String driver, String startDate, String endDate,
-			String startTime, String endTime, String description, int kilometres, Hidden hidden) {
+	public Log(int id, String vehicle, String driver, String startDate, String endDate,
+			String startTime, String endTime, String description, int kilometres, String hiddenBy) {
 		super();
 		this.id = id;
+		this.vehicle = vehicle;
 		this.driver = driver;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -43,44 +46,7 @@ public class Log implements Serializable {
 		this.endTime = endTime;
 		this.description = description;
 		this.kilometres = kilometres;
-		this.hidden.add(hidden);
-	}
-	@XmlAccessorType(XmlAccessType.FIELD)
-	@XmlRootElement(name="hidden")
-	public static class Hidden {
-		@XmlAttribute
-		private boolean value;
-		
-		@XmlValue
-		private String hidden;
-
-		public Hidden() {
-
-		}
-
-		public Hidden(boolean value, String hidden) {
-			super();
-			this.value = value;
-			this.hidden = hidden;
-		}
-
-		public boolean isValue() {
-			return value;
-		}
-
-		public void setValue(boolean value) {
-			this.value = value;
-		}
-
-		public String getHidden() {
-			return hidden;
-		}
-
-		public void setHidden(String hidden) {
-			this.hidden = hidden;
-		}
-		
-		
+		this.hiddenBy = hiddenBy;
 	}
 	
 	public int getId() {
@@ -89,6 +55,15 @@ public class Log implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(String vehicle) {
+		this.vehicle = vehicle;
+	}
+
 	public String getDriver() {
 		return driver;
 	}

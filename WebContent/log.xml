@@ -1,83 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<logs xmlns="http://www.uts.edu.au/31284/log"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<logs xmlns="http://www.uts.edu.au/31284/log" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.uts.edu.au/31284/log xsd/log.xsd">
-	
+
 	<log>
 		<id>0</id>
 		<vehicle>HOLSS1</vehicle>
-		<driver>trungthi.bui@student.uts.edu.au</driver> 
+		<driver>trungthi.bui@student.uts.edu.au</driver>
 		<startdate>2014-09-29</startdate>
 		<enddate>2014-09-30</enddate>
 		<starttime>09:00:00</starttime>
 		<endtime>23:11:00</endtime>
 		<description>Picking up supplies for business.</description>
 		<kilometres>160</kilometres>
-		<hidden value="true">chauanhhua@gmail.com</hidden>
+		<hiddenBy>chauanhhua@gmail.com</hiddenBy>
 	</log>
 	<log>
 		<id>1</id>
 		<vehicle>FORD88</vehicle>
-		<driver>janettechiu@gmail.com</driver> 
+		<driver>janettechiu@gmail.com</driver>
 		<startdate>2011-09-29</startdate>
 		<enddate>2014-01-30</enddate>
 		<starttime>07:50:00</starttime>
 		<endtime>15:21:00</endtime>
 		<description>Borrowed the car for 3 years.</description>
 		<kilometres>42282</kilometres>
-		<hidden value="false"></hidden>
+		<hiddenBy></hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>2</id>
 		<vehicle>FORD88</vehicle>
-		<driver>trungthi.bui@student.uts.edu.au</driver> 
+		<driver>trungthi.bui@student.uts.edu.au</driver>
 		<startdate>2014-02-15</startdate>
 		<enddate>2014-02-15</enddate>
 		<starttime>14:00:00</starttime>
 		<endtime>15:00:00</endtime>
 		<description>Trying out the car.</description>
 		<kilometres>34</kilometres>
-		<hidden value="false"></hidden>
+		<hiddenBy></hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>3</id>
 		<vehicle>FORD88</vehicle>
-		<driver>chauanhhua@gmail.com</driver> 
+		<driver>chauanhhua@gmail.com</driver>
 		<startdate>2014-05-01</startdate>
 		<enddate>2014-05-03</enddate>
 		<starttime>07:00:00</starttime>
 		<endtime>09:00:00</endtime>
 		<description>Took the car for servicing.</description>
 		<kilometres>11</kilometres>
-		<hidden value="true">trungthi.bui@student.uts.edu.au</hidden>
+		<hiddenBy>trungthi.bui@student.uts.edu.au</hiddenBy>
 	</log>
 	<log>
 		<id>4</id>
 		<vehicle>FORD88</vehicle>
-		<driver>janettechiu@gmail.com</driver> 
+		<driver>janettechiu@gmail.com</driver>
 		<startdate>2014-07-11</startdate>
 		<enddate>2014-07-22</enddate>
 		<starttime>00:00:00</starttime>
 		<endtime>23:59:00</endtime>
 		<description>Building site cleanup.</description>
 		<kilometres>2722</kilometres>
-		<hidden value="false"></hidden>
+		<hiddenBy></hiddenBy>
 	</log>
 	<log>
 		<id>5</id>
 		<vehicle>FORD88</vehicle>
-		<driver>trungthi.bui@student.uts.edu.au</driver> 
+		<driver>trungthi.bui@student.uts.edu.au</driver>
 		<startdate>2014-08-09</startdate>
 		<enddate>2014-08-10</enddate>
 		<starttime>14:00:00</starttime>
 		<endtime>14:30:00</endtime>
 		<description>Car broke down after 5 km</description>
 		<kilometres>5</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>6</id>
 		<vehicle>ODH987</vehicle>
@@ -88,9 +87,9 @@
 		<endtime>10:11:34</endtime>
 		<description>My first sprinter drive</description>
 		<kilometres>123</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>7</id>
 		<vehicle>ODH987</vehicle>
@@ -101,9 +100,9 @@
 		<endtime>18:21:50</endtime>
 		<description>Weekend trip in the sprinter</description>
 		<kilometres>1111</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>8</id>
 		<vehicle>SN28S8</vehicle>
@@ -114,9 +113,9 @@
 		<endtime>18:21:50</endtime>
 		<description>First ride in the combi</description>
 		<kilometres>1590</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>9</id>
 		<vehicle>SN28S8</vehicle>
@@ -127,9 +126,9 @@
 		<endtime>18:21:50</endtime>
 		<description>Month loan</description>
 		<kilometres>345</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>10</id>
 		<vehicle>SN28S8</vehicle>
@@ -140,9 +139,9 @@
 		<endtime>15:21:38</endtime>
 		<description>Three day loan</description>
 		<kilometres>24</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 	<log>
 		<id>11</id>
 		<vehicle>ABC902</vehicle>
@@ -153,7 +152,7 @@
 		<endtime>20:41:33</endtime>
 		<description>First trip in the impreza</description>
 		<kilometres>1289</kilometres>
-		<hidden value="true">janettechiu@gmail.com</hidden>
+		<hiddenBy>janettechiu@gmail.com</hiddenBy>
 	</log>
-	
+
 </logs>
