@@ -4,39 +4,156 @@
 	xsi:schemaLocation="http://www.uts.edu.au/31284/log xsd/log.xsd">
 	
 	<log>
+		<id>0</id>
+		<vehicle>HOLSS1</vehicle>
+		<driver>trungthi.bui@student.uts.edu.au</driver> 
+		<startdate>2014-09-29</startdate>
+		<enddate>2014-09-30</enddate>
+		<starttime>09:00:00</starttime>
+		<endtime>23:11:00</endtime>
+		<description>Picking up supplies for business.</description>
+		<kilometres>160</kilometres>
+		<hidden value="true">chauanhhua@gmail.com</hidden>
+	</log>
+	<log>
 		<id>1</id>
-		<driver>hel@hello.com</driver> 
-		<startdate>2012-09-24</startdate>
-		<enddate>2015-11-11</enddate>
-		<starttime>09:00:11</starttime>
-		<endtime>23:11:24</endtime>
-		<description>My first drive</description>
-		<kilometres>232123</kilometres>
-		<hidden value="true">f33i@iod.com</hidden>
+		<vehicle>FORD88</vehicle>
+		<driver>janettechiu@gmail.com</driver> 
+		<startdate>2011-09-29</startdate>
+		<enddate>2014-01-30</enddate>
+		<starttime>07:50:00</starttime>
+		<endtime>15:21:00</endtime>
+		<description>Borrowed the car for 3 years.</description>
+		<kilometres>42282</kilometres>
+		<hidden value="false"></hidden>
 	</log>
 	
 	<log>
-		<id>1</id>
-		<driver>1@bla.com</driver>
-		<startdate>2012-09-24</startdate>
-		<enddate>2015-11-11</enddate>
-		<starttime>09:00:11</starttime>
-		<endtime>23:11:24</endtime>
-		<description>My first drive</description>
-		<kilometres>232123</kilometres>
-		<hidden value="false">2222@sdoif.com</hidden>
+		<id>2</id>
+		<vehicle>FORD88</vehicle>
+		<driver>trungthi.bui@student.uts.edu.au</driver> 
+		<startdate>2014-02-15</startdate>
+		<enddate>2014-02-15</enddate>
+		<starttime>14:00:00</starttime>
+		<endtime>15:00:00</endtime>
+		<description>Trying out the car.</description>
+		<kilometres>34</kilometres>
+		<hidden value="false"></hidden>
 	</log>
 	
 	<log>
-		<id>1</id>
-		<driver>hesiofah@asdf.com</driver>
-		<startdate>2012-09-24</startdate>
-		<enddate>2015-11-11</enddate>
-		<starttime>09:00:11</starttime>
-		<endtime>23:11:24</endtime>
-		<description>My first drive</description>
-		<kilometres>232123</kilometres>
-		<hidden value="true">1sdio@bla.com</hidden>
+		<id>3</id>
+		<vehicle>FORD88</vehicle>
+		<driver>chauanhhua@gmail.com</driver> 
+		<startdate>2014-05-01</startdate>
+		<enddate>2014-05-03</enddate>
+		<starttime>07:00:00</starttime>
+		<endtime>09:00:00</endtime>
+		<description>Took the car for servicing.</description>
+		<kilometres>11</kilometres>
+		<hidden value="true">trungthi.bui@student.uts.edu.au</hidden>
+	</log>
+	<log>
+		<id>4</id>
+		<vehicle>FORD88</vehicle>
+		<driver>janettechiu@gmail.com</driver> 
+		<startdate>2014-07-11</startdate>
+		<enddate>2014-07-22</enddate>
+		<starttime>00:00:00</starttime>
+		<endtime>23:59:00</endtime>
+		<description>Building site cleanup.</description>
+		<kilometres>2722</kilometres>
+		<hidden value="false"></hidden>
+	</log>
+	<log>
+		<id>5</id>
+		<vehicle>FORD88</vehicle>
+		<driver>trungthi.bui@student.uts.edu.au</driver> 
+		<startdate>2014-08-09</startdate>
+		<enddate>2014-08-10</enddate>
+		<starttime>14:00:00</starttime>
+		<endtime>14:30:00</endtime>
+		<description>Car broke down after 5 km</description>
+		<kilometres>5</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
+	</log>
+	
+	<log>
+		<id>6</id>
+		<vehicle>ODH987</vehicle>
+		<driver>janettechiu@gmail.com</driver>
+		<startdate>2014-08-23</startdate>
+		<enddate>2014-09-02</enddate>
+		<starttime>16:12:09</starttime>
+		<endtime>10:11:34</endtime>
+		<description>My first sprinter drive</description>
+		<kilometres>123</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
+	</log>
+	
+	<log>
+		<id>7</id>
+		<vehicle>ODH987</vehicle>
+		<driver>janettechiu@gmail.com</driver>
+		<startdate>2014-09-15</startdate>
+		<enddate>2014-09-22</enddate>
+		<starttime>09:55:23</starttime>
+		<endtime>18:21:50</endtime>
+		<description>Weekend trip in the sprinter</description>
+		<kilometres>1111</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
+	</log>
+	
+	<log>
+		<id>8</id>
+		<vehicle>SN28S8</vehicle>
+		<driver>janettechiu@gmail.com</driver>
+		<startdate>2014-06-15</startdate>
+		<enddate>2014-07-07</enddate>
+		<starttime>09:55:23</starttime>
+		<endtime>18:21:50</endtime>
+		<description>First ride in the combi</description>
+		<kilometres>1590</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
+	</log>
+	
+	<log>
+		<id>9</id>
+		<vehicle>SN28S8</vehicle>
+		<driver>janettechiu@gmail.com</driver>
+		<startdate>2014-07-22</startdate>
+		<enddate>2014-07-31</enddate>
+		<starttime>09:55:23</starttime>
+		<endtime>18:21:50</endtime>
+		<description>Month loan</description>
+		<kilometres>345</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
+	</log>
+	
+	<log>
+		<id>10</id>
+		<vehicle>SN28S8</vehicle>
+		<driver>janettechiu@gmail.com</driver>
+		<startdate>2014-08-28</startdate>
+		<enddate>2014-09-01</enddate>
+		<starttime>14:25:18</starttime>
+		<endtime>15:21:38</endtime>
+		<description>Three day loan</description>
+		<kilometres>24</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
+	</log>
+	
+	<log>
+		<id>11</id>
+		<vehicle>ABC902</vehicle>
+		<driver>janettechiu@gmail.com</driver>
+		<startdate>2014-09-30</startdate>
+		<enddate>2014-10-07</enddate>
+		<starttime>13:25:13</starttime>
+		<endtime>20:41:33</endtime>
+		<description>First trip in the impreza</description>
+		<kilometres>1289</kilometres>
+		<hidden value="true">janettechiu@gmail.com</hidden>
 	</log>
 	
 </logs>
