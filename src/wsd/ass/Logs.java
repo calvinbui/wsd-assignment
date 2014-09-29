@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="logs")
+@XmlRootElement(name="logs", namespace="http://www.uts.edu.au/31284/log")
 public class Logs implements Serializable {
     /**
 	 * 
