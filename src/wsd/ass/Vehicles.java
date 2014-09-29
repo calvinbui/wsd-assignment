@@ -11,7 +11,7 @@ public class Vehicles implements java.io.Serializable {
 	@XmlElement(name="vehicle")
 	private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 	
-	public ArrayList<Vehicle> getList(){
+	public ArrayList<Vehicle> getVehicles(){
 		return vehicles;
 	}
 	
