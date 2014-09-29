@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
 import wsd.ass.Log;
+import wsd.ass.LogApplication;
 import wsd.ass.Logs;
 
 @Path("/logs")
@@ -19,7 +20,7 @@ public class LogService {
 	@Context
 	private ServletContext application;
 
-	private Logs getLogs() throws JAXBException, IOException {
+	private LogApplication getLogApp() throws JAXBException, IOException {
 
 		// The web server can handle requests from different clients in
 		// parallel.
@@ -33,9 +34,9 @@ public class LogService {
 		// while
 		// we're manpulating it.
 		synchronized (application) {
-			Logs logs = (Logs) application.getAttribute("logs");
+			LogApplication logs = (LogApplication) application.getAttribute("logs");
 			if (logs == null) {
-				logs = new Logs();
+				logs = new LogApplication();
 				logs.setFilePath(application.getRealPath("/log.xml"));
 				application.setAttribute("logs", logs);
 			}
@@ -53,8 +54,8 @@ public class LogService {
 	@Path("all")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public ArrayList<Log> getAll() throws JAXBException, IOException {
-		return getLogs().getLogs();
+	public Logs getAll() throws JAXBException, IOException {
+		return getLogApp().getLogs();
 	}
 	/*
 	@Path("{rego}")
