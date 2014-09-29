@@ -106,7 +106,7 @@
 	<!-- Registration -->
 	<xsl:template match="vehicle:registration">
 		<td>
-			<a href="/{.}"><xsl:apply-templates /></a>
+			<a href="rest/vehicles/{.}"><xsl:apply-templates /></a>
 		</td>
 	</xsl:template>
 
