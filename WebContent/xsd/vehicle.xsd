@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <!-- XML namespaces for vehicle -->
 <xs:schema 
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -71,5 +69,4 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
 </xs:schema>

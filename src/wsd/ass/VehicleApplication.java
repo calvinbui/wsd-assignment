@@ -20,7 +20,7 @@ public class VehicleApplication {
 	public void setFilePath(String filePath) throws JAXBException, IOException {
         this.filePath = filePath;
         // Create the unmarshaller
-        JAXBContext jc = JAXBContext.newInstance(Vehicle.class);
+        JAXBContext jc = JAXBContext.newInstance(Vehicles.class);
         Unmarshaller u = jc.createUnmarshaller();
 
         // Now unmarshal the object from the file

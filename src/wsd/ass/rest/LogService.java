@@ -1,7 +1,6 @@
 package wsd.ass.rest;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
@@ -11,7 +10,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
-import wsd.ass.Log;
 import wsd.ass.LogApplication;
 import wsd.ass.Logs;
 
