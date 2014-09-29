@@ -30,13 +30,43 @@
 	</vehicle>
 
 	<vehicle>
-		<registration>RU486A</registration>
+		<registration>ODH987</registration>
 		<type>Minibus</type>
-		<make>Hyundai</make>
-		<model>i30</model>
-		<year>19282</year>
-		<colour>White</colour>
-		<kilometres>1</kilometres>
+		<make>Mercedes</make>
+		<model>Sprinter</model>
+		<year>2000</year>
+		<colour>Silver</colour>
+		<kilometres>222</kilometres>
 	</vehicle>
-
+	
+	<vehicle>
+		<registration>SN28S8</registration>
+		<type>Minibus</type>
+		<make>Volkswagen</make>
+		<model>Kombi</model>
+		<year>1992</year>
+		<colour>Green</colour>
+		<kilometres>22</kilometres>
+	</vehicle>
+	
+	<vehicle>
+		<registration>ABC902</registration>
+		<type>Car</type>
+		<make>Subaru</make>
+		<model>Impreza</model>
+		<year>2004</year>
+		<colour>Blue</colour>
+		<kilometres>221</kilometres>
+	</vehicle>
+	
+	<vehicle>
+		<registration>BA30HS</registration>
+		<type>Car</type>
+		<make>Toyota</make>
+		<model>Corolla</model>
+		<year>2009</year>
+		<colour>Grey</colour>
+		<kilometres>122</kilometres>
+	</vehicle>
+	
 </vehicles>
