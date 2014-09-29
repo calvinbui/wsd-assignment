@@ -11,7 +11,7 @@ import wsd.ass.Vehicle;
 
 public class VehicleApplication {
 	private String filePath;
-	private Vehicle vehicles;
+	private Vehicles vehicles;
 	
 	public String getFilePath() {
 		return filePath;
@@ -25,15 +25,15 @@ public class VehicleApplication {
 
         // Now unmarshal the object from the file
         FileInputStream fin = new FileInputStream(filePath);
-        vehicles = (Vehicle)u.unmarshal(fin); // This loads the "shop" object
+        vehicles = (Vehicles)u.unmarshal(fin); // This loads the "shop" object
         fin.close();
     }
 
-	public Vehicle getVehicles() {
+	public Vehicles getVehicles() {
 		return vehicles;
 	}
 
-	public void setVehicles(Vehicle vehicles) {
+	public void setVehicles(Vehicles vehicles) {
 		this.vehicles = vehicles;
 	}
 	
