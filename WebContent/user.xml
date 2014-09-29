@@ -3,25 +3,33 @@
 	xsi:schemaLocation="http://www.uts.edu.au/31284/user xsd/user.xsd">
 	<user>
 		<type>driver</type>
-		<username>hello@world.com</username> 
-		<password>lol</password>
-		<firstname>Janette</firstname>
-		<lastname>Chiu</lastname>
+		<username>trungthi.bui@student.uts.edu.au</username> 
+		<password>password</password>
+		<firstname>Trungthi</firstname>
+		<lastname>Bui</lastname>
 	</user>
 	
 	<user>
 		<type>admin</type>
-		<username>hello@world.com</username> 
-		<password>lol</password>
+		<username>admin@uts.com</username> 
+		<password>password</password>
 		<firstname>Janette</firstname>
 		<lastname>Chiu</lastname>
 	</user> 
 	
 	<user>
 		<type>driver</type>
-		<username>hello@world.com</username> 
-		<password>lol</password>
+		<username>janettechiu@gmail.com</username> 
+		<password>password</password>
 		<firstname>Janette</firstname>
 		<lastname>Chiu</lastname>
+	</user>
+	
+	<user>
+		<type>driver</type>
+		<username>chauanhhua@gmail.com</username> 
+		<password>password</password>
+		<firstname>Chau</firstname>
+		<lastname>Hua</lastname>
 	</user>
 </users>
