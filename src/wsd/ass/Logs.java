@@ -42,4 +42,12 @@ public class Logs implements Serializable {
         logs = (ArrayList<Log>)u.unmarshal(fin); // This loads the "shop" object
         fin.close();
     }
+    
+    public Log getDate(String date) {
+    	for (Log log : logs) {
+            if (log.getStartDate().equals(date))
+                return log; // Log matches date. Return the date
+        }
+        return null; // No dates found, return null
+    }
 }
