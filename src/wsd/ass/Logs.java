@@ -79,4 +79,6 @@ public class Logs implements Serializable {
     	}
     	return list;
     }
+    
+    
 }
