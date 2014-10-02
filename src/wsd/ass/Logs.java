@@ -45,6 +45,8 @@ public class Logs implements Serializable {
     }
     
     public ArrayList<Log> getDate(String date) {
+    	if (date == null)
+    		return null;
     	ArrayList<Log> list = new ArrayList<Log>();
     	for (Log log : logs) {
             if (log.getStartDate().equals(date))
@@ -54,6 +56,8 @@ public class Logs implements Serializable {
     }
     
     public ArrayList<Log> getRegistration(String registration) {
+    	if (registration == null)
+    		return null;
     	ArrayList<Log> list = new ArrayList<Log>();
     	for (Log log : logs) {
             if (log.getVehicle().equals(registration))
@@ -63,6 +67,8 @@ public class Logs implements Serializable {
     }
     
     public ArrayList<Log> getKeyword(String keyword) {
+    	if (keyword == null)
+    		return null;
     	ArrayList<Log> list = new ArrayList<Log>();
     	for (Log log : logs) {
             if (log.getDescription().contains(keyword))
