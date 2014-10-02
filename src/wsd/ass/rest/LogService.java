@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
@@ -79,6 +81,25 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML)
 	public ArrayList<Log> getKeyword(@PathParam("keyword") String keyword) throws JAXBException, IOException {
 		return getLogApp().getLogs().getKeyword(keyword);
+	}
+	
+	@Path("")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public ArrayList<Log> getQuery(@QueryParam("rego") String rego, @QueryParam("date") String date, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
+		ArrayList<Log> logs = new ArrayList<Log>();
+		if (date != null)
+			logs.addAll(getLogApp().getLogs().getDate(date));
+					
+		if (rego != null)
+			logs.addAll(getLogApp().getLogs().getRegistration(rego));
+			
+		if (keyword != null)
+			logs.addAll(getLogApp().getLogs().getKeyword(keyword));
+
+		if (logs.isEmpty())
+			return getLogApp().getLogs().getVisibleLogs();
+		return logs;
 	}
 	
 }
