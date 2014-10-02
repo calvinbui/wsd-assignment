@@ -27,15 +27,15 @@ public class Log implements Serializable {
 	private String description;
 	@XmlElement (name="kilometres")
 	private int kilometres;
-	@XmlElement (name="hiddenBy")
-	private String hiddenBy;
+	@XmlElement (name="hidden")
+	private Hidden hidden;
 	
 	public Log() {
 		super();
 	}
 	
 	public Log(int id, String vehicle, String driver, String startDate, String endDate,
-			String startTime, String endTime, String description, int kilometres, String hiddenBy) {
+			String startTime, String endTime, String description, int kilometres, Hidden hidden) {
 		super();
 		this.id = id;
 		this.vehicle = vehicle;
@@ -46,7 +46,45 @@ public class Log implements Serializable {
 		this.endTime = endTime;
 		this.description = description;
 		this.kilometres = kilometres;
-		this.hiddenBy = hiddenBy;
+		this.hidden = hidden;
+	}
+	
+	@XmlAccessorType(XmlAccessType.FIELD)
+	@XmlRootElement(name="hidden")
+	public static class Hidden {
+		@XmlAttribute
+		private boolean value;
+		
+		@XmlValue
+		private String hidden;
+
+		public Hidden() {
+
+		}
+
+		public Hidden(boolean value, String hidden) {
+			super();
+			this.value = value;
+			this.hidden = hidden;
+		}
+
+		public boolean isValue() {
+			return value;
+		}
+
+		public void setValue(boolean value) {
+			this.value = value;
+		}
+
+		public String getHidden() {
+			return hidden;
+		}
+
+		public void setHidden(String hidden) {
+			this.hidden = hidden;
+		}
+		
+		
 	}
 	
 	public int getId() {

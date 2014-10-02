@@ -14,7 +14,8 @@
 		<endtime>23:11:00</endtime>
 		<description>Picking up supplies for business.</description>
 		<kilometres>160</kilometres>
-		<hiddenBy>chauanhhua@gmail.com</hiddenBy>
+		<hidden show="true">chauanhhua@gmail.com</hidden>
+		
 	</log>
 	<log>
 		<id>1</id>
@@ -26,7 +27,7 @@
 		<endtime>15:21:00</endtime>
 		<description>Borrowed the car for 3 years.</description>
 		<kilometres>42282</kilometres>
-		<hiddenBy></hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -39,7 +40,7 @@
 		<endtime>15:00:00</endtime>
 		<description>Trying out the car.</description>
 		<kilometres>34</kilometres>
-		<hiddenBy></hiddenBy>
+		<hidden show="true">By>chauanhhua@gmail.com</hidden>
 	</log>
 
 	<log>
@@ -52,7 +53,7 @@
 		<endtime>09:00:00</endtime>
 		<description>Took the car for servicing.</description>
 		<kilometres>11</kilometres>
-		<hiddenBy>trungthi.bui@student.uts.edu.au</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 	<log>
 		<id>4</id>
@@ -64,7 +65,7 @@
 		<endtime>23:59:00</endtime>
 		<description>Building site cleanup.</description>
 		<kilometres>2722</kilometres>
-		<hiddenBy></hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 	<log>
 		<id>5</id>
@@ -76,7 +77,7 @@
 		<endtime>14:30:00</endtime>
 		<description>Car broke down after 5 km</description>
 		<kilometres>5</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -89,7 +90,7 @@
 		<endtime>10:11:34</endtime>
 		<description>My first sprinter drive</description>
 		<kilometres>123</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -102,7 +103,7 @@
 		<endtime>18:21:50</endtime>
 		<description>Weekend trip in the sprinter</description>
 		<kilometres>1111</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -115,7 +116,7 @@
 		<endtime>18:21:50</endtime>
 		<description>First ride in the combi</description>
 		<kilometres>1590</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -128,7 +129,7 @@
 		<endtime>18:21:50</endtime>
 		<description>Month loan</description>
 		<kilometres>345</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -141,7 +142,7 @@
 		<endtime>15:21:38</endtime>
 		<description>Three day loan</description>
 		<kilometres>24</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 	<log>
@@ -154,7 +155,7 @@
 		<endtime>20:41:33</endtime>
 		<description>First trip in the impreza</description>
 		<kilometres>1289</kilometres>
-		<hiddenBy>janettechiu@gmail.com</hiddenBy>
+		<hidden show="false"></hidden>
 	</log>
 
 </logs>
