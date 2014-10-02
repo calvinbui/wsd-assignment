@@ -144,8 +144,4 @@ public class Log implements Serializable {
 	public void setKilometres(int kilometres) {
 		this.kilometres = kilometres;
 	}
-	
-	
-	
-
 }
