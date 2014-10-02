@@ -3,6 +3,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.*;
+
 import java.util.*;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -43,11 +44,30 @@ public class Logs implements Serializable {
         fin.close();
     }
     
-    public Log getDate(String date) {
+    public ArrayList<Log> getDate(String date) {
+    	ArrayList<Log> list = new ArrayList<Log>();
     	for (Log log : logs) {
             if (log.getStartDate().equals(date))
-                return log; // Log matches date. Return the date
+                list.add(log); // Log matches date. Return the date
         }
-        return null; // No dates found, return null
+        return list; // No dates found, return null
+    }
+    
+    public ArrayList<Log> getRegistration(String registration) {
+    	ArrayList<Log> list = new ArrayList<Log>();
+    	for (Log log : logs) {
+            if (log.getVehicle().equals(registration))
+                list.add(log); // Log matches date. Return the registration
+        }
+        return list; // Log not found, return null
+    }
+    
+    public ArrayList<Log> getKeyword(String keyword) {
+    	ArrayList<Log> list = new ArrayList<Log>();
+    	for (Log log : logs) {
+            if (log.getDescription().contains(keyword))
+                list.add(log); // Log matches date. Return the registration
+        }
+        return list; // Log not found, return null
     }
 }

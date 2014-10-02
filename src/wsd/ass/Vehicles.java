@@ -18,4 +18,12 @@ public class Vehicles implements java.io.Serializable {
 	public void addVehicle(Vehicle vehicle) {
 		vehicles.add(vehicle);
 	}
+	
+	public Vehicle getRegistration(String registration) {
+    	for (Vehicle vehicle : vehicles) {
+            if (vehicle.getRegistration().equals(registration))
+                return vehicle; // Vehicle matches date. Return the registration
+        }
+        return null; // Vehicle not found, return null
+    }
 }
