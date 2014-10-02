@@ -14,7 +14,7 @@
 		<endtime>23:11:00</endtime>
 		<description>Picking up supplies for business.</description>
 		<kilometres>160</kilometres>
-		<hidden show="true">chauanhhua@gmail.com</hidden>
+		<hidden show="true"></hidden>
 		
 	</log>
 	<log>
@@ -27,7 +27,7 @@
 		<endtime>15:21:00</endtime>
 		<description>Borrowed the car for 3 years.</description>
 		<kilometres>42282</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="false">chauanhhua@gmail.com</hidden>
 	</log>
 
 	<log>
@@ -40,7 +40,7 @@
 		<endtime>15:00:00</endtime>
 		<description>Trying out the car.</description>
 		<kilometres>34</kilometres>
-		<hidden show="true">By>chauanhhua@gmail.com</hidden>
+		<hidden show="false">By>chauanhhua@gmail.com</hidden>
 	</log>
 
 	<log>
@@ -53,7 +53,7 @@
 		<endtime>09:00:00</endtime>
 		<description>Took the car for servicing.</description>
 		<kilometres>11</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 	<log>
 		<id>4</id>
@@ -65,7 +65,7 @@
 		<endtime>23:59:00</endtime>
 		<description>Building site cleanup.</description>
 		<kilometres>2722</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 	<log>
 		<id>5</id>
@@ -77,7 +77,7 @@
 		<endtime>14:30:00</endtime>
 		<description>Car broke down after 5 km</description>
 		<kilometres>5</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 	<log>
@@ -90,7 +90,7 @@
 		<endtime>10:11:34</endtime>
 		<description>My first sprinter drive</description>
 		<kilometres>123</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 	<log>
@@ -103,7 +103,7 @@
 		<endtime>18:21:50</endtime>
 		<description>Weekend trip in the sprinter</description>
 		<kilometres>1111</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 	<log>
@@ -116,7 +116,7 @@
 		<endtime>18:21:50</endtime>
 		<description>First ride in the combi</description>
 		<kilometres>1590</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 	<log>
@@ -129,7 +129,7 @@
 		<endtime>18:21:50</endtime>
 		<description>Month loan</description>
 		<kilometres>345</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 	<log>
@@ -142,7 +142,7 @@
 		<endtime>15:21:38</endtime>
 		<description>Three day loan</description>
 		<kilometres>24</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 	<log>
@@ -155,7 +155,7 @@
 		<endtime>20:41:33</endtime>
 		<description>First trip in the impreza</description>
 		<kilometres>1289</kilometres>
-		<hidden show="false"></hidden>
+		<hidden show="true"></hidden>
 	</log>
 
 </logs>
