@@ -1,15 +1,18 @@
 package wsd.ass.rest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
+import wsd.ass.Log;
 import wsd.ass.LogApplication;
 import wsd.ass.Logs;
 
@@ -55,11 +58,27 @@ public class LogService {
 	public Logs getAll() throws JAXBException, IOException {
 		return getLogApp().getLogs();
 	}
-	/*
-	@Path("{rego}")
+	
+	
+	@Path("date/{date}")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	public Log getLog(@PathParam("rego") String registration) {
-		
-	}*/
+	public ArrayList<Log> getDateLogs(@PathParam("date") String date) throws JAXBException, IOException {
+		return getLogApp().getLogs().getDate(date);
+	}
+	
+	@Path("rego/{rego}")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public ArrayList<Log> getLog(@PathParam("rego") String registration) throws JAXBException, IOException {
+		return getLogApp().getLogs().getRegistration(registration);
+	}
+	
+	@Path("keyword/{keyword}")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public ArrayList<Log> getKeyword(@PathParam("keyword") String keyword) throws JAXBException, IOException {
+		return getLogApp().getLogs().getKeyword(keyword);
+	}
+	
 }
