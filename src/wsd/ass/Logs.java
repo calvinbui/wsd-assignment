@@ -70,4 +70,13 @@ public class Logs implements Serializable {
         }
         return list; // Log not found, return null
     }
+    
+    public ArrayList<Log> getVisibleLogs() {
+    	ArrayList<Log> list = new ArrayList<Log>();
+    	for (Log log: logs) {
+    		if (log.getHidden().getShow() == true)
+    			list.add(log);    			
+    	}
+    	return list;
+    }
 }

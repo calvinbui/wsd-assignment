@@ -53,7 +53,7 @@ public class Log implements Serializable {
 	@XmlRootElement(name="hidden")
 	public static class Hidden {
 		@XmlAttribute
-		private boolean value;
+		private boolean show;
 		
 		@XmlValue
 		private String hidden;
@@ -62,18 +62,18 @@ public class Log implements Serializable {
 
 		}
 
-		public Hidden(boolean value, String hidden) {
+		public Hidden(boolean show, String hidden) {
 			super();
-			this.value = value;
+			this.show = show;
 			this.hidden = hidden;
 		}
 
-		public boolean isValue() {
-			return value;
+		public boolean getShow() {
+			return show;
 		}
 
-		public void setValue(boolean value) {
-			this.value = value;
+		public void setShow(boolean show) {
+			this.show = show;
 		}
 
 		public String getHidden() {
@@ -114,6 +114,14 @@ public class Log implements Serializable {
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
+	public Hidden getHidden() {
+		return hidden;
+	}
+
+	public void setHidden(Hidden hidden) {
+		this.hidden = hidden;
+	}
+
 	public String getEndDate() {
 		return endDate;
 	}
