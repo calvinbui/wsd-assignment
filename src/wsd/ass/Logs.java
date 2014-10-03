@@ -43,48 +43,29 @@ public class Logs implements Serializable {
         logs = (ArrayList<Log>)u.unmarshal(fin); // This loads the "shop" object
         fin.close();
     }
-    
-    public ArrayList<Log> getDate(String date) {
-    	if (date == null)
-    		return null;
-    	ArrayList<Log> list = new ArrayList<Log>();
-    	for (Log log : logs) {
-            if (log.getStartDate().equals(date))
-                list.add(log); // Log matches date. Return the date
-        }
-        return list; // No dates found, return null
-    }
-    
-    public ArrayList<Log> getRegistration(String registration) {
-    	if (registration == null)
-    		return null;
-    	ArrayList<Log> list = new ArrayList<Log>();
-    	for (Log log : logs) {
-            if (log.getVehicle().equals(registration))
-                list.add(log); // Log matches date. Return the registration
-        }
-        return list; // Log not found, return null
-    }
-    
-    public ArrayList<Log> getKeyword(String keyword) {
-    	if (keyword == null)
-    		return null;
-    	ArrayList<Log> list = new ArrayList<Log>();
-    	for (Log log : logs) {
-            if (log.getDescription().contains(keyword))
-                list.add(log); // Log matches date. Return the registration
-        }
-        return list; // Log not found, return null
-    }
-    
-    public ArrayList<Log> getVisibleLogs() {
+
+    public ArrayList<Log> getList(String query, String type) {
     	ArrayList<Log> list = new ArrayList<Log>();
     	for (Log log: logs) {
-    		if (log.getHidden().getShow() == true)
-    			list.add(log);    			
+    		switch (type) {
+    		case "date":
+    			if (log.getStartDate().equals(query))
+                    list.add(log);
+    			break;
+    		case "registration":
+                if (log.getVehicle().equals(query))
+                    list.add(log); // Log matches date. Return the registration
+                break;
+    		case "keyword":
+                if (log.getDescription().contains(query))
+                    list.add(log); // Log matches date. Return the registration
+                break;
+    		case "visibility":
+    			if (log.getHidden().getShow() == Boolean.valueOf(query))
+        			list.add(log);  
+    			break;
+    		}
     	}
-    	return list;
+		return list;
     }
-    
-    
 }

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -91,7 +90,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getDateLogs(@PathParam("date") String date) throws JAXBException, IOException {
 		// use the Log Application to return all log entries with the same starting date
-		return getLogApp().getLogs().getDate(date);
+		return getLogApp().getLogs().getList(date, "date");
 	}
 	
 	/**
@@ -101,12 +100,12 @@ public class LogService {
 	 * @throws JAXBException
 	 * @throws IOException
 	 */
-	@Path("rego/{rego}") // the path of the REST call
+	@Path("registration/{registration}") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public ArrayList<Log> getLog(@PathParam("rego") String registration) throws JAXBException, IOException {
+	public ArrayList<Log> getRegoLog(@PathParam("registration") String registration) throws JAXBException, IOException {
 		// use the Log Application to return all log entries for a certain vehicle
-		return getLogApp().getLogs().getRegistration(registration);
+		return getLogApp().getLogs().getList(registration, "registration");
 	}
 	
 	/**
@@ -119,9 +118,20 @@ public class LogService {
 	@Path("keyword/{keyword}") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public ArrayList<Log> getKeyword(@PathParam("keyword") String keyword) throws JAXBException, IOException {
+	public ArrayList<Log> getKeywordLog(@PathParam("keyword") String keyword) throws JAXBException, IOException {
 		// use the Log Application to return all log entries with the matching keyword in thier description
-		return getLogApp().getLogs().getKeyword(keyword);
+		return getLogApp().getLogs().getList(keyword, "keyword");
+	}
+	
+	/**
+	 * Get Logs entries with a certain type of visibility. They can be either hidden (false) or shown (true)
+	 * @param visibility the type of logs to show, boolean String
+	 * @return a list of log with the selected type of visibility
+	 * @throws JAXBException
+	 * @throws IOException
+	 */
+	private ArrayList<Log> getVisibleLog(String visibility) throws JAXBException, IOException {
+		return getLogApp().getLogs().getList(visibility, "visibility");
 	}
 	
 	/**
@@ -139,21 +149,21 @@ public class LogService {
 	@Path("")
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public ArrayList<Log> getQuery(@QueryParam("rego") String rego, @QueryParam("date") String date, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
+	public ArrayList<Log> getQuery(@QueryParam("registration") String registration, @QueryParam("date") String date, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
 		// create a new array list to hold the log entries
 		ArrayList<Log> logs = new ArrayList<Log>();
 		// if the date parameter is not null add all matching logs to the array list
 		if (date != null)
-			logs.addAll(getLogApp().getLogs().getDate(date));
+			logs.addAll(getDateLogs(date));
 		// if the registration parameter is not null add all matching logs to the array list
-		if (rego != null)
-			logs.addAll(getLogApp().getLogs().getRegistration(rego));
+		if (registration != null)
+			logs.addAll(getRegoLog(registration));
 		// if the keyword parameter is not null add all matching logs to the array list
 		if (keyword != null)
-			logs.addAll(getLogApp().getLogs().getKeyword(keyword));
+			logs.addAll(getKeywordLog(keyword));
 		// if the array list is empty display all logs which are not hidden
 		if (logs.isEmpty())
-			return getLogApp().getLogs().getVisibleLogs();
+			return getVisibleLog("true");
 		// return all the log entries which have met all or any of the parameters
 		return logs;
 	}
