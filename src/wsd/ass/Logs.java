@@ -44,6 +44,13 @@ public class Logs implements Serializable {
         fin.close();
     }
 
+    /**
+     * Query the unmarshalled Log xml to find specific information about it. Encapsulated
+     * within a switch statement. Takes a type a query and the type of informatoin to find.
+     * @param query the information to search for
+     * @param type the type of information to search for
+     * @return an arraylist containing the information searched for.
+     */
     public ArrayList<Log> getList(String query, String type) {
     	ArrayList<Log> list = new ArrayList<Log>();
     	for (Log log: logs) {
