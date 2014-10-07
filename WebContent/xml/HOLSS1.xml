@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vehicle>
+	<registration>HOLSS1</registration>
+	<type>Ute</type>
+	<make>Holden</make>
+	<model>SS</model>
+	<year>2014</year>
+	<colour>Red</colour>
+	<kilometres>160</kilometres>
+</vehicle>

@@ -64,7 +64,7 @@ public class VehicleService {
 	@Path("{rego}")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
-	@XmlHeader("<?xml-stylesheet type='text/xsl' href='xsl/vehiclerest.xsl' ?>")
+	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/vehiclerest.xsl' ?>")
 	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
 		ArrayList<Vehicle> vehicles = getVehicleApp().getVehicles().getVehicles();
         for (Vehicle vehicle : vehicles)
