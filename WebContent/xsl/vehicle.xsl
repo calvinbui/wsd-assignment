@@ -39,8 +39,9 @@
 						</div>
 						<div class="navbar-collapse collapse" id="navbar-main">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="vehicle.xml">Vehicles</a></li>
-								<li><a href="log.xml">Logs</a></li>
+								<li class="active"><a href="index.jsp">Vehicles</a></li>
+								<li><a href="log.jsp">Logs</a></li>
+								<li><a href="user.jsp">Drivers</a></li>
 							</ul> 
 							
 							<!-- Login navbar -->
@@ -62,7 +63,7 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<!-- Vehicle title -->
-								<h1>Overview of Vehicle Logs</h1>
+								<h1>Overview of Vehicles</h1>
 							</div>
 						</div>
 						<!-- End row -->

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Style/Transform XML document using a XSL file -->
+<?xml-stylesheet type="text/xsl" href="xsl/log.xsl"?>
+
+<!-- XML namespaces for log, XSI and XSD -->
 <logs 
-	xmlns="http://www.uts.edu.au/31284/log" 
+	xmlns="http://www.wsd.com/log" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.uts.edu.au/31284/log xsd/log.xsd">
+	xsi:schemaLocation="http://www.wsd.com/log xsd/log.xsd">
 
 	<log>
 		<id>0</id>

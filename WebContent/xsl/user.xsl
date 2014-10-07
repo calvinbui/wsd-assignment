@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- XML namespaces for log and XSLT -->
 <xsl:stylesheet version="1.0" 
 				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-				xmlns:log="http://www.wsd.com/log">
+				xmlns:user="http://www.wsd.com/user">
 				
 	<xsl:template match="/">
 		<html>
@@ -24,7 +23,7 @@
 			</head>
 			<body>
 			
-				<!-- Log page navigation -->
+				<!-- Vehicle page navigation -->
 				<div class="navbar navbar-default">
 					<!-- Navigation bar content margin -->
 					<div class="container">
@@ -40,8 +39,8 @@
 						<div class="navbar-collapse collapse" id="navbar-main">
 							<ul class="nav navbar-nav">
 								<li><a href="index.jsp">Vehicles</a></li>
-								<li class="active"><a href="log.jsp">Logs</a></li>
-								<li><a href="user.jsp">Drivers</a></li>
+								<li><a href="log.jsp">Logs</a></li>
+								<li class="active"><a href="user.jsp">Drivers</a></li>
 							</ul> 
 							
 							<!-- Login navbar -->
@@ -57,20 +56,21 @@
 				<!-- End of page navigation bar -->
 				</div> 
 					
-				<!-- Logs main page content -->
+				<!-- Vehicle main page content -->
 				<div class="container">
 					<div class="pageheader">
 						<div class="row">
 							<div class="col-lg-6">
-								<!-- Log title -->
-								<h1>Overview of Logs</h1>
+								<!-- Vehicle title -->
+								<h1>Overview of Drivers</h1>
 							</div>
 						</div>
 						<!-- End row -->
 					</div>
 					
 					<div class="bs-docs-section">
-						<!-- Log table with striped design -->
+					
+						<!-- Vehicle table with striped design -->
 						<table class="table table-striped table-hover">
 							<xsl:apply-templates />
 						</table>
@@ -82,95 +82,50 @@
 		</html>
 	</xsl:template>
 	
-	<xsl:template match="log:logs">
+	<xsl:template match="user:users">
 		<thead>
-			<th>ID</th>
-			<th>Vehicle</th>
-			<th>Driver</th>
-			<th>Start Date</th>
-			<th>Start Time</th>
-			<th>End Date</th>
-			<th>End Time</th>
-			<th>Description</th>
-			<th>Kilometres</th>
+			<th>Type</th>
+			<th>Username</th>
+			<th>First Name</th>
+			<th>Last Name</th>
 		</thead>
 		<tbody>
 			<xsl:apply-templates />
 		</tbody>
 	</xsl:template>
 	
-	<xsl:template match="log:log">
+	<xsl:template match="user:user">
 		<tr>
-			<xsl:apply-templates select="log:id" />
-			<xsl:apply-templates select="log:vehicle" />
-			<xsl:apply-templates select="log:driver" />
-			<xsl:apply-templates select="log:startdate" />
-			<xsl:apply-templates select="log:starttime" />
-			<xsl:apply-templates select="log:enddate" />
-			<xsl:apply-templates select="log:endtime" />
-			<xsl:apply-templates select="log:description" />
-			<xsl:apply-templates select="log:kilometres" />
+			<xsl:apply-templates select="user:type" />
+			<xsl:apply-templates select="user:username" />
+			<xsl:apply-templates select="user:firstname" />
+			<xsl:apply-templates select="user:lastname" />
 		</tr>
 	</xsl:template>
-	
-	<!-- Vehicle log ID -->
-	<xsl:template match="log:id">
+
+	<!-- User type -->
+	<xsl:template match="user:type">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<!-- Username -->
+	<xsl:template match="user:username">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<!-- First name -->
+	<xsl:template match="user:firstname">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 	
-	<!-- Vehicle -->
-	<xsl:template match="log:vehicle">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:driver">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:startdate">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:starttime">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:enddate">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:endtime">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:description">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:kilometres">
+	<!-- Last name -->
+	<xsl:template match="user:lastname">
 		<td>
 			<xsl:apply-templates />
 		</td>
