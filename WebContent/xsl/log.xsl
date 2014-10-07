@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- XML namespaces for vehicle and XSLT -->
-<xsl:stylesheet version="1.0"
-				xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-				xmlns:vehicle="http://www.wsd.com/vehicle">
-
+<!-- XML namespaces for log and XSLT -->
+<xsl:stylesheet version="1.0" 
+				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+				xmlns:vehicle="http://www.wsd.com/log">
+				
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -24,7 +24,7 @@
 			</head>
 			<body>
 			
-				<!-- Vehicle page navigation -->
+				<!-- Log page navigation -->
 				<div class="navbar navbar-default">
 					<!-- Navigation bar content margin -->
 					<div class="container">
@@ -39,8 +39,8 @@
 						</div>
 						<div class="navbar-collapse collapse" id="navbar-main">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="vehicle.xml">Vehicles</a></li>
-								<li><a href="log.xml">Logs</a></li>
+								<li><a href="vehicle.xml">Vehicles</a></li>
+								<li class="active"><a href="log.xml">Logs</a></li>
 							</ul> 
 							
 							<!-- Login navbar -->
@@ -56,12 +56,12 @@
 				<!-- End of page navigation bar -->
 				</div> 
 					
-				<!-- Vehicle main page content -->
+				<!-- Logs main page content -->
 				<div class="container">
 					<div class="pageheader">
 						<div class="row">
 							<div class="col-lg-6">
-								<!-- Vehicle title -->
+								<!-- Log title -->
 								<h1>Overview of Vehicle Logs</h1>
 							</div>
 						</div>
@@ -69,8 +69,7 @@
 					</div>
 					
 					<div class="bs-docs-section">
-					
-						<!-- Vehicle table with striped design -->
+						<!-- Log table with striped design -->
 						<table class="table table-striped table-hover">
 							<xsl:apply-templates />
 						</table>
@@ -82,47 +81,6 @@
 		</html>
 	</xsl:template>
 	
-	<xsl:template match="vehicle:vehicles">
-		<thead>
-			<!-- Font Awesome barcode icon -->
-			<th><i class="fa fa-barcode"></i> Registration</th>
-			<!-- Font Awesome car icon -->
-			<th><i class="fa fa-car"></i> Type</th>
-			<!-- Font Awesome kilometre dashboard icon -->
-			<th><i class="fa fa-dashboard"></i> Kilometres</th>
-		</thead>
-		<tbody>
-			<xsl:apply-templates />
-		</tbody>
-	</xsl:template>
 	
-	<xsl:template match="vehicle:vehicle">
-		<tr>
-			<xsl:apply-templates select="vehicle:registration" />
-			<xsl:apply-templates select="vehicle:type" />
-			<xsl:apply-templates select="vehicle:kilometres" />
-		</tr>
-	</xsl:template>
-
-	<!-- Registration -->
-	<xsl:template match="vehicle:registration">
-		<td>
-			<a href="rest/vehicles/{.}"><xsl:apply-templates /></a>
-		</td>
-	</xsl:template>
-
-	<!-- Vehicle Type -->
-	<xsl:template match="vehicle:type">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-
-	<!-- Kilometres -->
-	<xsl:template match="vehicle:kilometres">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-
+	
 </xsl:stylesheet>
