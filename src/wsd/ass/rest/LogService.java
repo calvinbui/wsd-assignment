@@ -56,6 +56,7 @@ public class LogService {
 				logs = new LogApplication();
 				// unmarshall the log.xml file into the LogApplication object
 				logs.setFilePath(application.getRealPath("/log.xml"));
+				logs.unmarshall();
 				// set the unmarshalled log.xml file application wide to save having to unmarshall it again 
 				application.setAttribute("logs", logs);
 			}
