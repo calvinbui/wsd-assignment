@@ -41,6 +41,7 @@ public class VehicleService {
 			if (vehicles == null) {
 				vehicles = new VehicleApplication();
 				vehicles.setFilePath(application.getRealPath("/vehicle.xml"));
+				vehicles.unmarshall();
 				application.setAttribute("vehicles", vehicles);
 			}
 			return vehicles;
