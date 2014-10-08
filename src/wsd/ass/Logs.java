@@ -13,6 +13,9 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="logs", namespace="http://www.uts.edu.au/31284/log")
 public class Logs implements Serializable {
+	/** Static default serial */
+	private static final long serialVersionUID = 1L;
+	
     /** The ArrayList containing all log entries (Log.class) */
 	@XmlElement(name = "log")
 	private ArrayList<Log> logs = new ArrayList<Log>();

@@ -16,6 +16,9 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "log")
 public class Log implements Serializable {
+	/** Static default serial */
+	private static final long serialVersionUID = 1L;
+
 	/** The ID of the log. Unique. */
 	@XmlElement(name = "id")
 	private int id;
