@@ -1,25 +1,39 @@
 package wsd.ass;
 
-import java.util.Date;
-
 import javax.xml.bind.annotation.*;
 
+/**
+ * @author Calvin
+ *
+ */
 @XmlRootElement(name="vehicle")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Vehicle implements java.io.Serializable {
-	
+	/**  */
 	@XmlElement(name="registration")
 	private String registration;
+	
+	/**  */
 	@XmlElement(name="type")
 	private String type;
+	
+	/**  */
 	@XmlElement(name="make")
 	private String make;
+	
+	/**  */
 	@XmlElement(name="model")
 	private String model;
+	
+	/**  */
 	@XmlElement(name="year")
 	private int year;
+	
+	/**  */
 	@XmlElement(name="colour")
 	private String colour;
+	
+	/**  */
 	@XmlElement(name="kilometres")
 	private int kilometres;
 	
@@ -83,4 +97,4 @@ public class Vehicle implements java.io.Serializable {
 	public void setMake(String make) {
 		this.make = make;
 	}
-}	
+}

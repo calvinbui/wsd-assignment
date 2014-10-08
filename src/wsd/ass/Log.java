@@ -16,64 +16,43 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "log")
 public class Log implements Serializable {
-	/**
-	 * The ID of the log. Unique.
-	 */
+	/** The ID of the log. Unique. */
 	@XmlElement(name = "id")
 	private int id;
 	
-	/**
-	 * The vehicle for the log entry
-	 */
+	/** The vehicle for the log entry */
 	@XmlElement(name = "vehicle")
 	private String vehicle;
 	
-	/**
-	 * The ID of the driver who drove the vehicle
-	 */
+	/** The ID of the driver who drove the vehicle */
 	@XmlElement(name = "driver")
 	private String driver;
 	
-	/**
-	 * The date the vehicle was taken
-	 */
+	/** The date the vehicle was taken */
 	@XmlElement(name = "startdate")
 	private String startDate;
 	
-	/**
-	 * The date the vehicle returned
-	 */
+	/** The date the vehicle returned */
 	@XmlElement(name = "enddate")
 	private String endDate;
 	
-	/**
-	 * The time the vehicle was taken
-	 */
+	/** The time the vehicle was taken */
 	@XmlElement(name = "starttime")
 	private String startTime;
 	
-	/**
-	 * The time vehicle was returned
-	 */
+	/** The time vehicle was returned */
 	@XmlElement(name = "endtime")
 	private String endTime;
 	
-	/**
-	 * The description of the log entry
-	 */
+	/** The description of the log entry */
 	@XmlElement(name = "description")
 	private String description;
 	
-	/**
-	 * The kilometres clocked on the trip
-	 */
+	/** The kilometres clocked on the trip */
 	@XmlElement(name = "kilometres")
 	private int kilometres;
 	
-	/**
-	 * A sub-class representing whether the log entry
-	 * is hidden or not and by whom.
-	 */
+	/** A sub-class representing whether the log entry is hidden or not and by whom. */
 	@XmlElement(name = "hidden")
 	private Hidden hidden;
 
