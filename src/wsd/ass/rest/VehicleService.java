@@ -48,18 +48,11 @@ public class VehicleService {
 		}
 	}
 	
-	@Path("hello")
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String hello() {
-	 return "Hello World";
-	}
-	
 	@Path("all")
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	public Vehicles getAll() throws JAXBException, IOException {
-		return getVehicleApp().getVehicles();
+		return getVehicleApp().getVehiclesList();
 	}
 	
 	@Path("{rego}")
@@ -67,7 +60,7 @@ public class VehicleService {
 	@Produces(MediaType.APPLICATION_XML)
 	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/vehiclerest.xsl' ?>")
 	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
-		ArrayList<Vehicle> vehicles = getVehicleApp().getVehicles().getVehicles();
+		ArrayList<Vehicle> vehicles = getVehicleApp().getVehiclesList().getVehicles();
         for (Vehicle vehicle : vehicles)
             if (registration.equals(vehicle.getRegistration()))
                 return vehicle;

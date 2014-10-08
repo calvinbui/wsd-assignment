@@ -44,7 +44,7 @@ public class VehicleApplication {
 	 * Get all vehicles
 	 * @return an ArrayList containing all the vehicles
 	 */
-	public Vehicles getVehicles() {
+	public Vehicles getVehiclesList() {
 		return vehicles;
 	}
 
