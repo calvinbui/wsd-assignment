@@ -43,8 +43,8 @@ public class VehicleService {
 	 * 
 	 * @return A vehicle application object which is the middleman between this REST class and the
 	 * Vehicle class beans/pojos.
-	 * @throws JAXBException
-	 * @throws IOException
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with 
+	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	private VehicleApplication getVehicleApp() throws JAXBException, IOException {
 		// locks the servlet for the current request
@@ -70,8 +70,8 @@ public class VehicleService {
 	/**
 	 * REST call to return all vehicle entries.
 	 * @return all log entries in XML format
-	 * @throws JAXBException
-	 * @throws IOException
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	@Path("all") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
@@ -84,9 +84,9 @@ public class VehicleService {
 	/**
 	 * REST call to return all details about a vehicle based on vehicle registration submitted.
 	 * @param registration
-	 * @return
-	 * @throws JAXBException
-	 * @throws IOException
+	 * @return A vehicle with the matching registration details
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	@Path("{rego}") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
