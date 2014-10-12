@@ -18,52 +18,91 @@ import wsd.ass.Vehicle;
 import wsd.ass.VehicleApplication;
 import wsd.ass.Vehicles;
 
+/**
+ * The Vehicle Service class handles REST calls for vehicle related requests
+ * such as registration plates.
+ * 
+ * Based on what URL and parameters are provided by the user, this class will return
+ * the requested information.
+ * 
+ * @author Calvin and Janette
+ *
+ */
 @Path("/vehicles")
 public class VehicleService {
+	/** */
 	@Context
 	private ServletContext application;
 
+	/**
+	 * Retrieve the XML file and set it as an attribute within the servlet context for
+	 * application wide usage. 
+	 * 
+	 * Utilises the 'synchronized' keyword to lock the XML file while being manipulated to
+	 * prevent overwrites and incorrect reads.
+	 * 
+	 * @return A vehicle application object which is the middleman between this REST class and the
+	 * Vehicle class beans/pojos.
+	 * @throws JAXBException
+	 * @throws IOException
+	 */
 	private VehicleApplication getVehicleApp() throws JAXBException, IOException {
-
-		// The web server can handle requests from different clients in
-		// parallel.
-		// These are called "threads".
-		//
-		// We do NOT want other threads to manipulate the application object at
-		// the same
-		// time that we are manipulating it, otherwise bad things could happen.
-		//
-		// The "synchronized" keyword is used to lock the application object
-		// while
-		// we're manpulating it.
+		// locks the servlet for the current request
 		synchronized (application) {
+			// create a new vehicle application with the 'vehicles' attribute if available by casting the servlet
 			VehicleApplication vehicles = (VehicleApplication) application.getAttribute("vehicles");
+			// if 'vehicles' is not available, the VehicleApplication will be null
 			if (vehicles == null) {
+				// create a new vehicle application object
 				vehicles = new VehicleApplication();
+				// indicate the location of the vehicle.xml file containing vehicles
 				vehicles.setFilePath(application.getRealPath("/vehicle.xml"));
+				// unmarshall the vehicle.xml file into the Vehicle Application object
 				vehicles.unmarshall();
+				// set the unmarshalled vehicle.xml file application wide to save having to unmarshall it again for the next request. 
 				application.setAttribute("vehicles", vehicles);
 			}
+			// if 'vehicles' attribute exists, return the already unmarshalled object or the one just unmarshalled
 			return vehicles;
 		}
 	}
 	
-	@Path("all")
-	@GET
-	@Produces(MediaType.APPLICATION_XML)
+	/**
+	 * REST call to return all vehicle entries.
+	 * @return all log entries in XML format
+	 * @throws JAXBException
+	 * @throws IOException
+	 */
+	@Path("all") // the path of the REST call
+	@GET // HTTP GET command to be invoked by user
+	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public Vehicles getAll() throws JAXBException, IOException {
+		// use the Vehicle application to return all vehicles
 		return getVehicleApp().getVehiclesList();
 	}
 	
-	@Path("{rego}")
-	@GET
-	@Produces(MediaType.APPLICATION_XML)
+	/**
+	 * REST call to return all details about a vehicle based on vehicle registration submitted.
+	 * @param registration
+	 * @return
+	 * @throws JAXBException
+	 * @throws IOException
+	 */
+	@Path("{rego}") // the path of the REST call
+	@GET // HTTP GET command to be invoked by user
+	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
+	// the stylesheet to apply to the XML file outputted
 	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/vehiclerest.xsl' ?>")
 	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
+		// store all vehicles in the system into an array list
 		ArrayList<Vehicle> vehicles = getVehicleApp().getVehiclesList().getVehicles();
-        for (Vehicle vehicle : vehicles)
+        // for every vehicle in the arraylist
+		for (Vehicle vehicle : vehicles)
+			// if the matches the registration number entered
             if (registration.equals(vehicle.getRegistration()))
+            	// return that particular vehicle and its details
                 return vehicle;
+		//otherwise return nothing
         return null;
 	}
 }

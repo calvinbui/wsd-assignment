@@ -27,9 +27,7 @@ import wsd.ass.Logs;
  */
 @Path("/logs")
 public class LogService {
-	/**
-	 *  
-	 */
+	/**  */
 	@Context
 	private ServletContext application;
 
@@ -54,13 +52,14 @@ public class LogService {
 			if (logs == null) {
 				// create a new log application object
 				logs = new LogApplication();
-				// unmarshall the log.xml file into the LogApplication object
+				//indicate the location of the log.xml file containing vehicles
 				logs.setFilePath(application.getRealPath("/log.xml"));
+				// unmarshall the log.xml file into the LogApplication object
 				logs.unmarshall();
-				// set the unmarshalled log.xml file application wide to save having to unmarshall it again 
+				// set the unmarshalled log.xml file application wide to save having to unmarshall it again for the next request.
 				application.setAttribute("logs", logs);
 			}
-			// if 'logs' attribute exists, return the already unmarshalled object
+			// if 'logs' attribute exists, return the already unmarshalled object or the one just unmarshalled
 			return logs;
 		}
 	}
