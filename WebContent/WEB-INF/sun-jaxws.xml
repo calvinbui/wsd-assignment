@@ -2,7 +2,7 @@
 <endpoints version="2.0"
 	xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
 
-	<endpoint implementation="wsd.ass.soap.Log" name="LogService"
+	<endpoint implementation="wsd.ass.soap.LogSOAP" name="LogService"
 		url-pattern="/soap/log" />
 
 </endpoints>
