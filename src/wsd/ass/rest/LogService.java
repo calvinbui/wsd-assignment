@@ -149,15 +149,15 @@ public class LogService {
 	@Path("")
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public ArrayList<Log> getQuery(@QueryParam("registration") String registration, @QueryParam("date") String date, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
+	public ArrayList<Log> getQuery(@QueryParam("vehicleRego") String vehicleRego, @QueryParam("startDate") String startDate, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
 		// create a new array list to hold the log entries
 		ArrayList<Log> logs = new ArrayList<Log>();
 		// if the date parameter is not null add all matching logs to the array list
-		if (date != null)
-			logs.addAll(getDateLogs(date));
+		if (startDate != null)
+			logs.addAll(getDateLogs(startDate));
 		// if the registration parameter is not null add all matching logs to the array list
-		if (registration != null)
-			logs.addAll(getRegoLog(registration));
+		if (vehicleRego != null)
+			logs.addAll(getRegoLog(vehicleRego));
 		// if the keyword parameter is not null add all matching logs to the array list
 		if (keyword != null)
 			logs.addAll(getKeywordLog(keyword));
