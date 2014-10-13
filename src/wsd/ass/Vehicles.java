@@ -18,7 +18,7 @@ public class Vehicles implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
     /** The ArrayList containing all Vehicles (Vehicle.class) */	
-	@XmlElement(name = "vehicle", namespace = "http://www.wsd.com/vehicle")
+	@XmlElement(name = "vehicle")
 	private ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 
 	/**

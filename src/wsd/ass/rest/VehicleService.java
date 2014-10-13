@@ -69,7 +69,7 @@ public class VehicleService {
 	
 	/**
 	 * REST call to return all vehicle entries.
-	 * @return all log entries in XML format
+	 * @return all vehicles in XML format
 	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */

@@ -63,7 +63,7 @@ public class VehicleApplication {
 	 */
 	public void unmarshall() throws JAXBException, IOException {
 		// Define the class to transform the XML file into using JAXB
-        JAXBContext jc = JAXBContext.newInstance(Logs.class);
+        JAXBContext jc = JAXBContext.newInstance(Vehicles.class);
         
         // Create the unmarshaller
         Unmarshaller u = jc.createUnmarshaller();

@@ -20,6 +20,7 @@ import wsd.ass.Logs;
 public class LogApplication {
 	/** The path of the XML file */
 	private String filePath;
+	
 	/** All log entries encapsulated within an ArrayList */
 	private Logs logs;
 	
