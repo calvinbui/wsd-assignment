@@ -27,8 +27,8 @@ import wsd.ass.Logs;
  */
 @Path("/logs")
 public class LogService {
-	/**  */
-	@Context
+	/** Set of methods to communicate with the servlet container such as retrieve xml files */
+	@Context // inject an instance of the JSP application into this field
 	private ServletContext application;
 
 	/**
