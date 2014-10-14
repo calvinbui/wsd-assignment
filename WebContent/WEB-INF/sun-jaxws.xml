@@ -4,5 +4,8 @@
 
 	<endpoint implementation="wsd.ass.soap.LogSOAP" name="LogService"
 		url-pattern="/soap/log" />
+		
+	<endpoint implementation="wsd.ass.soap.UserSOAP" name="UserService"
+		url-pattern="/soap/user" />
 
 </endpoints>

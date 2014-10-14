@@ -58,7 +58,7 @@ public class VehicleApplication {
 
 	/**
 	 * Unmarshall the Vehicle XML file into the Vehicles ArrayList.
-	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 * @throws JAXBException if Vehicle class does not contain the correct elements to link with
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	public void unmarshall() throws JAXBException, IOException {
