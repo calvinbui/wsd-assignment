@@ -27,9 +27,9 @@ public class UserSOAP {
 			UserApplication userApp = (UserApplication)application.getAttribute("userApp");
 			if (userApp == null) {
 				userApp = new UserApplication();
-				String filePath = application.getRealPath("user.xml");
+				String filePath = application.getRealPath("/user.xml");
 				userApp.setFilePath(filePath);
-				//userApp.unmarshall();
+				userApp.unmarshall();
 				application.setAttribute("userApp", userApp);
 			}
 			return userApp;
@@ -44,9 +44,10 @@ public class UserSOAP {
 	@WebMethod
 	public User getUser(String email, String password) throws JAXBException, IOException {
 		ArrayList<User> users = getUsers().getUsers();
-		for (User user : users)
+		for (User user : users) {
 			if (user.getUsername().equals(email))
 				return user;
+		}
 		return null;
 	}
 	

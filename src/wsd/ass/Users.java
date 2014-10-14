@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Calvin
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "users")
+@XmlRootElement(name = "users", namespace = "http://www.wsd.com/user")
 public class Users implements Serializable {
 	/** Static default serial */
 	private static final long serialVersionUID = 1L;
