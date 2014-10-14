@@ -6,20 +6,12 @@ import java.util.Scanner;
 import javax.xml.rpc.ServiceException;
 
 public class ApplicationClient {
-	private static User user;
+	//private static User user;
 	
 	public static void main(String[] args) throws ServiceException, RemoteException{
 		System.out.println("== Welcome to the Vehicle Log Book System ==");
-		login();
-		
-		LogSOAPServiceLocator logLocator = new LogSOAPServiceLocator();
-		LogSOAP log = logLocator.getLogSOAPPort();
-		
-	}
-	
-	private static void login() throws ServiceException, RemoteException {
-		UserSOAPServiceLocator userLocator = new UserSOAPServiceLocator();
-		UserSOAP userSOAP = userLocator.getUserSOAPPort();
+		//UserSOAPServiceLocator userLocator = new UserSOAPServiceLocator();
+		//UserSOAP userSOAP = userLocator.getUserSOAPPort();
 		
 		boolean userValidated = false;
 		
@@ -29,18 +21,16 @@ public class ApplicationClient {
 			String email = s.nextLine();
 			System.out.print("Enter password: ");
 			String password = s.nextLine();
-			user = getUser(userSOAP, email, password);
+			/*user = userSOAP.getUser(email, password);
 			if (user != null)
 				userValidated = true;
 			else
-				System.out.println("Login Failed. Try again.");
+				System.out.println("Login Failed. Try again.");*/
 			
 		} while (userValidated = false);
 		
+		//LogSOAPServiceLocator logLocator = new LogSOAPServiceLocator();
+		//LogSOAP log = logLocator.getLogSOAPPort();
+		
 	}
-	
-	private static User getUser(UserSOAP user, String email, String password) throws RemoteException {
-		return user.getUser(email, password);
-	}
-	
 }
