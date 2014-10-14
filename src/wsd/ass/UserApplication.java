@@ -37,7 +37,7 @@ public class UserApplication {
         FileInputStream fin = new FileInputStream(filePath);
         
         // unmarshall the object from the file into the ArrayList
-		setUsers((Users) u.unmarshal(fin));
+		users = (Users) u.unmarshal(fin);
 		
         // close the file input stream and release the lock on it
 		fin.close();		

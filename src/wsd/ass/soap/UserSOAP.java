@@ -1,9 +1,13 @@
 package wsd.ass.soap;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.servlet.ServletContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 
@@ -17,14 +21,15 @@ public class UserSOAP {
 	private WebServiceContext context;
 	
 	@WebMethod
-	private UserApplication getUserApp() {
+	private UserApplication getUserApp() throws JAXBException, IOException {
 		ServletContext application = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
 			UserApplication userApp = (UserApplication)application.getAttribute("userApp");
 			if (userApp == null) {
 				userApp = new UserApplication();
-				String filePath = application.getRealPath("/logs.xml");
+				String filePath = application.getRealPath("user.xml");
 				userApp.setFilePath(filePath);
+				//userApp.unmarshall();
 				application.setAttribute("userApp", userApp);
 			}
 			return userApp;
@@ -32,15 +37,21 @@ public class UserSOAP {
 	}
 	
 	@WebMethod
-	public Users getUsers() {
+	public Users getUsers() throws JAXBException, IOException {
 		return getUserApp().getUsers();
 	}
 	
 	@WebMethod
-	public User getUser(String email, String password) {
-		User user = getUsers().login(email, password);
-		if (user != null)
-			return user;
+	public User getUser(String email, String password) throws JAXBException, IOException {
+		ArrayList<User> users = getUsers().getUsers();
+		for (User user : users)
+			if (user.getUsername().equals(email))
+				return user;
 		return null;
+	}
+	
+	@WebMethod
+	public String hello() {
+		return "hello";
 	}
 }

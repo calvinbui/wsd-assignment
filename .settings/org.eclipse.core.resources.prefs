@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/wsd/ass/soap/client/IOException.java=UTF-8
+encoding//src/wsd/ass/soap/client/JAXBException.java=UTF-8
+encoding//src/wsd/ass/soap/client/StackTraceElement.java=UTF-8
+encoding//src/wsd/ass/soap/client/User.java=UTF-8
+encoding//src/wsd/ass/soap/client/UserSOAP.java=UTF-8
+encoding//src/wsd/ass/soap/client/UserSOAPPortBindingStub.java=UTF-8
+encoding//src/wsd/ass/soap/client/UserSOAPService.java=UTF-8
+encoding//src/wsd/ass/soap/client/UserSOAPServiceLocator.java=UTF-8

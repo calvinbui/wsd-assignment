@@ -22,7 +22,7 @@ public class LogSOAP {
 			LogApplication logApp = (LogApplication)application.getAttribute("logApp");
 			if (logApp == null) {
 				logApp = new LogApplication();
-				String filePath = application.getRealPath("/logs.xml");
+				String filePath = application.getRealPath("/log.xml");
 				logApp.setFilePath(filePath);
 				application.setAttribute("logApp", logApp);
 			}
