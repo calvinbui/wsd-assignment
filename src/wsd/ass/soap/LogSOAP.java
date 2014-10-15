@@ -70,7 +70,8 @@ public class LogSOAP {
 	}
 	
 	@WebMethod
-	public void deleteLog(Log log) {
-		
+	public void hideLog(int id, String user) throws JAXBException, IOException {
+		getLogApp().hideLog(id, user);
+		//getLogApp().marshall();
 	}
 }

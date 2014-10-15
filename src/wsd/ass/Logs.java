@@ -37,11 +37,18 @@ public class Logs implements Serializable {
     }
     
     /**
-     * Remove a log entry from the ArrayList
-     * @param log a log entry of type Log
+     * Hide a log entry by setting its status to false.
+     * Also set the name of the user who hid it.
+     * @param id the the log's id.
+     * @param user the user who deleted the log.
      */
-    public void removeLog(Log log) {
-        logs.remove(log);
+    public void hideLog(int id, String user) {
+		for (Log log : logs) {
+			if (log.getId() == id) {
+				log.getHidden().setHidden(user);
+				log.getHidden().setShow(false);
+			}
+		}
     }
     
     /**

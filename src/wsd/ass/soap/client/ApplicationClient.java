@@ -21,6 +21,7 @@ public class ApplicationClient {
 		System.out.println("== Welcome to the Vehicle Log Book System == \n");
 		UserSOAPServiceLocator userLocator = new UserSOAPServiceLocator();
 		userSOAP = userLocator.getUserSOAPPort();
+		
 		LogSOAPServiceLocator logLocator = new LogSOAPServiceLocator();
 		logSOAP = logLocator.getLogSOAPPort();
 	}
@@ -62,7 +63,10 @@ public class ApplicationClient {
 			System.out.println(logSOAP.showAllLogs());
 			options();
 			break;
-		case "2": 	
+		case "2":
+			logSOAP.hideLog(getLogId(), user.getUsername());
+			System.out.println("Log has been deleted.");
+			options();
 			break;
 		default: 
 			options(); 
@@ -70,7 +74,18 @@ public class ApplicationClient {
 		}
 	}
 	
-	private static void deleteLog() {
-		
+	private static int getLogId() {
+		Scanner s = new Scanner(System.in);
+		int number;
+		do {
+			System.out.print("ID of log to delete: ");
+			// validate if integer or not
+			while (!s.hasNextInt()) {
+				System.out.print("\nID of log to delete: ");
+				s.next();
+			}
+			number = s.nextInt();
+		} while (number < 0); // integer must be greater than 0
+		return number;
 	}
 }

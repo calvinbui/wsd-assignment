@@ -62,5 +62,11 @@ public class LogSOAPProxy implements wsd.ass.soap.client.LogSOAP {
     return logSOAP.showLog(arg0);
   }
   
+  public void hideLog(int arg0, java.lang.String arg1) throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException{
+    if (logSOAP == null)
+      _initLogSOAPProxy();
+    logSOAP.hideLog(arg0, arg1);
+  }
+  
   
 }

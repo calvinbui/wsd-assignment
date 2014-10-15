@@ -1,10 +1,13 @@
 package wsd.ass;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import wsd.ass.Logs;
@@ -79,5 +82,14 @@ public class LogApplication {
 		this.logs = logs;
 	}
 	
+	public void hideLog(int id, String user) throws FileNotFoundException, JAXBException {
+        logs.hideLog(id, user);
+	}
 	
+	public void marshall() throws JAXBException, FileNotFoundException {
+		JAXBContext jc = JAXBContext.newInstance(Logs.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        m.marshal(logs, new FileOutputStream(getFilePath()));
+	}
 }

@@ -8,7 +8,8 @@
 package wsd.ass.soap.client;
 
 public interface LogSOAP extends java.rmi.Remote {
+    public java.lang.String showAllLogs() throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException;
     public wsd.ass.soap.client.Log[] getLogs() throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException;
     public java.lang.String showLog(wsd.ass.soap.client.Log arg0) throws java.rmi.RemoteException;
-    public java.lang.String showAllLogs() throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException;
+    public void hideLog(int arg0, java.lang.String arg1) throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException;
 }

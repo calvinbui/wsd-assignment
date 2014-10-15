@@ -45,9 +45,4 @@ public class UserSOAP {
 	public User getUser(String email, String password) throws JAXBException, IOException {
 		return getUsers().login(email, password);
 	}
-	
-	@WebMethod
-	public String hello() {
-		return "hello";
-	}
 }
