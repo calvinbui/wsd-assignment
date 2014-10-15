@@ -84,6 +84,7 @@ public class LogApplication {
 	
 	public void hideLog(int id, String user) throws FileNotFoundException, JAXBException {
         logs.hideLog(id, user);
+        marshall();
 	}
 	
 	public void marshall() throws JAXBException, FileNotFoundException {
@@ -91,5 +92,9 @@ public class LogApplication {
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         m.marshal(logs, new FileOutputStream(getFilePath()));
+	}
+	
+	public void search() {
+		
 	}
 }

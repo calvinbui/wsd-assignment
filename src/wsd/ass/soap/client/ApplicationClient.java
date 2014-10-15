@@ -11,15 +11,10 @@ public class ApplicationClient {
 	private static LogSOAP logSOAP;
 	
 	public static void main(String[] args) throws JAXBException, IOException, RemoteException, ServiceException, InterruptedException {
-		try {
-			initialise();
-			login();
-			welcome();
-			choice(options());
-	    } catch (Throwable ex) {
-	        System.err.println("Uncaught exception - " + ex.getMessage());
-	        ex.printStackTrace(System.err);
-	    }
+		initialise();
+		login();
+		welcome();
+		options();
 	}
 	
 	private static void initialise() throws ServiceException {
@@ -49,19 +44,21 @@ public class ApplicationClient {
 		}
 	}
 	
-	private static String options() {
+	private static void options() throws JAXBException, IOException, RemoteException {
 		System.out.println("\n\nSelect an option:");
 		System.out.println("0) Logout");
 		System.out.println("1) View all Logs");
 		System.out.println("2) Delete a Log");
 		System.out.print("\n\nEnter an option: ");
 		Scanner s = new Scanner(System.in);
-		return s.nextLine();
+		choice(s.nextLine());
 	}
 	
 	private static void choice(String choice) throws JAXBException, IOException, RemoteException {
 		switch (choice) {
 		case "0": 
+			for (int i = 0; i < 50; ++i) System.out.println();
+			System.out.println("Good bye.");
 			System.exit(0);
 			break;
 		case "1": 
@@ -70,7 +67,7 @@ public class ApplicationClient {
 			break;
 		case "2":
 			logSOAP.hideLog(getLogId(), user.getUsername());
-			System.out.println("Log has been deleted.");
+			System.out.println("\n\nLog has been deleted.");
 			options();
 			break;
 		default: 
@@ -79,18 +76,31 @@ public class ApplicationClient {
 		}
 	}
 	
-	private static int getLogId() {
+	private static int getLogId() throws JAXBException, IOException, RemoteException {
+		boolean valid = false;
+		int i = 0;
+		while (valid == false) {
+			i = requestId();
+			if (logSOAP.exists(i))
+				valid = true;
+			else 
+				System.out.println("\n\nLog ID does not exist.");
+		}
+		return i;
+	}
+				
+	private static int requestId() {
 		Scanner s = new Scanner(System.in);
-		int number;
+		int i;
 		do {
 			System.out.print("ID of log to delete: ");
-			// validate if integer or not
 			while (!s.hasNextInt()) {
+				System.out.print("\n\nInvalid Log ID");
 				System.out.print("\nID of log to delete: ");
 				s.next();
 			}
-			number = s.nextInt();
-		} while (number < 0); // integer must be greater than 0
-		return number;
+			i = s.nextInt();
+		} while (i < 0);
+		return i;
 	}
 }

@@ -72,6 +72,16 @@ public class LogSOAP {
 	@WebMethod
 	public void hideLog(int id, String user) throws JAXBException, IOException {
 		getLogApp().hideLog(id, user);
-		//getLogApp().marshall();
+	}
+	
+	@WebMethod
+	public boolean exists(int id) throws JAXBException, IOException {
+		ArrayList<Log> logs = getLogs().getLogs();
+		for (Log log : logs) {
+			if (log.getId() == id) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
