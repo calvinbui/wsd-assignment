@@ -11,10 +11,15 @@ public class ApplicationClient {
 	private static LogSOAP logSOAP;
 	
 	public static void main(String[] args) throws JAXBException, IOException, RemoteException, ServiceException, InterruptedException {
-		initialise();
-		login();
-		welcome();
-		choice(options());
+		try {
+			initialise();
+			login();
+			welcome();
+			choice(options());
+	    } catch (Throwable ex) {
+	        System.err.println("Uncaught exception - " + ex.getMessage());
+	        ex.printStackTrace(System.err);
+	    }
 	}
 	
 	private static void initialise() throws ServiceException {
