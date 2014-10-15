@@ -43,12 +43,7 @@ public class UserSOAP {
 	
 	@WebMethod
 	public User getUser(String email, String password) throws JAXBException, IOException {
-		ArrayList<User> users = getUsers().getUsers();
-		for (User user : users) {
-			if (user.getUsername().equals(email))
-				return user;
-		}
-		return null;
+		return getUsers().login(email, password);
 	}
 	
 	@WebMethod

@@ -8,26 +8,29 @@ import javax.xml.rpc.ServiceException;
 public class ApplicationClient {
 	private static User user;
 	private static UserSOAP userSOAP;
+	private static LogSOAP logSOAP;
 	
-	public static void main(String[] args) throws JAXBException, IOException, RemoteException, ServiceException {
-		run();
-		
-		
-		//LogSOAPServiceLocator logLocator = new LogSOAPServiceLocator();
-		//LogSOAP log = logLocator.getLogSOAPPort();
-		
+	public static void main(String[] args) throws JAXBException, IOException, RemoteException, ServiceException, InterruptedException {
+		initialise();
+		login();
+		welcome();
+		choice(options());
 	}
 	
-	private static void run() throws JAXBException, IOException, RemoteException, ServiceException {
+	private static void initialise() throws ServiceException {
+		System.out.println("== Welcome to the Vehicle Log Book System == \n");
 		UserSOAPServiceLocator userLocator = new UserSOAPServiceLocator();
 		userSOAP = userLocator.getUserSOAPPort();
-		System.out.println("== Welcome to the Vehicle Log Book System == \n");
-		login();
-		options();
-		
+		LogSOAPServiceLocator logLocator = new LogSOAPServiceLocator();
+		logSOAP = logLocator.getLogSOAPPort();
 	}
 	
-	private static void login() throws ServiceException, JAXBException, IOException, RemoteException {
+	private static void welcome() {
+		for (int i = 0; i < 50; ++i) System.out.println(); //jump 50 files to clear the screen. similar to how linux/unix does it in terminal
+		System.out.println("Hello " + user.getFirstname());
+	}
+
+	private static void login() throws ServiceException, JAXBException, IOException, RemoteException, InterruptedException {
 		while (user == null) {
 			System.out.print("Enter email: ");
 			Scanner s = new Scanner(System.in);
@@ -40,15 +43,34 @@ public class ApplicationClient {
 		}
 	}
 	
-	private static void options() {
-
-		for (int i = 0; i < 50; ++i) System.out.println();
-		System.out.println("Hello " + user.getFirstname());
+	private static String options() {
 		System.out.println("\n\nSelect an option:");
-		System.out.println("1: View all Logs");
-		System.out.println("2: Delete a Log");
-		System.out.print("\n\nEnter your choice: ");
+		System.out.println("0) Logout");
+		System.out.println("1) View all Logs");
+		System.out.println("2) Delete a Log");
+		System.out.print("\n\nEnter an option: ");
 		Scanner s = new Scanner(System.in);
-		String choice = s.nextLine();
+		return s.nextLine();
+	}
+	
+	private static void choice(String choice) throws JAXBException, IOException, RemoteException {
+		switch (choice) {
+		case "0": 
+			System.exit(0);
+			break;
+		case "1": 
+			System.out.println(logSOAP.showAllLogs());
+			options();
+			break;
+		case "2": 	
+			break;
+		default: 
+			options(); 
+			break;
+		}
+	}
+	
+	private static void deleteLog() {
+		
 	}
 }
