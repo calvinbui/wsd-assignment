@@ -1,7 +1,6 @@
 package wsd.ass.soap;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
@@ -14,6 +13,15 @@ import javax.xml.ws.handler.MessageContext;
 import wsd.ass.User;
 import wsd.ass.UserApplication;
 import wsd.ass.Users;
+
+/**
+ * The UserSOAP class defines the functions to be used by the SOAP web service in relation to users.
+ * 
+ * It communicates with the UserApplication class to retrieve data from user.xml
+ * 
+ * @author Calvin
+ *
+ */
 
 @WebService
 public class UserSOAP {
@@ -36,11 +44,25 @@ public class UserSOAP {
 		}
 	}
 	
+	/**
+	 * Get all users
+	 * @return a Users object containing all users
+	 * @throws JAXBException if Users class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	public Users getUsers() throws JAXBException, IOException {
 		return getUserApp().getUsers();
 	}
 	
+	/**
+	 * User login function given an email and password
+	 * @param email to verify user
+	 * @param password to verify user
+	 * @return the User object that is found by the matching email and password, or null if there is no match
+	 * @throws JAXBException if Users class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	public User getUser(String email, String password) throws JAXBException, IOException {
 		return getUsers().login(email, password);

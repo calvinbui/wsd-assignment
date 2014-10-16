@@ -82,11 +82,23 @@ public class LogApplication {
 		this.logs = logs;
 	}
 	
+	/**
+	 * Hide the specified log
+	 * @param id the id of the log to be hidden
+	 * @param user the user that is hiding the log
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 */
 	public void hideLog(int id, String user) throws FileNotFoundException, JAXBException {
         logs.hideLog(id, user);
         marshall();
 	}
 	
+	/**
+	 * Marshal the logs object back into xml format and output it to the filepath
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
 	public void marshall() throws JAXBException, FileNotFoundException {
 		JAXBContext jc = JAXBContext.newInstance(Logs.class);
         Marshaller m = jc.createMarshaller();

@@ -1,5 +1,6 @@
 package wsd.ass.soap;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,6 +15,15 @@ import javax.xml.ws.handler.MessageContext;
 import wsd.ass.Log;
 import wsd.ass.LogApplication;
 import wsd.ass.Logs;
+
+/**
+ * The LogSOAP class defines the functions to be used by the SOAP web service in relation to logs.
+ * 
+ * It communicates with the LogApplication class to retrieve data from log.xml
+ * 
+ * @author Calvin
+ *
+ */
 
 @WebService
 public class LogSOAP {
@@ -36,11 +46,23 @@ public class LogSOAP {
 		}
 	}
 	
+	/**
+	 * Get all log entries
+	 * @return a Logs object containing all the log files
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	public Logs getLogs() throws JAXBException, IOException {
 		return getLogApp().getLogs();
 	}
 	
+	/**
+	 * Show all log entries on screen
+	 * @return a String containing all log info
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	public String showAllLogs() throws JAXBException, IOException {
 		String s = "\n";
@@ -51,6 +73,10 @@ public class LogSOAP {
 		return s;
 	}
 	
+	/**
+	 * Get data about a single log in string format
+	 * @return a String containing all info about a log
+	 */
 	@WebMethod
 	public String showLog(Log log) {
 		String s = "\n";
@@ -69,11 +95,24 @@ public class LogSOAP {
 		return s;
 	}
 	
+	/**
+	 * Hide the specified log
+	 * @param id the id of the log to be hidden
+	 * @param user the user that is hiding the log
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	public void hideLog(int id, String user) throws JAXBException, IOException {
 		getLogApp().hideLog(id, user);
 	}
 	
+	/**
+	 * Check if a log with a specified id number exists
+	 * @param id the id of the log that we want to check
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	public boolean exists(int id) throws JAXBException, IOException {
 		ArrayList<Log> logs = getLogs().getLogs();
