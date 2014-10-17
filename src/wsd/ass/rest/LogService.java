@@ -153,19 +153,21 @@ public class LogService {
 		// create a new array list to hold the log entries
 		ArrayList<Log> logs = new ArrayList<Log>();
 		// if the date parameter is not null add all matching logs to the array list
-		if (startDate != null)
-			logs.addAll(getDateLogs(startDate));
-		// if the registration parameter is not null add all matching logs to the array list
-		if (vehicleRego != null)
-			logs.addAll(getRegoLog(vehicleRego));
-		// if the keyword parameter is not null add all matching logs to the array list
-		if (keyword != null)
-			logs.addAll(getKeywordLog(keyword));
+		if (startDate != null || vehicleRego != null || keyword != null) {
+			if (startDate != null)
+				logs.addAll(getDateLogs(startDate));
+			// if the registration parameter is not null add all matching logs to the array list
+			if (vehicleRego != null)
+				logs.addAll(getRegoLog(vehicleRego));
+			// if the keyword parameter is not null add all matching logs to the array list
+			if (keyword != null)
+				logs.addAll(getKeywordLog(keyword));
+			return logs;
+		} else
 		// if the array list is empty display all logs which are not hidden
-		if (logs.isEmpty())
 			return getVisibleLog("true");
 		// return all the log entries which have met all or any of the parameters
-		return logs;
+		
 	}
 	
 }
