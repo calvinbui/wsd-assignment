@@ -16,5 +16,11 @@ public final class Validator {
 		Matcher matcher = pattern.matcher(time);
 		return matcher.matches();
 	}
+	
+	public boolean emptyOrNull(String s) {
+		if (s == null || s.equals(""))
+			return true;
+		return false;
+	}
 
 }

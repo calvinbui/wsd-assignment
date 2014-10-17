@@ -27,27 +27,29 @@ try {
 
 boolean valid = true;
 
-if (startdate == null || startdate.equals("")) {
+
+
+if (validator.emptyOrNull(startdate)) {
 	session.setAttribute("startdate", "startdate");
 	valid = false;
-}
+} 
 
-if (enddate == null || enddate.equals("")) {
+if (validator.emptyOrNull(enddate)) {
 	session.setAttribute("enddate", "enddate");
 	valid = false;
 }
 
-if (starttime == null || starttime.equals("") || !validator.time(endtime)) {
+if (validator.emptyOrNull(starttime) || !validator.time(endtime)) {
 	session.setAttribute("starttime", "starttime");
 	valid = false;
 }
 
-if (endtime == null || endtime.equals("") || !validator.time(endtime)) {
+if (validator.emptyOrNull(endtime) || !validator.time(endtime)) {
 	session.setAttribute("endtime", "endtime");
 	valid = false;
 }
 
-if (description == null || description.equals("")) {
+if (validator.emptyOrNull(description)) {
 	valid = false;
 	session.setAttribute("description", "description");
 }
