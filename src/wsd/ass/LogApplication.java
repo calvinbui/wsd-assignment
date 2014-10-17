@@ -122,11 +122,10 @@ public class LogApplication {
 	 * @param description Description of entry
 	 * @param kilometres Kilometres drive
 	 */
-	public void createLog(String vehicle, String driver, String startDate,
-			String endDate, String startTime, String endTime,
-			String description, int kilometres) throws FileNotFoundException, JAXBException {
-		int id = logs.getLogs().get(logs.getLogs().size()-1).getId() + 1;
-		logs.addLog(new Log(id, vehicle, driver, startDate, endDate, startTime, endTime, description, kilometres, new Hidden(true, "")));
+	public void createLog(Log log) throws FileNotFoundException, JAXBException {
+		log.setId(logs.getLogs().get(logs.getLogs().size()-1).getId() + 1);
+		log.setHidden(new Hidden(true, ""));
+		logs.addLog(log);
 		marshall();
 	}
 }
