@@ -5,30 +5,14 @@
 				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 				xmlns:functions="http://localhost:8080/wsdassignment/rest/"
   				exclude-result-prefixes="functions">
-				<xsl:output omit-xml-declaration="yes" indent="yes"/>
-				<xsl:strip-space elements="*"/>
-				<!-- Call header.xsl -->
-  				<xsl:include href="header.xsl"/>
+<xsl:output omit-xml-declaration="yes" indent="yes"/>
+<xsl:strip-space elements="*"/>
+<!-- Call header.xsl -->
+<xsl:include href="header.xsl"/>
   
 	<xsl:template match="/">
+	
 		<html>
-		
-			<head>
-				<!-- Import bootstrap flatly theme -->
-				<link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css"></link>
-				<script src="../../js/bootstrap/bootstrap.min.js"></script>
-				<script src="../../js/jquery/jquery-1.11.1.min.js"></script>
-				<!-- Link Font Awesome stylsheet -->
-				<link href="../../css/font-awesome/font-awesome.min.css" rel="stylesheet"></link>
-				<link rel="stylesheet" href="../../css/jquery-ui/jquery-ui.min.css"></link>
-				<link rel="stylesheet" href="../../css/jquery-ui/jquery-ui.structure.min.css"></link>
-				<link rel="stylesheet" href="../../css/jquery-ui/jquery-ui.theme.min.css"></link>
-				<script src="../../js/jquery-ui/jquery-ui.min.js"></script>
-				<script src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
-				<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-				<title>Vehicle Rego</title>
-			</head>
 			
 			<body class="VehicleRego">
 			
@@ -49,6 +33,7 @@
 							<div class="col-lg-6">
 								<!-- Vehicle title -->
 								<h1><xsl:value-of select="vehicle/registration"/></h1>
+								<h3>Vehicle Details</h3>
 							</div>
 						</div>
 						<!-- End row -->
@@ -61,9 +46,9 @@
 							<xsl:apply-templates select="vehicle" />
 						</table>
 						
-						<h1>Logs</h1>
+						<h3>Logs</h3>
 						
-						<xsl:call-template name="addFlavour">
+						<xsl:call-template name="restLog">
 		<xsl:with-param name="car" select="vehicle/registration"/>
 		</xsl:call-template>
 						
@@ -145,34 +130,46 @@
 		</td>
 	</xsl:template>
 	
-	<xsl:template name="addFlavour">
+	<xsl:template name="restLog">
 	<xsl:param name="car"/>
 	<xsl:variable name="url" select="document(concat('http://localhost:8080/wsdassignment/rest/logs?vehicleRego=', $car))"/>
-	<table  class="table table-striped secondTable">
-	<thead>
-		<th>Log ID</th>
-		<th>Registration</th>
-		<th>Driver</th>
-		<th>Start Date</th>
-		<th>End Date</th>
-		<th>Start Time</th>
-		<th>End Time</th>
-		<th>Description</th>
-		<th>Kilometres</th>
-	</thead>
-		<tbody>
-		<xsl:for-each select="$url/logs/log">
-			<tr>
-				<xsl:for-each select="current()/*">
-					<td>
-						<xsl:value-of select="current()"/>
-					</td>
+	
+	<xsl:choose>
+		<xsl:when test="$url != '' ">
+			<table  class="table table-striped secondTable">
+			<thead>
+				<th>Log ID</th>
+				<th>Registration</th>
+				<th>Driver</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Start Time</th>
+				<th>End Time</th>
+				<th>Description</th>
+				<th>Kilometres</th>
+			</thead>
+				<tbody>
+				<xsl:for-each select="$url/logs/log">
+					<tr>
+						<xsl:for-each select="current()/*">
+							<td>
+								<xsl:value-of select="current()"/>
+							</td>
+						</xsl:for-each>
+					</tr>
 				</xsl:for-each>
-			</tr>
-		</xsl:for-each>
-		</tbody>
-	</table>
-
+				</tbody>
+			</table>
+		</xsl:when>
+		<xsl:otherwise>
+			<p>No log entries found for <xsl:value-of select="vehicle/registration"/>.</p>
+			
+			<h3>All Logs</h3>
+			<xsl:variable name="alllogs" select="document('http://localhost:8080/wsdassignment/rest/logs/')"/>
+			<xsl:message><xsl:copy-of select="alllogs"/></xsl:message>
+		</xsl:otherwise>
+	</xsl:choose>
+	
 				<!-- look up cross filter dataTables -->
 				<!--  <script>		
 					$(document).ready(function() {
