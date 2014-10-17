@@ -14,7 +14,7 @@ String starttime = request.getParameter("starttime");
 String endtime = request.getParameter("endtime");
 String description = request.getParameter("description");
 
-
+Validator validator = new Validator();
 
 int kilometres = 0;
 
@@ -37,12 +37,12 @@ if (enddate == null || enddate.equals("")) {
 	valid = false;
 }
 
-if (starttime == null || starttime.equals("")) {
+if (starttime == null || starttime.equals("") || !validator.time(endtime)) {
 	session.setAttribute("starttime", "starttime");
 	valid = false;
 }
 
-if (endtime == null || endtime.equals("")) {
+if (endtime == null || endtime.equals("") || !validator.time(endtime)) {
 	session.setAttribute("endtime", "endtime");
 	valid = false;
 }
