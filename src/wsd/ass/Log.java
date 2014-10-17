@@ -21,7 +21,7 @@ public class Log implements Serializable {
 
 	/** The ID of the log. Unique. */
 	@XmlElement(name = "id")
-	private int id;
+	private Integer id;
 	
 	/** The vehicle for the log entry */
 	@XmlElement(name = "vehicle")
@@ -79,7 +79,7 @@ public class Log implements Serializable {
 	 * @param kilometres Kilometres drive
 	 * @param hidden Values for hidden entry
 	 */
-	public Log(int id, String vehicle, String driver, String startDate,
+	public Log(Integer id, String vehicle, String driver, String startDate,
 			String endDate, String startTime, String endTime,
 			String description, int kilometres, Hidden hidden) {
 		super();
@@ -94,6 +94,34 @@ public class Log implements Serializable {
 		this.kilometres = kilometres;
 		this.hidden = hidden;
 	}
+	
+	
+	/**
+	 * Constructor for new log entry which does not require a ID or hidden value.
+	 * Important when drivers create a new log entry.
+	 * @param vehicle
+	 * @param driver
+	 * @param startDate
+	 * @param endDate
+	 * @param startTime
+	 * @param endTime
+	 * @param description
+	 * @param kilometres
+	 */
+	public Log(String vehicle, String driver, String startDate, String endDate,
+			String startTime, String endTime, String description, int kilometres) {
+		super();
+		this.vehicle = vehicle;
+		this.driver = driver;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.description = description;
+		this.kilometres = kilometres;
+	}
+
+
 
 	/**
 	 * A sub-class which holds the 'hidden' values

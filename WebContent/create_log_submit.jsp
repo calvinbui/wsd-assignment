@@ -1,7 +1,10 @@
 <%@ page import="wsd.ass.*" language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 
+
+
 <%
+
 
 String vehicle = request.getParameter("vehicle"); //session.getAttribute("registration");
 String driver = request.getParameter("driver"); // session.getAttribute("username")
@@ -10,6 +13,8 @@ String enddate = request.getParameter("enddate");
 String starttime = request.getParameter("starttime");
 String endtime = request.getParameter("endtime");
 String description = request.getParameter("description");
+
+
 
 int kilometres = 0;
 
@@ -53,10 +58,11 @@ if (kilometres <= 0) {
 }
 
 if (valid) {
+	Log log = new Log(vehicle, driver, startdate, enddate, starttime, endtime, description, kilometres);
 	LogApplication logApp = new LogApplication();
 	logApp.setFilePath(application.getRealPath("/log.xml"));
 	logApp.unmarshall();
-	logApp.createLog(vehicle, driver, startdate, enddate, starttime, endtime, description, kilometres);
+	logApp.createLog(log);
 
 	VehicleApplication vehicleApp = new VehicleApplication();
 	vehicleApp.setFilePath(application.getRealPath("/vehicle.xml"));
