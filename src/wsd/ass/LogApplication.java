@@ -11,6 +11,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import wsd.ass.Logs;
+import wsd.ass.Log.Hidden;
 
 /**
  * The Log Application class connects the Log XML file to the POJOs/JavaBeans (Log and Logs).
@@ -108,5 +109,24 @@ public class LogApplication {
 	
 	public void search() {
 		
+	}
+	
+	/**
+	 * Add a new log entry to the logs object then marshall it back into xml
+	 * @param vehicle Vehicle ID
+	 * @param driver Driver ID
+	 * @param startDate Start Date
+	 * @param endDate End Date
+	 * @param startTime Start Time
+	 * @param endTime End Time
+	 * @param description Description of entry
+	 * @param kilometres Kilometres drive
+	 */
+	public void createLog(String vehicle, String driver, String startDate,
+			String endDate, String startTime, String endTime,
+			String description, int kilometres) throws FileNotFoundException, JAXBException {
+		int id = logs.getLogs().get(logs.getLogs().size()-1).getId() + 1;
+		logs.addLog(new Log(id, vehicle, driver, startDate, endDate, startTime, endTime, description, kilometres, new Hidden(true, "")));
+		marshall();
 	}
 }

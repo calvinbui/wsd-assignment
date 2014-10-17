@@ -181,4 +181,12 @@ public class Vehicle implements Serializable {
 	public void setMake(String make) {
 		this.make = make;
 	}
+	
+	/**
+	 * Update the kilometres travelled by the vehicle
+	 * @param kilometres the kilometres travelled in the latest drive
+	 */
+	public void updateKilometres(int kilometres) {
+		this.kilometres += kilometres;
+	}
 }

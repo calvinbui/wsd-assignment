@@ -13,7 +13,7 @@ String description = request.getParameter("description");
 String kilometres = request.getParameter("kilometres");
 
 LogApplication logApp = new LogApplication();
-logApp.setFilePath("/log.xml");
+logApp.setFilePath(application.getRealPath("/log.xml"));
 logApp.unmarshall();
 logApp.createLog(vehicle, driver, startdate, enddate, starttime, endtime, description, Integer.parseInt(kilometres));
 

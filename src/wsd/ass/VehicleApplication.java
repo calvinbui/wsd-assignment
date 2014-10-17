@@ -2,13 +2,13 @@ package wsd.ass;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-
-import wsd.ass.Vehicle;
 
 /** 
  * The Vehicle Application class connects the Vehicle XML file to the POJOs/JavaBeans (Vehicle and Vehicles).
@@ -77,5 +77,21 @@ public class VehicleApplication {
         // close the file input stream and release the lock on it
 		fin.close();		
 	}
-
+	
+	/**
+	 * Marshal the vehicles object back into xml format and output it to the filepath
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
+	public void marshall() throws JAXBException, FileNotFoundException {
+		JAXBContext jc = JAXBContext.newInstance(Vehicles.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        m.marshal(vehicles, new FileOutputStream(getFilePath()));
+	}
+	
+	public void updateKilometres(int kilometres, String registration) throws FileNotFoundException, JAXBException {
+		vehicles.getRegistration(registration).updateKilometres(kilometres);
+		marshall();
+	}
 }
