@@ -1,11 +1,14 @@
 package wsd.ass;
 
-import java.util.Date;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+/**
+ * The TestLog is used to test the jaxb for log objects
+ * @author Calvin
+ *
+ */
 public class TestLog {
 
 	public static void main(String[] args) throws JAXBException {

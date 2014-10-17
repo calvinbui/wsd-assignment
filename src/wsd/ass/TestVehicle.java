@@ -4,7 +4,11 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-
+/**
+ * The TestVehicle is used to test the jaxb for vehicle objects
+ * @author Calvin
+ *
+ */
 public class TestVehicle {
 	
 	public static void main(String[] args) throws JAXBException {
