@@ -64,7 +64,7 @@
 			var contextpath = $('body').data("contextpath");
 			var path = location.pathname;
 			console.log('url ' + path);
-			//$('li a[href$="'+ path+'"]').parent().addClass('active');
+			$('li a[href$="'+ path+'"]').parent().addClass('active');
 			
 			// if path contians '/verhicles/'
 			// else path contians '/logs/' or logs.jsp
