@@ -66,7 +66,7 @@
 			console.log('url ' + path);
 			$('li a[href$="'+ path+'"]').parent().addClass('active');
 			
-			// if path contians '/verhicles/'
+			// if path contians '/vehicles/'
 			// else path contians '/logs/' or logs.jsp
 			// else path conatins '/drivers/' or driver.jsp
 			

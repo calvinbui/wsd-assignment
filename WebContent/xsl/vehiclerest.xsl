@@ -165,43 +165,6 @@
 		<xsl:otherwise>
 			<!-- Since {rego} has no logs, the following statement will appear -->
 			<p>No log entries found for <xsl:value-of select="vehicle/registration"/>.</p>
-			<!-- All logs title -->
-			<h3>All Logs</h3>
-			<!-- Add variable to select RESTful logs -->
-			<xsl:variable name="alllogs" select="document('http://localhost:8080/wsdassignment/rest/logs/')"/>
-			<!-- Add striped table -->
-			<table  class="table table-striped secondTable">
-			<!-- Add table header -->
-			<thead>
-				<!-- Add table header titles -->
-				<th>Log ID</th>
-				<th>Registration</th>
-				<th>Driver</th>
-				<th>Start Date</th>
-				<th>End Date</th>
-				<th>Start Time</th>
-				<th>End Time</th>
-				<th>Description</th>
-				<th>Kilometres</th>
-			</thead>
-			<!-- Add table body -->
-			<tbody>
-				<!-- For each <logs> -->
-				<xsl:for-each select="$url/logs/log">
-					<!-- Create a table row -->
-					<tr>
-						<!-- For each element within <logs> -->
-						<xsl:for-each select="current()/*">
-							<!-- Create a table data -->
-							<td>
-								<!-- Within the table data insert the <logs> element -->
-								<xsl:value-of select="current()"/>
-							</td>
-						</xsl:for-each>
-					</tr>
-				</xsl:for-each>
-				</tbody>
-			</table>
 		</xsl:otherwise>
 	</xsl:choose>
 	
