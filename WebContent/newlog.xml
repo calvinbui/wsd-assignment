@@ -4,56 +4,17 @@
 <?xml-stylesheet type="text/xsl" href="xsl/newlog.xsl"?>
 
 <!-- XML namespaces for log and XSI -->
-<addlog 
+<logform 
 	xmlns="http://www.wsd.com/log" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	
-	<input>
-		<name>startdate</name>
-		<type>date</type>
-		<placeholder>startdate</placeholder>
-	</input>
+	<addlog>
+		<vehicle></vehicle>
+		<startdate></startdate>
+		<enddate></enddate>
+		<starttime></starttime>
+		<endtime></endtime>
+		<description></description>
+	</addlog>
 	
-	<input>
-		<name>enddate</name>
-		<type>date</type>
-		<placeholder>enddate</placeholder>
-	</input>
-	
-	<input>
-		<name>starttime</name>
-		<type>time</type>
-		<placeholder>starttime</placeholder>
-	</input>
-	
-	<input>
-		<name>endtime</name>
-		<type>time</type>
-		<placeholder>endtime</placeholder>
-	</input>
-	
-	<input>
-		<name>description</name>
-		<type>text</type>
-		<placeholder>description</placeholder>
-	</input>
-	
-	<input>
-		<name>kilometres</name>
-		<type>number</type>
-		<placeholder>kilometres</placeholder>
-	</input>
-	
-	<input>
-		<name>driver</name>
-		<type>text</type>
-		<placeholder>driver</placeholder>
-	</input>
-	
-	<input>
-		<name></name>
-		<type>submit</type>
-		<placeholder></placeholder>
-	</input>
-	
-</addlog>
+</logform>

@@ -4,10 +4,7 @@
 
 <t:default>
     <jsp:body>
-		<!-- Import vehicle.xsl <c:import var="xml" url="log.xml" />-->
-		<c:import var="xml" url="header.xml" />
-		<c:import var="xslt" url="xsl/header.xsl" />
-		<!-- Style xml using xsl -->
-		<x:transform xslt="${xslt}" />
+		<!-- Import vehicle.xsl -->
+		<c:import var="xslt" url="xsl/newlog.xsl" />
     </jsp:body>
 </t:default>

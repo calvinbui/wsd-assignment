@@ -36,11 +36,13 @@
 					</div>
 					
 					<div class="bs-docs-section">
-					
+						
 						<!-- Vehicle table with striped design -->
+						<form action="create_log.jsp">
 						<table class="table table-striped table-hover">
 							<xsl:apply-templates />
 						</table>
+						</form>
 					</div>
 				</div>
 			</body>
@@ -50,50 +52,31 @@
 	</xsl:template>
 	
 	<xsl:template match="vehicle:vehicles">
-		<thead>
-			<!-- Font Awesome barcode icon -->
-			<th><i class="fa fa-barcode"></i> Registration</th>
-			<!-- Font Awesome car icon -->
-			<th><i class="fa fa-car"></i> Type</th>
-			<!-- Font Awesome kilometre dashboard icon -->
-			<th><i class="fa fa-dashboard"></i> Kilometres</th>
-		</thead>
-		<tbody>
-			<xsl:apply-templates>
-				<xsl:sort select="vehicle:registration" />
-			</xsl:apply-templates>
-		</tbody>
-	</xsl:template>
 	
-	<xsl:template match="vehicle:vehicle">
-		<tr>
-			<xsl:apply-templates select="vehicle:registration" />
-			<xsl:apply-templates select="vehicle:type" />
-			<xsl:apply-templates select="vehicle:kilometres" />
-		</tr>
-	</xsl:template>
-
-	<!-- Registration -->
-	<xsl:template match="vehicle:registration">
-		<td>
-			<a href="rest/vehicles/{.}"><xsl:apply-templates /></a>
-		</td>
-	</xsl:template>
-
-	<!-- Vehicle Type -->
-	<xsl:template match="vehicle:type">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-
-	<!-- Kilometres -->
-	<xsl:template match="vehicle:kilometres">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-
+		<table class="table table-striped secondTable">
+			<thead>
+				<th><i class="fa fa-barcode"></i> Registration</th>
+				<th><i class="fa fa-car"></i> Type</th>
+				<th><i class="fa fa-dashboard"></i> Kilometres</th>
+				<th style="width: 10%"><i class="fa fa-dashboard"></i> New Log</th>
+			</thead>
+				<tbody>
+					<xsl:apply-templates name="vehicleTable">
+						<xsl:sort select="vehicle:registration"/>
+					</xsl:apply-templates>
+				</tbody>
+			</table>
+		</xsl:template>
+		
+		<xsl:template name="vehicleTable" match="vehicle:vehicle">
+			<tr>
+				<td><a href="rest/vehicles/{vehicle:registration}"><xsl:value-of select="vehicle:registration"/></a></td>
+				<td><xsl:value-of select="vehicle:type"/></td>
+				<td><xsl:value-of select="vehicle:kilometres"/></td>
+				<td><a href="create_log.jsp?{vehicle:registration}" value="{vehicle:registration}" class="btn btn-default">Add</a></td>
+			</tr>
+		</xsl:template>
+		
+<!-- createlog?{vehicle:registration} -->
 
 </xsl:stylesheet>

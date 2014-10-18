@@ -6,7 +6,7 @@
 				xmlns:vehicle="http://www.wsd.com/vehicle">
 				
 	<xsl:include href="xsl/header.xsl"/>	
-	<xsl:param name="logs" select="document('log.xml')"/>
+	<xsl:param name="logs" select="document('vehicle.xml')"/>
 	
 	<xsl:template match="/">
 		<html>
