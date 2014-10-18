@@ -41,17 +41,16 @@
 					
 					<div class="bs-docs-section">
 					
-						<!-- Vehicle table with striped design -->
-						<table class="table table-striped">
-							<xsl:apply-templates select="vehicle" />
-						</table>
+							<!-- Vehicle table with striped design -->
+							<table class="table table-striped">
+								<xsl:apply-templates select="vehicle" />
+							</table>
 						
-						<h3>Logs</h3>
-						
-						<xsl:call-template name="restLog">
-		<xsl:with-param name="car" select="vehicle/registration"/>
-		</xsl:call-template>
-						
+							<h3>Logs</h3>
+							
+							<xsl:call-template name="restLog">
+							<xsl:with-param name="car" select="vehicle/registration"/>
+							</xsl:call-template>
 					</div>
 				</div>
 			</body>

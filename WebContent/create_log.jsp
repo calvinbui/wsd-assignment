@@ -10,10 +10,16 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-	
-	<%
-	if (rego != null) {
-	%>
+		
+		<form action="create_log_submit.jsp" method="post">
+			<select name="vehicle" disabled="disabled">
+				<option value="registration">
+					<%
+						String r=request.getParameter("registration");
+						out.println(r);
+					%>
+				</option>
+			</select>
 	
 		<form action="create_log_submit.jsp" method="post">
 		<select name="vehicle">
