@@ -12,7 +12,7 @@
 	<body>
 	
 	<%
-	if (rego != null) {
+	//if (rego != null) {
 	%>
 	
 		<form action="create_log_submit.jsp" method="post">
@@ -28,6 +28,7 @@
 		<input name="driver" type="text" placeholder="driver - should be automatic"/>
 		<input type="submit"/>
 		</form>
+	<% //} %>
 	</body>
 
 

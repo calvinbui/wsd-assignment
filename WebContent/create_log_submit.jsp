@@ -5,6 +5,8 @@
 
 <%
 
+session.removeAttribute("starttime");
+session.removeAttribute("endtime");
 
 String vehicle = request.getParameter("vehicle"); //session.getAttribute("registration");
 String driver = request.getParameter("driver"); // session.getAttribute("username")
@@ -29,27 +31,27 @@ boolean valid = true;
 
 
 
-if (validator.emptyOrNull(startdate)) {
+if (validator.emptyOrNullCheck(startdate)) {
 	session.setAttribute("startdate", "startdate");
 	valid = false;
 } 
 
-if (validator.emptyOrNull(enddate)) {
+if (validator.emptyOrNullCheck(enddate)) {
 	session.setAttribute("enddate", "enddate");
 	valid = false;
 }
 
-if (validator.emptyOrNull(starttime) || !validator.time(endtime)) {
+if (validator.timeCheck(starttime)) {
 	session.setAttribute("starttime", "starttime");
 	valid = false;
 }
 
-if (validator.emptyOrNull(endtime) || !validator.time(endtime)) {
+if (validator.timeCheck(endtime)) {
 	session.setAttribute("endtime", "endtime");
 	valid = false;
 }
 
-if (validator.emptyOrNull(description)) {
+if (validator.emptyOrNullCheck(description)) {
 	valid = false;
 	session.setAttribute("description", "description");
 }
