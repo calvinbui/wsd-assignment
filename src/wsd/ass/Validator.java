@@ -27,6 +27,7 @@ public final class Validator {
 		if (emptyOrNullCheck(date))
 			return true;
 		// need to validate leap years and months but the guy in front of me is so smelly i can't think at the moment.
+		// smelly guy is gone. perhaps using Java's built in Date class it can validate like if it throws an exception then its obvs a bad date.
 		Pattern pattern = Pattern.compile("([01][0-9]|[20-23])-([0][0-9]|[1][0-2])-([0][0-9]|[1][0-9]|[2][0-9]|[3][0-2])");
 		Matcher matcher = pattern.matcher(date);
 		return !matcher.matches();
@@ -67,4 +68,5 @@ public final class Validator {
 	}
 	
 	//validate start date+time is before end date + time. look in android code if possible.
+	//will be diffs. maybe can use java built in date class which takes datetime after all!
 }
