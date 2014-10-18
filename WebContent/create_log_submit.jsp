@@ -31,12 +31,12 @@ boolean valid = true;
 
 
 
-if (validator.emptyOrNullCheck(startdate)) {
+if (validator.dateCheck(startdate)) {
 	session.setAttribute("startdate", "startdate");
 	valid = false;
 } 
 
-if (validator.emptyOrNullCheck(enddate)) {
+if (validator.dateCheck(enddate)) {
 	session.setAttribute("enddate", "enddate");
 	valid = false;
 }
