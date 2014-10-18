@@ -11,6 +11,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 
+import wsd.ass.Constants;
 import wsd.ass.Log;
 import wsd.ass.LogApplication;
 import wsd.ass.Logs;
@@ -36,7 +37,7 @@ public class LogSOAP {
 			LogApplication logApp = (LogApplication)application.getAttribute("logApp");
 			if (logApp == null) {
 				logApp = new LogApplication();
-				String filePath = application.getRealPath("/log.xml");
+				String filePath = application.getRealPath(Constants.LOG_XML);
 				logApp.setFilePath(filePath);
 				logApp.unmarshall();
 				application.setAttribute("logApp", logApp);

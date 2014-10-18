@@ -64,12 +64,12 @@ if (kilometres <= 0) {
 if (valid) {
 	Log log = new Log(vehicle, driver, startdate, enddate, starttime, endtime, description, kilometres);
 	LogApplication logApp = new LogApplication();
-	logApp.setFilePath(application.getRealPath("/log.xml"));
+	logApp.setFilePath(application.getRealPath(Constants.LOG_XML));
 	logApp.unmarshall();
 	logApp.createLog(log);
 
 	VehicleApplication vehicleApp = new VehicleApplication();
-	vehicleApp.setFilePath(application.getRealPath("/vehicle.xml"));
+	vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
 	vehicleApp.unmarshall();
 	vehicleApp.updateKilometres(kilometres, vehicle);	
 }
