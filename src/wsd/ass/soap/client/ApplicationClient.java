@@ -41,6 +41,7 @@ public class ApplicationClient {
 			user = userSOAP.getUser(email, password);
 			if (user == null)
 				System.out.println("\nLogin Failed. Try again. \n");
+			Thread.sleep(1000);
 		}
 	}
 	

@@ -10,5 +10,4 @@ package wsd.ass.soap.client;
 public interface UserSOAP extends java.rmi.Remote {
     public wsd.ass.soap.client.User[] getUsers() throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException;
     public wsd.ass.soap.client.User getUser(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, wsd.ass.soap.client.JAXBException, wsd.ass.soap.client.IOException;
-    public java.lang.String hello() throws java.rmi.RemoteException;
 }

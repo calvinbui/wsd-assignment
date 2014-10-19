@@ -8,7 +8,7 @@
 package wsd.ass.soap.client;
 
 public class Log  implements java.io.Serializable {
-    private int id;
+    private java.lang.Integer id;
 
     private java.lang.String vehicle;
 
@@ -32,7 +32,7 @@ public class Log  implements java.io.Serializable {
     }
 
     public Log(
-           int id,
+           java.lang.Integer id,
            java.lang.String vehicle,
            java.lang.String driver,
            java.lang.String startdate,
@@ -60,7 +60,7 @@ public class Log  implements java.io.Serializable {
      * 
      * @return id
      */
-    public int getId() {
+    public java.lang.Integer getId() {
         return id;
     }
 
@@ -70,7 +70,7 @@ public class Log  implements java.io.Serializable {
      * 
      * @param id
      */
-    public void setId(int id) {
+    public void setId(java.lang.Integer id) {
         this.id = id;
     }
 
@@ -266,7 +266,9 @@ public class Log  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            this.id == other.getId() &&
+            ((this.id==null && other.getId()==null) || 
+             (this.id!=null &&
+              this.id.equals(other.getId()))) &&
             ((this.vehicle==null && other.getVehicle()==null) || 
              (this.vehicle!=null &&
               this.vehicle.equals(other.getVehicle()))) &&
@@ -303,7 +305,9 @@ public class Log  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        _hashCode += getId();
+        if (getId() != null) {
+            _hashCode += getId().hashCode();
+        }
         if (getVehicle() != null) {
             _hashCode += getVehicle().hashCode();
         }
@@ -343,6 +347,7 @@ public class Log  implements java.io.Serializable {
         elemField.setFieldName("id");
         elemField.setXmlName(new javax.xml.namespace.QName("", "id"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

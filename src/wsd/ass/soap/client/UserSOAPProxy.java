@@ -56,11 +56,5 @@ public class UserSOAPProxy implements wsd.ass.soap.client.UserSOAP {
     return userSOAP.getUser(arg0, arg1);
   }
   
-  public java.lang.String hello() throws java.rmi.RemoteException{
-    if (userSOAP == null)
-      _initUserSOAPProxy();
-    return userSOAP.hello();
-  }
-  
   
 }
