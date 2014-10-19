@@ -1,34 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<h1>Login</h1>
-
-<form action="checkLogin.jsp" method="POST">
-<table>
-<tr>
-    <td>Username</td>
-    <td><input type= 'text' name= 'username'/></td>
-</tr>
-
-<tr>
-    <td>Password</td>
-    <td><input type= 'password' name= 'password'/></td>
-</tr>
-
-<tr>
-    <td></td>
-    <td><input type= 'submit' name='login' value='Login'/></td>
-</tr>
-
-</table>
-</form>
-
-</body>
-</html>
+<t:default>
+    <jsp:body>
+    	<!-- Import newlog.xml -->
+		<c:import var="xml" url="login.xml"/>
+		<!-- Import newlog.xsl -->
+		<c:import var="xslt" url="xsl/login.xsl" />
+		<!-- Style xml using xsl -->
+		<x:transform xml="${xml}" xslt="${xslt}" />
+    </jsp:body>
+</t:default>

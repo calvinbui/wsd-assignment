@@ -38,6 +38,7 @@
 						<!-- Insert page title -->
 						<xsl:apply-templates select="title"/>
 						
+						
 						<!-- Add new log form -->
 						<form>
 								<xsl:for-each select="addlog/*">
@@ -82,6 +83,7 @@
 								<input action="#" type="submit" class="btn btn-default" value="Add new log"/>
 								<!-- Get rego from Window location href -->
 								<script>$('.vehicle').val($('.vehicle').val() + window.location.search.substr(1));</script>
+								<script>$('#title').append(' for Registration: ' + window.location.search.substr(1));</script>
 						</form>
 					</div>
 				</div>
@@ -90,14 +92,9 @@
 	</xsl:template>
 	
 	<xsl:template match="title">
-		<h1>
+		<h1 id="title">
 			<xsl:apply-templates/>
 		</h1>
-	</xsl:template>
-	
-	<xsl:template name="form">
-		<span class="input-group-addon">@</span>
-  		<input type="text" class="form-control" placeholder="Username"></input>
 	</xsl:template>
 	
 </xsl:stylesheet>
