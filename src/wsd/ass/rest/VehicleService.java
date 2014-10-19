@@ -78,7 +78,7 @@ public class VehicleService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public Vehicles getAll() throws JAXBException, IOException {
 		// use the Vehicle application to return all vehicles
-		return getVehicleApp().getVehiclesList();
+		return (Vehicles) getVehicleApp().get();
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class VehicleService {
 	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/vehiclerest.xsl' ?>")
 	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
 		// store all vehicles in the system into an array list
-		ArrayList<Vehicle> vehicles = getVehicleApp().getVehiclesList().getVehicles();
+		ArrayList<Vehicle> vehicles = ((Vehicles) getVehicleApp().get()).getVehicles();
         // for every vehicle in the arraylist
 		for (Vehicle vehicle : vehicles)
 			// if the matches the registration number entered
