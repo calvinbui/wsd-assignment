@@ -58,7 +58,7 @@ public final class Validator {
 
 	//validate user exists
 	public static boolean userCheck(String email) throws JAXBException, IOException {
-		ArrayList<User> users = getUserApp().getUsers().getUsers();
+		ArrayList<User> users = ((Users) getUserApp().get()).getUsers();
 		for (User user : users) {
 			if (user.getUsername().equals(email))
 					return false;
