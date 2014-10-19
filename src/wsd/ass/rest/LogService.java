@@ -48,7 +48,7 @@ public class LogService {
 		// locks the servlet for the current request
 		synchronized (application) {
 			// create a new log application with the 'logs' attribute if available by casting the servlet
-			LogApplication logs = (LogApplication) application.getAttribute("logs");
+			LogApplication logs = (LogApplication) application.getAttribute(Constants.LOG_APP);
 			// if 'logs' is not available, the LogApplication will be null
 			if (logs == null) {
 				// create a new log application object
@@ -58,7 +58,7 @@ public class LogService {
 				// unmarshall the log.xml file into the LogApplication object
 				logs.unmarshall();
 				// set the unmarshalled log.xml file application wide to save having to unmarshall it again for the next request.
-				application.setAttribute("logs", logs);
+				application.setAttribute(Constants.LOG_APP, logs);
 			}
 			// if 'logs' attribute exists, return the already unmarshalled object or the one just unmarshalled
 			return logs;

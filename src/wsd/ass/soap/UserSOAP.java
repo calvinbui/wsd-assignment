@@ -33,13 +33,13 @@ public class UserSOAP {
 	private UserApplication getUserApp() throws JAXBException, IOException {
 		ServletContext application = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
-			UserApplication userApp = (UserApplication)application.getAttribute("userApp");
+			UserApplication userApp = (UserApplication)application.getAttribute(Constants.USER_APP);
 			if (userApp == null) {
 				userApp = new UserApplication();
 				String filePath = application.getRealPath(Constants.USER_XML);
 				userApp.setFilePath(filePath);
 				userApp.unmarshall();
-				application.setAttribute("userApp", userApp);
+				application.setAttribute(Constants.USER_APP, userApp);
 			}
 			return userApp;
 		}

@@ -51,7 +51,7 @@ public class VehicleService {
 		// locks the servlet for the current request
 		synchronized (application) {
 			// create a new vehicle application with the 'vehicles' attribute if available by casting the servlet
-			VehicleApplication vehicles = (VehicleApplication) application.getAttribute("vehicles");
+			VehicleApplication vehicles = (VehicleApplication) application.getAttribute(Constants.VEHICLE_APP);
 			// if 'vehicles' is not available, the VehicleApplication will be null
 			if (vehicles == null) {
 				// create a new vehicle application object
@@ -61,7 +61,7 @@ public class VehicleService {
 				// unmarshall the vehicle.xml file into the Vehicle Application object
 				vehicles.unmarshall();
 				// set the unmarshalled vehicle.xml file application wide to save having to unmarshall it again for the next request. 
-				application.setAttribute("vehicles", vehicles);
+				application.setAttribute(Constants.VEHICLE_APP, vehicles);
 			}
 			// if 'vehicles' attribute exists, return the already unmarshalled object or the one just unmarshalled
 			return vehicles;

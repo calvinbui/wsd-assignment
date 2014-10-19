@@ -34,13 +34,13 @@ public class LogSOAP {
 	private LogApplication getLogApp() throws JAXBException, IOException {
 		ServletContext application = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
-			LogApplication logApp = (LogApplication)application.getAttribute("logApp");
+			LogApplication logApp = (LogApplication)application.getAttribute(Constants.LOG_APP);
 			if (logApp == null) {
 				logApp = new LogApplication();
 				String filePath = application.getRealPath(Constants.LOG_XML);
 				logApp.setFilePath(filePath);
 				logApp.unmarshall();
-				application.setAttribute("logApp", logApp);
+				application.setAttribute(Constants.LOG_APP, logApp);
 			}
 			return logApp;
 		}
