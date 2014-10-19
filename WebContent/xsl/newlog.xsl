@@ -95,9 +95,4 @@
 		</h1>
 	</xsl:template>
 	
-	<xsl:template name="form">
-		<span class="input-group-addon">@</span>
-  		<input type="text" class="form-control" placeholder="Username"></input>
-	</xsl:template>
-	
 </xsl:stylesheet>

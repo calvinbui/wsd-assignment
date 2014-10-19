@@ -1,1 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<loginform>
+	<title>Login</title>
+	<login>
+		<username>Username</username>
+		<password>Password</password>
+	</login>
+</loginform>
