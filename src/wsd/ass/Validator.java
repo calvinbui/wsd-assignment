@@ -12,7 +12,7 @@ import javax.xml.bind.JAXBException;
 
 public final class Validator {
 	
-	public boolean timeCheck(String time) {
+	public static boolean timeCheck(String time) {
 		if (emptyOrNullCheck(time))
 			return true;
 		
@@ -27,18 +27,19 @@ public final class Validator {
 		return false;
 	}
 	
-	public boolean emptyOrNullCheck(String s) {
+	public static boolean emptyOrNullCheck(String s) {
 		if (s == null || s.equals(""))
 			return true;
 		return false;
 	}
 	
 	// http://www.mkyong.com/java/how-to-check-if-date-is-valid-in-java/
-	public boolean dateCheck(String date) {
+	public static boolean dateCheck(String date) {
 		if (emptyOrNullCheck(date))
 			return true;
-		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
 		
+		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
+		sdf.setLenient(false);
 		try {
 			sdf.parse(date);
 		} catch (ParseException e) {
@@ -48,7 +49,7 @@ public final class Validator {
 		return false;
 	}
 	
-	public UserApplication getUserApp() throws JAXBException, IOException {
+	private static UserApplication getUserApp() throws JAXBException, IOException {
 		UserApplication userApp = new UserApplication();
 		userApp.setFilePath(Constants.LOG_XML);
 		userApp.unmarshall();
@@ -56,7 +57,7 @@ public final class Validator {
 	}
 
 	//validate user exists
-	public boolean userCheck(String email) throws JAXBException, IOException {
+	public static boolean userCheck(String email) throws JAXBException, IOException {
 		ArrayList<User> users = getUserApp().getUsers().getUsers();
 		for (User user : users) {
 			if (user.getUsername().equals(email))
@@ -65,7 +66,7 @@ public final class Validator {
 		return true;
 	}
 	
-	public VehicleApplication getVehicleApp() throws JAXBException, IOException {
+	private static VehicleApplication getVehicleApp() throws JAXBException, IOException {
 		VehicleApplication vehicleApp = new VehicleApplication();
 		vehicleApp.setFilePath(Constants.VEHICLE_XML);
 		vehicleApp.unmarshall();
@@ -73,7 +74,7 @@ public final class Validator {
 	}
 	
 	//validate vehicle exists
-	public boolean vehicleCheck(String registration) throws JAXBException, IOException {
+	public static boolean vehicleCheck(String registration) throws JAXBException, IOException {
 		ArrayList<Vehicle> vehicles = getVehicleApp().getVehiclesList().getVehicles();
 		for (Vehicle vehicle : vehicles) {
 			if (vehicle.getRegistration().equals(registration))
@@ -82,7 +83,7 @@ public final class Validator {
 		return true;
 	}
 	
-	public boolean startDateTimeBeforeEndDateTimeCheck(String startDateTime, String endDateTime) {
+	public static boolean startDateTimeBeforeEndDateTimeCheck(String startDateTime, String endDateTime) {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATETIME_FORMAT);
 	    

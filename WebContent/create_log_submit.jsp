@@ -5,6 +5,8 @@
 
 <%
 
+session.removeAttribute("startdate");
+session.removeAttribute("enddate");
 session.removeAttribute("starttime");
 session.removeAttribute("endtime");
 session.removeAttribute("invalidDates");
@@ -19,7 +21,6 @@ String starttime = request.getParameter("starttime");
 String endtime = request.getParameter("endtime");
 String description = request.getParameter("description");
 
-Validator validator = new Validator();
 
 int kilometres = 0;
 
@@ -34,27 +35,27 @@ boolean valid = true;
 
 
 
-if (validator.dateCheck(startdate)) {
+if (Validator.dateCheck(startdate)) {
 	session.setAttribute("startdate", "startdate");
 	valid = false;
 } 
 
-if (validator.dateCheck(enddate)) {
+if (Validator.dateCheck(enddate)) {
 	session.setAttribute("enddate", "enddate");
 	valid = false;
 }
 
-if (validator.timeCheck(starttime)) {
+if (Validator.timeCheck(starttime)) {
 	session.setAttribute("starttime", "starttime");
 	valid = false;
 }
 
-if (validator.timeCheck(endtime)) {
+if (Validator.timeCheck(endtime)) {
 	session.setAttribute("endtime", "endtime");
 	valid = false;
 }
 
-if (validator.emptyOrNullCheck(description)) {
+if (Validator.emptyOrNullCheck(description)) {
 	valid = false;
 	session.setAttribute("description", "description");
 }
@@ -64,7 +65,7 @@ if (kilometres <= 0) {
 	valid = false;
 }
 
-if (validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
+if (Validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
 	session.setAttribute("invalidDates", "invalidDates");
 }
 
