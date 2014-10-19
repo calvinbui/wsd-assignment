@@ -27,7 +27,7 @@ import wsd.ass.Logs;
  * 
  */
 @Path("/logs")
-public class LogService {
+public class LogService implements RESTServiceFactory{
 	/** Set of methods to communicate with the servlet container such as retrieve xml files */
 	@Context // inject an instance of the JSP application into this field
 	private ServletContext application;
@@ -44,7 +44,8 @@ public class LogService {
 	 * @throws JAXBException
 	 * @throws IOException
 	 */
-	private LogApplication getLogApp() throws JAXBException, IOException {
+	@Override
+	public Object getApp() throws JAXBException, IOException {
 		// locks the servlet for the current request
 		synchronized (application) {
 			// create a new log application with the 'logs' attribute if available by casting the servlet
@@ -74,13 +75,14 @@ public class LogService {
 	@Path("all") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public Logs getLogs() throws JAXBException, IOException {
+	@Override
+	public Logs fetch() throws JAXBException, IOException {
 		// use the Log Application to return all log entries
-		return (Logs) getLogApp().get();
+		return (Logs) ((LogApplication) getApp()).get();
 	}
 	
 	public ArrayList<Log> queryLogs (String query, String type) throws JAXBException, IOException {
-		return getLogApp().getList(query, type);
+		return (ArrayList<Log>) ((LogApplication) getApp()).getList(query, type);
 	}
 	
 	/**
