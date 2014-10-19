@@ -82,8 +82,21 @@ public class VehicleApplication implements ApplicationFactory {
 	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
 	 */
 	public void updateKilometres(int kilometres, String registration) throws FileNotFoundException, JAXBException {
-		vehicles.getRegistration(registration).updateKilometres(kilometres);
+		getRegistration(registration).updateKilometres(kilometres);
 		marshall();
+	}
+	
+	/**
+	 * Return the matching vehicle with the given registration number
+	 * @param registration the registration number to query
+	 * @return a vehicle with the matching registration
+	 */
+	public Vehicle getRegistration(String registration) {
+		for (Vehicle vehicle : vehicles.getVehicles()) {
+			if (vehicle.getRegistration().equals(registration))
+				return vehicle; // Vehicle matches registration. Return the vehicle
+		}
+		return null; // Vehicle not found, return null
 	}
 	
 	/**

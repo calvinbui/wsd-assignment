@@ -44,22 +44,4 @@ public class Users implements Serializable {
 	public void removeUser(User user) {
 		users.remove(user);
 	}
-
-	/**
-	 * Login method.
-	 * Validate a user's credentials against the ArrayList of users.
-	 * Return matched user.
-	 * @param username user inputed username/email
-	 * @param password user inputed password
-	 * @return user with matching username and password
-	 */
-	public User login(String username, String password) {
-		// For each user in the list...
-		for (User user : users) {
-			// if username matches and password matches
-			if (user.getUsername().equals(username) && user.getPassword().equals(password))
-				return user; // Login correct. Return this user.
-		}
-		return null; // Login incorrect. Return null.
-	}
 }

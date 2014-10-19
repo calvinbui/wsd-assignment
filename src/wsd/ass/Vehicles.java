@@ -36,17 +36,4 @@ public class Vehicles implements Serializable {
 	public void addVehicle(Vehicle vehicle) {
 		vehicles.add(vehicle);
 	}
-
-	/**
-	 * Return the matching vehicle with the given registration number
-	 * @param registration the registration number to query
-	 * @return a vehicle with the matching registration
-	 */
-	public Vehicle getRegistration(String registration) {
-		for (Vehicle vehicle : vehicles) {
-			if (vehicle.getRegistration().equals(registration))
-				return vehicle; // Vehicle matches registration. Return the vehicle
-		}
-		return null; // Vehicle not found, return null
-	}
 }

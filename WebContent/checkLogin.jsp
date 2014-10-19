@@ -13,7 +13,7 @@
 %> <jsp:useBean id="userApp" class="wsd.ass.UserApplication" scope="application"> 
 <jsp:setProperty name="userApp" property="filePath" value="<%=filePath%>"/> </jsp:useBean> 
 
-<% User user = userApp.getUsers().login(request.getParameter("username"), request.getParameter("password")); %> 
+<% User user = userApp.login(request.getParameter("username"), request.getParameter("password")); %> 
 
 </body>
 </html>
