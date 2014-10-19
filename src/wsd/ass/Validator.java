@@ -75,7 +75,7 @@ public final class Validator {
 	
 	//validate vehicle exists
 	public static boolean vehicleCheck(String registration) throws JAXBException, IOException {
-		ArrayList<Vehicle> vehicles = getVehicleApp().getVehiclesList().getVehicles();
+		ArrayList<Vehicle> vehicles = ((Vehicles) getVehicleApp().get()).getVehicles();
 		for (Vehicle vehicle : vehicles) {
 			if (vehicle.getRegistration().equals(registration))
 				return false;

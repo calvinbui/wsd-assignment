@@ -17,7 +17,7 @@ import javax.xml.bind.Unmarshaller;
  * @author Calvin
  *
  */
-public class VehicleApplication {
+public class VehicleApplication implements ApplicationFactory {
 	/** The path of the XML file */
 	private String filePath;
 
@@ -38,22 +38,6 @@ public class VehicleApplication {
 	 */
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
-	}
-
-	/**
-	 * Get all vehicles
-	 * @return an ArrayList containing all the vehicles
-	 */
-	public Vehicles getVehiclesList() {
-		return vehicles;
-	}
-
-	/**
-	 * Set all vehicles
-	 * @param vehicles an ArrayList containing all vehicles
-	 */
-	public void setVehicles(Vehicles vehicles) {
-		this.vehicles = vehicles;
 	}
 
 	/**
@@ -108,8 +92,27 @@ public class VehicleApplication {
 	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
 	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
 	 */
-	public void addVehicle(Vehicle vehicle) throws FileNotFoundException, JAXBException {
-		vehicles.addVehicle(vehicle);
+	@Override
+	public void add(Object object) throws FileNotFoundException, JAXBException {
+		vehicles.addVehicle((Vehicle) object);
 		marshall();
+	}
+
+	/**
+	 * Get all vehicles
+	 * @return an ArrayList containing all the vehicles
+	 */
+	@Override
+	public Object get() {
+		return vehicles;
+	}
+
+	/**
+	 * Set all vehicles
+	 * @param vehicles an ArrayList containing all vehicles
+	 */
+	@Override
+	public void set(Object object) {
+		vehicles = (Vehicles) object;
 	}
 }
