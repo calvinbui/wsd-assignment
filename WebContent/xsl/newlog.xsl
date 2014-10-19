@@ -53,25 +53,25 @@
 										<xsl:when test="contains(current(),'Date')">
 										<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="date" class="form-control {current()}" value="" placeholder="add {current()}"></input>
+												<input type="date" class="form-control {current()}" value="" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:when>
 										<xsl:when test="contains(current(),'Time')">
 										<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="time" class="form-control {current()}" value="" placeholder="add {current()}"></input>
+												<input type="time" class="form-control {current()}" value="" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:when>
 										<xsl:when test="contains(current(),'Kilometres')">
 										<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="number" class="form-control {current()}" value="" placeholder="add {current()}"></input>
+												<input type="number" class="form-control {current()}" value="" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:when>
 										<xsl:otherwise>
 											<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="text" class="form-control {current()}" placeholder="add {current()}"></input>
+												<input type="text" class="form-control {current()}" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:otherwise>
 									</xsl:choose>

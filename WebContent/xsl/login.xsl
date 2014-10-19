@@ -59,7 +59,7 @@
 								</xsl:otherwise>
 							</xsl:choose>
 							</xsl:for-each>
-							<button class="btn btn-primary btn-block" type="submit">Log in</button>
+							<a href="{$context-path}/index.jsp"><button class="btn btn-primary btn-block" type="submit">Log in</button></a>
 						</form>
 					</div>
 					

@@ -20,7 +20,6 @@
 				<script src="{$context-path}/js/jquery-ui/jquery-ui.min.js"></script>
 				<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-				
 			</head>
 			
 			<body id="navbar" data-contextpath="{$context-path}">
@@ -47,7 +46,7 @@
 							
 							<!-- Login navbar -->
 							<form class="navbar-form navbar-right">
-									<a  href="{$context-path}/login.jsp"><button type="button" class="btn btn-primary btn-success btn-sm">Login</button></a>
+									<a  href="{$context-path}/login.jsp"><button type="button" class="btn btn-primary btn-success btn-sm">Driver Login</button></a>
 							<!-- End of login navbar -->
 							</form>
 							
