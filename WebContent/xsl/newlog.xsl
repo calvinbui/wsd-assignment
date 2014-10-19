@@ -34,7 +34,14 @@
 				<xsl:call-template name="navbar"/>
 				<div class="container">
 					<div class="pageheader">
-					
+						
+						<ol class="breadcrumb">
+							<li><a href="{$context-path}/index.jsp">Home</a></li>
+							<li><a href="{$context-path}/index.jsp">Vehicles</a></li>
+							<li><a id="regoLink" href="{$context-path}/rest/vehicles/"></a></li>
+							<li>Add new log</li>
+						</ol>
+						
 						<!-- Insert page title -->
 						<xsl:apply-templates select="title"/>
 						
@@ -84,6 +91,12 @@
 								<!-- Get rego from Window location href -->
 								<script>$('.vehicle').val($('.vehicle').val() + window.location.search.substr(1));</script>
 								<script>$('#title').append(' for Registration: ' + window.location.search.substr(1));</script>
+								<script>$('#regoLink').append(window.location.search.substr(1));</script>
+								<script>
+								var string2 = window.location.search.substr(1);
+								$('#regoLink').each(function(){
+     this.href += string2;
+})</script>
 						</form>
 					</div>
 				</div>
