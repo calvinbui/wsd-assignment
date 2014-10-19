@@ -73,7 +73,7 @@
 				<td><a href="rest/vehicles/{vehicle:registration}"><xsl:value-of select="vehicle:registration"/></a></td>
 				<td><xsl:value-of select="vehicle:type"/></td>
 				<td><xsl:value-of select="vehicle:kilometres"/></td>
-				<td><a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}" class="btn btn-default">Add</a></td>
+				<td><a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}" class="btn btn-default">Add new log</a></td>
 			</tr>
 		</xsl:template>
 		

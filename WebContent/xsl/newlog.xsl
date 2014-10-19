@@ -34,7 +34,14 @@
 				<xsl:call-template name="navbar"/>
 				<div class="container">
 					<div class="pageheader">
-					
+						
+						<ol class="breadcrumb">
+							<li><a href="{$context-path}/index.jsp">Home</a></li>
+							<li><a href="{$context-path}/index.jsp">Vehicles</a></li>
+							<li><a id="regoLink" href="{$context-path}/rest/vehicles/"></a></li>
+							<li>Add new log</li>
+						</ol>
+						
 						<!-- Insert page title -->
 						<xsl:apply-templates select="title"/>
 						
@@ -53,25 +60,25 @@
 										<xsl:when test="contains(current(),'Date')">
 										<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="date" class="form-control {current()}" value="" placeholder="add {current()}"></input>
+												<input type="date" class="form-control {current()}" value="" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:when>
 										<xsl:when test="contains(current(),'Time')">
 										<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="time" class="form-control {current()}" value="" placeholder="add {current()}"></input>
+												<input type="time" class="form-control {current()}" value="" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:when>
 										<xsl:when test="contains(current(),'Kilometres')">
 										<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="number" class="form-control {current()}" value="" placeholder="add {current()}"></input>
+												<input type="number" class="form-control {current()}" value="" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:when>
 										<xsl:otherwise>
 											<div style="margin-bottom: 10px;" class="input-group">
 												<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-												<input type="text" class="form-control {current()}" placeholder="add {current()}"></input>
+												<input type="text" class="form-control {current()}" placeholder="add {current()}" required=""></input>
 											</div>
 										</xsl:otherwise>
 									</xsl:choose>
@@ -84,6 +91,12 @@
 								<!-- Get rego from Window location href -->
 								<script>$('.vehicle').val($('.vehicle').val() + window.location.search.substr(1));</script>
 								<script>$('#title').append(' for Registration: ' + window.location.search.substr(1));</script>
+								<script>$('#regoLink').append(window.location.search.substr(1));</script>
+								<script>
+								var string2 = window.location.search.substr(1);
+								$('#regoLink').each(function(){
+								     this.href += string2;
+								})</script>
 						</form>
 					</div>
 				</div>

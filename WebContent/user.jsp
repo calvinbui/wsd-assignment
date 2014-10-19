@@ -8,7 +8,7 @@
 <body>
 
 <!-- Import vehicle.xml -->
-<c:import var="xml" url="user.xml"/>
+<c:import var="xml" url="xml/user.xml"/>
 <!-- Import vehicle.xsl -->
 <c:import var="xslt" url="xsl/user.xsl" />
 <!-- Style xml using xsl -->

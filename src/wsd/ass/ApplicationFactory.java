@@ -5,6 +5,15 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
+/**
+ * The ApplicationFactory interface provides an interface for creating 'application' classes
+ * 
+ * In this project, application classes are those that are the controller between
+ * the xml files and the javabeans/pojo
+ * 
+ * @author Calvin and Janette
+ *
+ */
 public interface ApplicationFactory {
 	public void marshall() throws JAXBException, FileNotFoundException;
 	public void unmarshall() throws JAXBException, IOException;

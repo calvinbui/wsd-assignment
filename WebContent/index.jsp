@@ -5,7 +5,7 @@
 <t:default>
     <jsp:body>
         <!-- Import vehicle.xml -->
-		<c:import var="xml" url="vehicle.xml"/>
+		<c:import var="xml" url="xml/vehicle.xml"/>
 		<!-- Import vehicle.xsl -->
 		<c:import var="xslt" url="xsl/vehicle.xsl" />
 		<!-- Style xml using xsl -->

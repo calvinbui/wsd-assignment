@@ -1,6 +1,9 @@
 package wsd.ass;
 
-
+/**
+ * The Constants class is for defining constants
+ * that will be used throughout this project
+ */
 public final class Constants {
 	public static final String LOG_XML = "/log.xml";
 	public static final String USER_XML = "/user.xml";

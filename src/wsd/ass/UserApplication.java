@@ -9,7 +9,14 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-
+/**
+ * The User Application class connects the User XML file to the POJOs/JavaBeans (User and Users).
+ * 
+ * It is the middleman for interacting with the underlying data through other classes.
+ * 
+ * @author Calvin and Janette
+ *
+ */
 public class UserApplication implements ApplicationFactory {
 	/** The path of the XML file storing all users */
 	private String filePath;

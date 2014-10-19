@@ -68,79 +68,16 @@
 	
 	<xsl:template match="log:log">
 		<tr>
-			<xsl:apply-templates select="log:id" />
-			<xsl:apply-templates select="log:vehicle" />
-			<xsl:apply-templates select="log:driver" />
-			<xsl:apply-templates select="log:startdate" />
-			<xsl:apply-templates select="log:enddate" />
-			<xsl:apply-templates select="log:starttime" />
-			<xsl:apply-templates select="log:endtime" />
-			<xsl:apply-templates select="log:description" />
-			<xsl:apply-templates select="log:kilometres" />
+			<td><xsl:value-of select="log:id" /></td>
+			<td><a href="rest/vehicles/{log:vehicle}"><xsl:value-of select="log:vehicle" /></a></td>
+			<td><xsl:value-of select="log:driver" /></td>
+			<td><xsl:value-of select="log:startdate" /></td>
+			<td><xsl:value-of select="log:enddate" /></td>
+			<td><xsl:value-of select="log:starttime" /></td>
+			<td><xsl:value-of select="log:endtime" /></td>
+			<td><xsl:value-of select="log:description" /></td>
+			<td><xsl:value-of select="log:kilometres" /></td>
 		</tr>
-	</xsl:template>
-	
-	<!-- Vehicle log ID -->
-	<xsl:template match="log:id">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Vehicle -->
-	<xsl:template match="log:vehicle">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:driver">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:startdate">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:starttime">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:enddate">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:endtime">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:description">
-		<td>
-			<xsl:apply-templates />
-		</td>
-	</xsl:template>
-	
-	<!-- Driver -->
-	<xsl:template match="log:kilometres">
-		<td>
-			<xsl:apply-templates />
-		</td>
 	</xsl:template>
 	
 </xsl:stylesheet>

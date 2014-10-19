@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Style/Transform XML document using a XSL file -->
-<?xml-stylesheet type="text/xsl" href="xsl/user.xsl"?>
-
 <users xmlns="http://www.wsd.com/user" 
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.wsd.com/user xsd/user.xsd">

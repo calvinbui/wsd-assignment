@@ -1,5 +1,6 @@
 package wsd.ass;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,8 +11,20 @@ import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBException;
 
+/**
+ * The Validator class is used for validating data from user input
+ * 
+ * It contains static methods that perform specific validation checks
+ * 
+ * @author Calvin
+ *
+ */
 public final class Validator {
 	
+	/** Check if the given date is in the HH:mm:ss format
+	 * @param time This is the string to check
+	 * @return boolean value
+	 */
 	public static boolean timeCheck(String time) {
 		if (emptyOrNullCheck(time))
 			return true;
@@ -27,6 +40,10 @@ public final class Validator {
 		return false;
 	}
 	
+	/** Check if the given string is empty or null
+	 * @param s
+	 * @return boolean
+	 */
 	public static boolean emptyOrNullCheck(String s) {
 		if (s == null || s.equals(""))
 			return true;
@@ -34,6 +51,10 @@ public final class Validator {
 	}
 	
 	// http://www.mkyong.com/java/how-to-check-if-date-is-valid-in-java/
+	/** Check if the given date is in the yyyy-MM-dd format
+	 * @param date This is the string to check
+	 * @return boolean value
+	 */
 	public static boolean dateCheck(String date) {
 		if (emptyOrNullCheck(date))
 			return true;
@@ -49,6 +70,11 @@ public final class Validator {
 		return false;
 	}
 	
+	/** Get the UserApplication, , which communicates with the users xml file
+	 * @return a UserApplication object
+	 * @throws JAXBException if Users class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
 	private static UserApplication getUserApp() throws JAXBException, IOException {
 		UserApplication userApp = new UserApplication();
 		userApp.setFilePath(Constants.LOG_XML);
@@ -56,7 +82,12 @@ public final class Validator {
 		return userApp;
 	}
 
-	//validate user exists
+	/** Validate that a user with the given email address exists in the xml file
+	 * @param email This is the email that needs to be checked
+	 * @return boolean value
+	 * @throws JAXBException if Users class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
 	public static boolean userCheck(String email) throws JAXBException, IOException {
 		ArrayList<User> users = ((Users) getUserApp().get()).getUsers();
 		for (User user : users) {
@@ -66,6 +97,11 @@ public final class Validator {
 		return true;
 	}
 	
+	/** Get the VehicleApplication, which communicates with the vehicles xml file
+	 * @return vehicleApp
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
 	private static VehicleApplication getVehicleApp() throws JAXBException, IOException {
 		VehicleApplication vehicleApp = new VehicleApplication();
 		vehicleApp.setFilePath(Constants.VEHICLE_XML);
@@ -73,7 +109,12 @@ public final class Validator {
 		return vehicleApp;
 	}
 	
-	//validate vehicle exists
+	/** Validates that a vehicle with the given registration exists
+	 * @param registration The registration to check
+	 * @return a boolean value
+	 * @throws JAXBException
+	 * @throws IOException
+	 */
 	public static boolean vehicleCheck(String registration) throws JAXBException, IOException {
 		ArrayList<Vehicle> vehicles = ((Vehicles) getVehicleApp().get()).getVehicles();
 		for (Vehicle vehicle : vehicles) {
@@ -83,6 +124,11 @@ public final class Validator {
 		return true;
 	}
 	
+	/** Checks that the given startdate occurs before the given endtime
+	 * @param startDateTime 
+	 * @param endDateTime
+	 * @return a boolean value
+	 */
 	public static boolean startDateTimeBeforeEndDateTimeCheck(String startDateTime, String endDateTime) {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATETIME_FORMAT);
@@ -103,6 +149,11 @@ public final class Validator {
 	}
 	
 	//http://www.mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
+	/** emailCheck validates whether or not the given string is in a valid email format
+	 * It also checks that the string isn't empty
+	 * @param email This is the string to validate
+	 * @return boolean for whether or not it matches
+	 */
 	public static boolean emailCheck(String email) {
 		if (emptyOrNullCheck(email))
 			return true;
@@ -113,6 +164,11 @@ public final class Validator {
 	}
 	
 	//http://www.java2s.com/Tutorial/Java/0120__Development/Validatethefirstnameandlastname.htm
+	/** nameCheck validates whether or not the given string is in a name format
+	 * It also checks that the string isn't empty
+	 * @param name This is the string to validate
+	 * @return boolean for whether or not it matches
+	 */
 	public static boolean nameCheck(String name) {
 		if (emptyOrNullCheck(name))
 			return true;

@@ -5,18 +5,19 @@
 <!-- Call header.xsl to include navbar -->
 <xsl:include href="xsl/header.xsl"/>
 
-	<xsl:template match="loginform">
+	<xsl:template match="register">
 		<!-- TODO: Auto-generated template -->
 		<html>
+		
 			<head>
 				<title>
-					<xsl:value-of select="title"/>
+					<xsl:value-of select="title" />
 				</title>
 				
 				<style>
 				
 				.input-group-addon {
-				    min-width: 80px;// if you want width please write here //
+				    min-width: 190px;// if you want width please write here //
 				    text-align:left;
 				}
 				
@@ -30,22 +31,22 @@
 				</style>
 				
 			</head>
+			
 			<body>
 				<!-- Insert navigation bar from header.xsl -->
 				<xsl:call-template name="navbar"/>
-				<!-- page container margin -->
+				
 				<div class="container">
-					<div class="col-sm-6 col-md-4 col-md-offset-4">
-						<!-- Login form -->
-						<form class="form-signin" role="form">
+					<div class="col-lg-6 col-md-offset-3">
+						<form>
 							<!-- Login title -->
 							<h1 class="form-signin-heading">
 								<xsl:value-of select="title"/>
 							</h1>
-						
-							<xsl:for-each select="login/*">
+							
+							<xsl:for-each select="form/*">
 							<xsl:choose>
-								<xsl:when test="current() = 'Password'">
+								<xsl:when test="contains(current(),'Password')">
 									<div style="margin-bottom: 10px;" class="input-group">
 										<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
 										<input type="password" class="input-block-level form-control {current()}" value="" placeholder="enter {current()}" required=""></input>
@@ -60,17 +61,13 @@
 							</xsl:choose>
 							</xsl:for-each>
 							<!-- Redirect user to index page -->
-							<a href="{$context-path}/index.jsp"><button class="btn btn-primary btn-block" type="submit">Log in</button></a>
+							<a href="{$context-path}/index.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>
+							
 						</form>
-						<!-- Redirect user to register page -->
-						<a href="{$context-path}/registerDriver.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>
-						
 					</div>
-					
 				</div>
 			</body>
 		</html>
-		
 	</xsl:template>
 	
 </xsl:stylesheet>
