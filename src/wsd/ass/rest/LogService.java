@@ -75,7 +75,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public Logs getAll() throws JAXBException, IOException {
 		// use the Log Application to return all log entries
-		return getLogApp().getLogs();
+		return (Logs) getLogApp().get();
 	}
 	
 	/**
@@ -90,7 +90,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getDateLogs(@PathParam("date") String date) throws JAXBException, IOException {
 		// use the Log Application to return all log entries with the same starting date
-		return getLogApp().getLogs().getList(date, "date");
+		return ((Logs) getLogApp().get()).getList(date, "date");
 	}
 	
 	/**
@@ -105,7 +105,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getRegoLog(@PathParam("registration") String registration) throws JAXBException, IOException {
 		// use the Log Application to return all log entries for a certain vehicle
-		return getLogApp().getLogs().getList(registration, "registration");
+		return ((Logs) getLogApp().get()).getList(registration, "registration");
 	}
 	
 	/**
@@ -120,7 +120,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getKeywordLog(@PathParam("keyword") String keyword) throws JAXBException, IOException {
 		// use the Log Application to return all log entries with the matching keyword in thier description
-		return getLogApp().getLogs().getList(keyword, "keyword");
+		return ((Logs) getLogApp().get()).getList(keyword, "keyword");
 	}
 	
 	/**
@@ -131,7 +131,7 @@ public class LogService {
 	 * @throws IOException
 	 */
 	private ArrayList<Log> getVisibleLog(String visibility) throws JAXBException, IOException {
-		return getLogApp().getLogs().getList(visibility, "visibility");
+		return ((Logs) getLogApp().get()).getList(visibility, "visibility");
 	}
 	
 	/**

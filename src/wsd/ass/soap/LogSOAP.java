@@ -53,7 +53,7 @@ public class LogSOAP {
 	 */
 	@WebMethod
 	public Logs getLogs() throws JAXBException, IOException {
-		return getLogApp().getLogs();
+		return (Logs) getLogApp().get();
 	}
 	
 	/**

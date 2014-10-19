@@ -21,7 +21,7 @@ import wsd.ass.Log.Hidden;
  * @author Calvin
  *
  */
-public class LogApplication {
+public class LogApplication implements ApplicationFactory{
 	/** The path of the XML file */
 	private String filePath;
 	
@@ -32,6 +32,7 @@ public class LogApplication {
 	 * Get the file path of the XML file
 	 * @return the filepath of the XML file
 	 */
+	@Override
 	public String getFilePath() {
 		return filePath;
 	}
@@ -40,6 +41,7 @@ public class LogApplication {
 	 * Set the filepath of the XML file 
 	 * @param filePath the filepath to be set
 	 */
+	@Override
 	public void setFilePath(String filePath) {
         // set the filepath
 		this.filePath = filePath;
@@ -50,6 +52,7 @@ public class LogApplication {
 	 * @throws JAXBException if Logs class does not contain the correct elements to link with
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
+	@Override
 	public void unmarshall()  throws JAXBException, IOException {
 		// Define the class to transform the XML file into using JAXB
         JAXBContext jc = JAXBContext.newInstance(Logs.class);
@@ -71,9 +74,6 @@ public class LogApplication {
 	 * Get all log entries
 	 * @return an ArrayList containing all the log files
 	 */
-	public Logs getLogs() {
-		return logs;
-	}
 
 	/**
 	 * Set all log entries
@@ -100,15 +100,12 @@ public class LogApplication {
 	 * @throws JAXBException if Logs class does not contain the correct elements to link with
 	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
 	 */
+	@Override
 	public void marshall() throws JAXBException, FileNotFoundException {
 		JAXBContext jc = JAXBContext.newInstance(Logs.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         m.marshal(logs, new FileOutputStream(getFilePath()));
-	}
-	
-	public void search() {
-		
 	}
 	
 	/**
@@ -127,5 +124,25 @@ public class LogApplication {
 		log.setHidden(new Hidden(true, ""));
 		logs.addLog(log);
 		marshall();
+	}
+
+	@Override
+	public void add(Object object) throws FileNotFoundException, JAXBException {
+		Log log = (Log) object;
+		log.setId(logs.getLogs().get(logs.getLogs().size()-1).getId() + 1);
+		log.setHidden(new Hidden(true, ""));
+		logs.addLog(log);
+		marshall();
+	}
+
+
+	@Override
+	public Object get() {
+		return logs;
+	}
+
+	@Override
+	public void set(Object object) {
+		this.logs = (Logs) object;
 	}
 }
