@@ -52,7 +52,7 @@ public class UserSOAP {
 	 */
 	@WebMethod
 	public Users getUsers() throws JAXBException, IOException {
-		return getUserApp().getUsers();
+		return (Users) getUserApp().get();
 	}
 	
 	/**

@@ -10,7 +10,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class UserApplication {
+public class UserApplication implements ApplicationFactory {
 	/** The path of the XML file storing all users */
 	private String filePath;
 	/** All users encapsulated within an ArrayList */
@@ -60,27 +60,26 @@ public class UserApplication {
         m.marshal(users, new FileOutputStream(getFilePath()));
 	}
 	
-	
-	/** Get all users */
-	public Users getUsers() {
-		return users;
-	}
-
-	/** Set all users
-	 *  @param users The users object
-	 */
-	public void setUsers(Users users) {
-		this.users = users;
-	}
-	
 	/**
 	 * Add a new user to the users object and then marshal it back into xml
 	 * @param user The new user to add
 	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
 	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
 	 */
-	public void addUser(User user) throws FileNotFoundException, JAXBException {
-		users.addUser(user);
+	public void add(Object object) throws FileNotFoundException, JAXBException {
+		users.addUser((User) object);
 		marshall();
+	}
+
+	/** Get all users */
+	public Object get() {
+		return users;
+	}
+
+	/** Set all users
+	 *  @param users The users object
+	 */
+	public void set(Object object) {
+		this.users = (Users) object;
 	}
 }
