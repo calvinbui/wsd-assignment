@@ -30,7 +30,7 @@ import wsd.ass.Vehicles;
  *
  */
 @Path("/vehicles")
-public class VehicleService {
+public class VehicleService implements RESTServiceFactory{
 	/** Set of methods to communicate with the servlet container such as retrieve xml files */
 	@Context // inject an instance of the JSP application into this field
 	private ServletContext application;
@@ -47,7 +47,8 @@ public class VehicleService {
 	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with 
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
-	private VehicleApplication getVehicleApp() throws JAXBException, IOException {
+	@Override
+	public Object getApp() throws JAXBException, IOException {
 		// locks the servlet for the current request
 		synchronized (application) {
 			// create a new vehicle application with the 'vehicles' attribute if available by casting the servlet
@@ -77,9 +78,10 @@ public class VehicleService {
 	@Path("all") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public Vehicles getAll() throws JAXBException, IOException {
+	@Override
+	public Object fetch() throws JAXBException, IOException {
 		// use the Vehicle application to return all vehicles
-		return (Vehicles) getVehicleApp().get();
+		return (Vehicles) ((VehicleApplication) getApp()).get();
 	}
 	
 	/**
@@ -96,7 +98,7 @@ public class VehicleService {
 	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/vehiclerest.xsl' ?>")
 	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
 		// store all vehicles in the system into an array list
-		ArrayList<Vehicle> vehicles = ((Vehicles) getVehicleApp().get()).getVehicles();
+		ArrayList<Vehicle> vehicles = ((Vehicles) fetch()).getVehicles();
         // for every vehicle in the arraylist
 		for (Vehicle vehicle : vehicles)
 			// if the matches the registration number entered
