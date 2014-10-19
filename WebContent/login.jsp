@@ -5,7 +5,7 @@
 <t:default>
     <jsp:body>
     	<!-- Import newlog.xml -->
-		<c:import var="xml" url="login.xml"/>
+		<c:import var="xml" url="xml/login.xml"/>
 		<!-- Import newlog.xsl -->
 		<c:import var="xslt" url="xsl/login.xsl" />
 		<!-- Style xml using xsl -->
