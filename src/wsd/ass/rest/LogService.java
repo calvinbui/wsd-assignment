@@ -73,9 +73,13 @@ public class LogService {
 	@Path("all") // the path of the REST call
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
-	public Logs getAll() throws JAXBException, IOException {
+	public Logs getLogs() throws JAXBException, IOException {
 		// use the Log Application to return all log entries
 		return (Logs) getLogApp().get();
+	}
+	
+	public ArrayList<Log> queryLogs (String query, String type) throws JAXBException, IOException {
+		return getLogs().getList(query, type);
 	}
 	
 	/**
@@ -90,7 +94,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getDateLogs(@PathParam("date") String date) throws JAXBException, IOException {
 		// use the Log Application to return all log entries with the same starting date
-		return ((Logs) getLogApp().get()).getList(date, "date");
+		return queryLogs(date, "date");
 	}
 	
 	/**
@@ -105,7 +109,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getRegoLog(@PathParam("registration") String registration) throws JAXBException, IOException {
 		// use the Log Application to return all log entries for a certain vehicle
-		return ((Logs) getLogApp().get()).getList(registration, "registration");
+		return queryLogs(registration, "registration");
 	}
 	
 	/**
@@ -120,7 +124,7 @@ public class LogService {
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getKeywordLog(@PathParam("keyword") String keyword) throws JAXBException, IOException {
 		// use the Log Application to return all log entries with the matching keyword in thier description
-		return ((Logs) getLogApp().get()).getList(keyword, "keyword");
+		return queryLogs(keyword, "keyword");
 	}
 	
 	/**
@@ -131,7 +135,7 @@ public class LogService {
 	 * @throws IOException
 	 */
 	private ArrayList<Log> getVisibleLog(String visibility) throws JAXBException, IOException {
-		return ((Logs) getLogApp().get()).getList(visibility, "visibility");
+		return queryLogs(visibility, "visibility");
 	}
 	
 	/**
@@ -150,10 +154,10 @@ public class LogService {
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	public ArrayList<Log> getQuery(@QueryParam("vehicleRego") String vehicleRego, @QueryParam("startDate") String startDate, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
-		// create a new array list to hold the log entries
-		ArrayList<Log> logs = new ArrayList<Log>();
 		// if the date parameter is not null add all matching logs to the array list
 		if (startDate != null || vehicleRego != null || keyword != null) {
+			// create a new array list to hold the log entries
+			ArrayList<Log> logs = new ArrayList<Log>();
 			if (startDate != null)
 				logs.addAll(getDateLogs(startDate));
 			// if the registration parameter is not null add all matching logs to the array list
