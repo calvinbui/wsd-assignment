@@ -69,19 +69,6 @@ public class LogApplication implements ApplicationFactory{
         // close the file input stream and release the lock on it
         fin.close();
 	}
-
-	/**
-	 * Get all log entries
-	 * @return an ArrayList containing all the log files
-	 */
-
-	/**
-	 * Set all log entries
-	 * @param logs an ArrayList containing all log files
-	 */
-	public void setLogs(Logs logs) {
-		this.logs = logs;
-	}
 	
 	/**
 	 * Hide the specified log
@@ -107,7 +94,7 @@ public class LogApplication implements ApplicationFactory{
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         m.marshal(logs, new FileOutputStream(getFilePath()));
 	}
-	
+
 	/**
 	 * Add a new log entry to the logs object then marshall it back into xml
 	 * @param vehicle Vehicle ID
@@ -119,13 +106,6 @@ public class LogApplication implements ApplicationFactory{
 	 * @param description Description of entry
 	 * @param kilometres Kilometres drive
 	 */
-	public void createLog(Log log) throws FileNotFoundException, JAXBException {
-		log.setId(logs.getLogs().get(logs.getLogs().size()-1).getId() + 1);
-		log.setHidden(new Hidden(true, ""));
-		logs.addLog(log);
-		marshall();
-	}
-
 	@Override
 	public void add(Object object) throws FileNotFoundException, JAXBException {
 		Log log = (Log) object;
@@ -136,11 +116,19 @@ public class LogApplication implements ApplicationFactory{
 	}
 
 
+	/**
+	 * Get all log entries
+	 * @return an ArrayList containing all the log files
+	 */
 	@Override
 	public Object get() {
 		return logs;
 	}
 
+	/**
+	 * Set all log entries
+	 * @param logs an ArrayList containing all log files
+	 */
 	@Override
 	public void set(Object object) {
 		this.logs = (Logs) object;

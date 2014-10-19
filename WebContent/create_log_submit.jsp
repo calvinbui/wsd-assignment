@@ -74,7 +74,7 @@ if (valid) {
 	LogApplication logApp = new LogApplication();
 	logApp.setFilePath(application.getRealPath(Constants.LOG_XML));
 	logApp.unmarshall();
-	logApp.createLog(log);
+	logApp.add(log);
 
 	VehicleApplication vehicleApp = new VehicleApplication();
 	vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
