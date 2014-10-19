@@ -102,6 +102,23 @@ public final class Validator {
 		return true;
 	}
 	
-	//validate start date+time is before end date + time. look in android code if possible.
-	//will be diffs. maybe can use java built in date class which takes datetime after all!
+	//http://www.mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
+	public static boolean emailCheck(String email) {
+		if (emptyOrNullCheck(email))
+			return true;
+		
+		Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+		Matcher matcher = pattern.matcher(email);
+		return !matcher.matches();
+	}
+	
+	//http://www.java2s.com/Tutorial/Java/0120__Development/Validatethefirstnameandlastname.htm
+	public static boolean firstNameCheck(String firstName) {
+		return firstName.matches( "[A-Z][a-zA-Z]*" );
+    }
+	
+	//http://www.java2s.com/Tutorial/Java/0120__Development/Validatethefirstnameandlastname.htm
+	public static boolean lastNameCheck(String lastName) {
+		return lastName.matches( "[a-zA-z]+([ '-][a-zA-Z]+)*" );
+    } 
 }
