@@ -90,6 +90,13 @@ public class VehicleApplication {
         m.marshal(vehicles, new FileOutputStream(getFilePath()));
 	}
 	
+	/**
+	 * Find the vehicle, and then update the total kilometres
+	 * @param kilometres
+	 * @param registration
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
 	public void updateKilometres(int kilometres, String registration) throws FileNotFoundException, JAXBException {
 		vehicles.getRegistration(registration).updateKilometres(kilometres);
 		marshall();

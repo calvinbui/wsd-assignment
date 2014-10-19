@@ -10,7 +10,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 
-import wsd.ass.Constants;
 import wsd.ass.User;
 import wsd.ass.UserApplication;
 import wsd.ass.Users;
@@ -36,7 +35,7 @@ public class UserSOAP {
 			UserApplication userApp = (UserApplication)application.getAttribute("userApp");
 			if (userApp == null) {
 				userApp = new UserApplication();
-				String filePath = application.getRealPath(Constants.USER_XML);
+				String filePath = application.getRealPath("/user.xml");
 				userApp.setFilePath(filePath);
 				userApp.unmarshall();
 				application.setAttribute("userApp", userApp);

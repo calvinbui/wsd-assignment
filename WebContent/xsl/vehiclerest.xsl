@@ -45,7 +45,9 @@
 							<table class="table table-striped">
 								<xsl:apply-templates select="vehicle" />
 							</table>
-						
+							
+							<a href="{$context-path}/create_log.jsp?{vehicle/registration}" value="{vehicle/registration}" class="btn btn-default">Add new log</a>
+							
 							<h3>Logs</h3>
 							
 							<xsl:call-template name="restLog">
@@ -76,7 +78,13 @@
 			<th><i class="fa fa-dashboard"></i> Kilometres</th>
 		</thead>
 		<tbody>
-			<xsl:apply-templates />
+			<xsl:apply-templates select="registration" />
+			<xsl:apply-templates select="type" />
+			<xsl:apply-templates select="make" />
+			<xsl:apply-templates select="model" />
+			<xsl:apply-templates select="year" />
+			<xsl:apply-templates select="colour" />
+			<xsl:apply-templates select="kilometres" />
 		</tbody>
 	</xsl:template>
 	

@@ -4,10 +4,10 @@
 
 <t:default>
     <jsp:body>
-    	<!-- Import newlog.xml -->
-		<c:import var="xml" url="newlog.xml"/>
-		<!-- Import newlog.xsl -->
-		<c:import var="xslt" url="xsl/newlog.xsl" />
+        <!-- Import vehicle.xml -->
+		<c:import var="xml" url="index.xml"/>
+		<!-- Import vehicle.xsl -->
+		<c:import var="xslt" url="xsl/index.xsl" />
 		<!-- Style xml using xsl -->
 		<x:transform xml="${xml}" xslt="${xslt}" />
     </jsp:body>
