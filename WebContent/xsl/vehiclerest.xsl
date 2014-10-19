@@ -25,8 +25,8 @@
 						<div class="row">
 						
 						<ol class="breadcrumb">
-							<li><a href="../../index.jsp">Home</a></li>
-							<li><a href="../../index.jsp">Vehicles</a></li>
+							<li><a href="{$context-path}/index.jsp">Home</a></li>
+							<li><a href="{$context-path}/index.jsp">Vehicles</a></li>
 							<li><a href="{rego}"><xsl:value-of select="vehicle/registration"/></a></li>
 						</ol>
 						
@@ -46,7 +46,7 @@
 								<xsl:apply-templates select="vehicle" />
 							</table>
 							
-							<a href="{$context-path}/create_log.jsp?{vehicle/registration}" value="{vehicle/registration}" class="btn btn-default">Add new log</a>
+							<a href="{$context-path}/newlog.jsp?{vehicle/registration}" value="{vehicle/registration}" class="btn btn-default">Add new log</a>
 							
 							<h3>Logs</h3>
 							
