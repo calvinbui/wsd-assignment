@@ -7,6 +7,9 @@
 
 session.removeAttribute("starttime");
 session.removeAttribute("endtime");
+session.removeAttribute("invalidDates");
+session.removeAttribute("description");
+
 
 String vehicle = request.getParameter("vehicle"); //session.getAttribute("registration");
 String driver = request.getParameter("driver"); // session.getAttribute("username")
@@ -59,6 +62,10 @@ if (validator.emptyOrNullCheck(description)) {
 if (kilometres <= 0) {
 	session.setAttribute("kilometres", "kilometres");
 	valid = false;
+}
+
+if (validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
+	session.setAttribute("invalidDates", "invalidDates");
 }
 
 if (valid) {

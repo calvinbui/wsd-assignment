@@ -26,15 +26,14 @@ public final class Validator {
 		return false;
 	}
 	
-	//http://www.mkyong.com/java/how-to-check-if-date-is-valid-in-java/
+	// http://www.mkyong.com/java/how-to-check-if-date-is-valid-in-java/
 	public boolean dateCheck(String date) {
 		if (emptyOrNullCheck(date))
 			return true;
 		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
-		sdf.setLenient(false);
-
+		
 		try {
-			Date d = sdf.parse(date);
+			sdf.parse(date);
 		} catch (ParseException e) {
 			return true;
 		}
@@ -73,6 +72,25 @@ public final class Validator {
 			if (vehicle.getRegistration().equals(registration))
 				return false;
 		}
+		return true;
+	}
+	
+	public boolean startDateTimeBeforeEndDateTimeCheck(String startDateTime, String endDateTime) {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATETIME_FORMAT);
+	    
+		Date start;
+		Date end;
+    	try {
+			start = sdf.parse(startDateTime);
+			end = sdf.parse(endDateTime);
+		} catch (ParseException e) {
+			return true;
+		}
+    	
+    	if (start.before(end))
+    		return false;
+	    
 		return true;
 	}
 	

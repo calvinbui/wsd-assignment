@@ -28,6 +28,8 @@
 		<input name="driver" type="text" placeholder="driver - should be automatic"/>
 		<input type="submit"/>
 		</form>
+		
+		<% if ((String)session.getAttribute("invalidDates") != null) { %> Start Date Time must be before End Date Time <% } %>
 	<% //} %>
 	</body>
 
