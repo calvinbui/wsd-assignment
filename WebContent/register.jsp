@@ -10,8 +10,10 @@
 	<form action="register_submit.jsp" method="post">
 	<input name="username" type="text" placeholder="username"/>  <% if ((String) session.getAttribute("username") != null) {  %> Please enter a valid email address <% } %>
 	<input name="password" type="text" placeholder="password"/>  <% if ((String) session.getAttribute("password") != null) {  %> Please enter a valid password <% } %>
+	<input name="confirmpassword" type="text" placeholder="confirmpassword"/>  <% if ((String) session.getAttribute("confirmpassword") != null) {  %> Please enter a valid password that matches the above password <% } %>
 	<input name="firstname" type="text" placeholder="firstname"/>  <% if ((String) session.getAttribute("firstname") != null) {  %> Please enter your first name <% } %>
 	<input name="lastname" type="text" placeholder="lastname"/>  <% if ((String) session.getAttribute("lastname") != null) {  %> Please enter your last name <% } %>
+	<input type="submit">
 	</form>
 </body>
 </html>
