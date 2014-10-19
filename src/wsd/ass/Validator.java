@@ -15,9 +15,16 @@ public final class Validator {
 	public boolean timeCheck(String time) {
 		if (emptyOrNullCheck(time))
 			return true;
-		Pattern pattern = Pattern.compile("([01][0-9]|[20-23]):[0-5][0-9]:[0-5][0-9]");
-		Matcher matcher = pattern.matcher(time);
-		return !matcher.matches();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat(Constants.TIME_FORMAT);
+		sdf.setLenient(false);
+		try {
+			sdf.parse(time);
+		} catch (ParseException e) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public boolean emptyOrNullCheck(String s) {
