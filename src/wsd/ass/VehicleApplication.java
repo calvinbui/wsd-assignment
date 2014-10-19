@@ -101,4 +101,15 @@ public class VehicleApplication {
 		vehicles.getRegistration(registration).updateKilometres(kilometres);
 		marshall();
 	}
+	
+	/**
+	 * Add a new vehicle to the users object and then marshal it back into xml
+	 * @param vehicle The new vehicle to add
+	 * @throws JAXBException if Vehicles class does not contain the correct elements to link with
+	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 */
+	public void addVehicle(Vehicle vehicle) throws FileNotFoundException, JAXBException {
+		vehicles.addVehicle(vehicle);
+		marshall();
+	}
 }
