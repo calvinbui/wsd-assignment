@@ -95,8 +95,8 @@
 								<script>
 								var string2 = window.location.search.substr(1);
 								$('#regoLink').each(function(){
-     this.href += string2;
-})</script>
+								     this.href += string2;
+								})</script>
 						</form>
 					</div>
 				</div>
