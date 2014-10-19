@@ -113,18 +113,10 @@ public final class Validator {
 	}
 	
 	//http://www.java2s.com/Tutorial/Java/0120__Development/Validatethefirstnameandlastname.htm
-	public static boolean firstNameCheck(String firstName) {
-		if (emptyOrNullCheck(firstName))
+	public static boolean nameCheck(String name) {
+		if (emptyOrNullCheck(name))
 			return true;
 		
-		return firstName.matches( "[A-Z][a-zA-Z]*" );
+		return !name.matches( "[A-Z][a-zA-Z]*" );
     }
-	
-	//http://www.java2s.com/Tutorial/Java/0120__Development/Validatethefirstnameandlastname.htm
-	public static boolean lastNameCheck(String lastName) {
-		if (emptyOrNullCheck(lastName))
-			return true;
-		
-		return lastName.matches( "[a-zA-z]+([ '-][a-zA-Z]+)*" );
-    } 
 }
