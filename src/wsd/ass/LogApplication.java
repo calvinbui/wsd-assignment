@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -71,18 +72,6 @@ public class LogApplication implements ApplicationFactory{
 	}
 	
 	/**
-	 * Hide the specified log
-	 * @param id the id of the log to be hidden
-	 * @param user the user that is hiding the log
-	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
-	 * @throws JAXBException if Logs class does not contain the correct elements to link with
-	 */
-	public void hideLog(int id, String user) throws FileNotFoundException, JAXBException {
-        logs.hideLog(id, user);
-        marshall();
-	}
-	
-	/**
 	 * Marshal the logs object back into xml format and output it to the filepath
 	 * @throws JAXBException if Logs class does not contain the correct elements to link with
 	 * @throws FileNotFoundException if the filepath is wrong or file does not exist
@@ -133,4 +122,73 @@ public class LogApplication implements ApplicationFactory{
 	public void set(Object object) {
 		this.logs = (Logs) object;
 	}
+
+    /**
+     * Hide a log entry by setting its status to false.
+     * Also set the name of the user who hid it.
+     * Marshalls the changes back into the XML when finished.
+     * @param id the the log's id.
+     * @param user the user who deleted the log.
+     * @throws FileNotFoundException if the filepath is wrong or file does not exist
+	 * @throws JAXBException if Logs class does not contain the correct elements to link with
+     */
+    public void hideLog(int id, String user) throws FileNotFoundException, JAXBException {
+		for (Log log : logs.getLogs()) {
+			if (log.getId() == id) {
+				log.getHidden().setHidden(user);
+				log.getHidden().setShow(false);
+			}
+		}
+		marshall();
+    }
+    
+    /**
+     * Query the unmarshalled Log xml to find specific information about it. Encapsulated
+     * within a switch statement. Takes a 'query' which can be a date, registration number,
+     * keyword or boolean and the 'type' of information to find.
+     * 
+     * @param query the information to search for
+     * @param type the type of information to search for
+     * @return an ArrayList containing the information searched for.
+     */
+    public ArrayList<Log> getList(String query, String type) {
+    	// initialise a new ArrayList to begin adding to it
+    	ArrayList<Log> results = new ArrayList<Log>();
+    	// for each log entry in the ArrayList
+    	for (Log log: logs.getLogs()) {
+    		// depending on the type of information requested from the log entry it is
+    		switch (type) {
+    		// if it is a date of a log date, return all log entries with the same start date.
+    		case "date":
+    			// if the date equals a log entry's starting date
+    			if (log.getStartDate().equals(query))
+    				// add the log entry to the ArrayList
+                    results.add(log);
+    			break;
+    		// if it is a registration number of a vehicle, returns all log entries for a vehicle
+    		case "registration":
+    			// if the registration number matches a vehicle's 
+                if (log.getVehicle().equals(query))
+                	// add the log entry to the ArrayList
+                    results.add(log); 
+                break;
+    		// if it is a keyword of a log entry, returns all log entries containing the keyword within their description
+    		case "keyword":
+    			// if the description contains the keyword
+                if (log.getDescription().contains(query))
+                	// add the log entry to the ArrayList
+                    results.add(log); 
+                break;
+            // if it is the visibility of a log entry, return all log entries with the matching boolean
+    		case "visibility":
+    			// if the log entry matches the boolean
+    			if (log.getHidden().getShow() == Boolean.valueOf(query)) // value of the String 'true' or 'false' into a Boolean data type
+    				// add the log entry to the ArrayList
+        			results.add(log);  
+    			break;
+    		}
+    	}
+    	// return the finished ArrayList
+		return results;
+    }
 }

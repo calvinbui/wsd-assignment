@@ -79,7 +79,7 @@ public class LogService {
 	}
 	
 	public ArrayList<Log> queryLogs (String query, String type) throws JAXBException, IOException {
-		return getLogs().getList(query, type);
+		return getLogApp().getList(query, type);
 	}
 	
 	/**
