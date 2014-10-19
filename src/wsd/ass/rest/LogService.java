@@ -13,7 +13,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
-import wsd.ass.Constants;
 import wsd.ass.Log;
 import wsd.ass.LogApplication;
 import wsd.ass.Logs;
@@ -54,7 +53,7 @@ public class LogService {
 				// create a new log application object
 				logs = new LogApplication();
 				//indicate the location of the log.xml file containing vehicles
-				logs.setFilePath(application.getRealPath(Constants.LOG_XML));
+				logs.setFilePath(application.getRealPath("/log.xml"));
 				// unmarshall the log.xml file into the LogApplication object
 				logs.unmarshall();
 				// set the unmarshalled log.xml file application wide to save having to unmarshall it again for the next request.

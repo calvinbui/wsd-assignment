@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Style/Transform XML document using a XSL file -->
-<?xml-stylesheet type="text/xsl" href="xsl/newlog.xsl"?>
-
 <!-- XML namespaces for log and XSI -->
-<logform 
-	xmlns="http://www.wsd.com/log" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<logform>
+	
+	<title>Add New Log</title>
 	
 	<addlog>
-		<vehicle></vehicle>
-		<startdate></startdate>
-		<enddate></enddate>
-		<starttime></starttime>
-		<endtime></endtime>
-		<description></description>
+		<option>Vehicle</option>
+		<option>Driver</option>
+		<option>Start Date</option>
+		<option>End Date</option>
+		<option>Start Time</option>
+		<option>End Time</option>
+		<option>Description</option>
+		<option>Kilometres</option>
 	</addlog>
 	
 </logform>
