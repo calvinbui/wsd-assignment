@@ -49,7 +49,7 @@
 							<form class="navbar-form navbar-right">
 									<input type="text" class="form-control input-sm" placeholder="Email"></input>
 									<input type="password" class="form-control input-sm" placeholder="Password"></input>
-									<button type="button" class="btn btn-primary btn-success btn-sm">Login</button>
+									<a  href="{$context-path}/login.jsp"><button type="button" class="btn btn-primary btn-success btn-sm">Login</button></a>
 							<!-- End of login navbar -->
 							</form>
 							
