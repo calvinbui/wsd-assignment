@@ -14,6 +14,7 @@ import javax.xml.bind.JAXBException;
 
 import com.sun.jersey.api.provider.jaxb.XmlHeader;
 
+import wsd.ass.Constants;
 import wsd.ass.Vehicle;
 import wsd.ass.VehicleApplication;
 import wsd.ass.Vehicles;
@@ -56,7 +57,7 @@ public class VehicleService {
 				// create a new vehicle application object
 				vehicles = new VehicleApplication();
 				// indicate the location of the vehicle.xml file containing vehicles
-				vehicles.setFilePath(application.getRealPath("/vehicle.xml"));
+				vehicles.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
 				// unmarshall the vehicle.xml file into the Vehicle Application object
 				vehicles.unmarshall();
 				// set the unmarshalled vehicle.xml file application wide to save having to unmarshall it again for the next request. 
