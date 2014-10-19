@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<register>
+
+	<title>Register Driver</title>
+
+	<form>
+		<input>Username</input>
+		<input>Password</input>
+		<input>Confirm Password</input>
+		<input>First Name</input>
+		<input>Last Name</input>
+	</form>
+</register>
