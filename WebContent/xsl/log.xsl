@@ -4,8 +4,10 @@
 <xsl:stylesheet version="1.0" 
 				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 				xmlns:log="http://www.wsd.com/log">
-				<xsl:include href="xsl/header.xsl"/>
-				
+			
+<!-- Call header.xsl to include navbar -->	
+<xsl:include href="xsl/header.xsl"/>
+	<!-- Vehicle logs main page -->
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -60,6 +62,7 @@
 			<th>End Time</th>
 			<th>Description</th>
 			<th>Kilometres</th>
+			<th></th>
 		</thead>
 		<tbody>
 			<xsl:apply-templates />
@@ -77,6 +80,8 @@
 			<td><xsl:value-of select="log:endtime" /></td>
 			<td><xsl:value-of select="log:description" /></td>
 			<td><xsl:value-of select="log:kilometres" /></td>
+			<!-- Only drivers can delete logs -->
+			<td><a href="#"><i class="fa fa-remove"></i></a></td>
 		</tr>
 	</xsl:template>
 	

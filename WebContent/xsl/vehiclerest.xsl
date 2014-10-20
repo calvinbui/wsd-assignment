@@ -5,8 +5,10 @@
 				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 				xmlns:functions="http://localhost:8080/wsdassignment/rest/"
   				exclude-result-prefixes="functions">
+  				
 <xsl:output omit-xml-declaration="yes" indent="yes"/>
 <xsl:strip-space elements="*"/>
+
 <!-- Call header.xsl -->
 <xsl:include href="header.xsl"/>
   
@@ -56,12 +58,8 @@
 					</div>
 				</div>
 			</body>
-			<footer>
-			</footer>
 		</html>
-		
-		
-		
+	<!-- End of main template -->
 	</xsl:template>
 	
 	<xsl:template match="vehicle">
