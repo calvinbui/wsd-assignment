@@ -3,8 +3,10 @@
 <xsl:stylesheet 
 	version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-	<xsl:template match="page">
+	
+	
+	
+	<xsl:template match="index/page">
 		<html>
 			<head>
 				<title>
@@ -29,6 +31,10 @@
 				<xsl:apply-templates/>
 			</i>
 		</p>
+	</xsl:template>
+	
+	<xsl:template match="logs">
+		<xsl:value-of select="log"/>
 	</xsl:template>
 	
 </xsl:stylesheet>
