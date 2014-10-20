@@ -9,6 +9,8 @@
 <xsl:output omit-xml-declaration="yes" indent="yes"/>
 <xsl:strip-space elements="*"/>
 
+<xsl:variable name="logrest" select="document('{$context-path}/logrest.xml')"/>
+
 <!-- Call header.xsl -->
 <xsl:include href="header.xsl"/>
 
@@ -37,7 +39,10 @@
 				
 				<div class="bs-docs-section">
 				
-					<h1>Logs from <xsl:value-of select="logs/log/startdate"/></h1>
+					<h1>
+						Logs from 
+						<xsl:value-of select="logs/log/startdate"/>
+					</h1>
 					
 					<table class="table table-striped">
 						<xsl:apply-templates select="logs"/>
