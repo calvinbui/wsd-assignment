@@ -78,15 +78,15 @@
 	<xsl:template match="log">
 		<xsl:if test="not(contains(hidden, 'com'))">
 			<tr>
-				<td><xsl:value-of select="id"/></td>
-				<td><a href="vehicles/{vehicle}"><xsl:value-of select="vehicle"/></a></td>
-				<td><xsl:value-of select="driver"/></td>
-				<td><xsl:value-of select="startdate"/></td>
-				<td><xsl:value-of select="enddate"/></td>
-				<td><xsl:value-of select="starttime"/></td>
-				<td><xsl:value-of select="endtime"/></td>
-				<td><xsl:value-of select="description"/></td>
-				<td><xsl:value-of select="kilometres"/></td>
+				<td><xsl:apply-templates select="id"/></td>
+				<td><a href="vehicles/{vehicle}"><xsl:apply-templates select="vehicle"/></a></td>
+				<td><xsl:apply-templates select="driver"/></td>
+				<td><xsl:apply-templates select="startdate"/></td>
+				<td><xsl:apply-templates select="enddate"/></td>
+				<td><xsl:apply-templates select="starttime"/></td>
+				<td><xsl:apply-templates select="endtime"/></td>
+				<td><xsl:apply-templates select="description"/></td>
+				<td><xsl:apply-templates select="kilometres"/></td>
 			</tr>
 		</xsl:if>
 	</xsl:template>

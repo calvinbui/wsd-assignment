@@ -7,6 +7,7 @@
 			
 <!-- Call header.xsl to include navbar -->	
 <xsl:include href="xsl/header.xsl"/>
+
 	<!-- Vehicle logs main page -->
 	<xsl:template match="/">
 		<html>
