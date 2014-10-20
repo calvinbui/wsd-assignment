@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xsl/nb.xsl"?>
+
+<navbar>
+	<content class="container">
+		<header class="navbar-header">
+			<button class="navbar-toggle" type="button" data-target="#navbar-main">
+				<line>icon-bar</line>
+				<line>icon-bar</line>
+				<line>icon-bar</line>
+			</button>
+			<heading class="navbar-brand">Vehicle Log Book</heading>
+		</header>
+
+		<main class="navbar-collapse collapse" id="navbar-main">
+			<menu class="nav navbar-nav">
+				<item>
+					<path>index.jsp</path>
+					<title>Vehicles</title>
+				</item>
+				<item>
+					<path>log.jsp</path>
+					<title>Logs</title>
+				</item>
+				<item>
+					<path>user.jsp</path>
+					<title>Drivers</title>
+				</item>
+			</menu>
+		</main>
+	</content>
+</navbar>
