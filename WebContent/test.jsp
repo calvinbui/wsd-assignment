@@ -1,31 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:default>
 
-<jsp:attribute name="navbar">
-<h1>Navbar</h1>
-</jsp:attribute>
-
-<jsp:attribute name="footer">
-    	<!-- Import newlog.xml -->
-		<c:import var="xml" url="xml/login.xml"/>
-		<!-- Import newlog.xsl -->
-		<c:import var="xslt" url="xsl/login.xsl" />
-		<!-- Style xml using xsl -->
-		<x:transform xml="${xml}" xslt="${xslt}" />
-</jsp:attribute>
-
-
 <jsp:body>
-    	<!-- Import newlog.xml -->
-		<c:import var="xml" url="xml/login.xml"/>
-		<!-- Import newlog.xsl -->
-		<c:import var="xslt" url="xsl/login.xsl" />
-		<!-- Style xml using xsl -->
-		<x:transform xml="${xml}" xslt="${xslt}" />
+	<div class="jumbotron">
+  <h1>Hello, world!</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+</div>
 </jsp:body>
 
 </t:default>
