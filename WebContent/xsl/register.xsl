@@ -19,6 +19,7 @@
 				<xsl:call-template name="navbar"/>
 				
 				<div class="container">
+				<div class="well bs-component">
 					<!-- Driver registration form -->
 					<form class="form-horizontal">
 						<fieldset>
@@ -52,6 +53,7 @@
 							</div>
 						</fieldset>
 					</form>
+					</div>
 				</div>
 			</body>
 		</html>

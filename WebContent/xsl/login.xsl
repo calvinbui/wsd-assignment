@@ -12,29 +12,14 @@
 				<title>
 					<xsl:value-of select="title"/>
 				</title>
-				
-				<style>
-				
-				.input-group-addon {
-				    min-width: 80px;// if you want width please write here //
-				    text-align:left;
-				}
-				
-				.input-group { width: 100%; }
-				
-				.vehicle {
-				  cursor: not-allowed;
-				    background-color: #EEE;
-				    color: #9E9999;
-				}
-				</style>
-				
 			</head>
+			
 			<body>
 				<!-- Insert navigation bar from header.xsl -->
 				<xsl:call-template name="navbar"/>
 				<!-- page container margin -->
 				<div class="container">
+				<div class="well bs-component">
 					<!-- Login form -->
 					<form class="form-horizontal">
 						<fieldset>
@@ -47,7 +32,7 @@
 										<div class="form-group">
 											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-4">
-												<input type="password" class="form-control" value="" placeholder="{current()}" required=""></input>
+												<input type="password" class="form-control" value="" placeholder="{current()}"></input>
 											</div>
 										</div>	
 									</xsl:when>
@@ -55,7 +40,7 @@
 										<div class="form-group">
 											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-4">
-												<input type="text" class="form-control" value="" placeholder="{current()}" required="" autofocus=""></input>
+												<input type="text" class="form-control" value="" placeholder="{current()}" autofocus=""></input>
 											</div>
 										</div>	
 									</xsl:otherwise>
@@ -67,14 +52,17 @@
 								<button class="btn btn-primary btn-block" type="submit">Log in</button>
 							</div>
 						</div>
-						<!-- Redirect user to register page -->
+					</fieldset>
+					</form>
+					<!-- Redirect user to register page -->
+					<div class="form-horizontal">
 						<div class="form-group">
 							<div class="col-lg-4 col-lg-offset-2">
-								<button class="btn btn-primary btn-block" type="submit">Register</button>
+								<a href="{$context-path}/registerDriver.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>
 							</div>
 						</div>
-					</fieldset>
-					</form>	
+					</div>
+				</div>
 				</div>
 			</body>
 		</html>
