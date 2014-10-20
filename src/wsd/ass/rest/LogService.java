@@ -13,6 +13,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 
+import com.sun.jersey.api.provider.jaxb.XmlHeader;
+
 import wsd.ass.Constants;
 import wsd.ass.Log;
 import wsd.ass.LogApplication;
@@ -156,6 +158,8 @@ public class LogService implements RESTServiceFactory{
 	@Path("")
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
+	// the stylesheet to apply to the XML file outputted
+	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../xsl/logrest.xsl' ?>")
 	public ArrayList<Log> getQuery(@QueryParam("vehicleRego") String vehicleRego, @QueryParam("startDate") String startDate, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
 		// if the date parameter is not null add all matching logs to the array list
 		if (startDate != null || vehicleRego != null || keyword != null) {

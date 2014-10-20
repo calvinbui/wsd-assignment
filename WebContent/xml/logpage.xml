@@ -3,6 +3,11 @@
 <logpage>
 	<title>Logs</title>
 	
+	<pagetitle>Overview of Logs</pagetitle>
 	
+	<breadcrumb>
+		<nav>Home</nav>
+		<nav>Logs</nav>
+	</breadcrumb>
 	
 </logpage>

@@ -10,26 +10,8 @@
 		<html>
 		
 			<head>
-				<title>
-					<xsl:value-of select="title" />
-				</title>
-				
-				<style>
-				
-				.input-group-addon {
-				    min-width: 190px;// if you want width please write here //
-				    text-align:left;
-				}
-				
-				.input-group { width: 100%; }
-				
-				.vehicle {
-				  cursor: not-allowed;
-				    background-color: #EEE;
-				    color: #9E9999;
-				}
-				</style>
-				
+				<!-- Insert title of driver registration form -->
+				<title><xsl:value-of select="title" /></title>			
 			</head>
 			
 			<body>
@@ -37,34 +19,39 @@
 				<xsl:call-template name="navbar"/>
 				
 				<div class="container">
-					<div class="col-lg-6 col-md-offset-3">
-						<form>
+					<!-- Driver registration form -->
+					<form class="form-horizontal">
+						<fieldset>
 							<!-- Login title -->
-							<h1 class="form-signin-heading">
-								<xsl:value-of select="title"/>
-							</h1>
+							<h1 class="form-signin-heading"><xsl:value-of select="title"/></h1>
 							
 							<xsl:for-each select="form/*">
-							<xsl:choose>
-								<xsl:when test="contains(current(),'Password')">
-									<div style="margin-bottom: 10px;" class="input-group">
-										<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-										<input type="password" class="input-block-level form-control {current()}" value="" placeholder="enter {current()}" required=""></input>
+								<xsl:choose>
+									<xsl:when test="contains(current(),'Password')">
+										<div class="form-group">
+											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
+											<div class="col-lg-6">
+												<input type="password" class="form-control" id="{current()}" value="" placeholder="{current()}" required=""></input>
+											</div>											</div>	
+									</xsl:when>
+									<xsl:otherwise>
+										<div class="form-group">
+											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
+											<div class="col-lg-6">
+												<input type="text" class="form-control" id="{current()}" value="" placeholder="enter {current()}" required="" autofocus=""></input>
+											</div>
 									</div>	
-								</xsl:when>
-								<xsl:otherwise>
-									<div style="margin-bottom: 10px;" class="input-group">
-										<span style="" class="input-group-addon"><xsl:value-of select="current()"/></span>
-										<input type="text" class="input-block-level form-control {current()}" value="" placeholder="enter {current()}" required="" autofocus=""></input>
-									</div>	
-								</xsl:otherwise>
-							</xsl:choose>
+									</xsl:otherwise>
+								</xsl:choose>
 							</xsl:for-each>
 							<!-- Redirect user to index page -->
-							<a href="{$context-path}/index.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>
-							
-						</form>
-					</div>
+							<div class="form-group">
+								<div class="col-lg-6 col-lg-offset-2">
+									<button class="btn btn-primary btn-block" type="submit">Register</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
 				</div>
 			</body>
 		</html>
