@@ -38,7 +38,7 @@
 										<div class="form-group">
 											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-6">
-												<input type="text" class="form-control" id="{current()}" value="" placeholder="enter {current()}" required="" autofocus=""></input>
+												<input type="text" class="form-control" id="{current()}" value="" placeholder="{current()}" required="" autofocus=""></input>
 											</div>
 									</div>	
 									</xsl:otherwise>
