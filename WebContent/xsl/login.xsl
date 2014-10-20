@@ -32,7 +32,7 @@
 										<div class="form-group">
 											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-4">
-												<input type="password" class="form-control" value="" placeholder="{current()}"></input>
+												<input type="password" class="form-control" value="" placeholder="{current()}" required=""></input>
 											</div>
 										</div>	
 									</xsl:when>
@@ -40,7 +40,7 @@
 										<div class="form-group">
 											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-4">
-												<input type="text" class="form-control" value="" placeholder="{current()}" autofocus=""></input>
+												<input type="text" class="form-control" value="" placeholder="{current()}" required="" autofocus=""></input>
 											</div>
 										</div>	
 									</xsl:otherwise>

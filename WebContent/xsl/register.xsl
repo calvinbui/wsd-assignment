@@ -21,7 +21,7 @@
 				<div class="container">
 				<div class="well bs-component ">
 					<!-- Driver registration form -->
-					<form class="form-horizontal col-lg-offset-3">
+					<form class="form-horizontal col-lg-offset-2">
 						<fieldset>
 							<!-- Login title -->
 							<h1 class="form-signin-heading"><xsl:value-of select="title"/></h1>
@@ -30,14 +30,14 @@
 								<xsl:choose>
 									<xsl:when test="contains(current(),'Password')">
 										<div class="form-group">
-											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
+											<label class="col-lg-3 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-6">
 												<input type="password" class="form-control" id="{current()}" value="" placeholder="{current()}" required=""></input>
 											</div>											</div>	
 									</xsl:when>
 									<xsl:otherwise>
 										<div class="form-group">
-											<label class="col-lg-2 control-label"><xsl:value-of select="current()"/></label>
+											<label class="col-lg-3 control-label"><xsl:value-of select="current()"/></label>
 											<div class="col-lg-6">
 												<input type="text" class="form-control" id="{current()}" value="" placeholder="{current()}" required="" autofocus=""></input>
 											</div>
@@ -47,7 +47,7 @@
 							</xsl:for-each>
 							<!-- Redirect user to index page -->
 							<div class="form-group">
-								<div class="col-lg-6 col-lg-offset-2">
+								<div class="col-lg-6 col-lg-offset-3">
 									<button class="btn btn-primary btn-block" type="submit">Register</button>
 								</div>
 							</div>

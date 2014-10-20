@@ -34,7 +34,13 @@
 	</xsl:template>
 	
 	<xsl:template match="logs">
-		<xsl:value-of select="log"/>
+		<table>
+			<xsl:for-each select="log">
+				<tr>
+					<td><xsl:apply-templates /></td>
+				</tr>
+			</xsl:for-each>
+		</table>
 	</xsl:template>
 	
 </xsl:stylesheet>

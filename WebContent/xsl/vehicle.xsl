@@ -24,7 +24,7 @@
 						
 						<ol class="breadcrumb">
 							<li><a href="index.jsp">Home</a></li>
-							<li><a href="index.jsp">Vehicles</a></li>
+							<li>Vehicles</li>
 						</ol>
 						
 							<div class="col-lg-6">
@@ -90,7 +90,7 @@
 			<!-- Add new table row data for every vehicle kilometres -->
 			<td><xsl:value-of select="vehicle:kilometres"/></td>
 			<!-- Only drivers can add new logs -->
-			<td><a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}" class="btn btn-default">Add log</a></td>
+			<td><a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}" class="btn btn-default btn-sm">Add log</a></td>
 		<!-- End of table row -->
 		</tr>
 	<!-- End of vehicleTable template -->

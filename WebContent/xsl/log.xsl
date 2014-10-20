@@ -28,7 +28,7 @@
 						
 							<ol class="breadcrumb">
 								<li><a href="index.jsp">Home</a></li>
-								<li><a href="log.jsp">Logs</a></li>
+								<li>Logs</li>
 							</ol>
 						
 							<div class="col-lg-6">

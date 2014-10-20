@@ -23,7 +23,7 @@
 						
 							<ol class="breadcrumb">
 								<li><a href="index.jsp">Home</a></li>
-								<li><a href="user.jsp">Drivers</a></li>
+								<li>Drivers</li>
 							</ol>
 						
 							<div class="col-lg-6">
