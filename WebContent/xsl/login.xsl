@@ -21,7 +21,7 @@
 				<div class="container">
 				<div class="well bs-component">
 					<!-- Login form -->
-					<form class="form-horizontal">
+					<form class="form-horizontal col-lg-offset-3">
 						<fieldset>
 							<!-- Login title -->
 							<h1 class="form-signin-heading"><xsl:value-of select="title"/></h1>
@@ -55,7 +55,7 @@
 					</fieldset>
 					</form>
 					<!-- Redirect user to register page -->
-					<div class="form-horizontal">
+					<div class="form-horizontal col-lg-offset-3">
 						<div class="form-group">
 							<div class="col-lg-4 col-lg-offset-2">
 								<a href="{$context-path}/registerDriver.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>

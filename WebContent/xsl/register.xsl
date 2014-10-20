@@ -19,9 +19,9 @@
 				<xsl:call-template name="navbar"/>
 				
 				<div class="container">
-				<div class="well bs-component">
+				<div class="well bs-component ">
 					<!-- Driver registration form -->
-					<form class="form-horizontal">
+					<form class="form-horizontal col-lg-offset-3">
 						<fieldset>
 							<!-- Login title -->
 							<h1 class="form-signin-heading"><xsl:value-of select="title"/></h1>
