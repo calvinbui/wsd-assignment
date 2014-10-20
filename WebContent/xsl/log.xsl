@@ -70,19 +70,21 @@
 	</xsl:template>
 	
 	<xsl:template match="log:log">
-		<tr>
-			<td><xsl:value-of select="log:id" /></td>
-			<td><a href="rest/vehicles/{log:vehicle}"><xsl:value-of select="log:vehicle" /></a></td>
-			<td><xsl:value-of select="log:driver" /></td>
-			<td><xsl:value-of select="log:startdate" /></td>
-			<td><xsl:value-of select="log:enddate" /></td>
-			<td><xsl:value-of select="log:starttime" /></td>
-			<td><xsl:value-of select="log:endtime" /></td>
-			<td><xsl:value-of select="log:description" /></td>
-			<td><xsl:value-of select="log:kilometres" /></td>
-			<!-- Only drivers can delete logs -->
-			<td><a href="#"><i class="fa fa-remove"></i></a></td>
-		</tr>
+		<xsl:if test="not(contains(log:hidden, 'com'))">
+			<tr>
+				<td><xsl:value-of select="log:id" /></td>
+				<td><a href="rest/vehicles/{log:vehicle}"><xsl:value-of select="log:vehicle" /></a></td>
+				<td><xsl:value-of select="log:driver" /></td>
+				<td><a href="rest/logs?startDate={log:startdate}"><xsl:value-of select="log:startdate" /></a></td>
+				<td><xsl:value-of select="log:enddate" /></td>
+				<td><xsl:value-of select="log:starttime" /></td>
+				<td><xsl:value-of select="log:endtime" /></td>
+				<td><xsl:value-of select="log:description" /></td>
+				<td><xsl:value-of select="log:kilometres" /></td>
+				<!-- Only drivers can delete logs -->
+				<td><a href="#"><i class="fa fa-remove"></i></a></td>
+			</tr>
+		</xsl:if>
 	</xsl:template>
 	
 </xsl:stylesheet>

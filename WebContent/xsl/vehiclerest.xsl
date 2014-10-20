@@ -15,6 +15,9 @@
 	<xsl:template match="/">
 	
 		<html>
+			<head>
+				<title><xsl:value-of select="vehicle/registration"/></title>
+			</head>
 			
 			<body class="VehicleRego">
 			
@@ -64,16 +67,13 @@
 	
 	<xsl:template match="vehicle">
 		<thead>
-			<!-- Font Awesome barcode icon -->
-			<th><i class="fa fa-barcode"></i> Registration</th>
-			<!-- Font Awesome car icon -->
-			<th><i class="fa fa-car"></i> Type</th>
+			<th>Registration</th>
+			<th>Type</th>
 			<th>Make</th>
 			<th>Model</th>
 			<th>Year</th>
 			<th>Colour</th>
-			<!-- Font Awesome kilometre dashboard icon -->
-			<th><i class="fa fa-dashboard"></i> Kilometres</th>
+			<th>Kilometres</th>
 		</thead>
 		<tbody>
 			<xsl:apply-templates select="registration" />
@@ -136,51 +136,42 @@
 	</xsl:template>
 	
 	<xsl:template name="restLog">
-	<xsl:param name="car"/>
-	<xsl:variable name="url" select="document(concat('http://localhost:8080/wsdassignment/rest/logs?vehicleRego=', $car))"/>
+		<xsl:param name="car"/>
+		<xsl:variable name="url" select="document(concat('http://localhost:8080/wsdassignment/rest/logs?vehicleRego=', $car))"/>
 	
-	<xsl:choose>
-		<xsl:when test="$url != '' ">
-			<table  class="table table-striped secondTable">
-			<thead>
-				<th>Log ID</th>
-				<th>Registration</th>
-				<th>Driver</th>
-				<th>Start Date</th>
-				<th>End Date</th>
-				<th>Start Time</th>
-				<th>End Time</th>
-				<th>Description</th>
-				<th>Kilometres</th>
-			</thead>
-				<tbody>
-				<xsl:for-each select="$url/logs/log">
-					<tr>
-						<xsl:for-each select="current()/*">
-							<td>
-								<xsl:value-of select="current()"/>
-							</td>
-						</xsl:for-each>
-					</tr>
-				</xsl:for-each>
-				</tbody>
-			</table>
-		</xsl:when>
-		<!-- If {rego} contains no logs return the following -->
-		<xsl:otherwise>
-			<!-- Since {rego} has no logs, the following statement will appear -->
-			<p>No log entries found for <xsl:value-of select="vehicle/registration"/>.</p>
-		</xsl:otherwise>
-	</xsl:choose>
-	
-				<!-- look up cross filter dataTables -->
-				<!--  <script>		
-					$(document).ready(function() {
-				    $('#testicles').dataTable();
-				} ); 
-				
-				</script> -->
-
+		<xsl:choose>
+			<xsl:when test="$url != '' ">
+				<table  class="table table-striped secondTable">
+				<thead>
+					<th>Log ID</th>
+					<th>Registration</th>
+					<th>Driver</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Start Time</th>
+					<th>End Time</th>
+					<th>Description</th>
+					<th>Kilometres</th>
+				</thead>
+					<tbody>
+					<xsl:for-each select="$url/logs/log">
+						<tr>
+							<xsl:for-each select="current()/*">
+								<td>
+									<xsl:value-of select="current()"/>
+								</td>
+							</xsl:for-each>
+						</tr>
+					</xsl:for-each>
+					</tbody>
+				</table>
+			</xsl:when>
+			<!-- If {rego} contains no logs return the following -->
+			<xsl:otherwise>
+				<!-- Since {rego} has no logs, the following statement will appear -->
+				<p>No log entries found for <xsl:value-of select="vehicle/registration"/>.</p>
+			</xsl:otherwise>
+		</xsl:choose>					
 	</xsl:template>
 
 	

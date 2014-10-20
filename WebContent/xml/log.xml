@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-stylesheet type="text/xsl" href="xsl/log.xsl"?>
-
 <!-- XML namespaces for log, XSI and XSD -->
 <logs 
 	xmlns="http://www.wsd.com/log" 
@@ -19,7 +17,6 @@
 		<description>Picking up supplies for business.</description>
 		<kilometres>160</kilometres>
 		<hidden show="true"></hidden>
-		
 	</log>
 	<log>
 		<id>1</id>
