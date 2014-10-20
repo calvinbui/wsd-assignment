@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-<!-- Call header.xsl to include navbar -->
-<xsl:include href="xsl/header.xsl"/>
 
 	<xsl:template match="loginform">
 		<!-- TODO: Auto-generated template -->
-		<html>
-			<head>
-				<title>
-					<xsl:value-of select="title"/>
-				</title>
-				
-				<style>
-				
-				.input-group-addon {
-				    min-width: 80px;// if you want width please write here //
-				    text-align:left;
-				}
-				
-				.input-group { width: 100%; }
-				
-				.vehicle {
-				  cursor: not-allowed;
-				    background-color: #EEE;
-				    color: #9E9999;
-				}
-				</style>
-				
-			</head>
+
 			<body>
 				<!-- Insert navigation bar from header.xsl -->
-				<xsl:call-template name="navbar"/>
 				<!-- page container margin -->
 				<div class="container">
 					<div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -60,16 +33,15 @@
 							</xsl:choose>
 							</xsl:for-each>
 							<!-- Redirect user to index page -->
-							<a href="{$context-path}/index.jsp"><button class="btn btn-primary btn-block" type="submit">Log in</button></a>
+							<a href="/index.jsp"><button class="btn btn-primary btn-block" type="submit">Log in</button></a>
 						</form>
 						<!-- Redirect user to register page -->
-						<a href="{$context-path}/registerDriver.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>
+						<a href="/registerDriver.jsp"><button class="btn btn-primary btn-block" type="submit">Register</button></a>
 						
 					</div>
 					
 				</div>
 			</body>
-		</html>
 		
 	</xsl:template>
 	
