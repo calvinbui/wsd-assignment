@@ -6,12 +6,14 @@
 	<head>
 		<c:import var="xml" url="xml/head.xml"/>
 		<c:import var="xslt" url="xsl/head.xsl" />
-		<x:transform xml="${xml}" xslt="${xslt}" />
+		<x:transform xml="${xml}" xslt="${xslt}"/>
 	</head>
 	<body>
 		<c:import var="xml" url="xml/navbar.xml"/>
 		<c:import var="xslt" url="xsl/navbar.xsl" />
-		<x:transform xml="${xml}" xslt="${xslt}" />
+		<x:transform xml="${xml}" xslt="${xslt}" >
+			<x:param name="user" value="${session.getAttribute('username')}"/>
+		</x:transform>
 		
 		<jsp:doBody />
 		
