@@ -4,13 +4,14 @@
 
 
 <%
-
+//remove all previous session attributes
 session.removeAttribute("username");
 session.removeAttribute("password");
 session.removeAttribute("confirmpassword");
 session.removeAttribute("firstname");
 session.removeAttribute("lastname");
 
+//get the request parameters
 String username = request.getParameter("username");
 String password = request.getParameter("password");
 String password2 = request.getParameter("confirmpassword");

@@ -4,7 +4,7 @@
 
 
 <%
-
+//remove all previous session attributes
 session.removeAttribute("startdate");
 session.removeAttribute("enddate");
 session.removeAttribute("starttime");
@@ -12,7 +12,7 @@ session.removeAttribute("endtime");
 session.removeAttribute("invalidDates");
 session.removeAttribute("description");
 
-
+//get the request parameters
 String vehicle = request.getParameter("vehicle"); //session.getAttribute("registration");
 String driver = request.getParameter("driver"); // session.getAttribute("username")
 String startdate = request.getParameter("startdate");
