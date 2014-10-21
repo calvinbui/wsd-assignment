@@ -25,7 +25,7 @@ import wsd.ass.Users;
  */
 
 @WebService
-public class UserSOAP {
+public class UserSOAP implements SOAPServiceFactory{
 	@Resource
 	private WebServiceContext context;
 	
@@ -35,7 +35,8 @@ public class UserSOAP {
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	@WebMethod
-	private UserApplication getUserApp() throws JAXBException, IOException {
+	@Override
+	public Object getApp() throws JAXBException, IOException {
 		ServletContext application = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
 			UserApplication userApp = (UserApplication)application.getAttribute(Constants.USER_APP);
@@ -57,8 +58,9 @@ public class UserSOAP {
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	@WebMethod
-	public Users getUsers() throws JAXBException, IOException {
-		return (Users) getUserApp().get();
+	@Override
+	public Users fetch() throws JAXBException, IOException {
+		return (Users) ((UserApplication) getApp()).get();
 	}
 	
 	/**
@@ -71,6 +73,6 @@ public class UserSOAP {
 	 */
 	@WebMethod
 	public User getUser(String email, String password) throws JAXBException, IOException {
-		return getUserApp().login(email, password);
+		return ((UserApplication) getApp()).login(email, password);
 	}
 }

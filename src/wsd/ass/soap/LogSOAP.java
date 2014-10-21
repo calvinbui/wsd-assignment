@@ -26,7 +26,7 @@ import wsd.ass.Logs;
  */
 
 @WebService
-public class LogSOAP {
+public class LogSOAP implements SOAPServiceFactory {
 	@Resource
 	private WebServiceContext context;
 	
@@ -36,7 +36,8 @@ public class LogSOAP {
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	@WebMethod
-	private LogApplication getLogApp() throws JAXBException, IOException {
+	@Override
+	public Object getApp() throws JAXBException, IOException {
 		ServletContext application = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
 		synchronized (application) {
 			LogApplication logApp = (LogApplication)application.getAttribute(Constants.LOG_APP);
@@ -58,8 +59,9 @@ public class LogSOAP {
 	 * @throws IOException if the filepath is wrong or file does not exist
 	 */
 	@WebMethod
-	public Logs getLogs() throws JAXBException, IOException {
-		return (Logs) getLogApp().get();
+	@Override
+	public Object fetch() throws JAXBException, IOException {
+		return (Logs) ((LogApplication) getApp()).get();
 	}
 	
 	/**
@@ -71,7 +73,7 @@ public class LogSOAP {
 	@WebMethod
 	public String showAllLogs() throws JAXBException, IOException {
 		String s = "\n";
-		ArrayList<Log> logs = getLogs().getLogs();
+		ArrayList<Log> logs = ((Logs) fetch()).getLogs();
 		for (Log log : logs) {
 			s += showLog(log);
 		}
@@ -109,7 +111,7 @@ public class LogSOAP {
 	 */
 	@WebMethod
 	public void hideLog(int id, String user) throws JAXBException, IOException {
-		getLogApp().hideLog(id, user);
+		((LogApplication) getApp()).hideLog(id, user);
 	}
 	
 	/**
@@ -120,7 +122,7 @@ public class LogSOAP {
 	 */
 	@WebMethod
 	public boolean exists(int id) throws JAXBException, IOException {
-		ArrayList<Log> logs = getLogs().getLogs();
+		ArrayList<Log> logs = ((Logs) fetch()).getLogs();
 		for (Log log : logs) {
 			if (log.getId() == id) {
 				return true;
