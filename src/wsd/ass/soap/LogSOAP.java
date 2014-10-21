@@ -30,6 +30,11 @@ public class LogSOAP {
 	@Resource
 	private WebServiceContext context;
 	
+	/**
+	 * @return a LogApplication object
+	 * @throws JAXBException if Users class does not contain the correct elements to link with
+	 * @throws IOException if the filepath is wrong or file does not exist
+	 */
 	@WebMethod
 	private LogApplication getLogApp() throws JAXBException, IOException {
 		ServletContext application = (ServletContext)context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
