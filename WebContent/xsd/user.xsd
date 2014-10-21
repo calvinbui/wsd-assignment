@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- this is the xml schema for user.xml -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.wsd.com/user"
 	xmlns="http://www.wsd.com/user"
 	elementFormDefault="qualified">
 
+	<!-- this section contains simpleType definitions -->
+
 	<xs:simpleType name="name">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Z][a-zA-z]*" />
+			<xs:pattern value="[A-Z][a-zA-z]*" /> <!-- Name must start with a capital letter -->
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="username">
 		<xs:restriction base="xs:string">
 			<xs:pattern
-				value="([a-zA-Z]([-.\w]*[a-zA-Z])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" />
+				value="([a-zA-Z]([-.\w]*[a-zA-Z])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" /> <!-- must be in an email format -->
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="password">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[a-zA-Z0-9]*" />
+			<xs:pattern value="[a-zA-Z0-9]*" /> <!-- password can contain any letters or numbers -->
 		</xs:restriction>
 	</xs:simpleType>
 
