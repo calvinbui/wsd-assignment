@@ -16,7 +16,7 @@
 		request.setAttribute("result", "Login Incorrect. Please try again.");
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	} else {
-		session.setAttribute("user", user);
+		session.setAttribute("username", user.getUsername());
 		response.sendRedirect("index.jsp");
 	}
 %>

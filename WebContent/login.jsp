@@ -4,7 +4,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%
-	if (session.getAttribute("user") != null) 
+	if (session.getAttribute("username") != null) 
 		response.sendRedirect("index.jsp");
 %>
 
