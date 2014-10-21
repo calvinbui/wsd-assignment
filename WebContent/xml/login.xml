@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <login>
-	<form method="POST" action="login.jsp">
+	<form method="POST" action="login_check.jsp">
 		<input type="text">Username</input>
 		<input type="password">Password</input>
 		<button type="submit">Login</button>

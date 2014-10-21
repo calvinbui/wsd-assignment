@@ -4,21 +4,8 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%
-	String s = "";
-	UserApplication userApp = new UserApplication();
-	userApp.setFilePath(application.getRealPath(Constants.USER_XML));
-	userApp.unmarshall();
-	
-	
-	
-	
-	User user = userApp.login(request.getParameter("Username"), request.getParameter("Password"));
-	if (user == null) {
-		s = "Incorrect Login";
-	} else {
-		session.setAttribute("user", user);
+	if (session.getAttribute("user") != null) 
 		response.sendRedirect("index.jsp");
-	}
 %>
 
 <t:default>
@@ -26,7 +13,7 @@
 		<c:import var="xml" url="xml/login.xml" />
 		<c:import var="xslt" url="xsl/login.xsl" />
 		<x:transform xml="${xml}" xslt="${xslt}" >
-		
+			<x:param name="result" value="${result}"/>
 		</x:transform>
 	</jsp:body>
 </t:default>

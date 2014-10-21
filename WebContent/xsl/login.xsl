@@ -3,12 +3,15 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+	<xsl:param name="result" />
+
 	<xsl:template match="/">
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
-			<div class="text-center">
-				<xsl:apply-templates />
-			</div>
+				<div class="text-center">
+					<p class="text-danger"><xsl:value-of select="$result"/></p>
+					<xsl:apply-templates />
+				</div>
 			</div>
 		</div>
 	</xsl:template>
@@ -24,9 +27,11 @@
 			<input placeholder="{.}" type="{@type}" name="{.}" class="form-control" />
 		</div>
 	</xsl:template>
-	
+
 	<xsl:template match="button">
-	  <button type="submit" class="btn btn-block btn-primary"><xsl:apply-templates/></button>
+		<button type="submit" class="btn btn-block btn-primary">
+			<xsl:apply-templates />
+		</button>
 	</xsl:template>
 
 </xsl:stylesheet>
