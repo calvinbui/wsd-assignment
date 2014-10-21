@@ -6,11 +6,11 @@
 	</xsl:template>
 	
 	<xsl:template match="css">
-		<link rel="stylesheet" href="{.}"></link>
+		<link rel="stylesheet" href="/wsdassignment/{.}"></link>
 	</xsl:template>
 	
 	<xsl:template match="js">
-		<script src="{.}">//</script>
+		<script src="/wsdassignment/{.}">//</script>
 	</xsl:template>
 	
 </xsl:stylesheet>
