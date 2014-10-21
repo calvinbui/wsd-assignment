@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
-	
+
 	<display-name>wsdassignment</display-name>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
 	
 	<error-page>
-       <error-code>404</error-code>
-         <location>/404.jsp</location>
-   </error-page>
-	
-	
+		<error-code>403</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+
 	<!-- Temp files? -->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -24,7 +26,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- Jersey REST Web Servlet -->
 	<servlet>
 		<servlet-name>Jersey REST Web Services</servlet-name>
@@ -35,29 +37,43 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
- 
+
 	<!-- Jersey REST XML Setup -->
 	<servlet-mapping>
 		<servlet-name>Jersey REST Web Services</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- a litener to clean up Temp files? -->
 	<listener>
 		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
 	</listener>
-	
+
 	<!-- SOAP Web Servlet -->
 	<servlet>
 		<servlet-name>SOAP Web Services</servlet-name>
 		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<!-- SOAP Web Servlet -->
 	<servlet-mapping>
 		<servlet-name>SOAP Web Services</servlet-name>
 		<url-pattern>/soap/*</url-pattern>
 	</servlet-mapping>
-	
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Include files</web-resource-name>
+			<description>No direct access to include files.</description>
+			<url-pattern>/xml/*</url-pattern>
+			<http-method>POST</http-method>
+			<http-method>GET</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>No direct browser access to include files.</description>
+			<role-name>NobodyHasThisRole</role-name>
+		</auth-constraint>
+	</security-constraint>
+
 </web-app>
