@@ -50,7 +50,7 @@ if (valid) {
 	UserApplication userApp = new UserApplication(); 
 	userApp.setFilePath(application.getRealPath(Constants.USER_XML));
 	userApp.unmarshall();
-	userApp.addUser(user);
+	userApp.add(user);
 	
 	response.sendRedirect("index.jsp");
 }

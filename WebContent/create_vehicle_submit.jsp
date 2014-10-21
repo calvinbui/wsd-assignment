@@ -75,7 +75,7 @@ if (valid) {
 	VehicleApplication vehicleApp = new VehicleApplication(); 
 	vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
 	vehicleApp.unmarshall();
-	vehicleApp.addVehicle(vehicle);
+	vehicleApp.add(vehicle);
 	
 }
 %>
