@@ -32,6 +32,7 @@ public class ApplicationClient {
 	}
 
 	private static void login() throws ServiceException, JAXBException, IOException, RemoteException, InterruptedException {
+		Thread.sleep(1000); // reduce contention and locking
 		while (user == null) {
 			System.out.print("Enter email: ");
 			Scanner s = new Scanner(System.in);
