@@ -56,7 +56,7 @@
 	</xsl:template>
 
 	<xsl:template match="path">
-		<a href="{.}">
+		<a href="/wsdassignment/{.}">
 			<xsl:value-of select="../title" />
 		</a>
 	</xsl:template>
