@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<loginform>
-	<title>Login</title>
-	<login>
-		<username>Username</username>
-		<password>Password</password>
-	</login>
-</loginform>
+<login>
+	<form method="POST" action="login.jsp">
+		<input type="text">Username</input>
+		<input type="password">Password</input>
+		<button type="submit">Login</button>
+	</form>
+</login>
