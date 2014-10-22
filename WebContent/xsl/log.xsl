@@ -4,52 +4,34 @@
 <xsl:stylesheet version="1.0" 
 				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 				xmlns:log="http://www.wsd.com/log">
-			
-<!-- Call header.xsl to include navbar -->	
-<xsl:include href="xsl/header.xsl"/>
 
 	<!-- Vehicle logs main page -->
 	<xsl:template match="/">
-		<html>
-			<head>
-				<title>Logs</title>
-			</head>
-		
-			<body>
-			
-				<!-- Log page navigation -->
-				<xsl:call-template name="navbar"/>
-				<!-- End of page navigation bar -->
-					
-				<!-- Logs main page content -->
-				<div class="container">
-					<div class="pageheader">
-						<div class="row">
+		<!-- Logs main page content -->
+		<div class="container">
+			<div class="pageheader">
+				<div class="row">
 						
-							<ol class="breadcrumb">
-								<li><a href="index.jsp">Home</a></li>
-								<li>Logs</li>
-							</ol>
+					<ol class="breadcrumb">
+						<li><a href="index.jsp">Home</a></li>
+						<li>Logs</li>
+					</ol>
 						
-							<div class="col-lg-6">
-								<!-- Log title -->
-								<h1>Overview of Logs</h1>
-							</div>
-						</div>
-						<!-- End row -->
-					</div>
-					
-					<div class="bs-docs-section">
-						<!-- Log table with striped design -->
-						<table class="table table-striped table-hover">
-							<xsl:apply-templates />
-						</table>
+					<div class="col-lg-6">
+						<!-- Log title -->
+						<h1>Overview of Logs</h1>
 					</div>
 				</div>
-			</body>
-			<footer>
-			</footer>
-		</html>
+			<!-- End row -->
+			</div>
+					
+			<div class="bs-docs-section">
+				<!-- Log table with striped design -->
+				<table class="table table-striped table-hover">
+					<xsl:apply-templates />
+				</table>
+			</div>
+		</div>
 	</xsl:template>
 	
 	<xsl:template match="log:logs">

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<page>
-	<navbar>
-		<nav>Vehicles</nav>
-		<nav>Logs</nav>
-		<nav>Drivers</nav>
-	</navbar>
+<index>
 	
-	<title>Hello</title>
-	<content>
-		<paragraph>This is my first XML/XSL file!</paragraph>
-	</content>
-</page>
+	<title>Vehicles</title>
+
+	<vehicletable>
+		<heading>Registration</heading>
+		<heading>Type</heading>
+		<heading>Kilometres</heading>
+	</vehicletable>
+	
+</index>
