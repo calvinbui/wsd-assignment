@@ -12,6 +12,9 @@
 	</xsl:template>
 	
 	<xsl:template match="vehicle:vehicles">
+		<head>
+			<title>Vehicles</title>
+		</head>
 		<div class="container">
 		
 		<ol class="breadcrumb">
@@ -47,11 +50,11 @@
 		<!-- Create new row for every vehicle -->
 		<tr>
 			<!-- Add new table row data for every vehicle registration -->
-			<td><a href="rest/vehicles/{vehicle:registration}"><xsl:value-of select="vehicle:registration"/></a></td>
+			<td><a href="rest/vehicles/{vehicle:registration}"><xsl:apply-templates select="vehicle:registration"/></a></td>
 			<!-- Add new table row data for vehicle type -->
-			<td><xsl:value-of select="vehicle:type"/></td>
+			<td><xsl:apply-templates select="vehicle:type"/></td>
 			<!-- Add new table row data for every vehicle kilometres -->
-			<td><xsl:value-of select="vehicle:kilometres"/></td>
+			<td><xsl:apply-templates select="vehicle:kilometres"/></td>
 			<!-- Only drivers can add new logs -->
 			<td><a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}" class="btn btn-default btn-sm">Add log</a></td>
 		<!-- End of table row -->

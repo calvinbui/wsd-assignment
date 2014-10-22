@@ -19,7 +19,7 @@
 						
 					<div class="col-lg-6">
 						<!-- Log title -->
-						<h1>Overview of Logs</h1>
+						<h1>Logs</h1>
 					</div>
 				</div>
 			<!-- End row -->
@@ -59,7 +59,7 @@
 				<td><a href="rest/vehicles/{log:vehicle}"><xsl:value-of select="log:vehicle" /></a></td>
 				<td><xsl:value-of select="log:driver" /></td>
 				<td><a href="rest/logs?startDate={log:startdate}"><xsl:value-of select="log:startdate" /></a></td>
-				<td><xsl:value-of select="log:enddate" /></td>
+				<td><a href="rest/logs?startDate={log:enddate}"><xsl:value-of select="log:enddate" /></a></td>
 				<td><xsl:value-of select="log:starttime" /></td>
 				<td><xsl:value-of select="log:endtime" /></td>
 				<td><xsl:value-of select="log:description" /></td>

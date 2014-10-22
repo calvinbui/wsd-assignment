@@ -32,8 +32,7 @@
 						<!-- Web page breadcrumb navigation for userability -->
 						<ol class="breadcrumb">
 							<!-- Link to index page -->
-							<li><a href="{$context-path}/index.jsp">Home</a></li>
-							<!-- Link to index page -->
+							<li><a href="{$context-path}/index.jsp"><i class="fa icon-home"></i></a></li>
 							<li><a href="{$context-path}/index.jsp">Vehicles</a></li>
 							<!-- Insert vehicle registration -->
 							<li><xsl:value-of select="vehicle/registration"/></li>
