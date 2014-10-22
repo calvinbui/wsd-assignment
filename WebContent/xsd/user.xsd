@@ -5,24 +5,25 @@
 	xmlns="http://www.wsd.com/user"
 	elementFormDefault="qualified">
 
-	<!-- this section contains simpleType definitions -->
-
+	<!-- Name must start with a capital letter -->
 	<xs:simpleType name="name">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Z][a-zA-z]*" /> <!-- Name must start with a capital letter -->
+			<xs:pattern value="[A-Z][a-zA-z]*" /> 
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Driver email must be valid username@[subdomain.]domain.gtld -->
 	<xs:simpleType name="username">
 		<xs:restriction base="xs:string">
 			<xs:pattern
-				value="([a-zA-Z]([-.\w]*[a-zA-Z])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" /> <!-- must be in an email format -->
+				value="([a-zA-Z]([-.\w]*[a-zA-Z])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- password can contain any letters or numbers -->
 	<xs:simpleType name="password">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[a-zA-Z0-9]*" /> <!-- password can contain any letters or numbers -->
+			<xs:pattern value="[a-zA-Z0-9]*" /> 
 		</xs:restriction>
 	</xs:simpleType>
 

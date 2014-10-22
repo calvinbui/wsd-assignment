@@ -13,37 +13,43 @@
 			<xs:maxLength value="6" />
 		</xs:restriction>
 	</xs:simpleType>
-
+	
+	<!-- Vehicle must have a type -->
 	<xs:simpleType name="type">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Vehicle must have a make -->
 	<xs:simpleType name="make">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Vehicle must have a model -->
 	<xs:simpleType name="model">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Year of vehicle mus tbe greater than 0 -->
 	<xs:simpleType name="year">
 		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="0" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Vehicle must have a colour -->
 	<xs:simpleType name="colour">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Vehicle kilometres must be greater than 0 -->
 	<xs:simpleType name="kilometres">
 		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="0" />

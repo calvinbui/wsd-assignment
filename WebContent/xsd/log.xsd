@@ -4,27 +4,22 @@
 	targetNamespace="http://www.wsd.com/log" xmlns="http://www.wsd.com/log"
 	elementFormDefault="qualified">
 
-	<!-- This simple type is for description -->
+	<!-- Description must be at least one character -->
 	<xs:simpleType name="description">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- The amount of kilometres for a car must be at least 0 -->
 	<xs:simpleType name="kilometres">
 		<xs:restriction base="xs:integer">
 			<xs:minInclusive value="0" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!-- Driver email must be valid username@[subdomain.]domain.gtld -->
 	<xs:simpleType name="driver">
-		<xs:restriction base="xs:string">
-			<xs:pattern
-				value="([a-zA-Z0-9]([-.\w]*[a-zA-Z0-9])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="hidden">
 		<xs:restriction base="xs:string">
 			<xs:pattern
 				value="([a-zA-Z0-9]([-.\w]*[a-zA-Z0-9])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" />
