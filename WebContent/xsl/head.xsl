@@ -17,4 +17,8 @@
 		<link rel="shortcut icon" href="/wsdassignment/img/{.}"></link>
 	</xsl:template>
 	
+	<xsl:template match="title">
+		<title><xsl:apply-templates/></title>
+	</xsl:template>
+	
 </xsl:stylesheet>
