@@ -8,7 +8,9 @@
 		<!-- stylesheets, javascript, favicon and title -->	
 		<c:import var="xml" url="xml/head.xml"/>
 		<c:import var="xslt" url="xsl/head.xsl" />
-		<x:transform xml="${xml}" xslt="${xslt}"/>
+		<x:transform xml="${xml}" xslt="${xslt}">
+			<x:param name="titleaddon" value="${titleaddon}"/>
+		</x:transform>
 	</head>
 	<body>
 		<!-- Top navigation bar -->	

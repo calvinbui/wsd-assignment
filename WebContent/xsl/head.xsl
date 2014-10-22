@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="xml" omit-xml-declaration="yes" />
+
+	<xsl:param name="titleaddon"/>
+	
 	<xsl:template match="/">
 		<xsl:apply-templates/>
 	</xsl:template>
@@ -18,7 +21,14 @@
 	</xsl:template>
 	
 	<xsl:template match="title">
-		<title><xsl:apply-templates/></title>
+		<xsl:if test="$titleaddon = '' ">
+			<title><xsl:apply-templates/></title>
+		</xsl:if>
+		<!-- User is logged in -->
+		<xsl:if test="$titleaddon != '' ">
+			<title><xsl:apply-templates/> - <xsl:value-of select="$titleaddon"/></title>
+		</xsl:if>
+		
 	</xsl:template>
 	
 </xsl:stylesheet>

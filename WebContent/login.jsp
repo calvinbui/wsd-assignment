@@ -6,6 +6,9 @@
 <%
 	if (session.getAttribute("username") != null) 
 		response.sendRedirect("index.jsp");
+
+	request.setAttribute(Constants.TITLE, "Login");
+
 %>
 
 <t:default>

@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../xsl/head.xsl"?>
 
 <head>
-	<title>Vehicle Log System</title>
+	<title>VLS</title>
 	<css>bootstrap/bootstrap.min.css</css>
 	<css>font-awesome/font-awesome.min.css</css>
 	<css>jquery-ui/jquery-ui.min.css</css>
