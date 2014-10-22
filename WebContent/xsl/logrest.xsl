@@ -10,7 +10,7 @@
 <xsl:strip-space elements="*"/>
 
 <xsl:variable name="logrest" select="document('{$context-path}/logrest.xml')"/>
-
+<xsl:param name="url-param" />
 <!-- Call header.xsl -->
 <xsl:include href="header.xsl"/>
 
@@ -18,7 +18,15 @@
 		<html>
 		
 			<head>
-				<title><xsl:value-of select="logs/log/startdate"/></title>
+				<xsl:choose>
+					<xsl:when test="1 = 1">
+						<title><xsl:value-of select="logs/log/startdate"/></title>
+					</xsl:when>
+					<xsl:otherwise>
+						
+					</xsl:otherwise>
+				</xsl:choose>
+				
 			</head>
 			
 			<body>
@@ -26,6 +34,7 @@
 				<xsl:call-template name="navbar"/>
 				
 			<div class="container">
+			<xsl:value-of select="$url-param"/>
 				<div class="pageheader">
 					<div class="row">
 						
@@ -53,6 +62,10 @@
 			</body>
 			
 		</html>
+		
+		<script>
+		
+		</script>
 		
 	</xsl:template>
 	

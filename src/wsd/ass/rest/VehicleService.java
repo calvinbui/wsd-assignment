@@ -79,6 +79,7 @@ public class VehicleService implements RESTServiceFactory{
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	@Override
+	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/index.xsl' ?>")
 	public Object fetch() throws JAXBException, IOException {
 		// use the Vehicle application to return all vehicles
 		return (Vehicles) ((VehicleApplication) getApp()).get();

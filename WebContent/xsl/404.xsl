@@ -6,6 +6,11 @@
 	</xsl:template>
 
 	<xsl:template match="message">
+	
+		<head>
+			<title><xsl:apply-templates /></title>
+		</head>
+		
 		<div class="container">
 			<h1>
 				<xsl:apply-templates />
