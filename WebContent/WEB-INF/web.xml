@@ -10,13 +10,13 @@
 	<!-- 404 error page redirect -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/404.jsp</location>
+		<location>/error.jsp</location>
 	</error-page>
 	
 	<!-- 403 error page redirect -->
 	<error-page>
 		<error-code>403</error-code>
-		<location>/404.jsp</location>
+		<location>/error.jsp</location>
 	</error-page>
 
 	<!-- Temp files? -->
