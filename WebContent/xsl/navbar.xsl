@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-	<xsl:param name="username"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:output method="xml" omit-xml-declaration="yes" />
+	<xsl:param name="username" />
 
 	<xsl:template match="/">
 		<div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -62,16 +61,23 @@
 			<xsl:value-of select="../title" />
 		</a>
 	</xsl:template>
-	
+
 	<xsl:template match="auth">
 		<!-- User is not logged in -->
 		<xsl:if test="$username = '' ">
-			<li><a href="login.jsp">Login</a></li>
+			<li>
+				<a href="login.jsp">Login</a>
+			</li>
 		</xsl:if>
 		<!-- User is logged in -->
 		<xsl:if test="$username != '' ">
-			<p class="navbar-text">Signed in as <xsl:value-of select="$username"/></p>
-			<li><a href="logout.jsp">Logout</a></li>
+			<p class="navbar-text">
+				Signed in as
+				<xsl:value-of select="$username" />
+			</p>
+			<li>
+				<a href="logout.jsp">Logout</a>
+			</li>
 		</xsl:if>
 	</xsl:template>
 
