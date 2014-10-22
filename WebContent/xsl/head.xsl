@@ -6,11 +6,15 @@
 	</xsl:template>
 	
 	<xsl:template match="css">
-		<link rel="stylesheet" href="/wsdassignment/{.}"></link>
+		<link rel="stylesheet" href="/wsdassignment/css/{.}"></link>
 	</xsl:template>
 	
 	<xsl:template match="js">
-		<script src="/wsdassignment/{.}">//</script>
+		<script src="/wsdassignment/js/{.}">//</script>
+	</xsl:template>
+	
+	<xsl:template match="favicon">
+		<link rel="shortcut icon" href="/wsdassignment/img/{.}"></link>
 	</xsl:template>
 	
 </xsl:stylesheet>
