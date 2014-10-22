@@ -32,7 +32,7 @@
 						<!-- Web page breadcrumb navigation for userability -->
 						<ol class="breadcrumb">
 							<!-- Link to index page -->
-							<li><a href="{$context-path}/index.jsp"><i class="fa icon-home"></i></a></li>
+							<li><a href="{$context-path}/index.jsp">Home</a></li>
 							<li><a href="{$context-path}/index.jsp">Vehicles</a></li>
 							<!-- Insert vehicle registration -->
 							<li><xsl:value-of select="vehicle/registration"/></li>
@@ -129,7 +129,7 @@
 							<td><xsl:apply-templates select="vehicle"/></td>
 							<td><xsl:apply-templates select="driver"/></td>
 							<td><a href="{$context-path}/rest/logs?startDate={startdate}"><xsl:apply-templates select="startdate"/></a></td>
-							<td><xsl:apply-templates select="enddate"/></td>
+							<td><a href="{$context-path}/rest/logs?startDate={enddate}"><xsl:apply-templates select="enddate"/></a></td>
 							<td><xsl:apply-templates select="starttime"/></td>
 							<td><xsl:apply-templates select="endtime"/></td>
 							<td><xsl:apply-templates select="description"/></td>

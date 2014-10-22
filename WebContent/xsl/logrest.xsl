@@ -49,7 +49,6 @@
 				<div class="bs-docs-section">
 				
 					<h1>
-						Logs from 
 						<xsl:value-of select="logs/log/startdate"/>
 					</h1>
 					
