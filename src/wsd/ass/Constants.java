@@ -18,4 +18,5 @@ public final class Constants {
 	public static final String USER_APP = "userApp";
 	public static final String LOG_APP = "logApp";
 	public static final String TITLE = "titleaddon";
+	public static final String REST = "Jersey REST";
 }

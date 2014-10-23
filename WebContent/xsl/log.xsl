@@ -3,104 +3,103 @@
 <!-- XML namespaces for log and XSLT -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:log="http://www.wsd.com/log">
+<xsl:output method="xml" omit-xml-declaration="yes" />
 
 	<xsl:param name="username" />
 
-	<!-- Vehicle logs main page -->
 	<xsl:template match="/">
-		<!-- Logs main page content -->
 		<div class="container">
-			<div class="pageheader">
-				<div class="row">
-
-					<ol class="breadcrumb">
-						<li>
-							<a href="index.jsp">Home</a>
-						</li>
-						<li>Logs</li>
-					</ol>
-
-					<div class="col-lg-6">
-						<!-- Log title -->
-						<h1>Logs</h1>
-					</div>
-				</div>
-				<!-- End row -->
-			</div>
-
-			<div class="bs-docs-section">
-				<!-- Log table with striped design -->
-				<table class="table table-striped table-hover">
+			<table class="table table-striped table-hover">
+				<thead>
+					<th>ID</th>
+					<th>Vehicle</th>
+					<th>Driver</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Start Time</th>
+					<th>End Time</th>
+					<th>Description</th>
+					<th>Kilometres</th>
+					<xsl:if test="$username != '' ">
+					<th>Delete</th>
+					</xsl:if>
+				</thead>
+				<tbody>
 					<xsl:apply-templates />
-				</table>
-			</div>
+				</tbody>
+			</table>
 		</div>
 	</xsl:template>
 
-	<xsl:template match="log:logs">
-		<thead>
-			<th>ID</th>
-			<th>Vehicle</th>
-			<th>Driver</th>
-			<th>Start Date</th>
-			<th>End Date</th>
-			<th>Start Time</th>
-			<th>End Time</th>
-			<th>Description</th>
-			<th>Kilometres</th>
-			<th></th>
-		</thead>
-		<tbody>
-			<xsl:apply-templates />
-		</tbody>
-	</xsl:template>
-
-	<xsl:template match="log:log">
-		<xsl:if test="not(contains(log:hidden, 'com'))">
+	<xsl:template match="log | log:log">
+		<xsl:if test="hidden = '' or log:hidden = '' ">
 			<tr>
-				<td>
-					<xsl:value-of select="log:id" />
-				</td>
-				<td>
-					<a href="rest/vehicles/{log:vehicle}">
-						<xsl:value-of select="log:vehicle" />
-					</a>
-				</td>
-				<td>
-					<xsl:value-of select="log:driver" />
-				</td>
-				<td>
-					<a href="rest/logs?startDate={log:startdate}">
-						<xsl:value-of select="log:startdate" />
-					</a>
-				</td>
-				<td>
-					<a href="rest/logs?startDate={log:enddate}">
-						<xsl:value-of select="log:enddate" />
-					</a>
-				</td>
-				<td>
-					<xsl:value-of select="log:starttime" />
-				</td>
-				<td>
-					<xsl:value-of select="log:endtime" />
-				</td>
-				<td>
-					<xsl:value-of select="log:description" />
-				</td>
-				<td>
-					<xsl:value-of select="log:kilometres" />
-				</td>
-				<!-- Only drivers can delete logs -->
-				<td>
-					<xsl:if test="$username != '' ">
-						<a href="#delte" value="{log:id}" class="btn btn-default btn-sm">
-							<i class="fa fa-remove"></i>
-						</a>
-					</xsl:if>
-				</td>
+				<xsl:apply-templates />
+				<xsl:if test="$username != '' ">
+					<td>
+						<button class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></button>
+					</td>
+				</xsl:if>
 			</tr>
 		</xsl:if>
+	</xsl:template>
+
+	<xsl:template match="id | log:id">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<xsl:template match="driver | log:driver">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<xsl:template match="vehicle | log:vehicle">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<xsl:template match="startdate | log:startdate">
+		<td>
+			<a href="log_search.jsp?startDate={.}">
+				<xsl:apply-templates />
+			</a>
+		</td>
+	</xsl:template>
+
+	<xsl:template match="enddate | log:enddate">
+		<td>
+			<a href="log_search.jsp?startDate={.}">
+				<xsl:apply-templates />
+			</a>
+		</td>
+	</xsl:template>
+
+	<xsl:template match="starttime | log:starttime">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<xsl:template match="endtime | log:endtime">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<xsl:template match="description | log:description">
+		<td>
+			<xsl:apply-templates />
+		</td>
+	</xsl:template>
+
+	<xsl:template match="kilometres | log:kilometres">
+		<td>
+			<xsl:apply-templates />
+		</td>
 	</xsl:template>
 
 </xsl:stylesheet>
