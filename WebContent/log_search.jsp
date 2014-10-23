@@ -8,23 +8,25 @@
 request.setAttribute(Constants.TITLE, "REST Query");
 String s = "http://localhost:8080/wsdassignment/rest/logs?";
 
-s += "vehicleRego=";
-if (request.getParameter("vehicleRego") != null)
-	s += request.getParameter("vehicleRego");
-else
-	s += "null";
+if (request.getParameter("vehicleRego") != null || request.getParameter("startDate") != null || request.getParameter("keyword") != null) {
+	s += "vehicleRego=";
+	if (request.getParameter("vehicleRego") != null)
+		s += request.getParameter("vehicleRego");
+	else
+		s += "null";
 
-s += "&startDate=";
-if (request.getParameter("startDate") != null)
-	s += request.getParameter("startDate");
-else
-	s += "null";
+	s += "&startDate=";
+	if (request.getParameter("startDate") != null)
+		s += request.getParameter("startDate");
+	else
+		s += "null";
 
-s += "&keyword=";
-if (request.getParameter("keyword") != null)
-	s += request.getParameter("keyword");
-else
-	s += "null";
+	s += "&keyword=";
+	if (request.getParameter("keyword") != null)
+		s += request.getParameter("keyword");
+	else
+		s += "null";
+}
 
 session.setAttribute("REST", s);
 %>
