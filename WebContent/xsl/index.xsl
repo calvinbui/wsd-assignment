@@ -43,6 +43,9 @@
 					<!-- End of table body for vehicle data -->
 				</tbody>
 			</table>
+			<xsl:if test="$username = 'admin@uts.com' ">
+				<a href="newvehicle.jsp" class="btn btn-default">Add vehicle</a>
+			</xsl:if>
 		</div>
 	</xsl:template>
 

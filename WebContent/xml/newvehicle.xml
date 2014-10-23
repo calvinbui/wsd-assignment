@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vehicleform>
+
+	<title>Add New Vehicle</title>
+
+	<addvehicle class="form-horizontal">
+		<option class="form-group">
+			<label for="registration" class="control-label col-xs-2">Registration</label>
+			<input type="text" class="form-control" id="registration"
+				placeholder="Vehicle registration" />
+		</option>
+		<option class="form-group">
+			<label for="type" class="control-label col-xs-2">Type</label>
+			<input type="text" class="form-control" id="type" placeholder="Vehicle type" />
+		</option>
+		<option class="form-group">
+			<label for="make" class="control-label col-xs-2">Make</label>
+			<input type="text" class="form-control" id="make" placeholder="Vehicle make" />
+		</option>
+		<option class="form-group">
+			<label for="model" class="control-label col-xs-2">Model</label>
+			<input type="text" class="form-control" id="model" placeholder="Vehicle model" />
+		</option>
+		<option class="form-group">
+			<label for="year" class="control-label col-xs-2">Year</label>
+			<input type="number" class="form-control" id="year"
+				placeholder="Vehicle Year" />
+		</option>
+		<option class="form-group">
+			<label for="colour" class="control-label col-xs-2">Colour</label>
+			<input type="text" class="form-control" id="colour"
+				placeholder="Vehicle colour" />
+		</option>
+		<option class="form-group">
+			<label for="kilometres" class="control-label col-xs-2">Kilometres</label>
+			<input type="number" class="form-control" id="kilometres"
+				placeholder="Kilometres travelled" />
+		</option>
+	</addvehicle>
+
+</vehicleform>

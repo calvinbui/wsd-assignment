@@ -6,14 +6,13 @@
 
 <t:default>
 	<jsp:body>
-		<!-- Import newlog.xml -->
-		<c:import var="xml" url="xml/newlog.xml" />
-		<!-- Import newlog.xsl -->
-		<c:import var="xslt" url="xsl/newlog.xsl" />
+		<!-- Import REST outputted log.xml -->
+		<c:import var="xml" url="xml/newvehicle.xml" />
+		<!-- Import vehicle.xsl -->
+		<c:import var="xslt" url="xsl/newvehicle.xsl" />
 		<!-- Style xml using xsl -->
 		<x:transform xml="${xml}" xslt="${xslt}" >
 			<x:param name="username" value="${sessionScope['username']}"/>
-			<x:param name="registration" value="${sessionScope['vehicle/registration']}"/>
 		</x:transform>
 	</jsp:body>
 </t:default>
