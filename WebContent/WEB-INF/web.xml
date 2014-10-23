@@ -40,7 +40,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<!-- Jersey REST XML Setup -->
+	<!-- Jersey REST path -->
 	<servlet-mapping>
 		<servlet-name>Jersey REST Web Services</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
