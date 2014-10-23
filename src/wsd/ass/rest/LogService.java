@@ -159,7 +159,7 @@ public class LogService implements RESTServiceFactory{
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	// the stylesheet to apply to the XML file outputted
-	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../xsl/logrest.xsl' ?>")
+	//@XmlHeader("<?xml-stylesheet type='text/xsl' href='../xsl/logrest.xsl' ?>")
 	public ArrayList<Log> getQuery(@QueryParam("vehicleRego") String vehicleRego, @QueryParam("startDate") String startDate, @QueryParam("keyword") String keyword ) throws JAXBException, IOException {
 		// if the date parameter is not null add all matching logs to the array list
 		if (startDate != null || vehicleRego != null || keyword != null) {
