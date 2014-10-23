@@ -5,27 +5,14 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%
-request.setAttribute(Constants.TITLE, "REST Query");
+request.setAttribute(Constants.TITLE, "Logs");
 String s = Constants.REST_LOGS;
 
-if (request.getParameter("vehicleRego") != null || request.getParameter("startDate") != null || request.getParameter("keyword") != null) {
-	s += "vehicleRego=";
-	if (request.getParameter("vehicleRego") != null)
-		s += request.getParameter("vehicleRego");
-	else
-		s += "null";
+String[] parameters = Constants.REST_PARAMETERS;
 
-	s += "&startDate=";
-	if (request.getParameter("startDate") != null)
-		s += request.getParameter("startDate");
-	else
-		s += "null";
-
-	s += "&keyword=";
-	if (request.getParameter("keyword") != null)
-		s += request.getParameter("keyword");
-	else
-		s += "null";
+for (String parameter : parameters) {
+	if (request.getParameter(parameter) != null)
+		s += "&" + parameter + "=" + request.getParameter(parameter);
 }
 
 session.setAttribute("REST", s);
