@@ -27,20 +27,20 @@
 	</xsl:template>
 
 	<xsl:template match="option">
-		<div class="{@class}">
+		<div class="form-group">
 			<xsl:apply-templates />
 		</div>
 	</xsl:template>
 
 	<xsl:template match="label">
-		<label for="{@for}" class="{@class}">
+		<label for="{@for}" class="control-label col-xs-2">
 			<xsl:apply-templates />
 		</label>
 	</xsl:template>
 
 	<xsl:template match="input">
 		<div class="col-xs-10">
-			<input type="{@type}" class="{@class}" id="{@id}" placeholder="{@placeholder}">
+			<input type="{@type}" class="form-control" id="{@id}" placeholder="{@placeholder}">
 				<xsl:apply-templates />
 			</input>
 		</div>

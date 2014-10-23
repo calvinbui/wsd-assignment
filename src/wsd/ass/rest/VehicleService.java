@@ -79,7 +79,6 @@ public class VehicleService implements RESTServiceFactory{
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	@Override
-	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/index.xsl' ?>")
 	public Object fetch() throws JAXBException, IOException {
 		// use the Vehicle application to return all vehicles
 		return (Vehicles) ((VehicleApplication) getApp()).get();
@@ -96,7 +95,6 @@ public class VehicleService implements RESTServiceFactory{
 	@GET // HTTP GET command to be invoked by user
 	@Produces(MediaType.APPLICATION_XML) // output produces an XML file
 	// the stylesheet to apply to the XML file outputted
-	@XmlHeader("<?xml-stylesheet type='text/xsl' href='../../xsl/vehiclerest.xsl' ?>")
 	public Vehicle getVehicle(@PathParam("rego") String registration) throws JAXBException, IOException {
 		// store all vehicles in the system into an array list
 		ArrayList<Vehicle> vehicles = ((Vehicles) fetch()).getVehicles();
