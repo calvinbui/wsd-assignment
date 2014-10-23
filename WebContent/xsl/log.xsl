@@ -31,8 +31,8 @@
 		</div>
 	</xsl:template>
 
-	<xsl:template match="log | log:log">
-		<xsl:if test="hidden = '' or log:hidden = '' ">
+	<xsl:template match="log">
+		<xsl:if test="hidden = ''">
 			<tr>
 				<xsl:apply-templates />
 				<xsl:if test="$username != '' ">
@@ -44,59 +44,59 @@
 		</xsl:if>
 	</xsl:template>
 
-	<xsl:template match="id | log:id">
+	<xsl:template match="id">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
-	<xsl:template match="driver | log:driver">
+	<xsl:template match="driver">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
-	<xsl:template match="vehicle | log:vehicle">
+	<xsl:template match="vehicle">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
-	<xsl:template match="startdate | log:startdate">
+	<xsl:template match="startdate">
 		<td>
-			<a href="log_search.jsp?startDate={.}">
+			<a href="log.jsp?startDate={.}">
 				<xsl:apply-templates />
 			</a>
 		</td>
 	</xsl:template>
 
-	<xsl:template match="enddate | log:enddate">
+	<xsl:template match="enddate">
 		<td>
-			<a href="log_search.jsp?startDate={.}">
+			<a href="log.jsp?startDate={.}">
 				<xsl:apply-templates />
 			</a>
 		</td>
 	</xsl:template>
 
-	<xsl:template match="starttime | log:starttime">
+	<xsl:template match="starttime">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
-	<xsl:template match="endtime | log:endtime">
+	<xsl:template match="endtime">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
-	<xsl:template match="description | log:description">
+	<xsl:template match="description">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
-	<xsl:template match="kilometres | log:kilometres">
+	<xsl:template match="kilometres">
 		<td>
 			<xsl:apply-templates />
 		</td>
