@@ -9,7 +9,7 @@
 				<line>icon-bar</line>
 				<line>icon-bar</line>
 			</button>
-			<heading class="navbar-brand">Vehicle Log Book</heading>
+			<heading class="navbar-brand">Vehicle Logbook System</heading>
 		</header>
 
 		<main class="navbar-collapse collapse" id="navbar-main">

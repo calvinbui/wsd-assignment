@@ -11,20 +11,6 @@
 		<div class="container">
 			<xsl:apply-templates />
 		</div>
-
-		<!-- Get rego from Window location href -->
-		<script>$('.vehicle').val($('.vehicle').val() +
-			window.location.search.substr(1));</script>
-		<script>$('#title').append(' for Registration: ' +
-			window.location.search.substr(1));</script>
-		<script>$('#regoLink').append(window.location.search.substr(1));</script>
-		<script>
-			var string2 = window.location.search.substr(1);
-			$('#regoLink').each(function(){
-			this.href += string2;
-			})
-		</script>
-
 	</xsl:template>
 
 	<xsl:template match="title">
