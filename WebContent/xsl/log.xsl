@@ -94,7 +94,7 @@
 				<!-- Only drivers can delete logs -->
 				<td>
 					<xsl:if test="$username != '' ">
-						<a href="#delete" value="{log:id}" class="btn btn-default btn-sm">
+						<a href="#delte" value="{log:id}" class="btn btn-default btn-sm">
 							<i class="fa fa-remove"></i>
 						</a>
 					</xsl:if>

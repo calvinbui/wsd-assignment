@@ -94,11 +94,11 @@
 				<td><a href="vehicles/{vehicle}"><xsl:apply-templates select="vehicle"/></a></td>
 				<td><xsl:apply-templates select="driver"/></td>
 				<td><xsl:apply-templates select="startdate"/></td>
-				<td><xsl:apply-templates select="enddate"/></td>
+				<td><a href="rest/logs?startDate={enddate}"><xsl:apply-templates select="enddate"/></a></td>
 				<td><xsl:apply-templates select="starttime"/></td>
 				<td><xsl:apply-templates select="endtime"/></td>
 				<td><xsl:apply-templates select="description"/></td>
-				<td><xsl:apply-templates select="kilometres"/></td>
+				<td><xsl:value-of select="sum(kilometres)"/></td>
 			</tr>
 		</xsl:if>
 	</xsl:template>
