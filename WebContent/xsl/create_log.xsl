@@ -8,16 +8,19 @@
 	<xsl:param name="registration" />
 
 	<xsl:template match="/">
+
 		<div class="container">
 			<xsl:apply-templates />
 		</div>
-		
 		<script>
-		  $(function() {
-		    $( ".datepicker" ).datepicker();
-		  });
+		$(document).ready(function() {
+			$("#start_date").datepicker({
+				altField: "#end_date",
+    			altFormat: "yy-mm-dd"
+			});
+		});
+
 		</script>
-		
 	</xsl:template>
 
 	<xsl:template match="title">
@@ -61,7 +64,7 @@
 						placeholder="{$username}" disabled="" />
 				</xsl:when>
 				<xsl:when test="@type='date'">
-					<input type="text" class="form-control datepicker" id="{.}"
+					<input type="text" class="form-control datepicker" id="{@id}"
 						placeholder="{.}" />
 				</xsl:when>
 				<xsl:otherwise>
