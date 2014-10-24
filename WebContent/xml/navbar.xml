@@ -15,7 +15,7 @@
 		<main class="navbar-collapse collapse" id="navbar-main">
 			<menu class="nav navbar-nav">
 				<item>
-					<path>index.jsp</path>
+					<path>vehicle.jsp</path>
 					<title>Vehicles</title>
 				</item>
 				<item>

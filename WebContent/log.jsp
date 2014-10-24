@@ -6,6 +6,7 @@
 
 <%
 	request.setAttribute(Constants.TITLE, "Logs");
+	request.setAttribute("breadcrumb_item", "Logs");
 
 	String s = Constants.REST_LOGS;
 
@@ -19,8 +20,6 @@
 
 	session.setAttribute("REST", s);
 	
-	session.setAttribute("section", "");
-	session.setAttribute("item", "Logs");
 %>
 
 <t:default>
