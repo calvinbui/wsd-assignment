@@ -34,9 +34,7 @@
 	</xsl:template>
 
 	<xsl:template match="heading">
-		<span class="{@class}">
-			<xsl:apply-templates />
-		</span>
+		<a class="{@class}" href="{@href}"><xsl:apply-templates /></a>
 	</xsl:template>
 
 	<xsl:template match="main">

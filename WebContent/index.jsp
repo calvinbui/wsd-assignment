@@ -11,13 +11,11 @@
 
 <t:default>
 	<jsp:body>
-		<!-- Import REST outputted log.xml -->
-		<c:import var="xml" url="xml/vehicle.xml" />
-		<!-- Import vehicle.xsl -->
+		<!-- Import REST outputted index.xml -->
+		<c:import var="xml" url="xml/index.xml" />
+		<!-- Import index.xsl -->
 		<c:import var="xslt" url="xsl/index.xsl" />
 		<!-- Style xml using xsl -->
-		<x:transform xml="${xml}" xslt="${xslt}">
-			<x:param name="username" value="${sessionScope['username']}" />
-		</x:transform>
+		<x:transform xml="${xml}" xslt="${xslt}"/>
 	</jsp:body>
 </t:default>
