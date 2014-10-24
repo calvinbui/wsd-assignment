@@ -17,6 +17,7 @@
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	} else {
 		session.setAttribute("username", user.getUsername());
+		session.setAttribute("usertype", user.getType());
 		response.sendRedirect("index.jsp");
 	}
 %>
