@@ -63,6 +63,8 @@ public class VehicleService implements RESTServiceFactory{
 				vehicles.unmarshall();
 				// set the unmarshalled vehicle.xml file application wide to save having to unmarshall it again for the next request. 
 				application.setAttribute(Constants.VEHICLE_APP, vehicles);
+			} else {
+				vehicles.unmarshall();
 			}
 			// if 'vehicles' attribute exists, return the already unmarshalled object or the one just unmarshalled
 			return vehicles;

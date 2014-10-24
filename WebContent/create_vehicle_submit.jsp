@@ -1,4 +1,4 @@
-<%@ page import="wsd.ass.*" language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page import="wsd.ass.*, java.util.*" language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 
 
@@ -14,16 +14,17 @@ session.removeAttribute("colour");
 session.removeAttribute("kilometres");
 
 // get the request parameters
-String registration = request.getParameter("registration");
-String type = request.getParameter("type");
-String make = request.getParameter("make");
-String model = request.getParameter("model");
-String colour = request.getParameter("colour");
+Map<String, String> checkStrings = new HashMap<String, String>();
+checkStrings.put("registration", request.getParameter("registration"));
+checkStrings.put("type", request.getParameter("type"));
+checkStrings.put("make", request.getParameter("make"));
+checkStrings.put("model", request.getParameter("model"));
+checkStrings.put("colour", request.getParameter("colour"));
 
 boolean valid = true;
 
 int kilometres = 0;
-//test if String is a valid integer
+//test if kilometres is a valid integer
 try {
 	kilometres = Integer.parseInt(request.getParameter("kilometres"));
 } catch (Exception e) {
@@ -31,41 +32,25 @@ try {
 }
 
 int year = 0;
-//test if String is a valid integer
+//test if year is a valid integer
 try {
 	year = Integer.parseInt(request.getParameter("year"));
 } catch (Exception e) {
 	session.setAttribute("year", "year");
 }
 
+// test that the string is not empty or null
+for (Map.Entry<String, String> entry : checkStrings.entrySet()) {
+    if (Validator.emptyOrNullCheck(entry.getValue())) {
+    	valid = false;
+    	session.setAttribute(entry.getKey(), entry.getKey());
+    }
+}
+
 //check that registration is not empty or null and has a length less than 6
-if (Validator.emptyOrNullCheck(registration) || registration.length() > 6) {
+if (checkStrings.get("registration").length() > 6) {
 	valid = false;
 	session.setAttribute("registration", "registration");
-}
-
-//check that the type string is not empty or null
-if (Validator.emptyOrNullCheck(type)) {
-	valid = false;
-	session.setAttribute("type", "type");
-}
-
-//check that the make string is not empty or null
-if (Validator.emptyOrNullCheck(make)) {
-	valid = false;
-	session.setAttribute("make", "make");	
-}
-
-//check that the model string is not empty or null
-if (Validator.emptyOrNullCheck(model)) {
-	valid = false;
-	session.setAttribute("model", "model");	
-}
-
-//check that the colour string is not empty or null
-if (Validator.emptyOrNullCheck(colour)) {
-	session.setAttribute("colour", "colour");
-	valid = false;	
 }
 
 //check that kilometres is a positive integer
@@ -83,7 +68,7 @@ if (year <1900) {
 // If all above checks have passed, unmarshal the xml file
 // Then add the vehicle and marshall it back in
 if (valid) {
-	Vehicle vehicle = new Vehicle(registration, type, make, model, year, colour, kilometres);
+	Vehicle vehicle = new Vehicle(checkStrings.get("registration"), checkStrings.get("type"), checkStrings.get("make"), checkStrings.get("model"), year, checkStrings.get("colour"), kilometres);
 	VehicleApplication vehicleApp = new VehicleApplication(); 
 	vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
 	vehicleApp.unmarshall();

@@ -15,10 +15,14 @@ session.removeAttribute("description");
 //get the request parameters
 String vehicle = request.getParameter("vehicle"); //session.getAttribute("registration");
 String driver = request.getParameter("driver"); // session.getAttribute("username")
-String startdate = request.getParameter("startdate");
-String enddate = request.getParameter("enddate");
-String starttime = request.getParameter("starttime");
-String endtime = request.getParameter("endtime");
+//String startdate = request.getParameter("startdate");
+String startdate = "2014-10-22";
+String enddate = "2014-10-25";
+String starttime = "00:00:00";
+String endtime = "20:00:00";
+//String enddate = request.getParameter("enddate");
+//String starttime = request.getParameter("starttime");
+//String endtime = request.getParameter("endtime");
 String description = request.getParameter("description");
 
 
@@ -50,6 +54,7 @@ if (Validator.dateCheck(enddate)) {
 if (Validator.timeCheck(starttime)) {
 	session.setAttribute("starttime", "starttime");
 	valid = false;
+	System.out.println("startime");
 }
 
 //test if the endtime is in a standard time format
