@@ -16,13 +16,6 @@
 
 		<div class="container">
 
-			<ol class="breadcrumb">
-				<li>
-					<a href="index.jsp">Home</a>
-				</li>
-				<li>Vehicles</li>
-			</ol>
-
 			<h1>Vehicles</h1>
 
 			<table class="table table-striped table-hover">

@@ -20,7 +20,7 @@
 	</xsl:template>
 
 	<xsl:template match="addlog">
-		<form class="form-horizontal">
+		<form class="form-horizontal" method="{@method}" action="{@action}">
 			<xsl:apply-templates />
 			<div class="form-group">
 				<div class="col-xs-offset-2 col-xs-10">

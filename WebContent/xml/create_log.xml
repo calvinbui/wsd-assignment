@@ -31,7 +31,7 @@
 		</option>
 		<option>
 			<label>Description</label>
-			<input type="number">Description</input>
+			<input type="text">Description</input>
 		</option>
 		<option>
 			<label>Kilometres</label>
