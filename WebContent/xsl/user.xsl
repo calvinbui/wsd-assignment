@@ -14,7 +14,7 @@
 
 					<div class="col-lg-6">
 						<!-- Vehicle title -->
-						<h1>Drivers</h1>
+						<h3>Drivers</h3>
 					</div>
 				</div>
 				<!-- End row -->

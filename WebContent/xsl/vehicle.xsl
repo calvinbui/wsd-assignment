@@ -13,7 +13,7 @@
 
 	<xsl:template match="vehicle:vehicles">
 		<div class="container">
-			<h1>Vehicles</h1>
+			<h3>Vehicles</h3>
 			<xsl:if test="$usertype = 'admin' ">
 				<a href="create_vehicle.jsp" class="btn btn-primary btn-sm">Create Vehicle</a>
 			</xsl:if>

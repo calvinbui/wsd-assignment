@@ -3,32 +3,34 @@
 <!-- XML namespaces for log and XSLT -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:log="http://www.wsd.com/log">
-<xsl:output method="xml" omit-xml-declaration="yes" />
+	<xsl:output method="xml" omit-xml-declaration="yes" />
 
 	<xsl:param name="username" />
 
 	<xsl:template match="/">
 		<div class="container">
 			<h3>Logs</h3>
-			<table class="table table-striped table-hover">
-				<thead>
-					<th>ID</th>
-					<th>Vehicle</th>
-					<th>Driver</th>
-					<th>Start Date</th>
-					<th>End Date</th>
-					<th>Start Time</th>
-					<th>End Time</th>
-					<th>Description</th>
-					<th>Kilometres</th>
-					<xsl:if test="$username != '' ">
-					<th>Delete</th>
-					</xsl:if>
-				</thead>
-				<tbody>
-					<xsl:apply-templates />
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover">
+					<thead>
+						<th>ID</th>
+						<th>Vehicle</th>
+						<th>Driver</th>
+						<th>Start Date</th>
+						<th>End Date</th>
+						<th>Start Time</th>
+						<th>End Time</th>
+						<th>Description</th>
+						<th>Kilometres</th>
+						<xsl:if test="$username != '' ">
+							<th>Delete</th>
+						</xsl:if>
+					</thead>
+					<tbody>
+						<xsl:apply-templates />
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</xsl:template>
 
@@ -38,7 +40,9 @@
 				<xsl:apply-templates />
 				<xsl:if test="$username != '' ">
 					<td>
-						<button class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></button>
+						<button class="btn btn-danger btn-xs">
+							<i class="fa fa-remove"></i>
+						</button>
 					</td>
 				</xsl:if>
 			</tr>
@@ -59,8 +63,8 @@
 
 	<xsl:template match="vehicle">
 		<td>
-		<a href="rest/vehicles/{.}">
-			<xsl:apply-templates />
+			<a href="rest/vehicles/{.}">
+				<xsl:apply-templates />
 			</a>
 		</td>
 	</xsl:template>
