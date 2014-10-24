@@ -45,7 +45,7 @@
 	<xsl:template match="vehicle">
 		<tr>
 			<td>
-				<xsl:apply-templates select="registration" />
+				<a href="rest/vehicles/{registration}"><xsl:apply-templates select="registration" /></a>
 			</td>
 			<td>
 				<xsl:apply-templates select="type" />
