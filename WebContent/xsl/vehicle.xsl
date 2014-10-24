@@ -10,13 +10,6 @@
 			<div class="pageheader">
 				<div class="row">
 
-					<ol class="breadcrumb">
-						<li>
-							<a href="index.jsp">Home</a>
-						</li>
-						<li>Vehicles</li>
-					</ol>
-
 					<div class="col-lg-6">
 						<!-- Vehicle title -->
 						<h1>Overview of Vehicles</h1>

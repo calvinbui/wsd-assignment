@@ -4,6 +4,11 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
+<%
+	session.setAttribute("section", "");
+	session.setAttribute("item", "Vehicles");
+%>
+
 <t:default>
 	<jsp:body>
 		<!-- Import REST outputted log.xml -->
@@ -11,8 +16,8 @@
 		<!-- Import vehicle.xsl -->
 		<c:import var="xslt" url="xsl/index.xsl" />
 		<!-- Style xml using xsl -->
-		<x:transform xml="${xml}" xslt="${xslt}" >
-			<x:param name="username" value="${sessionScope['username']}"/>
+		<x:transform xml="${xml}" xslt="${xslt}">
+			<x:param name="username" value="${sessionScope['username']}" />
 		</x:transform>
 	</jsp:body>
 </t:default>

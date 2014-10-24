@@ -5,18 +5,22 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%
-request.setAttribute(Constants.TITLE, "Logs");
+	request.setAttribute(Constants.TITLE, "Logs");
 
-String s = Constants.REST_LOGS;
+	String s = Constants.REST_LOGS;
 
-String[] parameters = Constants.REST_PARAMETERS;
+	String[] parameters = Constants.REST_PARAMETERS;
 
-for (String parameter : parameters) {
-	if (request.getParameter(parameter) != null)
-		s += "&" + parameter + "=" + request.getParameter(parameter);
-}
+	for (String parameter : parameters) {
+		if (request.getParameter(parameter) != null)
+			s += "&" + parameter + "="
+					+ request.getParameter(parameter);
+	}
 
-session.setAttribute("REST", s);
+	session.setAttribute("REST", s);
+	
+	session.setAttribute("section", "");
+	session.setAttribute("item", "Logs");
 %>
 
 <t:default>

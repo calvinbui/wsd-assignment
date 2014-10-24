@@ -9,6 +9,7 @@
 
 	<xsl:template match="/">
 		<div class="container">
+			<h3>Logs</h3>
 			<table class="table table-striped table-hover">
 				<thead>
 					<th>ID</th>

@@ -5,8 +5,10 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%
-	if (session.getAttribute("username") == null) 
+	if (session.getAttribute("username") == null)
 		response.sendRedirect("index.jsp");
+	session.setAttribute("section", "Logs");
+	session.setAttribute("item", "Create log");
 %>
 
 <t:default>
@@ -16,8 +18,8 @@
 		<!-- Import newlog.xsl -->
 		<c:import var="xslt" url="xsl/create_log.xsl" />
 		<!-- Style xml using xsl -->
-		<x:transform xml="${xml}" xslt="${xslt}" >
-			<x:param name="username" value="${sessionScope['username']}"/>
+		<x:transform xml="${xml}" xslt="${xslt}">
+			<x:param name="username" value="${sessionScope['username']}" />
 		</x:transform>
 	</jsp:body>
 </t:default>
