@@ -20,7 +20,7 @@
 	</xsl:template>
 
 	<xsl:template match="addlog">
-		<form class="{@class}">
+		<form class="form-horizontal">
 			<xsl:apply-templates />
 			<div class="form-group">
 				<div class="col-xs-offset-2 col-xs-10">
@@ -37,7 +37,7 @@
 	</xsl:template>
 
 	<xsl:template match="label">
-		<label for="{@for}" class="control-label col-xs-2">
+		<label for="{.}" class="control-label col-xs-2">
 			<xsl:apply-templates />
 		</label>
 	</xsl:template>
@@ -45,23 +45,17 @@
 	<xsl:template match="input">
 		<div class="col-xs-10">
 			<xsl:choose>
-				<xsl:when test="@id='vehicle'">
-					<input type="{@type}" class="form-control" id="{@id}"
-						placeholder="{$registration}" disabled="">
-						<xsl:apply-templates />
-					</input>
+				<xsl:when test="../label='Vehicle'">
+					<input type="{@type}" class="form-control" id="{.}"
+						placeholder="{.}" disabled="" />
 				</xsl:when>
-				<xsl:when test="@id='driver'">
-					<input type="{@type}" class="form-control" id="{@id}"
-						placeholder="{$username}" disabled="">
-						<xsl:apply-templates />
-					</input>
+				<xsl:when test="../label='Driver'">
+					<input type="{@type}" class="form-control" id="{.}"
+						placeholder="{$username}" disabled="" />
 				</xsl:when>
 				<xsl:otherwise>
-					<input type="{@type}" class="form-control" id="{@id}"
-						placeholder="{@placeholder}">
-						<xsl:apply-templates />
-					</input>
+					<input type="{@type}" class="form-control" id="{.}"
+						placeholder="{.}" />
 				</xsl:otherwise>
 			</xsl:choose>
 		</div>
