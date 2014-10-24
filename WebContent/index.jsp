@@ -5,8 +5,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <%
-	session.setAttribute("section", "");
-	session.setAttribute("item", "Vehicles");
+request.setAttribute(Constants.TITLE, "Home"); 
 %>
 
 <t:default>
