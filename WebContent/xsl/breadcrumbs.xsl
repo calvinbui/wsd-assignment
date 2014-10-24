@@ -18,7 +18,7 @@
 
 	<xsl:template match="home">
 		<li>
-			<a href="/">
+			<a href="/wsdassignment/">
 				<xsl:apply-templates />
 			</a>
 		</li>
