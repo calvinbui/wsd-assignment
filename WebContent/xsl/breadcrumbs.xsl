@@ -27,7 +27,7 @@
 	<xsl:template match="section">
 		<xsl:if test="$section != '' ">
 			<li>
-				<a href="$section-link">
+				<a href="{$section-link}">
 					<xsl:value-of select="$section" />
 				</a>
 			</li>
