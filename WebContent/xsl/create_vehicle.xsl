@@ -40,7 +40,7 @@
 
 	<xsl:template match="input">
 		<div class="col-xs-10">
-			<input type="{@type}" class="form-control" id="{@id}" placeholder="{@placeholder}">
+			<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}">
 				<xsl:apply-templates />
 			</input>
 		</div>
