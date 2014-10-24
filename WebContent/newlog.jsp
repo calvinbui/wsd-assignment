@@ -4,6 +4,7 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
+
 <t:default>
 	<jsp:body>
 		<!-- Import newlog.xml -->
@@ -13,7 +14,6 @@
 		<!-- Style xml using xsl -->
 		<x:transform xml="${xml}" xslt="${xslt}" >
 			<x:param name="username" value="${sessionScope['username']}"/>
-			<x:param name="registration" value="${sessionScope['vehicle/registration']}"/>
 		</x:transform>
 	</jsp:body>
 </t:default>

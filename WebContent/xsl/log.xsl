@@ -58,7 +58,9 @@
 
 	<xsl:template match="vehicle">
 		<td>
+		<a href="rest/vehicles/{.}">
 			<xsl:apply-templates />
+			</a>
 		</td>
 	</xsl:template>
 
