@@ -16,7 +16,7 @@
 	</xsl:template>
 
 	<xsl:template match="addvehicle">
-		<form class="{@class}">
+		<form class="form-horizontal" method="{@method}" action="{@action}">
 			<xsl:apply-templates />
 			<div class="form-group">
 				<div class="col-xs-offset-2 col-xs-10">

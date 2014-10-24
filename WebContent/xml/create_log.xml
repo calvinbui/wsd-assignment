@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<logform>
+
+	<title>Add New Log</title>
+
+	<addlog method="POST" action="create_log_submit.jsp">
+		<option>
+			<label>Vehicle</label>
+			<input type="text">Vehicle</input>
+		</option>
+		<option>
+			<label>Driver</label>
+			<input type="text">Driver</input>
+		</option>
+		<option>
+			<label>Start Date</label>
+			<input type="date">Start Date</input>
+		</option>
+		<option>
+			<label>End Date</label>
+			<input type="date">End Date</input>
+		</option>
+		<option>
+			<label>Start Time</label>
+			<input type="time">Start Time</input>
+		</option>
+		<option>
+			<label>End Time</label>
+			<input type="time">End Time</input>
+		</option>
+		<option>
+			<label>Description</label>
+			<input type="text">Description</input>
+		</option>
+		<option>
+			<label>Kilometres</label>
+			<input type="number">Kilometres</input>
+		</option>
+	</addlog>
+
+</logform>

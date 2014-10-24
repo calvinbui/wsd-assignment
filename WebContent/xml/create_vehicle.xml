@@ -4,7 +4,7 @@
 
 	<title>Add New Vehicle</title>
 
-	<addvehicle class="form-horizontal">
+	<addvehicle method="POST" action="create_vehicle_submit.jsp">
 		<option>
 			<label for="registration">Registration</label>
 			<input type="text" id="registration" placeholder="Vehicle registration" />

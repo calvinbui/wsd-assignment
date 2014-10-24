@@ -16,13 +16,6 @@
 
 		<div class="container">
 
-			<ol class="breadcrumb">
-				<li>
-					<a href="index.jsp">Home</a>
-				</li>
-				<li>Vehicles</li>
-			</ol>
-
 			<h1>Vehicles</h1>
 
 			<table class="table table-striped table-hover">
@@ -44,7 +37,7 @@
 				</tbody>
 			</table>
 			<xsl:if test="$username = 'admin@uts.com' ">
-				<a href="newvehicle.jsp" class="btn btn-default">Add vehicle</a>
+				<a href="create_vehicle.jsp" class="btn btn-default">Add vehicle</a>
 			</xsl:if>
 		</div>
 	</xsl:template>
@@ -67,7 +60,7 @@
 			<!-- If driver is logged in show add new log button -->
 			<td>
 				<xsl:if test="$username != '' ">
-					<a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}"
+					<a href="create_log.jsp?{vehicle:registration}" value="{vehicle:registration}"
 						class="btn btn-default btn-sm">Add log</a>
 				</xsl:if>
 			</td>

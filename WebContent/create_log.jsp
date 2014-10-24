@@ -12,9 +12,9 @@
 <t:default>
 	<jsp:body>
 		<!-- Import newlog.xml -->
-		<c:import var="xml" url="xml/newlog.xml" />
+		<c:import var="xml" url="xml/create_log.xml" />
 		<!-- Import newlog.xsl -->
-		<c:import var="xslt" url="xsl/newlog.xsl" />
+		<c:import var="xslt" url="xsl/create_log.xsl" />
 		<!-- Style xml using xsl -->
 		<x:transform xml="${xml}" xslt="${xslt}" >
 			<x:param name="username" value="${sessionScope['username']}"/>
