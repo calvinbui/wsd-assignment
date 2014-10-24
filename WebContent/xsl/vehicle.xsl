@@ -1,100 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- XML namespaces for vehicle and XSLT -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:vehicle="http://www.wsd.com/vehicle">
 
+	<xsl:param name="username" />
+	<xsl:param name="usertype" />
+
 	<xsl:template match="/">
-		<!-- Vehicle main page content -->
 		<div class="container">
-			<div class="pageheader">
-				<div class="row">
-
-					<div class="col-lg-6">
-						<!-- Vehicle title -->
-						<h1>Overview of Vehicles</h1>
-					</div>
-				</div>
-				<!-- End row -->
-			</div>
-
-			<div class="bs-docs-section">
-
-				<!-- Vehicle table with striped design -->
-				<form action="create_log.jsp">
-					<table class="table table-striped table-hover">
-						<xsl:apply-templates />
-					</table>
-				</form>
+			<h1>Vehicles</h1>
+			<xsl:if test="$usertype = 'admin' ">
+				<a href="create_vehicle.jsp" class="btn btn-primary btn-sm">Create Vehicle</a>
+			</xsl:if>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover">
+					<thead>
+						<th>Registration</th>
+						<th>Type</th>
+						<th>Kilometres</th>
+						<xsl:if test="$username != '' ">
+							<th>Add Log</th>
+						</xsl:if>
+					</thead>
+					<tbody>
+						<xsl:apply-templates/>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</xsl:template>
 
-	<xsl:template match="vehicle:vehicles">
-		<!-- Table for list of vehicles available -->
-		<table class="table table-striped secondTable">
-			<!-- Table head for vehicle headings -->
-			<thead>
-				<!-- Font Awesome barcode icon -->
-				<th>
-					<i class="fa fa-barcode"></i>
-					Registration
-				</th>
-				<!-- Font Awesome car icon -->
-				<th>
-					<i class="fa fa-car"></i>
-					Type
-				</th>
-				<!-- Font Awesome dashboard icon -->
-				<th>
-					<i class="fa fa-dashboard"></i>
-					Kilometres
-				</th>
-				<!-- Make table head 10% width -->
-				<th style="width: 10%"></th>
-				<!-- End of table head for vehicle headings -->
-			</thead>
-			<!-- Table body for vehicle data -->
-			<tbody>
-				<!-- Call vehicleTable template -->
-				<xsl:apply-templates name="vehicleTable">
-					<!-- Sort vehicleTable by vehicle registration -->
-					<xsl:sort select="vehicle:registration" />
-					<!-- End of vehicleTable template -->
-				</xsl:apply-templates>
-				<!-- End of table body for vehicle data -->
-			</tbody>
-		</table>
-	</xsl:template>
-
-	<!-- For each vehicle in vehicle.xml do the following -->
-	<xsl:template name="vehicleTable" match="vehicle:vehicle">
-		<!-- Create new row for every vehicle -->
+	<xsl:template match="vehicle">
 		<tr>
-			<!-- Add new table row data for every vehicle registration -->
-			<td>
-				<a href="rest/vehicles/{vehicle:registration}">
-					<xsl:value-of select="vehicle:registration" />
-				</a>
-			</td>
-			<!-- Add new table row data for vehicle type -->
-			<td>
-				<xsl:value-of select="vehicle:type" />
-			</td>
-			<!-- Add new table row data for every vehicle kilometres -->
-			<td>
-				<xsl:value-of select="vehicle:kilometres" />
-			</td>
-			<!-- Only drivers can add new logs -->
-			<td>
-				<a href="newlog.jsp?{vehicle:registration}" value="{vehicle:registration}"
-					class="btn btn-default btn-sm">Add log</a>
-			</td>
-			<!-- End of table row -->
+			<td><xsl:apply-templates select="registration"/></td>
+			<td><xsl:apply-templates select="type"/></td>
+			<td><xsl:apply-templates select="kilometres"/></td>
+			<xsl:if test="$username != '' ">
+				<td><a href="create_log.jsp?{registration}" class="btn btn-success btn-sm">Create Log</a></td>
+			</xsl:if>
 		</tr>
-		<!-- End of vehicleTable template -->
 	</xsl:template>
-
-	<!-- createlog?{vehicle:registration} -->
 
 </xsl:stylesheet>
