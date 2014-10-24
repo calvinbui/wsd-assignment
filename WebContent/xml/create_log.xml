@@ -15,11 +15,11 @@
 		</option>
 		<option>
 			<label>Start Date</label>
-			<input type="date" id="start_date" name="startdate">Start Date</input>
+			<input type="date" id="start_date_display" altid="start_date" name="startdate">Start Date</input>
 		</option>
 		<option>
 			<label>End Date</label>
-			<input type="date" id="end_date" name="enddate">End Date</input>
+			<input type="date" id="end_date_display" altid="end_date" name="enddate">End Date</input>
 		</option>
 		<option>
 			<label>Start Time</label>

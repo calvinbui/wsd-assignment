@@ -14,8 +14,14 @@
 		</div>
 		<script>
 		$(document).ready(function() {
-			$("#start_date").datepicker({
+			$("#start_date_display").datepicker({
+				altField: "#start_date",
+				maxDate: "+0D",
+    			altFormat: "yy-mm-dd"
+			});
+			$("#end_date_display").datepicker({
 				altField: "#end_date",
+				maxDate: "+0D",
     			altFormat: "yy-mm-dd"
 			});
 		});
@@ -64,8 +70,8 @@
 						placeholder="{$username}" disabled="" />
 				</xsl:when>
 				<xsl:when test="@type='date'">
-					<input type="text" class="form-control datepicker" id="{@id}"
-						placeholder="{.}" />
+					<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}" />
+					<input type="text" name="{@name}" class="hidden" id="{@altid}" placeholder="{.}" />
 				</xsl:when>
 				<xsl:otherwise>
 					<input type="{@type}" class="form-control" id="{.}"
