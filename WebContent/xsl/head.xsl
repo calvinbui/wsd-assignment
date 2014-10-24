@@ -8,6 +8,18 @@
 		<xsl:apply-templates/>
 	</xsl:template>
 	
+	<xsl:template match="charset">
+		<meta charset="{.}"/>
+	</xsl:template>
+	
+	<xsl:template match="iecompatible">
+		<meta http-equiv="{@http-equiv}" content="{.}"/>
+	</xsl:template>
+	
+	<xsl:template match="viewport">
+		<meta name="{@name}" content="{.}"/>
+	</xsl:template>
+	
 	<xsl:template match="css">
 		<link rel="stylesheet" href="/wsdassignment/css/{.}"></link>
 	</xsl:template>

@@ -72,7 +72,7 @@
 		</xsl:if>
 		<!-- User is logged in -->
 		<xsl:if test="$username != '' ">
-			<li class="navbar-text">
+			<li class="nav navbar-text" style="padding-left:16px;">
 				<xsl:value-of select="$username" />
 			</li>
 			<li>

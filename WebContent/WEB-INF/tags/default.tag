@@ -3,7 +3,7 @@
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 
 <!DOCTYPE html> 
-<html>
+<html lang=en>
 	<head>
 		<!-- stylesheets, javascript, favicon and title -->	
 		<c:import var="xml" url="xml/head.xml"/>
