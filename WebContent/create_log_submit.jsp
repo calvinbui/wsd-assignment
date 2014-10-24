@@ -34,41 +34,49 @@ try {
 boolean valid = true;
 
 
-
+// test if the startdate is in a standard date format
 if (Validator.dateCheck(startdate)) {
 	session.setAttribute("startdate", "startdate");
 	valid = false;
 } 
 
+//test if the enddate is in a standard date format
 if (Validator.dateCheck(enddate)) {
 	session.setAttribute("enddate", "enddate");
 	valid = false;
 }
 
+//test if the starttime is in a standard time format
 if (Validator.timeCheck(starttime)) {
 	session.setAttribute("starttime", "starttime");
 	valid = false;
 }
 
+//test if the endtime is in a standard time format
 if (Validator.timeCheck(endtime)) {
 	session.setAttribute("endtime", "endtime");
 	valid = false;
 }
 
+//check that the description string is not empty or null
 if (Validator.emptyOrNullCheck(description)) {
 	valid = false;
 	session.setAttribute("description", "description");
 }
 
+//check that kilometres is a positive integer
 if (kilometres <= 0) {
 	session.setAttribute("kilometres", "kilometres");
 	valid = false;
 }
 
+// check that the given starttime is before the endtime
 if (Validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
 	session.setAttribute("invalidDates", "invalidDates");
 }
 
+//If all above checks have passed, unmarshal the xml file
+//Then add the log and marshall it back in
 if (valid) {
 	Log log = new Log(vehicle, driver, startdate, enddate, starttime, endtime, description, kilometres);
 	LogApplication logApp = new LogApplication();

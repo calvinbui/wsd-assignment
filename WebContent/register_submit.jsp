@@ -20,32 +20,39 @@ String lastname = request.getParameter("lastname");
 
 boolean valid = true;
 
+// test that the username is in email format
 if(Validator.emailCheck(username)) {
 	session.setAttribute("username", "username");
 	valid = false;
 }
 
+// test that the firstname is in a valid name format
 if(Validator.nameCheck(firstname)) {
 	session.setAttribute("firstname", "firstname");
 	valid = false;
 } 
 
+//test that the lasttname is in a valid name format
 if(Validator.nameCheck(lastname)) {
 	session.setAttribute("lastname", "lastname");
 	valid = false;
 }
 
+// test that both passwords match
 if(!password2.equals(password)){
 	session.setAttribute("password", "password");
 	session.setAttribute("confirmpassword", "confirmpassword");
 	valid = false;
 }
 
+// test that the password field is not empty
 if(Validator.emptyOrNullCheck(password)) {
 	session.setAttribute("password", "password");
 	valid = false;
 }
 
+//If all above checks have passed, unmarshal the xml file
+//Then add the user and marshall it back in
 if (valid) {
 	User user = new User("driver", username, password, firstname, lastname); // only drivers can register, not admins
 	UserApplication userApp = new UserApplication(); 
