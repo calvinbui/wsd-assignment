@@ -21,6 +21,14 @@
 			<x:param name="username" value="${sessionScope['username']}"/>
 		</x:transform>
 		
+		<c:import var="xml" url="xml/breadcrumbs.xml"/>
+		<c:import var="xslt" url="xsl/breadcrumbs.xsl" />
+		<x:transform xml="${xml}" xslt="${xslt}" >
+			<x:param name="section" value="${sessionScope['section']}"/>
+			<x:param name="section-link" value="${sessionScope['section-link']}"/>
+			<x:param name="item" value="${sessionScope['item']}"/>			
+		</x:transform>
+		
 		<!-- The body and main content of the page -->
 		<jsp:doBody />
 		

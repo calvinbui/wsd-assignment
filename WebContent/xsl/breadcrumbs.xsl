@@ -9,9 +9,11 @@
 
 
 	<xsl:template match="/">
-		<ol class="breadcrumbs">
-			<xsl:apply-templates />
-		</ol>
+		<div class="container">
+			<ol class="breadcrumb">
+				<xsl:apply-templates />
+			</ol>
+		</div>
 	</xsl:template>
 
 	<xsl:template match="home">
@@ -23,7 +25,7 @@
 	</xsl:template>
 
 	<xsl:template match="section">
-		<xsl:if test="section != '' ">
+		<xsl:if test="$section != '' ">
 			<li>
 				<a href="$section-link">
 					<xsl:value-of select="$section" />
@@ -33,9 +35,9 @@
 	</xsl:template>
 
 	<xsl:template match="item">
-		<xsl:if test="item != '' ">
+		<xsl:if test="$item != '' ">
 			<li class="active">
-				<xsl:value-of select="$section" />
+				<xsl:value-of select="$item" />
 			</li>
 		</xsl:if>
 	</xsl:template>
