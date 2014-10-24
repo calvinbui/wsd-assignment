@@ -55,7 +55,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<input type="{@type}" class="form-control" id="{.}"
-						placeholder="{.}" />
+						placeholder="{.}" name="{@name}"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</div>

@@ -7,35 +7,35 @@
 	<addlog method="POST" action="create_log_submit.jsp">
 		<option>
 			<label>Vehicle</label>
-			<input type="text">Vehicle</input>
+			<input type="text" name="vehicle">Vehicle</input>
 		</option>
 		<option>
 			<label>Driver</label>
-			<input type="text">Driver</input>
+			<input type="text" name="driver">Driver</input>
 		</option>
 		<option>
 			<label>Start Date</label>
-			<input type="date">Start Date</input>
+			<input type="date" name="startdate">Start Date</input>
 		</option>
 		<option>
 			<label>End Date</label>
-			<input type="date">End Date</input>
+			<input type="date" name="enddate">End Date</input>
 		</option>
 		<option>
 			<label>Start Time</label>
-			<input type="time">Start Time</input>
+			<input type="time" name="starttime">Start Time</input>
 		</option>
 		<option>
 			<label>End Time</label>
-			<input type="time">End Time</input>
+			<input type="time" name="endtime">End Time</input>
 		</option>
 		<option>
 			<label>Description</label>
-			<input type="text">Description</input>
+			<input type="text" name="description">Description</input>
 		</option>
 		<option>
 			<label>Kilometres</label>
-			<input type="number">Kilometres</input>
+			<input type="number" name="kilometres">Kilometres</input>
 		</option>
 	</addlog>
 
