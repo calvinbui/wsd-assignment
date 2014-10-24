@@ -24,9 +24,9 @@
 		<c:import var="xml" url="xml/breadcrumbs.xml"/>
 		<c:import var="xslt" url="xsl/breadcrumbs.xsl" />
 		<x:transform xml="${xml}" xslt="${xslt}" >
-			<x:param name="section" value="${sessionScope['section']}"/>
-			<x:param name="section-link" value="${sessionScope['section-link']}"/>
-			<x:param name="item" value="${sessionScope['item']}"/>			
+			<x:param name="bc-section" value="${breadcrumb_section}"/>
+			<x:param name="bc-link" value="${breadcrumb_link}"/>
+			<x:param name="bc-item" value="${breadcrumb_item}"/>			
 		</x:transform>
 		
 		<!-- The body and main content of the page -->

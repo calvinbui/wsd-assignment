@@ -3,9 +3,9 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" omit-xml-declaration="yes" />
 
-	<xsl:param name="section" />
-	<xsl:param name="section-link" />
-	<xsl:param name="item" />
+	<xsl:param name="bc-section" />
+	<xsl:param name="bc-item" />
+	<xsl:param name="bc-link" />
 
 
 	<xsl:template match="/">
@@ -25,19 +25,19 @@
 	</xsl:template>
 
 	<xsl:template match="section">
-		<xsl:if test="$section != '' ">
+		<xsl:if test="$bc-section != '' ">
 			<li>
-				<a href="{$section-link}">
-					<xsl:value-of select="$section" />
+				<a href="{$bc-link}">
+					<xsl:value-of select="$bc-section" />
 				</a>
 			</li>
 		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="item">
-		<xsl:if test="$item != '' ">
+		<xsl:if test="$bc-item != '' ">
 			<li class="active">
-				<xsl:value-of select="$item" />
+				<xsl:value-of select="$bc-item" />
 			</li>
 		</xsl:if>
 	</xsl:template>

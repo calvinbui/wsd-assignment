@@ -4,9 +4,9 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <% 
 request.setAttribute(Constants.TITLE, "PAGE TITLE"); 
-session.setAttribute("section", "");
-session.setAttribute("section-link", "");
-session.setAttribute("item", "");
+request.setAttribute("breadcrumb_section", "");
+request.setAttribute("breadcrumb_link", "");
+request.setAttribute("breadcrumb_item", "");
 
 %>
 

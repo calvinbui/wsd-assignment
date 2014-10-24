@@ -3,18 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+
 <%
-	request.setAttribute(Constants.TITLE,
-			"Logs for " + request.getParameter("vehicle"));
-	session.setAttribute("section", "Vehicles");
-	session.setAttribute("section-link", "index.jsp");
-	session.setAttribute("item", request.getParameter("vehicle"));
+	request.setAttribute(Constants.TITLE, "Logs for " + request.getParameter("vehicle"));
+	request.setAttribute("breadcrumb_section", "Vehicles");
+	request.setAttribute("breadcrumb_link", "index.jsp");
+	request.setAttribute("breadcrumb_item", request.getParameter("vehicle"));
 
-	session.setAttribute("vehiclerego", Constants.REST_VEHICLES
-			+ request.getParameter("vehicle"));
+	session.setAttribute("vehiclerego", Constants.REST_VEHICLES + request.getParameter("vehicle"));
 
-	session.setAttribute("vehiclelog", Constants.REST_LOGS
-			+ "vehicleRego=" + request.getParameter("vehicle"));
+	session.setAttribute("vehiclelog", Constants.REST_LOGS + "vehicleRego=" + request.getParameter("vehicle"));
 %>
 
 <t:default>
