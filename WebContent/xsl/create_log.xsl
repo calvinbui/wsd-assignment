@@ -11,6 +11,13 @@
 		<div class="container">
 			<xsl:apply-templates />
 		</div>
+		
+		<script>
+		  $(function() {
+		    $( ".datepicker" ).datepicker();
+		  });
+		</script>
+		
 	</xsl:template>
 
 	<xsl:template match="title">
@@ -52,6 +59,10 @@
 				<xsl:when test="../label='Driver'">
 					<input type="{@type}" class="form-control" id="{.}"
 						placeholder="{$username}" disabled="" />
+				</xsl:when>
+				<xsl:when test="@type='date'">
+					<input type="text" class="form-control datepicker" id="{.}"
+						placeholder="{.}" />
 				</xsl:when>
 				<xsl:otherwise>
 					<input type="{@type}" class="form-control" id="{.}"

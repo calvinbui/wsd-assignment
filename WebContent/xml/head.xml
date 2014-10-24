@@ -2,6 +2,9 @@
 <?xml-stylesheet type="text/xsl" href="../xsl/head.xsl"?>
 
 <head>
+	<charset>utf-8</charset>
+	<iecompatible http-equiv="X-UA-Compatible">IE=edge</iecompatible>
+	<viewport name="viewport">width=device-width, initial-scale=1.0</viewport>
 	<title>VLS</title>
 	<css>bootstrap/bootstrap.min.css</css>
 	<css>font-awesome/font-awesome.min.css</css>
