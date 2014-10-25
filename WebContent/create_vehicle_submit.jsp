@@ -58,5 +58,8 @@ if (valid) {
 	vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
 	vehicleApp.unmarshall();
 	vehicleApp.add(vehicle);
+	response.sendRedirect("vehicle.jsp");
+} else {
+	response.sendRedirect("create_vehicle.jsp");
 }
 %>

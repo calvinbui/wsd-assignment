@@ -10,17 +10,15 @@
 	</xsl:template>
 
 	<xsl:template match="title">
-		<h1>
-			<xsl:apply-templates />
-		</h1>
+		<h3><xsl:apply-templates /></h3>
 	</xsl:template>
 
 	<xsl:template match="addvehicle">
-		<form class="form-horizontal" method="{@method}" action="{@action}">
+		<form class="form-horizontal" method="{@method}" action="{@action}" role="form">
 			<xsl:apply-templates />
 			<div class="form-group">
-				<div class="col-xs-offset-2 col-xs-10">
-					<button type="submit" class="btn btn-primary">Add vehicle</button>
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-block btn-primary">Add vehicle</button>
 				</div>
 			</div>
 		</form>
@@ -33,13 +31,11 @@
 	</xsl:template>
 
 	<xsl:template match="label">
-		<label for="{@for}" class="control-label col-xs-2">
-			<xsl:apply-templates />
-		</label>
+		<label for="{@for}" class="control-label col-sm-2"><xsl:apply-templates /></label>
 	</xsl:template>
 
 	<xsl:template match="input">
-		<div class="col-xs-10">
+		<div class="col-sm-10">
 			<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}">
 				<xsl:apply-templates />
 			</input>

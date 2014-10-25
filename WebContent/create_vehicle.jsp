@@ -3,8 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
 <%
+	request.setAttribute(Constants.TITLE, "Create Vehicle");
+	request.setAttribute("breadcrumb_section", "Vehicles");
+	request.setAttribute("breadcrumb_link", "vehicle.jsp");
+	request.setAttribute("breadcrumb_item", "Create Vehicle");
+
 	if (session.getAttribute("username") == null)
 		response.sendRedirect("index.jsp");
 	session.setAttribute("section-link", "index.jsp");
