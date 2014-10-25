@@ -2,7 +2,23 @@
 
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+	
+	<xsl:param name="registration" />
+	<xsl:param name="type" />
+	<xsl:param name="make" />
+	<xsl:param name="model" />
+	<xsl:param name="colour" />
+	<xsl:param name="year" />
+	<xsl:param name="kilometres" />
+	
+	<xsl:param name="registration_value" />
+	<xsl:param name="type_value"  />
+	<xsl:param name="make_value"  />
+	<xsl:param name="model_value"  />
+	<xsl:param name="colour_value" />
+	<xsl:param name="year_value" />
+	<xsl:param name="kilometres_value" />
+	
 	<xsl:template match="/">
 		<div class="container">
 			<xsl:apply-templates />
@@ -25,7 +41,7 @@
 	</xsl:template>
 
 	<xsl:template match="option">
-		<div class="form-group">
+		<div class="form-group has-feedback">
 			<xsl:apply-templates />
 		</div>
 	</xsl:template>
@@ -36,9 +52,119 @@
 
 	<xsl:template match="input">
 		<div class="col-sm-10">
-			<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}">
-				<xsl:apply-templates />
-			</input>
+		
+			<xsl:if test="@id = 'registration'">
+				<xsl:if test="$registration = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$registration_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$registration != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$registration_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</xsl:if>
+			</xsl:if>
+			
+			<xsl:if test="@id = 'type'">
+				<xsl:if test="$type = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$type_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$type != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$type_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</xsl:if>
+			</xsl:if>
+			
+			<xsl:if test="@id = 'make'">
+				<xsl:if test="$make = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$make_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$make != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$make_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</xsl:if>
+			</xsl:if>
+			
+			<xsl:if test="@id = 'model'">
+				<xsl:if test="$model = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$model_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$model != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$model_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</xsl:if>
+			</xsl:if>
+			
+			<xsl:if test="@id = 'year'">
+				<xsl:if test="$year = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$year_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$year != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$year_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</xsl:if>
+			</xsl:if>
+			
+			<xsl:if test="@id = 'colour'">
+				<xsl:if test="$colour = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$colour_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$colour != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control has-error" id="{@id}" placeholder="{@placeholder}" value="{$colour_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>	
+				</div>
+				</xsl:if>
+			</xsl:if>
+			
+			<xsl:if test="@id = 'kilometres'">
+				<xsl:if test="$kilometres = ''">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$kilometres_value}">
+						<xsl:apply-templates />
+					</input>
+				</xsl:if>
+				<xsl:if test="$kilometres != ''">
+				<div class="has-error">
+					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$kilometres_value}">
+						<xsl:apply-templates />
+					</input>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				</div>
+				</xsl:if>
+			</xsl:if>
+			
 		</div>
 	</xsl:template>
 

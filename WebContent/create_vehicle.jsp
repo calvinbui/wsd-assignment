@@ -24,7 +24,21 @@
 		<c:import var="xslt" url="xsl/create_vehicle.xsl" />
 		<!-- Style xml using xsl -->
 		<x:transform xml="${xml}" xslt="${xslt}">
-			<x:param name="username" value="${sessionScope['username']}" />
+			<x:param name="registration" value="${registration}" />
+			<x:param name="type" value="${type}" />
+			<x:param name="make" value="${make}" />
+			<x:param name="model" value="${model}" />
+			<x:param name="colour" value="${colour}" />
+			<x:param name="year" value="${year}" />
+			<x:param name="kilometres" value="${kilometres}" />
+			
+			<x:param name="registration_value" value="${registration_value}" />
+			<x:param name="type_value" value="${type_value}" />
+			<x:param name="make_value" value="${make_value}" />
+			<x:param name="model_value" value="${model_value}" />
+			<x:param name="colour_value" value="${colour_value}" />
+			<x:param name="year_value" value="${year_value}" />
+			<x:param name="kilometres_value" value="${kilometres_value}" />
 		</x:transform>
 	</jsp:body>
 </t:default>
