@@ -9,8 +9,8 @@
 		response.sendRedirect("index.jsp");
 
 	request.setAttribute(Constants.TITLE, "Create Log");
-	request.setAttribute("breadcrumb_section", "Log");
-	request.setAttribute("breadcrumb_link", "log.jsp");
+	request.setAttribute("breadcrumb_section", "Vehicles");
+	request.setAttribute("breadcrumb_link", "vehicle.jsp");
 	request.setAttribute("breadcrumb_item", "Create Log");
 	
 	request.setAttribute("vehicle", request.getParameter("vehicle"));

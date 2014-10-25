@@ -7,7 +7,7 @@
 <%
 	request.setAttribute(Constants.TITLE, "Logs for " + request.getParameter("vehicle"));
 	request.setAttribute("breadcrumb_section", "Vehicles");
-	request.setAttribute("breadcrumb_link", "index.jsp");
+	request.setAttribute("breadcrumb_link", "vehicle.jsp");
 	request.setAttribute("breadcrumb_item", request.getParameter("vehicle"));
 
 	session.setAttribute("vehiclerego", Constants.REST_VEHICLES + request.getParameter("vehicle"));
