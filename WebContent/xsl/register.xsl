@@ -3,7 +3,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <!-- Call header.xsl to include navbar -->
-<xsl:include href="xsl/header.xsl"/>
 
 	<xsl:template match="register">
 		<!-- TODO: Auto-generated template -->
@@ -16,7 +15,6 @@
 			
 			<body>
 				<!-- Insert navigation bar from header.xsl -->
-				<xsl:call-template name="navbar"/>
 				
 				<div class="container">
 				<div class="well bs-component ">

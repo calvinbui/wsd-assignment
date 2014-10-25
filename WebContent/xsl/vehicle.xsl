@@ -14,9 +14,6 @@
 	<xsl:template match="vehicle:vehicles">
 		<div class="container">
 			<h3>Vehicles</h3>
-			<xsl:if test="$usertype = 'admin' ">
-				<a href="create_vehicle.jsp" class="btn btn-primary btn-sm">Create Vehicle</a>
-			</xsl:if>
 			<div class="table-responsive">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -38,6 +35,9 @@
 					</tbody>
 				</table>
 			</div>
+			<xsl:if test="$usertype = 'admin' ">
+				<a href="create_vehicle.jsp" class="btn btn-primary btn-sm">Create Vehicle</a>
+			</xsl:if>
 		</div>
 	</xsl:template>
 	
