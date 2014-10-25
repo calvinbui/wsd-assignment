@@ -65,6 +65,9 @@
 		<!-- User is not logged in -->
 		<xsl:if test="$username = '' ">
 			<li>
+				<a href="register.jsp">Register</a>
+			</li>
+			<li>
 				<a href="login.jsp">Login</a>
 			</li>
 		</xsl:if>
