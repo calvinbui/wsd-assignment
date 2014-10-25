@@ -34,7 +34,7 @@
 			<xsl:apply-templates />
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-block btn-primary">Add vehicle</button>
+					<button type="submit" class="btn btn-block btn-primary">Create Vehicle</button>
 				</div>
 			</div>
 		</form>
@@ -157,7 +157,7 @@
 				</xsl:if>
 				<xsl:if test="$kilometres != ''">
 				<div class="has-error">
-					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$kilometres_value}">
+					<input type="{@type}" name="{@id}" class="form-control has-error" id="{@id}" placeholder="{@placeholder}" value="{$kilometres_value}">
 						<xsl:apply-templates />
 					</input>
 					<span class="glyphicon glyphicon-remove form-control-feedback"></span>

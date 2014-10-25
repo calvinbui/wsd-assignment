@@ -55,7 +55,7 @@
 			</td>
 			<xsl:if test="$username != '' ">
 				<td>
-					<a href="create_log.jsp?{registration}" class="btn btn-success btn-xs">Create Log</a>
+					<a href="create_log.jsp?vehicle={registration}" class="btn btn-success btn-xs">Create Log</a>
 				</td>
 			</xsl:if>
 		</tr>

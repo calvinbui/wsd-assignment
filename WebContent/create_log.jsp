@@ -7,8 +7,13 @@
 <%
 	if (session.getAttribute("username") == null)
 		response.sendRedirect("index.jsp");
-	session.setAttribute("section", "Logs");
-	session.setAttribute("item", "Create log");
+
+	request.setAttribute(Constants.TITLE, "Create Log");
+	request.setAttribute("breadcrumb_section", "Log");
+	request.setAttribute("breadcrumb_link", "log.jsp");
+	request.setAttribute("breadcrumb_item", "Create Log");
+	
+	request.setAttribute("vehicle", request.getParameter("vehicle"));
 %>
 
 <t:default>
@@ -19,7 +24,21 @@
 		<c:import var="xslt" url="xsl/create_log.xsl" />
 		<!-- Style xml using xsl -->
 		<x:transform xml="${xml}" xslt="${xslt}">
-			<x:param name="username" value="${sessionScope['username']}" />
+			<x:param name="vehicle" value="${vehicle}" />
+			
+			<x:param name="startdate" value="${startdate}" />
+			<x:param name="starttime" value="${starttime}" />
+			<x:param name="endtime" value="${endtime}" />
+			<x:param name="enddate" value="${enddate}" />
+			<x:param name="description" value="${description}" />
+			<x:param name="kilometres" value="${kilometres}" />
+			
+			<x:param name="startdate_value" value="${startdate_value}" />
+			<x:param name="starttime_value" value="${starttime_value}" />
+			<x:param name="endtime_value" value="${endtime_value}" />
+			<x:param name="enddate_value" value="${enddate_value}" />
+			<x:param name="description_value" value="${description_value}" />
+			<x:param name="kilometres_value" value="${kilometres_value}" />
 		</x:transform>
 	</jsp:body>
 </t:default>
