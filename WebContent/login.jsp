@@ -16,8 +16,6 @@
 	<jsp:body>
 		<c:import var="xml" url="xml/login.xml" />
 		<c:import var="xslt" url="xsl/login.xsl" />
-		<x:transform xml="${xml}" xslt="${xslt}">
-			<x:param name="result" value="${result}" />
-		</x:transform>
+		<x:transform xml="${xml}" xslt="${xslt}"/>
 	</jsp:body>
 </t:default>

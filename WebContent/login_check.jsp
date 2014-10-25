@@ -13,11 +13,14 @@
 	User user = userApp.login(request.getParameter("Username"), request.getParameter("Password"));
 	
 	if (user == null) {
-		request.setAttribute("result", "Login Incorrect. Please try again.");
+		request.setAttribute("message_notification", "Login Incorrect. Please try again.");
+		request.setAttribute("message_type", "danger");
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	} else {
 		session.setAttribute("username", user.getUsername());
 		session.setAttribute("usertype", user.getType());
-		response.sendRedirect("index.jsp");
+		request.setAttribute("message_notification", "You are now logged in.");
+		request.setAttribute("message_type", "success");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 %>

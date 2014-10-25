@@ -3,5 +3,7 @@
 
 <%
 	session.invalidate();
-	response.sendRedirect("login.jsp");
+	request.setAttribute("message_notification", "You have been logged out.");
+	request.setAttribute("message_type", "warning");
+	request.getRequestDispatcher("login.jsp").forward(request, response);
 %>

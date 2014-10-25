@@ -29,6 +29,13 @@
 			<x:param name="bc-item" value="${breadcrumb_item}"/>			
 		</x:transform>
 		
+		<c:import var="xml" url="xml/notification.xml"/>
+		<c:import var="xslt" url="xsl/notification.xsl" />
+		<x:transform xml="${xml}" xslt="${xslt}" >
+			<x:param name="type" value="${message_type}"/>
+			<x:param name="message" value="${message_notification}"/>	
+		</x:transform>
+		
 		<!-- The body and main content of the page -->
 		<jsp:doBody />
 		

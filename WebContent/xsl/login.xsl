@@ -9,11 +9,6 @@
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<xsl:if test="$result != ''">
-						<div class="alert alert-danger" role="alert">
-							<xsl:value-of select="$result" />
-						</div>
-					</xsl:if>
 					<xsl:apply-templates />
 				</div>
 			</div>
