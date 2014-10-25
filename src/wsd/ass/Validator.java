@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBException;
 
 /**
@@ -175,4 +177,20 @@ public final class Validator {
 		
 		return !name.matches( "[A-Z][a-zA-Z]*" );
     }
+	
+	
+	/** convertValidInt converts the given parameter into an int
+	 * @param parameter
+	 * @param session
+	 * @return the converted int
+	 */
+	public static int convertValidInt(String parameter, HttpSession session) {
+		int i = 0;
+		try {
+			i = Integer.parseInt(parameter);
+		} catch (Exception e) {
+			session.setAttribute(parameter, parameter);
+		}
+		return i;
+	}
 }

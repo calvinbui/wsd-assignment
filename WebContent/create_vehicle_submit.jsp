@@ -4,40 +4,25 @@
 
 
 <%
+String[] parameters = {"year", "kilometres"};
 // remove all previous session attributes
-session.removeAttribute("registration");
-session.removeAttribute("type");
-session.removeAttribute("make");
-session.removeAttribute("model");
-session.removeAttribute("year");
-session.removeAttribute("colour");
-session.removeAttribute("kilometres");
+for (String parameter: parameters) {
+	session.removeAttribute(parameter);
+}
 
 // get the request parameters
+String[] strings = {"registration", "type", "make", "model", "colour"};
 Map<String, String> checkStrings = new HashMap<String, String>();
-checkStrings.put("registration", request.getParameter("registration"));
-checkStrings.put("type", request.getParameter("type"));
-checkStrings.put("make", request.getParameter("make"));
-checkStrings.put("model", request.getParameter("model"));
-checkStrings.put("colour", request.getParameter("colour"));
+for (String string: strings) {
+	checkStrings.put(string, request.getParameter(string));
+	session.removeAttribute(string);
+}
 
 boolean valid = true;
 
-int kilometres = 0;
-//test if kilometres is a valid integer
-try {
-	kilometres = Integer.parseInt(request.getParameter("kilometres"));
-} catch (Exception e) {
-	session.setAttribute("kilometres", "kilometres");
-}
+int kilometres = Validator.convertValidInt(request.getParameter("kilometres"), session);
 
-int year = 0;
-//test if year is a valid integer
-try {
-	year = Integer.parseInt(request.getParameter("year"));
-} catch (Exception e) {
-	session.setAttribute("year", "year");
-}
+int year = Validator.convertValidInt(request.getParameter("year"), session);
 
 // test that the string is not empty or null
 for (Map.Entry<String, String> entry : checkStrings.entrySet()) {
