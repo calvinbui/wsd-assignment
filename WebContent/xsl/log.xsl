@@ -63,7 +63,7 @@
 
 	<xsl:template match="vehicle">
 		<td>
-			<a href="rest/vehicles/{.}">
+			<a href="vehicle_logs.jsp?vehicle={.}">
 				<xsl:apply-templates />
 			</a>
 		</td>
