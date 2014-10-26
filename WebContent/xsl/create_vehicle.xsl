@@ -74,9 +74,9 @@
 	<xsl:template match="input">
 		<!-- Bootstrap grid system covers 10 columns for small devices -->
 		<div class="col-sm-10">
-			<!-- If input id equals registration move on -->
+			<!-- If input id equals registration return the following -->
 			<xsl:if test="@id = 'registration'">
-				<!-- If registration parameter equals nothing return input -->
+				<!-- If registration parameter equals null return input -->
 				<xsl:if test="$registration = ''">
 					<!-- Insert xml data for type, name, id and placeholder. Insert parameter for registration -->
 					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$registration_value}">
@@ -84,7 +84,7 @@
 						<xsl:apply-templates />
 					</input>
 				</xsl:if>
-				<!-- If registration parameter does not equal nothing return input -->
+				<!-- If registration parameter does not equal null return input -->
 				<xsl:if test="$registration != ''">
 					<!-- Bootstrap default validation state for input with error -->
 					<div class="has-error">
@@ -93,26 +93,36 @@
 							<!-- Apply style to input data -->
 							<xsl:apply-templates />
 						</input>
-						<!--  -->
+						<!-- Bootstrap default icons for validation states -->
 						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 					</div>
 				</xsl:if>
 			</xsl:if>
 			
+			<!-- If input id equals type return the following-->
 			<xsl:if test="@id = 'type'">
+				<!-- If type parameter equals null return select option -->
 				<xsl:if test="$type = ''">
+					<!-- Style xml data. Insert type and id from xml. Bootstrap default form control style -->
 					<select type="{@type}" name="{@id}" class="form-control">
+						<!-- Value equals null for vehicle type option -->
 						<option value="">Vehicle type</option>
+						<!-- For each element: select return the following -->
 						<xsl:for-each select="select">
+							<!-- Choose one of the following cases -->
 							<xsl:choose>
+								<!-- When type_value parameter equals null return option with $type_value -->
 								<xsl:when test="$type_value = ''">
 									<option value="{.}" ><xsl:apply-templates /></option>
 								</xsl:when>
+								<!-- Else choose one of the following cases -->
 								<xsl:otherwise>
 									<xsl:choose>
+										<!-- When type_value equals the current option return option as selected -->
 										<xsl:when test="$type_value = current()">
 											<option value="{.}"  selected="selected"><xsl:apply-templates /></option>
 										</xsl:when>
+										<!-- Else return value with no selection -->
 										<xsl:otherwise>
 											<option value="{.}" ><xsl:apply-templates /></option>
 										</xsl:otherwise>
