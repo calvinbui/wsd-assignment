@@ -3,6 +3,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
+	<!-- All parameters required to create a new vehicle -->
 	<xsl:param name="registration" />
 	<xsl:param name="type" />
 	<xsl:param name="make" />
@@ -10,7 +11,7 @@
 	<xsl:param name="colour" />
 	<xsl:param name="year" />
 	<xsl:param name="kilometres" />
-	
+	<!-- Vehicle parameters returned -->
 	<xsl:param name="registration_value" />
 	<xsl:param name="type_value"  />
 	<xsl:param name="make_value"  />
@@ -19,52 +20,81 @@
 	<xsl:param name="year_value" />
 	<xsl:param name="kilometres_value" />
 	
+	<!-- Create vehicle root template -->
 	<xsl:template match="/">
+		<!-- Bootstrap deafult container wrapping site contents -->
 		<div class="container">
+			<!-- Apply all templates under root -->
 			<xsl:apply-templates />
 		</div>
 	</xsl:template>
-
+	
+	<!-- Template matching element: title -->
 	<xsl:template match="title">
+		<!-- Insert title element in h3 tag -->
 		<h3><xsl:apply-templates /></h3>
 	</xsl:template>
-
+	
+	<!-- Template matching element:addvehicle -->
 	<xsl:template match="addvehicle">
+		<!-- Bootstrap default form. Create vehicle post form. On submit send the form-data to create_vehicle_submit.jsp -->
 		<form class="form-horizontal" method="{@method}" action="{@action}" role="form">
+			<!-- Insert all elements within addvehicle element -->
 			<xsl:apply-templates />
+			<!-- Bootstrap default form grouping labels and inputs. Create vehicle submit button -->
 			<div class="form-group">
+				<!-- Bootstrap grid system - on small devices offset by 2 columns with 10 columns containing data -->
 				<div class="col-sm-offset-2 col-sm-10">
+					<!-- Bootstrap default submit button. Submit create vehicle button -->
 					<button type="submit" class="btn btn-block btn-primary">Create Vehicle</button>
 				</div>
 			</div>
 		</form>
 	</xsl:template>
-
+	
+	<!-- Template matching element: option -->
 	<xsl:template match="option">
+		<!-- Bootstrap default validation state for feedback notifications -->
 		<div class="form-group has-feedback">
+			<!-- Insert all label and input data -->
 			<xsl:apply-templates />
 		</div>
 	</xsl:template>
-
+	
+	<!-- Template matching element: label (within option) -->
 	<xsl:template match="label">
-		<label for="{@for}" class="control-label col-sm-2"><xsl:apply-templates /></label>
+		<!-- Insert for from xml data. Bootstrap default label controller -->
+		<label for="{@for}" class="control-label col-sm-2">
+			<!-- Apply label to element: label -->
+			<xsl:apply-templates />
+		</label>
 	</xsl:template>
-
+	
+	<!-- Template matching element: input (within option) -->
 	<xsl:template match="input">
+		<!-- Bootstrap grid system covers 10 columns for small devices -->
 		<div class="col-sm-10">
-		
+			<!-- If input id equals registration move on -->
 			<xsl:if test="@id = 'registration'">
+				<!-- If registration parameter equals nothing return input -->
 				<xsl:if test="$registration = ''">
+					<!-- Insert xml data for type, name, id and placeholder. Insert parameter for registration -->
 					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$registration_value}">
+						<!-- Apply style to input data -->
 						<xsl:apply-templates />
 					</input>
 				</xsl:if>
+				<!-- If registration parameter does not equal nothing return input -->
 				<xsl:if test="$registration != ''">
-				<div class="has-error">
-					<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$registration_value}">
-						<xsl:apply-templates />
-					</input>
-					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<!-- Bootstrap default validation state for input with error -->
+					<div class="has-error">
+						<!-- Insert xml data for type, name, id and placeholder. Insert parameter for registration -->
+						<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$registration_value}">
+							<!-- Apply style to input data -->
+							<xsl:apply-templates />
+						</input>
+						<!--  -->
+						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 					</div>
 				</xsl:if>
 			</xsl:if>
