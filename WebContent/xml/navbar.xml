@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xsl/nb.xsl"?>
 
 <navbar>
+	<!-- Bootstrap default container to wrap site contents -->
 	<content class="container">
+		<!-- Bootstrap default navbar header -->
 		<header class="navbar-header">
+			<!-- Bootstrap default responsive navbar which collapses the navbar-main id -->
 			<button class="navbar-toggle" type="button" data-target="#navbar-main">
+				<!-- Bootstrap default responsive navbar icon on small devices -->
 				<line>icon-bar</line>
 				<line>icon-bar</line>
 				<line>icon-bar</line>
 			</button>
+			<!-- Bootstrap default navbar heading. Link to index page -->
 			<heading href="index.jsp" class="navbar-brand">Vehicle Logbook System</heading>
 		</header>
-
+		<!-- Bootstrap default collapsing navbar -->
 		<main class="navbar-collapse collapse" id="navbar-main">
 			<menu class="nav navbar-nav">
+			<!-- Vehicle page navbar link -->
 				<item>
 					<path>vehicle.jsp</path>
 					<title>Vehicles</title>
 				</item>
+				<!-- Logs page navbar link -->
 				<item>
 					<path>log.jsp</path>
 					<title>Logs</title>
 				</item>
+				<!-- Users (admins and drivers) page navbar link -->
 				<item>
 					<path>user.jsp</path>
 					<title>Drivers</title>
 				</item>
 			</menu>
+			<!-- Bootstrap right navbar -->
 			<menu class="nav navbar-nav navbar-right">
 				<auth></auth>
 			</menu>

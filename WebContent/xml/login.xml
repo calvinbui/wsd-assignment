@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <login>
+	<!-- Driver login form. On submit send the form-data to login_submit.jsp -->
 	<form method="POST" action="login_check.jsp">
+		<!-- Driver username (email) -->
 		<input type="text">Username</input>
+		<!-- Driver password matching the username -->
 		<input type="password">Password</input>
+		<!-- Submit username and password -->
 		<button type="submit">Login</button>
 	</form>
 </login>

@@ -3,24 +3,29 @@
 <register>
 
 	<title>Register</title>
-
+	<!-- Driver registration form. On submit send the form-data to register_submit.jsp -->
 	<registerform method="POST" action="register_submit.jsp">
+		<!-- Driver username (email) -->
 		<option>
 			<label for="username">Email</label>
 			<input type="text" id="username" placeholder="Email" />
 		</option>
+		<!-- Driver account password -->
 		<option>
 			<label for="password">Password</label>
 			<input type="password" id="password" placeholder="Password" />
 		</option>
+		<!-- Driver confirm password -->
 		<option>
 			<label for="confirmpassword">Confirm Password</label>
 			<input type="password" id="confirmpassword" placeholder="Confirm password" />
 		</option>
+		<!-- Driver first name -->
 		<option>
 			<label for="firstname">First Name</label>
 			<input type="text" id="firstname" placeholder="First name" />
 		</option>
+		<!-- Driver last name -->
 		<option>
 			<label for="lastname">Last Name</label>
 			<input type="text" id="lastname" placeholder="Last name" />

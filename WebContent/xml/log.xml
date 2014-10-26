@@ -6,6 +6,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.wsd.com/log xsd/log.xsd">
 
+	<!-- 
+	Log structure
+		1. Unique log ID
+		2. Driver username
+		3. Start date
+		4. End date
+		5. Start time
+		6. End time
+		7. Description of trip
+		8. Kilometres travelled in this trip
+		9. Flag log as 'deleted' which hides the log from the user
+	 -->
+
 	<log>
 		<id>0</id>
 		<vehicle>HOLSS1</vehicle>
