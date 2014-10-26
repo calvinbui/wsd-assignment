@@ -29,12 +29,6 @@
 			<xsl:apply-templates />
 		</h5>
 	</xsl:template>
-	
-	<xsl:template match="fa">
-		<h5>
-			<xsl:apply-templates />
-		</h5>
-	</xsl:template>
 
 	<xsl:template match="button">
 		<p>
@@ -42,6 +36,12 @@
 				<xsl:apply-templates />
 			</a>
 		</p>
+	</xsl:template>
+	
+	<xsl:template match="mit">
+		<h6 style="text-align:center;color:grey;">
+			<xsl:apply-templates />
+		</h6>
 	</xsl:template>
 
 </xsl:stylesheet>
