@@ -8,6 +8,8 @@
 		userApp.setFilePath(application.getRealPath(Constants.USER_XML));
 		userApp.unmarshall();
 		session.setAttribute(Constants.USER_APP, userApp);
+	} else {
+		userApp.unmarshall();
 	}
 	
 	User user = userApp.login(request.getParameter("Username"), request.getParameter("Password"));

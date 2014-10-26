@@ -94,14 +94,6 @@
 						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 					</div>
 				</xsl:if>
-				<xsl:if test="$confirmpassword != @password">
-					<div class="has-error">
-						<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$confirmpassword_value}">
-							<xsl:apply-templates />
-						</input>
-						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-					</div>
-				</xsl:if>
 			</xsl:if>
 			
 			<xsl:if test="@id = 'firstname'">
