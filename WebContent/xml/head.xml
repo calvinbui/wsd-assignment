@@ -11,8 +11,11 @@
 	<css>jquery-ui/jquery-ui.min.css</css>
 	<css>jquery-ui/jquery-ui.structure.min.css</css>
 	<css>jquery-ui/jquery-ui.theme.min.css</css>
+	<css>jquery.timepicker.css</css>
 	<js>jquery/jquery-1.11.1.min.js</js>
 	<js>jquery-ui/jquery-ui.min.js</js>
 	<js>bootstrap/bootstrap.min.js</js>
+	<js>jquery.timepicker.js</js>
+	<js>jquery.timepicker.min.js</js>
 	<favicon>favicon.ico</favicon>
 </head>
