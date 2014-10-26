@@ -24,7 +24,13 @@
 		</h5>
 	</xsl:template>
 
-	<xsl:template match="mit">
+	<xsl:template match="bootstrap">
+		<h5>
+			<xsl:apply-templates />
+		</h5>
+	</xsl:template>
+	
+	<xsl:template match="fa">
 		<h5>
 			<xsl:apply-templates />
 		</h5>
