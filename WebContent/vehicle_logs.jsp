@@ -19,7 +19,9 @@
 	<jsp:body>
 		<c:import var="vehiclexml" url="${vehiclerego} " />
 		<c:import var="vehiclexslt" url="xsl/vehiclerego.xsl" />
-		<x:transform xml="${vehiclexml}" xslt="${vehiclexslt}" />
+		<x:transform xml="${vehiclexml}" xslt="${vehiclexslt}">
+			<x:param name="username" value="${sessionScope['username']}" />
+		</x:transform>
 	
 		<c:import var="logxml" url="${vehiclelog}" />
 		<c:import var="logxslt" url="xsl/log.xsl" />

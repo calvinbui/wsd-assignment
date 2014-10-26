@@ -36,6 +36,9 @@
     			altFormat: "yy-mm-dd"
 			});
 		});
+		
+		$('#startime').timepicker({ 'timeFormat': 'H:i:s' });
+		$('#endtime').timepicker({ 'timeFormat': 'H:i:s' });
 
 		</script>
 	</xsl:template>
@@ -76,7 +79,7 @@
 				</xsl:when>
 				
 				<xsl:when test="@type='date'">
-				
+					
 					<xsl:if test="@id = 'start_date_display'">
 						<xsl:if test="$startdate = ''">
 							<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}"  value="{$startdate_value}"/>
@@ -107,7 +110,7 @@
 				<xsl:otherwise>
 				
 					<xsl:if test="@id = 'description'">
-						<xsl:if test="$description = ''"><input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$description_value}"/></xsl:if>
+						<xsl:if test="$description = ''"><input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{.}" value="{$description_value}"/></xsl:if>
 						<xsl:if test="$description != ''">
 						<div class="has-error">
 							<input type="{@type}" name="{@id}" class="form-control has-error" id="{@id}" placeholder="{@placeholder}" value="{$description_value}"/>
@@ -117,7 +120,7 @@
 					</xsl:if>
 					
 					<xsl:if test="@id = 'kilometres'">
-						<xsl:if test="$kilometres = ''"><input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$kilometres_value}"/></xsl:if>
+						<xsl:if test="$kilometres = ''"><input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{.}" value="{$kilometres_value}"/></xsl:if>
 						<xsl:if test="$kilometres != ''">
 						<div class="has-error">
 							<input type="{@type}" name="{@id}" class="form-control has-error" id="{@id}" placeholder="{@placeholder}" value="{$kilometres_value}"/>
@@ -128,7 +131,7 @@
 					
 					<xsl:if test="@id = 'starttime'">
 						<xsl:if test="$starttime = ''">
-							<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$starttime_value}"/>
+							<input type="{@type}" name="{@id}" class="form-control timepicker" id="{@id}" placeholder="{@placeholder}" value="{$starttime_value}"/>
 						</xsl:if>
 						<xsl:if test="$starttime != ''">
 						<div class="has-error">
@@ -140,7 +143,7 @@
 					
 					<xsl:if test="@id = 'endtime'">
 						<xsl:if test="$endtime = ''">
-							<input type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$endtime_value}"/>
+							<input type="{@type}" name="{@id}" class="form-control timepicker" id="{@id}" placeholder="{@placeholder}" value="{$endtime_value}"/>
 						</xsl:if>
 						<xsl:if test="$endtime != ''">
 						<div class="has-error">

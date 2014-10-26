@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	
+	<xsl:param name="username" />
+	
 	<xsl:template match="/">
-		<!-- TODO: Auto-generated template -->
+		
 		<div class="container">
 			<xsl:apply-templates />
+			<xsl:if test="$username != '' ">
+			<br/><div>
+				<a href="create_log.jsp?vehicle={vehicle/registration}" class="btn btn-success">Create Log</a>
+			</div>
+			</xsl:if>
 		</div><br/>
 	</xsl:template>
 
