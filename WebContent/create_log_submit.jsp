@@ -91,6 +91,8 @@ if (valid) {
 	response.sendRedirect("log.jsp");
 	
 } else {
+	request.setAttribute("message_notification", "Start Date/Time must be before End Date/Time");
+	request.setAttribute("message_type", "warning");
 	request.getRequestDispatcher("create_log.jsp").forward(request, response);
 }
 %>
