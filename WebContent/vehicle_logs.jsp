@@ -26,6 +26,7 @@
 		<c:import var="logxml" url="${vehiclelog}" />
 		<c:import var="logxslt" url="xsl/log.xsl" />
 		<x:transform xml="${logxml}" xslt="${logxslt}">
+			<x:param name="username" value="${sessionScope['username']}" />
 		</x:transform>
 	</jsp:body>
 </t:default>

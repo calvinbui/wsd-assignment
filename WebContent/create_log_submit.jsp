@@ -56,22 +56,40 @@ if (kilometres <= 0) {
 // check that the given starttime is before the endtime
 if (Validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
 	request.setAttribute("invalidDates", "invalidDates");
+	valid = false;
 }
 
 //If all above checks have passed, unmarshal the xml file
 //Then add the log and marshall it back in
 if (valid) {
-	Log log = new Log(request.getParameter("vehicle"), (String)session.getAttribute("username"), startdate, enddate, starttime, endtime, description, kilometres);
-	LogApplication logApp = new LogApplication();
-	logApp.setFilePath(application.getRealPath(Constants.LOG_XML));
-	logApp.unmarshall();
-	logApp.add(log);
+	Log log = new Log(request.getParameter("vehicle"), (String)session.getAttribute("username"), startdate, enddate, starttime, endtime, description, kilometres);	
+	
+	LogApplication logApp = (LogApplication)session.getAttribute(Constants.LOG_APP);
+	if (logApp == null) {
+		logApp = new LogApplication();
+		String filePath = application.getRealPath(Constants.LOG_XML);
+		logApp.setFilePath(filePath);
+		logApp.unmarshall();
+		session.setAttribute(Constants.LOG_APP, logApp);
+	} else {
+		logApp.unmarshall();
+	}
+	
+	VehicleApplication vehicleApp = (VehicleApplication)session.getAttribute(Constants.VEHICLE_XML);
+	if (vehicleApp == null) {
+		vehicleApp = new VehicleApplication();
+		String filePath = application.getRealPath(Constants.VEHICLE_XML);
+		vehicleApp.setFilePath(filePath);
+		vehicleApp.unmarshall();
+		session.setAttribute(Constants.VEHICLE_APP, vehicleApp);
+	} else {
+		vehicleApp.unmarshall();
+	}
 
-	VehicleApplication vehicleApp = new VehicleApplication();
-	vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
-	vehicleApp.unmarshall();
+	logApp.add(log);
 	vehicleApp.updateKilometres(kilometres, request.getParameter("vehicle"));
 	response.sendRedirect("log.jsp");
+	
 } else {
 	request.getRequestDispatcher("create_log.jsp").forward(request, response);
 }

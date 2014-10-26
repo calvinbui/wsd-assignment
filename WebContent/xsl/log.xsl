@@ -8,18 +8,6 @@
 	<xsl:param name="username" />
 
 	<xsl:template match="/">
-	
-	<script>
-		function ConfirmDelete()
-		{
-		  var x = confirm("Are you sure you want to delete?");
-		  if (x)
-		      return true;
-		  else
-		    return false;
-		}
-	</script>
-	
 		<div class="container">
 			<h3>Logs</h3>
 			<div class="table-responsive">
@@ -44,6 +32,13 @@
 				</table>
 			</div>
 		</div>
+		
+	<!-- Include jQuery - see http://jquery.com -->
+	<script type="text/javascript">
+	    $('.confirmation').on('click', function () {
+	        return confirm('Are you sure you want to delete this log?');
+	    });
+	</script>
 	</xsl:template>
 
 	<xsl:template match="log">
@@ -52,9 +47,9 @@
 				<xsl:apply-templates />
 				<xsl:if test="$username != '' ">
 					<td>
-						<button Onclick="ConfirmDelete()" class="btn btn-danger btn-xs">
+						<a href="flag_log.jsp?log={id}"  class="confirmation btn btn-danger btn-xs">
 							<i class="fa fa-remove"></i>
-						</button>
+						</a>
 					</td>
 				</xsl:if>
 			</tr>

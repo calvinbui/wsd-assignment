@@ -2,15 +2,17 @@
 
 <% 
 
-int i = (int)request.getAttribute("log");
+int i = Integer.parseInt(request.getParameter("log"));
 
-LogApplication logApp = (LogApplication)application.getAttribute(Constants.LOG_APP);
+LogApplication logApp = (LogApplication)session.getAttribute(Constants.LOG_APP);
 if (logApp == null) {
 	logApp = new LogApplication();
 	String filePath = application.getRealPath(Constants.LOG_XML);
 	logApp.setFilePath(filePath);
 	logApp.unmarshall();
 	session.setAttribute(Constants.LOG_APP, logApp);
+} else {
+	logApp.unmarshall();
 }
 
 logApp.hideLog(i, (String) session.getAttribute("username"));
