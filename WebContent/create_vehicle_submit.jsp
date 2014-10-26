@@ -50,23 +50,28 @@ else {
 		valid = false;
 		request.setAttribute("year", "year");
 	}
-
+	
+	VehicleApplication vehicleApp =  (VehicleApplication) session.getAttribute(Constants.VEHICLE_APP);
+	if (vehicleApp == null) {
+		vehicleApp = new VehicleApplication(); 
+		vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
+		vehicleApp.unmarshall();
+		session.setAttribute(Constants.VEHICLE_APP, vehicleApp);
+	} else {
+		vehicleApp.unmarshall();
+	}
+	
+	
+	if (vehicleApp.getRegistration(checkStrings.get("registration")) != null) {
+		valid = false;
+		request.setAttribute("rego", "rego");
+	}
+	
 	// If all above checks have passed, unmarshal the xml file
 	// Then add the vehicle and marshall it back in
 	if (valid) {
 		Vehicle vehicle = new Vehicle(checkStrings.get("registration"), checkStrings.get("type"), checkStrings.get("make"), checkStrings.get("model"), year, checkStrings.get("colour"), kilometres);
-		
-		
-		VehicleApplication vehicleApp =  (VehicleApplication) session.getAttribute(Constants.VEHICLE_APP);
-		if (vehicleApp == null) {
-			vehicleApp = new VehicleApplication(); 
-			vehicleApp.setFilePath(application.getRealPath(Constants.VEHICLE_XML));
-			vehicleApp.unmarshall();
-			session.setAttribute(Constants.VEHICLE_APP, vehicleApp);
-		} else {
-			vehicleApp.unmarshall();
-		}
-		
+				
 		vehicleApp.add(vehicle);
 		request.setAttribute("message_notification", "Vehicle created successfully.");
 		request.setAttribute("message_type", "success");

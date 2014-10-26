@@ -107,4 +107,14 @@ public class UserApplication implements ApplicationFactory {
 		}
 		return null; // Login incorrect. Return null.
 	}
+	
+	public boolean userExists(String username) {
+		// For each user in the list...
+		for (User user : users.getUsers()) {
+			// if username matches matches
+			if (user.getUsername().equals(username))
+				return true; // User already exsits. Return true.
+		}
+		return false; // User doesn't exist. Return false. 
+	}
 }

@@ -44,21 +44,27 @@ if(Validator.emptyOrNullCheck(request.getParameter("password"))) {
 	valid = false;
 }
 
+
+UserApplication userApp =  (UserApplication) session.getAttribute(Constants.USER_APP);
+if (userApp == null) {
+	userApp = new UserApplication();
+	userApp.setFilePath(application.getRealPath(Constants.USER_XML));
+	userApp.unmarshall();
+	session.setAttribute(Constants.USER_APP, userApp);
+} else {
+	userApp.unmarshall();
+}
+
+if (userApp.userExists(request.getParameter("username"))) {
+	valid = false;
+	request.setAttribute("username", "username");
+}
+
 //If all above checks have passed, unmarshal the xml file
 //Then add the user and marshall it back in
 if (valid) {
 	// only drivers can register, not admins
 	User user = new User("driver", request.getParameter("username"), request.getParameter("password"), request.getParameter("firstname"), request.getParameter("lastname"));
-	
-	UserApplication userApp =  (UserApplication) session.getAttribute(Constants.USER_APP);
-	if (userApp == null) {
-		userApp = new UserApplication();
-		userApp.setFilePath(application.getRealPath(Constants.USER_XML));
-		userApp.unmarshall();
-		session.setAttribute(Constants.USER_APP, userApp);
-	} else {
-		userApp.unmarshall();
-	}
 	
 	userApp.add(user);
 	
