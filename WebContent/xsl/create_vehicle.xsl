@@ -71,15 +71,52 @@
 			
 			<xsl:if test="@id = 'type'">
 				<xsl:if test="$type = ''">
-					<select type="{@type}" class="form-control placeholder">
-							<xsl:if test="$type_value = 'select/{.}' ">
-								<option value="{.}" selected=""><xsl:apply-templates /></option>
-							</xsl:if>
-							<xsl:if test="$type_value != '' ">
-								<option value="{.}" name="test"><xsl:apply-templates /></option>
-							</xsl:if>
+					<select type="{@type}" name="{@id}" class="form-control">
+						<option value="">Vehicle type</option>
+						<xsl:for-each select="select">
+							<xsl:choose>
+								<xsl:when test="$type_value = ''">
+									<option value="{.}" ><xsl:apply-templates /></option>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:choose>
+										<xsl:when test="$type_value = current()">
+											<option value="{.}"  selected="selected"><xsl:apply-templates /></option>
+										</xsl:when>
+										<xsl:otherwise>
+											<option value="{.}" ><xsl:apply-templates /></option>
+										</xsl:otherwise>
+									</xsl:choose>
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:for-each>
 					</select>
 				</xsl:if>
+				<xsl:if test="$type != ''">
+				<div class="has-error">
+					<select type="{@type}" name="{@id}" class="form-control">
+						<option value="">Vehicle type</option>
+						<xsl:for-each select="select">
+							<xsl:choose>
+								<xsl:when test="$type_value = ''">
+									<option value="{.}" ><xsl:apply-templates /></option>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:choose>
+										<xsl:when test="$type_value = current()">
+											<option value="{.}"  selected="selected"><xsl:apply-templates /></option>
+										</xsl:when>
+										<xsl:otherwise>
+											<option value="{.}" ><xsl:apply-templates /></option>
+										</xsl:otherwise>
+									</xsl:choose>
+								</xsl:otherwise>
+							</xsl:choose>
+						</xsl:for-each>
+					</select>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</xsl:if>		
 			</xsl:if>
 			
 			<xsl:if test="@id = 'make'">

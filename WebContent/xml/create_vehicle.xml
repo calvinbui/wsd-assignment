@@ -12,9 +12,9 @@
 		<option>
 			<label for="type">Type</label>
 			<input type="select" id="type" placeholder="Vehicle type">
-				<select>Car</select>
-				<select>Ute</select>
-				<select>Minibus</select>
+				<select name="Car">Car</select>
+				<select name="Ute">Ute</select>
+				<select name="Minibus">Minibus</select>
 			</input>
 		</option>
 		<option>
