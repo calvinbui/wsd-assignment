@@ -2,7 +2,9 @@
     pageEncoding="ISO-8859-1" %>
 
 <%
-if ((String)session.getAttribute("usertype") != "admin")
+String usertype = (String)session.getAttribute("usertype");
+
+if (!usertype.equals("admin"))
 	response.sendRedirect("error.jsp");
 else {
 	String[] parameters = {"year", "kilometres"};
@@ -64,7 +66,7 @@ else {
 	
 	if (vehicleApp.getRegistration(checkStrings.get("registration")) != null) {
 		valid = false;
-		request.setAttribute("rego", "rego");
+		request.setAttribute("registration", "registration");
 	}
 	
 	// If all above checks have passed, unmarshal the xml file

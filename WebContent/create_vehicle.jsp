@@ -8,8 +8,10 @@
 	request.setAttribute("breadcrumb_section", "Vehicles");
 	request.setAttribute("breadcrumb_link", "vehicle.jsp");
 	request.setAttribute("breadcrumb_item", "Create Vehicle");
-
-	if ((String)session.getAttribute("usertype") != "admin")
+	
+	String usertype = (String) session.getAttribute("usertype");
+	
+	if (!usertype.equals("admin"))
 		response.sendRedirect("error.jsp");
 	session.setAttribute("section-link", "index.jsp");
 	session.setAttribute("section", "Vehicles");
