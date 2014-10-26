@@ -12,7 +12,6 @@
 		<option>
 			<label for="type">Type</label>
 			<input type="select" id="type" placeholder="Vehicle type">
-				<select>Vehicle type</select>
 				<select>Car</select>
 				<select>Ute</select>
 				<select>Minibus</select>

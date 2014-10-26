@@ -71,24 +71,14 @@
 			
 			<xsl:if test="@id = 'type'">
 				<xsl:if test="$type = ''">
-					<select type="{@type}" name="{@id}" class="form-control placeholder" id="{@id}" placeholder="{@placeholder}">
-						<xsl:for-each select="select">
-							<option value="{$type_value}"><xsl:apply-templates /></option>
-							<xsl:if test="select = 'Vehicle type'">
-								<option value="{$type_value}" selected="" disabled="" style="display:none;"><xsl:apply-templates /></option>
+					<select type="{@type}" class="form-control placeholder">
+							<xsl:if test="$type_value = 'select/{.}' ">
+								<option value="{.}" selected=""><xsl:apply-templates /></option>
 							</xsl:if>
-						</xsl:for-each>
+							<xsl:if test="$type_value != '' ">
+								<option value="{.}" name="test"><xsl:apply-templates /></option>
+							</xsl:if>
 					</select>
-				</xsl:if>
-				<xsl:if test="$type != ''">
-				<div class="has-error">
-					<select type="{@type}" name="{@id}" class="form-control placeholder" id="{@id}" placeholder="{@placeholder}" value="{$type_value}">
-						<xsl:for-each select="select">
-							<option><xsl:apply-templates /></option>
-						</xsl:for-each>
-					</select>
-					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-					</div>
 				</xsl:if>
 			</xsl:if>
 			
