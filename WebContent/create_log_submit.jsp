@@ -3,7 +3,7 @@
 
 <%
 
-String[] parameters = { "startdate", "enddate", "starttime", "endtime", "description", "kilometres" };
+String[] parameters = { "startdate", "enddate", "starttime", "start_date_display", "end_date_display" , "endtime", "description", "kilometres" };
 for (String parameter: parameters)
 	request.setAttribute(parameter+"_value", request.getParameter(parameter));
 
@@ -56,6 +56,8 @@ if (kilometres <= 0) {
 // check that the given starttime is before the endtime
 if (Validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
 	request.setAttribute("invalidDates", "invalidDates");
+	request.setAttribute("message_notification", "Start Date/Time must be before End Date/Time");
+	request.setAttribute("message_type", "warning");
 	valid = false;
 }
 
