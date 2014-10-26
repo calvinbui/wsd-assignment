@@ -9,8 +9,8 @@
 		<!-- stylesheets, javascript, favicon and title -->	
 		<c:import var="xml" url="xml/head.xml"/>
 		<c:import var="xslt" url="xsl/head.xsl" />
+		<!-- Pass through username as title -->
 		<x:transform xml="${xml}" xslt="${xslt}">
-			<!-- Pass through username as title -->
 			<x:param name="titleaddon" value="${titleaddon}"/>
 		</x:transform>
 	</head>
@@ -18,29 +18,25 @@
 		<!-- Top navigation bar -->	
 		<c:import var="xml" url="xml/navbar.xml"/>
 		<c:import var="xslt" url="xsl/navbar.xsl" />
-		<!-- Pass the username into the navbar to show if they are logged in -->
+		<!-- Pass the username into the navbar to show if username exists and they are logged in -->
 		<x:transform xml="${xml}" xslt="${xslt}" >
-			<!-- Pass through the username if it exists -->
 			<x:param name="username" value="${sessionScope['username']}"/>
 		</x:transform>
 		<!-- Breadcrumb navigation on each webpage -->
 		<c:import var="xml" url="xml/breadcrumbs.xml"/>
 		<c:import var="xslt" url="xsl/breadcrumbs.xsl" />
+		<!-- Pass through breadcrumb section, page link and item -->
 		<x:transform xml="${xml}" xslt="${xslt}" >
-			<!-- Pass through breadcrumb section -->
 			<x:param name="bc-section" value="${breadcrumb_section}"/>
-			<!-- Pass through breadcrumb page link -->
 			<x:param name="bc-link" value="${breadcrumb_link}"/>
-			<!-- Pass through breadcrumb item -->
 			<x:param name="bc-item" value="${breadcrumb_item}"/>			
 		</x:transform>
 		<!-- Notifications -->
 		<c:import var="xml" url="xml/notification.xml"/>
 		<c:import var="xslt" url="xsl/notification.xsl" />
+		<!-- Pass through the type of message and message -->
 		<x:transform xml="${xml}" xslt="${xslt}" >
-			<!-- Pass through the type of message -->
 			<x:param name="type" value="${message_type}"/>
-			<!-- Pass through the message -->
 			<x:param name="message" value="${message_notification}"/>	
 		</x:transform>
 		

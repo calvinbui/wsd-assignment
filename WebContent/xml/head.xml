@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Style xml data using  -->
 <?xml-stylesheet type="text/xsl" href="../xsl/head.xsl"?>
 
+<!-- Import css and js files into header -->
 <head>
 	<charset>utf-8</charset>
+	<!-- Make web application compatible on all devices -->
 	<iecompatible http-equiv="X-UA-Compatible">IE=edge</iecompatible>
 	<viewport name="viewport">width=device-width, initial-scale=1.0</viewport>
 	<title>VLS</title>
+	<!-- Import bootstrap, bootstrap jquery, font awesome, and timepicker css and js files -->
 	<css>bootstrap/bootstrap.min.css</css>
 	<css>font-awesome/font-awesome.min.css</css>
 	<css>jquery-ui/jquery-ui.min.css</css>
@@ -16,5 +20,6 @@
 	<js>jquery-ui/jquery-ui.min.js</js>
 	<js>bootstrap/bootstrap.min.js</js>
 	<js>timepicker/jquery.timepicker.min.js</js>
+	<!-- Web application window icon -->
 	<favicon>favicon.ico</favicon>
 </head>

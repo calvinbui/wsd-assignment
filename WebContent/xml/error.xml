@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <error>
+	<!-- Error message return when parameter entered is invalid or no page exists. -->
 	<message>Page not found.</message>
 </error>

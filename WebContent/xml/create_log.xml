@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <logform>
-
+	
 	<title>Add New Log</title>
-
+	<!-- Create log post form. On submit send the form-data to create_log_submit.jsp -->
 	<addlog method="POST" action="create_log_submit.jsp">
+		<!-- Vehicle registration -->
 		<option>
 			<label>Vehicle</label>
 			<input type="text" id="vehicle" name="vehicle">Vehicle</input>
 		</option>
+		<!-- start_date_display is shown to the user. start_date is not shown to the user. -->
 		<option>
 			<label>Start Date</label>
 			<input type="date" id="start_date_display" altid="start_date" name="startdate" display="start_date_display">Start Date</input>
 		</option>
+		<!-- Start time -->
 		<option>
-			<label>Start Time</label>
+			<label>Start Time</label>=
 			<input type="text" id="starttime" name="starttime">Start Time</input>
 		</option>
+		<!-- end_date_display is shown to the user. end_date is not shown to the user. -->
 		<option>
 			<label>End Date</label>
 			<input type="date" id="end_date_display" altid="end_date" name="enddate" display="end_date_display">End Date</input>
 		</option>
+		<!-- End time -->
 		<option>
 			<label>End Time</label>
 			<input type="text" id="endtime" name="endtime">End Time</input>
 		</option>
+		<!-- Description of vehicle usage -->
 		<option>
 			<label>Description</label>
 			<input type="text" id="description" name="description">Description</input>
 		</option>
+		<!-- Kilometres travelled -->
 		<option>
 			<label>Kilometres</label>
 			<input type="number" id="kilometres" name="kilometres">Kilometres</input>

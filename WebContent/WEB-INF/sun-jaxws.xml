@@ -7,5 +7,4 @@
 	<!-- SOAP server for users -->
 	<endpoint implementation="wsd.ass.soap.UserSOAP" name="UserService"
 		url-pattern="/soap/user" />
-
 </endpoints>

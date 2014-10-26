@@ -3,12 +3,14 @@
 <vehicleform>
 
 	<title>Add New Vehicle</title>
-
+	<!-- Create vehicle post form. On submit send the form-data to create_vehicle_submit.jsp -->
 	<addvehicle method="POST" action="create_vehicle_submit.jsp">
+		<!-- Vehicle registration -->
 		<option>
 			<label for="registration">Registration</label>
 			<input type="text" id="registration" placeholder="Vehicle registration" />
 		</option>
+		<!-- Type of vehicle: car, ute or minibus only -->
 		<option>
 			<label for="type">Type</label>
 			<input type="select" id="type" placeholder="Vehicle type">
@@ -17,22 +19,27 @@
 				<select name="Minibus">Minibus</select>
 			</input>
 		</option>
+		<!-- Vehicle make -->
 		<option>
 			<label for="make">Make</label>
 			<input type="text" id="make" placeholder="Vehicle make" />
 		</option>
+		<!-- Vehicle model -->
 		<option>
 			<label for="model">Model</label>
 			<input type="text" id="model" placeholder="Vehicle model" />
 		</option>
+		<!-- Year of vehicle model -->
 		<option>
 			<label for="year">Year</label>
 			<input type="number" id="year" placeholder="Vehicle year" />
 		</option>
+		<!-- Vehicle colour -->
 		<option>
 			<label for="colour">Colour</label>
 			<input type="text" id="colour" placeholder="Vehicle colour" />
 		</option>
+		<!-- Total kilometres travelled to date -->
 		<option>
 			<label for="kilometres">Kilometres</label>
 			<input type="number" id="kilometres" placeholder="Kilometres travelled" />
