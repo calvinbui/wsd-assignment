@@ -2,4 +2,7 @@
 
 <index>	
 	<heading>Welcome to the Vehicle Logbook System</heading>
+	<createdby>Designed and built by Calvin, Janette and Chauanh.</createdby>
+	<mit>Bootstrap code licensed under MIT.</mit>
+	<button class="btn btn-primary" role="button" href="vehicle.jsp">Enter</button>
 </index>

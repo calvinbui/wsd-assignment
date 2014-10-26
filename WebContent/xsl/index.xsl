@@ -7,7 +7,9 @@
 	<xsl:template match="/">
 		<div class="container">
 			<div class="jumbotron">
-				<xsl:apply-templates />
+				<div class="container">
+					<xsl:apply-templates />
+				</div>
 			</div>
 		</div>
 	</xsl:template>
@@ -16,6 +18,26 @@
 		<h2>
 			<xsl:apply-templates />
 		</h2>
+	</xsl:template>
+	
+	<xsl:template match="createdby">
+		<h5>
+			<xsl:apply-templates />
+		</h5>
+	</xsl:template>
+	
+	<xsl:template match="mit">
+		<h5>
+			<xsl:apply-templates />
+		</h5>
+	</xsl:template>
+
+	<xsl:template match="button">
+		<p>
+			<a href="{@href}" class="{@class}" role="{@role}">
+				<xsl:apply-templates />
+			</a>
+		</p>
 	</xsl:template>
 
 </xsl:stylesheet>
