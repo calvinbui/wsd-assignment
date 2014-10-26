@@ -4,7 +4,9 @@
 	<heading>Welcome to the Vehicle Logbook System</heading>
 	<createdby>Designed and built by Calvin, Janette and Chauanh.</createdby>
 	<bootstrap>Bootstrap code licensed under MIT License.</bootstrap>
+	<!-- Button to go to vehicles page -->
 	<button class="btn btn-primary" role="button" href="vehicle.jsp">Enter</button>
+	<!-- MIT License terms and copyright notice -->
 	<mit>
 		The MIT License (MIT)
 
