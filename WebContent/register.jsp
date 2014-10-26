@@ -10,7 +10,7 @@ if (session.getAttribute("username") != null)
 request.setAttribute(Constants.TITLE, "Register"); 
 request.setAttribute("breadcrumb_section", "");
 request.setAttribute("breadcrumb_link", "");
-request.setAttribute("breadcrumb_item", "");
+request.setAttribute("breadcrumb_item", "Register");
 
 %>
 
@@ -19,7 +19,17 @@ request.setAttribute("breadcrumb_item", "");
 		<c:import var="xml" url="xml/register.xml" />
 		<c:import var="xslt" url="xsl/register.xsl" />
 		<x:transform xml="${xml}" xslt="${xslt}" >
-		
+			<x:param name="username" value="${username}" />
+			<x:param name="password" value="${password}" />
+			<x:param name="confirmpassword" value="${confirmpassword}" />
+			<x:param name="firstname" value="${firstname}" />
+			<x:param name="lastname" value="${lastname}" />
+			
+			<x:param name="username_value" value="${username_value}" />
+			<x:param name="password_value" value="${password_value}" />
+			<x:param name="confirmpassword_value" value="${confirmpassword_value}" />
+			<x:param name="firstname_value" value="${firstname_value}" />
+			<x:param name="lastname_value" value="${lastname_value}" />
 		</x:transform>
 	</jsp:body>
 </t:default>
