@@ -102,7 +102,7 @@ public class UserApplication implements ApplicationFactory {
 		// For each user in the list...
 		for (User user : users.getUsers()) {
 			// if username matches and password matches
-			if (user.getUsername().equals(username) && user.getPassword().equals(password))
+			if (user.getUsername().equals(username) && user.getPassword().equals(MD5.hash(password)))
 				return user; // Login correct. Return this user.
 		}
 		return null; // Login incorrect. Return null.

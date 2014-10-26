@@ -56,7 +56,7 @@ public class User implements Serializable {
 		super();
 		this.type = type;
 		this.username = username;
-		this.password = password;
+		this.password = MD5.hash(password);
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}

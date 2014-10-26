@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBException;
 
@@ -157,7 +159,7 @@ public final class Validator {
 	public static boolean emailCheck(String email) {
 		if (emptyOrNullCheck(email))
 			return true;
-		
+				
 		Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 		Matcher matcher = pattern.matcher(email);
 		return !matcher.matches();
