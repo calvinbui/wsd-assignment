@@ -6,7 +6,7 @@
 
 <%
 	if (session.getAttribute("username") == null)
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("error.jsp");
 
 	request.setAttribute(Constants.TITLE, "Create Log");
 	request.setAttribute("breadcrumb_section", "Vehicles");
