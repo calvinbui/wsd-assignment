@@ -118,11 +118,11 @@
 								<!-- Else choose one of the following cases -->
 								<xsl:otherwise>
 									<xsl:choose>
-										<!-- When type_value equals the current option return option as selected -->
+										<!-- When type value equals the current option return option as selected -->
 										<xsl:when test="$type_value = current()">
 											<option value="{.}"  selected="selected"><xsl:apply-templates /></option>
 										</xsl:when>
-										<!-- Else return value with no selection -->
+										<!-- Else return type value with no selection -->
 										<xsl:otherwise>
 											<option value="{.}" ><xsl:apply-templates /></option>
 										</xsl:otherwise>

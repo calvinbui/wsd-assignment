@@ -10,27 +10,34 @@
 	<xsl:template match="/">
 		<div class="container">
 			<h3>Logs</h3>
-			<div class="table-responsive">
-				<table class="table table-striped table-hover">
-					<thead>
-						<th>ID</th>
-						<th>Vehicle</th>
-						<th>Driver</th>
-						<th>Start Date</th>
-						<th>End Date</th>
-						<th>Start Time</th>
-						<th>End Time</th>
-						<th>Description</th>
-						<th>Kilometres</th>
-						<xsl:if test="$username != '' ">
-							<th>Delete</th>
-						</xsl:if>
-					</thead>
-					<tbody>
-						<xsl:apply-templates />
-					</tbody>
-				</table>
-			</div>
+			<xsl:choose>
+				<xsl:when test="logs != '' ">
+					<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead>
+								<th>ID</th>
+								<th>Vehicle</th>
+								<th>Driver</th>
+								<th>Start Date</th>
+								<th>End Date</th>
+								<th>Start Time</th>
+								<th>End Time</th>
+								<th>Description</th>
+								<th>Kilometres</th>
+								<xsl:if test="$username != '' ">
+									<th>Delete</th>
+								</xsl:if>
+							</thead>
+							<tbody>
+								<xsl:apply-templates />
+							</tbody>
+						</table>
+					</div>
+				</xsl:when>
+				<xsl:otherwise>
+					<p>There are no recorded logs.</p>
+				</xsl:otherwise>
+			</xsl:choose>
 		</div>
 		
 	<!-- Include jQuery - see http://jquery.com -->
