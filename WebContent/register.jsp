@@ -1,19 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
-</head>
-<body>
-	<form action="register_submit.jsp" method="post">
-	<input name="username" type="text" placeholder="username"/>  <% if ((String) session.getAttribute("username") != null) {  %> Please enter a valid email address <% } %>
-	<input name="password" type="text" placeholder="password"/>  <% if ((String) session.getAttribute("password") != null) {  %> Please enter a valid password <% } %>
-	<input name="confirmpassword" type="text" placeholder="confirmpassword"/>  <% if ((String) session.getAttribute("confirmpassword") != null) {  %> Please enter a valid password that matches the above password <% } %>
-	<input name="firstname" type="text" placeholder="firstname"/>  <% if ((String) session.getAttribute("firstname") != null) {  %> Please enter your first name <% } %>
-	<input name="lastname" type="text" placeholder="lastname"/>  <% if ((String) session.getAttribute("lastname") != null) {  %> Please enter your last name <% } %>
-	<input type="submit">
-	</form>
-</body>
-</html>
+<%@ page language="java" import="wsd.ass.*" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+
+<% 
+if (session.getAttribute("username") != null)
+	response.sendRedirect("index.jsp");
+
+request.setAttribute(Constants.TITLE, "Register"); 
+request.setAttribute("breadcrumb_section", "");
+request.setAttribute("breadcrumb_link", "");
+request.setAttribute("breadcrumb_item", "");
+
+%>
+
+<t:default>
+	<jsp:body>
+		<c:import var="xml" url="xml/register.xml" />
+		<c:import var="xslt" url="xsl/register.xsl" />
+		<x:transform xml="${xml}" xslt="${xslt}" >
+		
+		</x:transform>
+	</jsp:body>
+</t:default>
