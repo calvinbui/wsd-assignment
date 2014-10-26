@@ -21,17 +21,17 @@
 			<!-- Vehicle page navbar link -->
 				<item>
 					<path>vehicle.jsp</path>
-					<title>Vehicles</title>
+					<title icon="fa fa-car">Vehicles</title>
 				</item>
 				<!-- Logs page navbar link -->
 				<item>
 					<path>log.jsp</path>
-					<title>Logs</title>
+					<title icon="fa fa-book">Logs</title>
 				</item>
 				<!-- Users (admins and drivers) page navbar link -->
 				<item>
 					<path>user.jsp</path>
-					<title>Drivers</title>
+					<title icon="fa fa-users">Drivers</title>
 				</item>
 			</menu>
 			<!-- Bootstrap right navbar -->
