@@ -13,6 +13,8 @@
 	
 	<xsl:param name="startdate_value" />
 	<xsl:param name="starttime_value" />
+	<xsl:param name="end_date_display" />
+	<xsl:param name="start_date_display" />
 	<xsl:param name="endtime_value" />
 	<xsl:param name="enddate_value" />
 	<xsl:param name="description_value" />
@@ -81,11 +83,11 @@
 					
 					<xsl:if test="@id = 'start_date_display'">
 						<xsl:if test="$startdate = ''">
-							<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}"  value="{$startdate_value}"/>
+							<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}" name="{@display}" value="{$start_date_display}"/>
 						</xsl:if>
 						<xsl:if test="$startdate != ''">
 							<div class="has-error">
-								<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}"  value="{$startdate_value}"/>
+								<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}"  name="{@display}"  value="{$start_date_display}"/>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>	
 							</div>
 						</xsl:if>
@@ -94,11 +96,11 @@
 					
 					<xsl:if test="@id = 'end_date_display'">
 						<xsl:if test="$enddate = ''">
-							<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}" value="{$enddate_value}" />
+							<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}"  name="{@display}" value="{$end_date_display}" />
 						</xsl:if>
 						<xsl:if test="$enddate != ''">
 							<div class="has-error">
-								<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}"  value="{$enddate_value}"/>
+								<input type="text" class="form-control datepicker" id="{@id}" placeholder="{.}" name="{@display}" value="{$end_date_display}"/>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>	
 							</div>
 						</xsl:if>

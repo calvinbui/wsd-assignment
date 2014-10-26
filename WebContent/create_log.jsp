@@ -33,6 +33,8 @@
 			<x:param name="description" value="${description}" />
 			<x:param name="kilometres" value="${kilometres}" />
 			
+			<x:param name="start_date_display" value="${start_date_display_value}" />
+			<x:param name="end_date_display" value="${end_date_display_value}" />
 			<x:param name="startdate_value" value="${startdate_value}" />
 			<x:param name="starttime_value" value="${starttime_value}" />
 			<x:param name="endtime_value" value="${endtime_value}" />

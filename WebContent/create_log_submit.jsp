@@ -3,7 +3,7 @@
 
 <%
 
-String[] parameters = { "startdate", "enddate", "starttime", "endtime", "description", "kilometres" };
+String[] parameters = { "startdate", "enddate", "starttime", "start_date_display", "end_date_display" , "endtime", "description", "kilometres" };
 for (String parameter: parameters)
 	request.setAttribute(parameter+"_value", request.getParameter(parameter));
 
