@@ -56,6 +56,8 @@ if (kilometres <= 0) {
 // check that the given starttime is before the endtime
 if (Validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
 	request.setAttribute("invalidDates", "invalidDates");
+	request.setAttribute("message_notification", "Start Date/Time must be before End Date/Time");
+	request.setAttribute("message_type", "warning");
 	valid = false;
 }
 
@@ -91,8 +93,6 @@ if (valid) {
 	response.sendRedirect("log.jsp");
 	
 } else {
-	request.setAttribute("message_notification", "Start Date/Time must be before End Date/Time");
-	request.setAttribute("message_type", "warning");
 	request.getRequestDispatcher("create_log.jsp").forward(request, response);
 }
 %>
