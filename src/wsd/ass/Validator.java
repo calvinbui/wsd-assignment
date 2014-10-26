@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBException;
 
