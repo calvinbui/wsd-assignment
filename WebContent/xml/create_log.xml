@@ -15,7 +15,7 @@
 		</option>
 		<option>
 			<label>Start Time</label>
-			<input type="time" id="starttime" name="starttime">Start Time</input>
+			<input type="text" id="starttime" name="starttime">Start Time</input>
 		</option>
 		<option>
 			<label>End Date</label>
@@ -23,7 +23,7 @@
 		</option>
 		<option>
 			<label>End Time</label>
-			<input type="time" id="endtime" name="endtime">End Time</input>
+			<input type="text" id="endtime" name="endtime">End Time</input>
 		</option>
 		<option>
 			<label>Description</label>

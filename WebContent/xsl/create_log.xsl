@@ -35,10 +35,9 @@
 				maxDate: "+0D",
     			altFormat: "yy-mm-dd"
 			});
+			$('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
+			
 		});
-		
-		$('#startime').timepicker({ 'timeFormat': 'H:i:s' });
-		$('#endtime').timepicker({ 'timeFormat': 'H:i:s' });
 
 		</script>
 	</xsl:template>
@@ -135,7 +134,7 @@
 						</xsl:if>
 						<xsl:if test="$starttime != ''">
 						<div class="has-error">
-							<input type="{@type}" name="{@id}" class="form-control has-error" id="{@id}" placeholder="{@placeholder}" value="{$starttime_value}"/>
+							<input type="{@type}" name="{@id}" class="form-control timepicker has-error" id="{@id}" placeholder="{@placeholder}" value="{$starttime_value}"/>
 							<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
 						</xsl:if>
@@ -147,7 +146,7 @@
 						</xsl:if>
 						<xsl:if test="$endtime != ''">
 						<div class="has-error">
-							<input type="{@type}" name="{@id}" class="form-control has-error" id="{@id}" placeholder="{@placeholder}" value="{$endtime_value}"/>
+							<input type="{@type}" name="{@id}" class="form-control timepicker has-error" id="{@id}" placeholder="{@placeholder}" value="{$endtime_value}"/>
 							<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 						</div>
 						</xsl:if>

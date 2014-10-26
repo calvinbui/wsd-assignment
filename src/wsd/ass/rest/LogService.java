@@ -62,6 +62,8 @@ public class LogService implements RESTServiceFactory{
 				logs.unmarshall();
 				// set the unmarshalled log.xml file application wide to save having to unmarshall it again for the next request.
 				application.setAttribute(Constants.LOG_APP, logs);
+			} else {
+				logs.unmarshall();
 			}
 			// if 'logs' attribute exists, return the already unmarshalled object or the one just unmarshalled
 			return logs;

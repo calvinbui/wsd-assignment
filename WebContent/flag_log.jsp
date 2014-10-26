@@ -4,7 +4,7 @@
 
 int i = Integer.parseInt(request.getParameter("log"));
 
-LogApplication logApp = (LogApplication)application.getAttribute(Constants.LOG_APP);
+LogApplication logApp = (LogApplication)session.getAttribute(Constants.LOG_APP);
 if (logApp == null) {
 	logApp = new LogApplication();
 	String filePath = application.getRealPath(Constants.LOG_XML);
