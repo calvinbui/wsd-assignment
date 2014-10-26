@@ -71,18 +71,18 @@
 			
 			<xsl:if test="@id = 'type'">
 				<xsl:if test="$type = ''">
-					<select type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}">
+					<select type="{@type}" name="{@id}" class="form-control placeholder" id="{@id}" placeholder="{@placeholder}">
 						<xsl:for-each select="select">
 							<option value="{$type_value}"><xsl:apply-templates /></option>
 							<xsl:if test="select = 'Vehicle type'">
-								<option value="{$type_value}" disabled="" ><xsl:apply-templates /></option>
+								<option value="{$type_value}" selected="" disabled="" style="display:none;"><xsl:apply-templates /></option>
 							</xsl:if>
 						</xsl:for-each>
 					</select>
 				</xsl:if>
 				<xsl:if test="$type != ''">
 				<div class="has-error">
-					<select type="{@type}" name="{@id}" class="form-control" id="{@id}" placeholder="{@placeholder}" value="{$type_value}">
+					<select type="{@type}" name="{@id}" class="form-control placeholder" id="{@id}" placeholder="{@placeholder}" value="{$type_value}">
 						<xsl:for-each select="select">
 							<option><xsl:apply-templates /></option>
 						</xsl:for-each>
