@@ -65,19 +65,19 @@
 		<!-- User is not logged in -->
 		<xsl:if test="$username = '' ">
 			<li>
-				<a href="register.jsp">Register</a>
+				<a href="register.jsp"><span class="fa fa-pencil-square-o">&#160;</span>&#160;Register</a>
 			</li>
 			<li>
-				<a href="login.jsp">Login</a>
+				<a href="login.jsp"><span class="fa fa-sign-in">&#160;</span>&#160;Login</a>
 			</li>
 		</xsl:if>
 		<!-- User is logged in -->
 		<xsl:if test="$username != '' ">
-			<li class="nav navbar-text" style="padding-left:16px;">
-				<xsl:value-of select="$username" />
+			<li class="nav navbar-text" style="padding-left:15px;">
+				<span class="fa fa-user">&#160;</span>&#160;<xsl:value-of select="$username" />
 			</li>
 			<li>
-				<a href="logout.jsp">Logout</a>
+				<a href="logout.jsp"><span class="fa fa-sign-out">&#160;</span>&#160;Logout</a>
 			</li>
 		</xsl:if>
 	</xsl:template>
