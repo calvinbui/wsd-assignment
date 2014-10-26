@@ -10,7 +10,7 @@
 			<xsl:apply-templates />
 			<xsl:if test="$username != '' ">
 			<br/><div>
-				<a href="create_log.jsp?vehicle={vehicle/registration}" class="btn btn-success">Create Log</a>
+				<a href="create_log.jsp?vehicle={vehicle/registration}" class="btn btn-primary btn-sm">Create Log</a>
 			</div>
 			</xsl:if>
 		</div><br/>
