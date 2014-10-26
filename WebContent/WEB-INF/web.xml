@@ -69,6 +69,7 @@
 		<web-resource-collection>
 			<web-resource-name>Include files</web-resource-name>
 			<description>No direct access to include files.</description>
+			<!-- Blocks all files within xml folder -->
 			<url-pattern>/xml/*</url-pattern>
 			<http-method>POST</http-method>
 			<http-method>GET</http-method>
