@@ -9,8 +9,8 @@
 	request.setAttribute("breadcrumb_link", "vehicle.jsp");
 	request.setAttribute("breadcrumb_item", "Create Vehicle");
 
-	if (session.getAttribute("username") == null)
-		response.sendRedirect("index.jsp");
+	if ((String)session.getAttribute("usertype") != "admin")
+		response.sendRedirect("error.jsp");
 	session.setAttribute("section-link", "index.jsp");
 	session.setAttribute("section", "Vehicles");
 	session.setAttribute("item", "Create Vehicle");
