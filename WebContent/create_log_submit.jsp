@@ -90,7 +90,7 @@ if (valid) {
 
 	logApp.add(log);
 	vehicleApp.updateKilometres(kilometres, request.getParameter("vehicle"));
-	response.sendRedirect("log.jsp");
+	response.sendRedirect("vehicle_logs.jsp?vehicle=" + request.getParameter("vehicle"));
 	
 } else {
 	request.getRequestDispatcher("create_log.jsp").forward(request, response);
