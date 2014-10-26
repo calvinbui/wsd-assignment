@@ -17,7 +17,7 @@
 		</option>
 		<!-- Start time -->
 		<option>
-			<label>Start Time</label>=
+			<label>Start Time</label>
 			<input type="text" id="starttime" name="starttime">Start Time</input>
 		</option>
 		<!-- end_date_display is shown to the user. end_date is not shown to the user. -->

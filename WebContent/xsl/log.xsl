@@ -4,15 +4,21 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:log="http://www.wsd.com/log">
 	<xsl:output method="xml" omit-xml-declaration="yes" />
-
+	
+	<!-- Apply parameter username -->
 	<xsl:param name="username" />
-
+	
+	<!-- Root template for log page -->
 	<xsl:template match="/">
+		<!-- Bootstrap default container to wrap site contents -->
 		<div class="container">
 			<h3>Logs</h3>
 			<xsl:choose>
+				<!-- When log entries exist return the following table -->
 				<xsl:when test="logs != '' ">
+					<!-- Bootstrap default responsive table -->
 					<div class="table-responsive">
+						<!-- Bootstrap striped table with hover -->
 						<table class="table table-striped table-hover">
 							<thead>
 								<th>ID</th>
@@ -24,16 +30,19 @@
 								<th>End Time</th>
 								<th>Description</th>
 								<th>Kilometres</th>
+								<!-- If user is logged in return delete functionality -->
 								<xsl:if test="$username != '' ">
 									<th>Delete</th>
 								</xsl:if>
 							</thead>
 							<tbody>
+								<!-- Insert log details -->
 								<xsl:apply-templates />
 							</tbody>
 						</table>
 					</div>
 				</xsl:when>
+				<!-- If no log entries exist return the following statement -->
 				<xsl:otherwise>
 					<p>There are no recorded logs.</p>
 				</xsl:otherwise>
