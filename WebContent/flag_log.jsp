@@ -2,6 +2,8 @@
 <%@ page language="java" import="wsd.ass.*, java.util.*" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <% 
+	if (session.getAttribute("username") == null)
+		response.sendRedirect("error.jsp");
 	// get log element
 	int i = Integer.parseInt(request.getParameter("log"));
 	// link to LogApplication java
