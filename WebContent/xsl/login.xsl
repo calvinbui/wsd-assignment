@@ -2,6 +2,7 @@
 <!-- XML namespaces for login -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:output method="xml" omit-xml-declaration="yes" />
 	
 	<!-- Pass through result parameter from user login form -->
 	<xsl:param name="result" />

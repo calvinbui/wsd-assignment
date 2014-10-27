@@ -3,6 +3,7 @@
 <xsl:stylesheet version="1.0"
 				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 				xmlns:user="http://www.wsd.com/user">
+<xsl:output method="xml" omit-xml-declaration="yes" />
 
 	<xsl:template match="/">
 		<head>

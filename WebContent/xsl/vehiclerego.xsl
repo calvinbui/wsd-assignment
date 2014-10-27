@@ -4,6 +4,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<!-- Pass through username parameter for logged in user -->
 	<xsl:param name="username" />
+	<xsl:output method="xml" omit-xml-declaration="yes" />
 	
 	<xsl:template match="/">
 		<!-- Bootstrap default container wrapping site contents -->
