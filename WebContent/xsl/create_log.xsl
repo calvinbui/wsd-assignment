@@ -30,13 +30,11 @@
 			<!-- convert start date and end date from DD/MM/YY to YY-MM-DD  -->
 			$("#start_date_display").datepicker({
 				altField: "#start_date",
-				maxDate: "+0D",
 				dateFormat: "dd/mm/yy",
     			altFormat: "yy-mm-dd"
 			});
 			$("#end_date_display").datepicker({
 				altField: "#end_date",
-				maxDate: "+0D",
 				dateFormat: "dd/mm/yy",
     			altFormat: "yy-mm-dd"
 			});
