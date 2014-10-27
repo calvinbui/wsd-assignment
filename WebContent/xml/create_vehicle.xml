@@ -33,7 +33,7 @@
 		<!-- Year of vehicle model -->
 		<option>
 			<label for="year">Year</label>
-			<input type="number" id="year" placeholder="Vehicle year" />
+			<input type="text" id="year" placeholder="Vehicle year" />
 		</option>
 		<!-- Vehicle colour -->
 		<option>
@@ -43,7 +43,7 @@
 		<!-- Total kilometres travelled to date -->
 		<option>
 			<label for="kilometres">Kilometres</label>
-			<input type="number" id="kilometres" placeholder="Kilometres travelled" />
+			<input type="text" id="kilometres" placeholder="Kilometres travelled" />
 		</option>
 	</addvehicle>
 
