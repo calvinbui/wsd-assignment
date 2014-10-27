@@ -28,13 +28,13 @@ else {
 	if (Validator.dateCheck(startdate)) {
 		request.setAttribute("startdate", "startdate");
 		valid = false;
-		errors += "<li>Start Date has to be in YYYY-MM-DD format</li>";
+		errors += "<li>Start Date has to be in DD/MM/YYYY format</li>";
 	} 
 
 	// test if the enddate is in a standard date format
 	if (Validator.dateCheck(enddate)) {
 		request.setAttribute("enddate", "enddate");
-		errors += "<li>End Date has to be in YYYY-MM-DD format</li>";
+		errors += "<li>End Date has to be in DD/MM/YYYY format</li>";
 		valid = false;
 	}
 

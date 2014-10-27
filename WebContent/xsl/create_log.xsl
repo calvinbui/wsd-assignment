@@ -31,11 +31,13 @@
 			$("#start_date_display").datepicker({
 				altField: "#start_date",
 				maxDate: "+0D",
+				dateFormat: "dd/mm/yy",
     			altFormat: "yy-mm-dd"
 			});
 			$("#end_date_display").datepicker({
 				altField: "#end_date",
 				maxDate: "+0D",
+				dateFormat: "dd/mm/yy",
     			altFormat: "yy-mm-dd"
 			});
 			<!-- convert start time and end time to HH:MM:SS -->
