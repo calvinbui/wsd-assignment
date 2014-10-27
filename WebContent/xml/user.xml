@@ -4,7 +4,8 @@
 <users xmlns="http://www.wsd.com/user" 
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.wsd.com/user xsd/user.xsd">
-	   
+	
+	<!-- User data structure -->
 	<user>
 		<type>driver</type>
 		<username>trungthi.bui@student.uts.edu.au</username> 

@@ -46,7 +46,6 @@
 		</div>
 	</xsl:template>
 	
-
 	<xsl:template match="vehicle">
 		<tr>
 			<td>

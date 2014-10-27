@@ -5,6 +5,8 @@
 	xmlns="http://www.wsd.com/vehicle" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.wsd.com/vehicle xsd/vehicle.xsd">
+	
+	<!-- Vehicle data structure -->
 	<vehicle>
 		<registration>HOLSS1</registration>
 		<type>Ute</type>

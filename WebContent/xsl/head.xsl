@@ -5,26 +5,31 @@
 
 	<!-- Pass through titleaddon parameter -->
 	<xsl:param name="titleaddon"/>
+	
 	<!-- Root template for head -->
 	<xsl:template match="/">
 		<!-- Insert all xml data -->
 		<xsl:apply-templates/>
 	</xsl:template>
+	
 	<!-- Match all charset elements -->
 	<xsl:template match="charset">
 		<!-- Insert all charset data into meta tags-->
 		<meta charset="{.}"/>
 	</xsl:template>
+	
 	<!-- Match all iecompatible elements -->
 	<xsl:template match="iecompatible">
 		<!-- Insert all iecompatible data into meta tags -->
 		<meta http-equiv="{@http-equiv}" content="{.}"/>
 	</xsl:template>
+	
 	<!-- Match all viewport elements -->
 	<xsl:template match="viewport">
 		<!-- Insert all viewport data in meta tags -->
 		<meta name="{@name}" content="{.}"/>
 	</xsl:template>
+	
 	<!-- Match all css elements -->
 	<xsl:template match="css">
 		<!-- Insert all css data into link tags -->
@@ -35,11 +40,13 @@
 		<!-- Insert all js data into script tags -->
 		<script src="/wsdassignment/js/{.}">//</script>
 	</xsl:template>
+	
 	<!-- Match all favicon elements -->
 	<xsl:template match="favicon">
 		<!-- Insert favicon car icon -->
 		<link rel="shortcut icon" href="/wsdassignment/img/{.}"></link>
 	</xsl:template>
+	
 	<!-- Match all title elements -->
 	<xsl:template match="title">
 		<!-- If titleaddon parameter is empty -->

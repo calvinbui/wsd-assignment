@@ -4,6 +4,13 @@
 	targetNamespace="http://www.wsd.com/log" xmlns="http://www.wsd.com/log"
 	elementFormDefault="qualified">
 
+	<xs:annotation>
+		<xs:appinfo></xs:appinfo>
+		<xs:documentation xml:lang="en">
+		This schema defines all logs
+		</xs:documentation>
+	</xs:annotation>
+
 	<!-- Description must be at least one character -->
 	<xs:simpleType name="description">
 		<xs:restriction base="xs:string">

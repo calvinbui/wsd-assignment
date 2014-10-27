@@ -8,7 +8,6 @@
 	<xsl:param name="bc-item" />
 	<xsl:param name="bc-link" />
 
-
 	<xsl:template match="/">
 		<!-- Bootstrap default container to wrap site content -->
 		<div class="container">
@@ -18,6 +17,7 @@
 			</ol>
 		</div>
 	</xsl:template>
+	
 	<!-- Link to index page is set by default -->
 	<xsl:template match="home">
 		<li>
@@ -26,6 +26,7 @@
 			</a>
 		</li>
 	</xsl:template>
+	
 	<!-- Link to section page is set in each jsp file -->
 	<xsl:template match="section">
 		<xsl:if test="$bc-section != '' ">
@@ -36,6 +37,7 @@
 			</li>
 		</xsl:if>
 	</xsl:template>
+	
 	<!-- Link to each item page is set in each jsp file -->
 	<!-- Last breadcrumb link is always active - link is disabled -->
 	<xsl:template match="item">

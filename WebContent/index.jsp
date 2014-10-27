@@ -4,9 +4,8 @@
 <%--Import JSP Standard Tag Libraries --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
-
+<%-- Import default tag template --%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
 <%-- Pass through breadcrumb navigation for index page --%>
 <%
 request.setAttribute(Constants.TITLE, "Home"); 
