@@ -5,9 +5,9 @@
 	elementFormDefault="qualified">
 
 	<xs:annotation>
-		<xs:appinfo></xs:appinfo>
+		<xs:appinfo>Log XML Schema</xs:appinfo>
 		<xs:documentation xml:lang="en">
-		This schema defines all logs
+		This schema defines a log element
 		</xs:documentation>
 	</xs:annotation>
 

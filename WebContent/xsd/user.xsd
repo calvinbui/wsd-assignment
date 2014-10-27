@@ -5,6 +5,13 @@
 	xmlns="http://www.wsd.com/user"
 	elementFormDefault="qualified">
 
+	<xs:annotation>
+		<xs:appinfo>User XML Schema</xs:appinfo>
+		<xs:documentation xml:lang="en">
+		This schema defines a user element
+		</xs:documentation>
+	</xs:annotation>
+
 	<!-- Name must start with a capital letter -->
 	<xs:simpleType name="name">
 		<xs:restriction base="xs:string">

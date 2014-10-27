@@ -6,6 +6,13 @@
 	xmlns="http://www.wsd.com/vehicle"
 	elementFormDefault="qualified">
 
+	<xs:annotation>
+		<xs:appinfo>Vehicle XML Schema</xs:appinfo>
+		<xs:documentation xml:lang="en">
+		This Schema defines a vehicle element
+		</xs:documentation>
+	</xs:annotation>
+
 	<!-- Vehicle registration in Australia is up to 6 characters. -->
 	<xs:simpleType name="registration">
 		<xs:restriction base="xs:string">
