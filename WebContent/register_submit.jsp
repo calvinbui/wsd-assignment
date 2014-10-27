@@ -49,7 +49,7 @@ if(Validator.emptyOrNullCheck(request.getParameter("password"))) {
 	errors += "<li>Password is empty</li>";
 }
 
-
+// create a new user application dao or grab from session
 UserApplication userApp =  (UserApplication) session.getAttribute(Constants.USER_APP);
 if (userApp == null) {
 	userApp = new UserApplication();
@@ -60,6 +60,7 @@ if (userApp == null) {
 	userApp.unmarshall();
 }
 
+// if user already exists
 if (userApp.userExists(request.getParameter("username"))) {
 	valid = false;
 	request.setAttribute("username", "username");
@@ -73,15 +74,17 @@ if (valid) {
 	User user = new User("driver", request.getParameter("username"), request.getParameter("password"), request.getParameter("firstname"), request.getParameter("lastname"));
 	
 	userApp.add(user);
-	
+	// store user into the session
 	session.setAttribute("username", user.getUsername());
 	session.setAttribute("usertype", user.getType());
+	// notification
 	request.setAttribute("message_notification", "Registration successful. You have been logged in.");
 	request.setAttribute("message_type", "success");
 
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 } else {
 	errors += "</ul>";
+	// notification
 	request.setAttribute("message_type", "warning");
 	request.setAttribute("message_notification", errors);
 	request.getRequestDispatcher("register.jsp").forward(request, response);

@@ -60,6 +60,7 @@ else {
 		request.setAttribute("year", "year");
 	}
 	
+	// create new vehicle application DAO or grab from JavaBean session
 	VehicleApplication vehicleApp =  (VehicleApplication) session.getAttribute(Constants.VEHICLE_APP);
 	if (vehicleApp == null) {
 		vehicleApp = new VehicleApplication(); 
@@ -90,6 +91,7 @@ else {
 	} else {
 		errors += "</ul>";
 		errors = errors.replace("=", "");
+		// set notification
 		request.setAttribute("message_type", "warning");
 		request.setAttribute("message_notification", errors);
 		request.getRequestDispatcher("create_vehicle.jsp").forward(request, response);

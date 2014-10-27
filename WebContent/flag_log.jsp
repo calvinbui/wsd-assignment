@@ -20,7 +20,7 @@
 		} else {
 			logApp.unmarshall();
 		}
-		
+		// hide the selected log
 		logApp.hideLog(i, (String) session.getAttribute("username"));
 		// set notification message and message type
 		request.setAttribute("message_notification", "Log has been flagged for deletion.");

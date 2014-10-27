@@ -4,6 +4,7 @@
 	
 <%-- Log out user --%>
 <%
+	// remove all session items
 	session.invalidate();
 	request.setAttribute("message_notification", "You have been logged out.");
 	request.setAttribute("message_type", "warning");

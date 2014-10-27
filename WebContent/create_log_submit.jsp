@@ -78,6 +78,7 @@ else {
 	if (valid) {
 		Log log = new Log(request.getParameter("vehicle"), (String)session.getAttribute("username"), startdate, enddate, starttime, endtime, description, kilometres);	
 		
+		// create new log application DAO or grab from JavaBean session
 		LogApplication logApp = (LogApplication)session.getAttribute(Constants.LOG_APP);
 		if (logApp == null) {
 			logApp = new LogApplication();
@@ -89,6 +90,7 @@ else {
 			logApp.unmarshall();
 		}
 		
+		// create new vehicle application DAO or grab from JavaBean session
 		VehicleApplication vehicleApp = (VehicleApplication)session.getAttribute(Constants.VEHICLE_XML);
 		if (vehicleApp == null) {
 			vehicleApp = new VehicleApplication();
@@ -99,14 +101,17 @@ else {
 		} else {
 			vehicleApp.unmarshall();
 		}
-
+		
+		// add the log
 		logApp.add(log);
+		// update the vehicle's kilometres
 		vehicleApp.updateKilometres(kilometres, request.getParameter("vehicle"));
 		response.sendRedirect("vehicle_logs.jsp?vehicle=" + request.getParameter("vehicle"));
 		
 	// log is not valid return validation error notification
 	} else {
 		errors += "</ul>";
+		// notification
 		request.setAttribute("message_type", "warning");
 		request.setAttribute("message_notification", errors);
 		request.getRequestDispatcher("create_log.jsp").forward(request, response);
