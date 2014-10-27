@@ -26,30 +26,36 @@ else {
 	int kilometres = Validator.convertValidInt(request.getParameter("kilometres"), session);
 
 	int year = Validator.convertValidInt(request.getParameter("year"), session);
-
+	
+	String errors = "<p>There has been an error creating the vehicle<p><ul>";
+	
 	// test that the string is not empty or null
 	for (Map.Entry<String, String> entry : checkStrings.entrySet()) {
 	    if (Validator.emptyOrNullCheck(entry.getValue())) {
 	    	valid = false;
 	    	request.setAttribute(entry.getKey(), entry.getKey());
+	    	errors += "<li>" + entry + " is empty</li>";
 	    }
 	}
 
 	//check that registration is not empty or null and has a length less than 6
 	if (checkStrings.get("registration").length() > 6) {
 		valid = false;
+		errors += "<li>Registration cannot be longer than 6 characters</li>";
 		request.setAttribute("registration", "registration");
 	}
 
 	//check that kilometres is a positive integer
 	if (kilometres <= 0) {
 		valid = false;
+		errors += "<li>Kilometres must be a number and greater than 0</li>";
 		request.setAttribute("kilometres", "kilometres");
 	}
 
 	// check that the year is larger than 1900
 	if (year < 1900) {
 		valid = false;
+		errors += "<li>Year must be greater than 1900</li>";
 		request.setAttribute("year", "year");
 	}
 	
@@ -66,6 +72,7 @@ else {
 	
 	if (vehicleApp.getRegistration(checkStrings.get("registration")) != null) {
 		valid = false;
+		errors += "<li>Vehicle with registration already exists</li>";
 		request.setAttribute("registration", "registration");
 	}
 	
@@ -80,6 +87,10 @@ else {
 
 		request.getRequestDispatcher("vehicle_logs.jsp?vehicle=" + vehicle.getRegistration()).forward(request, response);
 	} else {
+		errors += "</ul>";
+		errors = errors.replace("=", "");
+		request.setAttribute("message_type", "warning");
+		request.setAttribute("message_notification", errors);
 		request.getRequestDispatcher("create_vehicle.jsp").forward(request, response);
 	}	
 }
