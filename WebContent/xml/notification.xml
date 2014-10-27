@@ -4,7 +4,7 @@
 <notification>
 	<!-- Type of notification -->
 	<type>
-	<!-- Notification message -->
-	<message/>
+		<!-- Notification message -->
+		<message/>
 	</type>
 </notification>

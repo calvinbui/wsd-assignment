@@ -13,6 +13,7 @@
 		<!-- Type of vehicle: car, ute or minibus only -->
 		<option>
 			<label for="type">Type</label>
+			<!-- Create drop-down list with 3 options -->
 			<input type="select" id="type" placeholder="Vehicle type">
 				<select name="Car">Car</select>
 				<select name="Ute">Ute</select>

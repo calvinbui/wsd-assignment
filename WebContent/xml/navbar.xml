@@ -17,25 +17,30 @@
 		</header>
 		<!-- Bootstrap default collapsing navbar -->
 		<main class="navbar-collapse collapse" id="navbar-main">
+			<!-- Bootstrap default navbar for menu items -->
 			<menu class="nav navbar-nav">
-			<!-- Vehicle page navbar link -->
+				<!-- Vehicle page navbar link -->
 				<item>
 					<path>vehicle.jsp</path>
+					<!-- Font Awesome car icon -->
 					<title icon="fa fa-car">Vehicles</title>
 				</item>
 				<!-- Logs page navbar link -->
 				<item>
 					<path>log.jsp</path>
+					<!-- Font Awesome book icon -->
 					<title icon="fa fa-book">Logs</title>
 				</item>
 				<!-- Users (admins and drivers) page navbar link -->
 				<item>
 					<path>user.jsp</path>
+					<!-- Font Awesome user icon -->
 					<title icon="fa fa-users">Drivers</title>
 				</item>
 			</menu>
 			<!-- Bootstrap right navbar -->
 			<menu class="nav navbar-nav navbar-right">
+				<!-- If user logged in show username -->
 				<auth></auth>
 			</menu>
 		</main>

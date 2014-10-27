@@ -20,11 +20,9 @@
 	<xsl:param name="description_value" />
 	<xsl:param name="kilometres_value" />
 	
-	<!-- Root template for create log -->
 	<xsl:template match="/">
 		<!-- Bootstrap default container to wrap site contents -->
 		<div class="container">
-			<!-- Insert all elements -->
 			<xsl:apply-templates />
 		</div>
 		<!-- Script to convert date from DD/MM/YY to YY-MM-DD -->
@@ -47,16 +45,13 @@
 		</script>
 	</xsl:template>
 	
-	<!-- Apply h3 tag to title element -->
 	<xsl:template match="title">
 		<h3><xsl:apply-templates /></h3>
 	</xsl:template>
 	
-	<!-- Template for addlog -->
 	<xsl:template match="addlog">
 		<!-- Bootstrap default form. Insert form method and action from xml -->
 		<form class="form-horizontal" method="{@method}" action="{@action}" role="form">
-			<!-- Insert addlog xml data -->
 			<xsl:apply-templates />
 			<!-- Bootstrap default form group -->
 			<div class="form-group">
@@ -69,25 +64,21 @@
 		</form>
 	</xsl:template>
 	
-	<!-- Template for option -->
 	<xsl:template match="option">
 		<!-- Bootstrap default form group and default validation for feedback message -->
 		<div class="form-group has-feedback">
-			<!-- Insert option xml data -->
 			<xsl:apply-templates />
 		</div>
 	</xsl:template>
 	
-	<!-- Template for label -->
 	<xsl:template match="label">
 		<label for="{.}" class="control-label col-sm-2">
 			<xsl:apply-templates />
 		</label>
 	</xsl:template>
 	
-	<!-- Template for input -->
 	<xsl:template match="input">
-		<!-- Bootstrap grid system of 10 columns -->
+		<!-- Bootstrap grid system of 10 columns for small devices -->
 		<div class="col-sm-10">
 			<!-- Input loop starts here -->
 			<xsl:choose>
