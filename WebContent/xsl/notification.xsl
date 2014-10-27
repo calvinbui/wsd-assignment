@@ -22,7 +22,7 @@
 				<span aria-hidden="true">&#xd7;</span>
 				<span class="sr-only">Close</span>
 			</button>
-			<xsl:value-of select="$message" />
+			<xsl:value-of disable-output-escaping="yes" select="$message" />
 		</div>
 	</xsl:template>
 

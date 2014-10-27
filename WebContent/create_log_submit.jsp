@@ -18,16 +18,20 @@ else {
 	int kilometres = Validator.convertValidInt(request.getParameter("kilometres"), session);
 
 	boolean valid = true;
+	
+	String errors = "<p>There has been an error creating the log entry<p><ul>";
 
 	// test if the startdate is in a standard date format
 	if (Validator.dateCheck(startdate)) {
 		request.setAttribute("startdate", "startdate");
 		valid = false;
+		errors += "<li>Start Date has to be in YYYY-MM-DD format</li>";
 	} 
 
 	//test if the enddate is in a standard date format
 	if (Validator.dateCheck(enddate)) {
 		request.setAttribute("enddate", "enddate");
+		errors += "<li>End Date has to be in YYYY-MM-DD format</li>";
 		valid = false;
 	}
 
@@ -35,31 +39,34 @@ else {
 	if (Validator.timeCheck(starttime)) {
 		request.setAttribute("starttime", "starttime");
 		valid = false;
+		errors += "<li>Start Time must be in HH:MM:SS format</li>";
 	}
 
 	//test if the endtime is in a standard time format
 	if (Validator.timeCheck(endtime)) {
 		request.setAttribute("endtime", "endtime");
 		valid = false;
+		errors += "<li>End Time must be in HH:MM:SS format</li>";
 	}
 
 	//check that the description string is not empty or null
 	if (Validator.emptyOrNullCheck(description)) {
 		valid = false;
 		request.setAttribute("description", "description");
+		errors += "<li>Description is empty</li>";
 	}
 
 	//check that kilometres is a positive integer
 	if (kilometres <= 0) {
 		valid = false;
 		request.setAttribute("kilometres", "kilometres");
+		errors += "<li>Kilometres must be a number and greater than 0</li>";
 	}
 
 	// check that the given starttime is before the endtime
 	if (Validator.startDateTimeBeforeEndDateTimeCheck(startdate + " " + starttime, enddate + " " + endtime)) {
 		request.setAttribute("invalidDates", "invalidDates");
-		request.setAttribute("message_notification", "Start Date/Time must be before End Date/Time");
-		request.setAttribute("message_type", "warning");
+		errors += "<li>Start Date/Time must be before End Date/Time </li>";
 		valid = false;
 	}
 
@@ -95,6 +102,9 @@ else {
 		response.sendRedirect("vehicle_logs.jsp?vehicle=" + request.getParameter("vehicle"));
 		
 	} else {
+		errors += "</ul>";
+		request.setAttribute("message_type", "warning");
+		request.setAttribute("message_notification", errors);
 		request.getRequestDispatcher("create_log.jsp").forward(request, response);
 	}	
 }
