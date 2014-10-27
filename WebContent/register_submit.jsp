@@ -12,7 +12,7 @@ for (String parameter: parameters) {
 }
 
 boolean valid = true;
-String errors = "";
+String errors = "<p>There has been an error registering<p><ul>";
 
 // test that the username is in email format
 if(Validator.emailCheck(request.getParameter("username"))) {
@@ -63,7 +63,7 @@ if (userApp == null) {
 if (userApp.userExists(request.getParameter("username"))) {
 	valid = false;
 	request.setAttribute("username", "username");
-	errors += "<li>EMail already registered</li>";
+	errors += "<li>Email already registered</li>";
 }
 
 //If all above checks have passed, unmarshal the xml file
