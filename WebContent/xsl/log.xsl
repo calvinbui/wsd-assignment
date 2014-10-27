@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- XML namespaces for log and XSLT -->
+<!-- XML namespaces for log-->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:log="http://www.wsd.com/log">
 	<!-- Set output of logs as an xml document -->
@@ -27,7 +27,7 @@
 				</xsl:when>
 				<!-- When logs entries contain log elements return the following table -->
 				<xsl:when test="logs != '' ">
-					<!-- Bootstrap responsive table -->
+					<!-- Bootstrap responsive table design to respond to any device size -->
 					<div class="table-responsive">
 						<!-- Bootstrap striped table with hover -->
 						<table class="table table-striped table-hover">

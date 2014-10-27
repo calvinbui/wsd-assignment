@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- XML namespaces for user-->
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:user="http://www.wsd.com/user">
+				xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+				xmlns:user="http://www.wsd.com/user">
 
 	<xsl:template match="/">
 		<head>
 			<title>Drivers</title>
 		</head>
-		<!-- Vehicle main page content -->
+		<!-- Bootstrap default container to wrap site contents -->
 		<div class="container">
+			<!-- Bootstrap header for page title -->
 			<div class="pageheader">
+				<!-- Bootstrap row to create horizontal groups of columns -->
 				<div class="row">
-
+					<!-- Bootstrap grid: create 6 columns -->
 					<div class="col-lg-6">
-						<!-- Vehicle title -->
 						<h3>Drivers</h3>
 					</div>
+				<!-- End of row -->
 				</div>
-				<!-- End row -->
+			<!-- End of page header -->
 			</div>
-
+			<!-- Bootstrap container to wrap body content -->
 			<div class="bs-docs-section">
-
-				<!-- Vehicle table with striped design -->
+				<!-- Bootstrap table with striped design -->
 				<table class="table table-striped table-hover">
 					<xsl:apply-templates />
 				</table>
 			</div>
 		</div>
 	</xsl:template>
-
+	
 	<xsl:template match="user:users">
 		<thead>
 			<th>Type</th>
@@ -41,7 +43,7 @@
 			<xsl:apply-templates />
 		</tbody>
 	</xsl:template>
-
+	<!-- User details -->
 	<xsl:template match="user">
 		<tr>
 			<xsl:apply-templates select="type" />
