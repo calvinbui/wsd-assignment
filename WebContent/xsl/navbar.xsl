@@ -79,10 +79,10 @@
 		<!-- User is not logged in reutrn register and login buttons -->
 		<xsl:if test="$username = '' ">
 			<li>
-				<a href="register.jsp"><span class="fa fa-pencil-square-o">&#160;</span>&#160;Register</a>
+				<a href="/wsdassignment/register.jsp"><span class="fa fa-pencil-square-o">&#160;</span>&#160;Register</a>
 			</li>
 			<li>
-				<a href="login.jsp"><span class="fa fa-sign-in">&#160;</span>&#160;Login</a>
+				<a href="/wsdassignment/login.jsp"><span class="fa fa-sign-in">&#160;</span>&#160;Login</a>
 			</li>
 		</xsl:if>
 		<!-- User is logged in return username and logout button -->
@@ -93,7 +93,7 @@
 			</li>
 			<li>
 				<!-- Font Awesome logout icon -->
-				<a href="logout.jsp"><span class="fa fa-sign-out">&#160;</span>&#160;Logout</a>
+				<a href="/wsdassignment/logout.jsp"><span class="fa fa-sign-out">&#160;</span>&#160;Logout</a>
 			</li>
 		</xsl:if>
 	</xsl:template>
