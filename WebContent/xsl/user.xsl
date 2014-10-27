@@ -6,7 +6,7 @@
 
 	<xsl:template match="/">
 		<head>
-			<title>Drivers</title>
+			<title>Users</title>
 		</head>
 		<!-- Bootstrap default container to wrap site contents -->
 		<div class="container">

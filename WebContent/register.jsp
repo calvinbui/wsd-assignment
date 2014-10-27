@@ -1,6 +1,9 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page language="java" import="wsd.ass.*" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%-- Import JSP Standard Tag Libraries --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+<%-- Import default tag template --%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <% 

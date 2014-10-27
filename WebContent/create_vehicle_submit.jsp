@@ -1,9 +1,10 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page import="wsd.ass.*, java.util.*" language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 
 <%
 String usertype = (String)session.getAttribute("usertype");
-
+// if user is not an admin return error
 if (!usertype.equals("admin"))
 	response.sendRedirect("error.jsp");
 else {
@@ -22,9 +23,9 @@ else {
 	}
 
 	boolean valid = true;
-
+	
 	int kilometres = Validator.convertValidInt(request.getParameter("kilometres"), session);
-
+	
 	int year = Validator.convertValidInt(request.getParameter("year"), session);
 	
 	String errors = "<p>There has been an error creating the vehicle<p><ul>";
@@ -69,7 +70,7 @@ else {
 		vehicleApp.unmarshall();
 	}
 	
-	
+	// if vehicle registration already exists return error
 	if (vehicleApp.getRegistration(checkStrings.get("registration")) != null) {
 		valid = false;
 		errors += "<li>Vehicle with registration already exists</li>";

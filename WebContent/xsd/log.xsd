@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- XML namespaces for log -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.wsd.com/log" xmlns="http://www.wsd.com/log"
 	elementFormDefault="qualified">
@@ -25,7 +25,8 @@
 				value="([a-zA-Z0-9]([-.\w]*[a-zA-Z0-9])*@([a-zA-Z][-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,9})" />
 		</xs:restriction>
 	</xs:simpleType>
-
+	
+	<!-- Log must contain if, vehicle, driver, start date, end date, start time, end time, description, kilometres and hidden -->
 	<xs:element name="logs">
 		<xs:complexType>
 			<xs:sequence maxOccurs="unbounded">

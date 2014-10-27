@@ -55,7 +55,8 @@
 			<xs:minInclusive value="0" />
 		</xs:restriction>
 	</xs:simpleType>
-
+	
+	<!-- Vehicle must contain registration, type, make, model, year, colour and kilometres -->
 	<xs:element name="vehicles">
 		<xs:complexType>
 			<xs:sequence maxOccurs="unbounded">
@@ -75,4 +76,5 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	
 </xs:schema>

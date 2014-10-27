@@ -1,7 +1,9 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page import="wsd.ass.*" language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
 <%
+	// link to UserApplication java
 	UserApplication userApp =  (UserApplication) session.getAttribute(Constants.USER_APP);
 	if (userApp == null) {
 		userApp = new UserApplication();
@@ -11,9 +13,9 @@
 	} else {
 		userApp.unmarshall();
 	}
-	
+	// get username and password parameters
 	User user = userApp.login(request.getParameter("Username"), request.getParameter("Password"));
-	
+	// test that user is valid
 	if (user == null) {
 		request.setAttribute("message_notification", "Login Incorrect. Please try again.");
 		request.setAttribute("message_type", "danger");

@@ -1,6 +1,8 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+	
+<%-- Log out user --%>
 <%
 	session.invalidate();
 	request.setAttribute("message_notification", "You have been logged out.");

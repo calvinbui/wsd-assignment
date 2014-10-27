@@ -1,28 +1,30 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page language="java" import="wsd.ass.*"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%-- Import JSP Standard Tag Libraries --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+<%--Import default tag template --%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
+<%-- If username is invalid return error --%>
 <%
 	if (session.getAttribute("username") == null)
 		response.sendRedirect("error.jsp");
-
+	// set breadcrumb navigation - vehicle > create log
 	request.setAttribute(Constants.TITLE, "Create Log");
 	request.setAttribute("breadcrumb_section", "Vehicles");
 	request.setAttribute("breadcrumb_link", "vehicle.jsp");
 	request.setAttribute("breadcrumb_item", "Create Log");
-	
+	// pass through vehicle registration
 	request.setAttribute("vehicle", request.getParameter("vehicle"));
 %>
 
 <t:default>
 	<jsp:body>
-		<!-- Import newlog.xml -->
+		<!-- Create new log form -->
 		<c:import var="xml" url="xml/create_log.xml" />
-		<!-- Import newlog.xsl -->
 		<c:import var="xslt" url="xsl/create_log.xsl" />
-		<!-- Style xml using xsl -->
+		<!-- Pass through log details and log details entered by user -->
 		<x:transform xml="${xml}" xslt="${xslt}">
 			<x:param name="vehicle" value="${vehicle}" />
 			

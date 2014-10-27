@@ -1,15 +1,18 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page import="wsd.ass.*" language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 
 <%
+// if user is invalid return error message
 if (session.getAttribute("username") == null)
 	response.sendRedirect("error.jsp");
+// if user is valid return log parameters
 else {
 	String[] parameters = { "startdate", "enddate", "starttime", "start_date_display", "end_date_display" , "endtime", "description", "kilometres" };
 	for (String parameter: parameters)
 		request.setAttribute(parameter+"_value", request.getParameter(parameter));
 
-	//get the request parameters
+	// get the request parameters
 	String startdate = request.getParameter("startdate");
 	String enddate = request.getParameter("enddate");
 	String starttime = request.getParameter("starttime");
@@ -28,35 +31,35 @@ else {
 		errors += "<li>Start Date has to be in YYYY-MM-DD format</li>";
 	} 
 
-	//test if the enddate is in a standard date format
+	// test if the enddate is in a standard date format
 	if (Validator.dateCheck(enddate)) {
 		request.setAttribute("enddate", "enddate");
 		errors += "<li>End Date has to be in YYYY-MM-DD format</li>";
 		valid = false;
 	}
 
-	//test if the starttime is in a standard time format
+	// test if the starttime is in a standard time format
 	if (Validator.timeCheck(starttime)) {
 		request.setAttribute("starttime", "starttime");
 		valid = false;
 		errors += "<li>Start Time must be in HH:MM:SS format</li>";
 	}
 
-	//test if the endtime is in a standard time format
+	// test if the endtime is in a standard time format
 	if (Validator.timeCheck(endtime)) {
 		request.setAttribute("endtime", "endtime");
 		valid = false;
 		errors += "<li>End Time must be in HH:MM:SS format</li>";
 	}
 
-	//check that the description string is not empty or null
+	// check that the description string is not empty or null
 	if (Validator.emptyOrNullCheck(description)) {
 		valid = false;
 		request.setAttribute("description", "description");
 		errors += "<li>Description is empty</li>";
 	}
 
-	//check that kilometres is a positive integer
+	// check that kilometres is a positive integer
 	if (kilometres <= 0) {
 		valid = false;
 		request.setAttribute("kilometres", "kilometres");
@@ -70,8 +73,8 @@ else {
 		valid = false;
 	}
 
-	//If all above checks have passed, unmarshal the xml file
-	//Then add the log and marshall it back in
+	// If all above checks have passed, unmarshal the xml file
+	// Then add the log and marshall it back in
 	if (valid) {
 		Log log = new Log(request.getParameter("vehicle"), (String)session.getAttribute("username"), startdate, enddate, starttime, endtime, description, kilometres);	
 		
@@ -101,6 +104,7 @@ else {
 		vehicleApp.updateKilometres(kilometres, request.getParameter("vehicle"));
 		response.sendRedirect("vehicle_logs.jsp?vehicle=" + request.getParameter("vehicle"));
 		
+	// log is not valid return validation error notification
 	} else {
 		errors += "</ul>";
 		request.setAttribute("message_type", "warning");

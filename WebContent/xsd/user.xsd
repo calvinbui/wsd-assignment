@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- this is the xml schema for user.xml -->
+<!-- XML namespaces for user -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://www.wsd.com/user"
 	xmlns="http://www.wsd.com/user"
@@ -20,13 +20,14 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<!-- password can contain any letters or numbers -->
+	<!-- Password can contain any letters or numbers -->
 	<xs:simpleType name="password">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[a-zA-Z0-9]*" /> 
 		</xs:restriction>
 	</xs:simpleType>
-
+	
+	<!-- User must have type, username, password, first name and last name -->
 	<xs:element name="users">
 		<xs:complexType>
 			<xs:sequence maxOccurs="unbounded">
@@ -44,6 +45,5 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-
 
 </xs:schema>

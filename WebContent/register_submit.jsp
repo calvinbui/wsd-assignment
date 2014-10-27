@@ -1,11 +1,10 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page import="wsd.ass.*, java.util.*" language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 
-
-
 <%
 
-//get the request parameters
+// get the request parameters
 String[] parameters = {"username", "password", "confirmpassword", "firstname", "lastname"};
 
 for (String parameter: parameters) {

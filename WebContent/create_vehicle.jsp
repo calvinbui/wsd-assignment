@@ -1,16 +1,22 @@
+<%-- Import wsd.ass java classes --%>
 <%@ page language="java" import="wsd.ass.*"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%-- Import JSP Standard Tag Libraries --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
+<%-- Import default tag template --%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+
 <%
+	// set page title to Create Vehicle
+	// set breadcrumb navigation - Vehicles and Create Vehicle
 	request.setAttribute(Constants.TITLE, "Create Vehicle");
 	request.setAttribute("breadcrumb_section", "Vehicles");
 	request.setAttribute("breadcrumb_link", "vehicle.jsp");
 	request.setAttribute("breadcrumb_item", "Create Vehicle");
-	
+	// set usertype
 	String usertype = (String) session.getAttribute("usertype");
-	
+	// if user is not an admin return error
 	if (!usertype.equals("admin"))
 		response.sendRedirect("error.jsp");
 	session.setAttribute("section-link", "index.jsp");
@@ -20,11 +26,10 @@
 
 <t:default>
 	<jsp:body>
-		<!-- Import REST outputted log.xml -->
+		<!-- Create vehicle form -->
 		<c:import var="xml" url="xml/create_vehicle.xml" />
-		<!-- Import vehicle.xsl -->
 		<c:import var="xslt" url="xsl/create_vehicle.xsl" />
-		<!-- Style xml using xsl -->
+		<!-- Pass through vehicle details and inputted data from user -->
 		<x:transform xml="${xml}" xslt="${xslt}">
 			<x:param name="registration" value="${registration}" />
 			<x:param name="type" value="${type}" />
