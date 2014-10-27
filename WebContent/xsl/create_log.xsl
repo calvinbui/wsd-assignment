@@ -25,9 +25,9 @@
 		<div class="container">
 			<xsl:apply-templates />
 		</div>
-		<!-- Script to convert date from DD/MM/YY to YY-MM-DD -->
 		<script>
 		$(document).ready(function() {
+			<!-- convert start date and end date from DD/MM/YY to YY-MM-DD  -->
 			$("#start_date_display").datepicker({
 				altField: "#start_date",
 				maxDate: "+0D",
@@ -38,6 +38,7 @@
 				maxDate: "+0D",
     			altFormat: "yy-mm-dd"
 			});
+			<!-- convert start time and end time to HH:MM:SS -->
 			$('.timepicker').timepicker({ 'timeFormat': 'H:i:s' });
 			
 		});
