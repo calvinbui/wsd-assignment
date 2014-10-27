@@ -20,5 +20,6 @@ public final class Constants {
 	public static final String TITLE = "titleaddon";
 	public static final String REST_LOGS= "http://localhost:8080/wsdassignment/rest/logs?";
 	public static final String REST_VEHICLES= "http://localhost:8080/wsdassignment/rest/vehicles/";
+	public static final String REST_USERS= "http://localhost:8080/wsdassignment/rest/users/";
 	public static final String[] REST_PARAMETERS = {"vehicleRego", "startDate", "keyword"};
 }
