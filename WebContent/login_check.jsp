@@ -23,6 +23,6 @@
 		session.setAttribute("usertype", user.getType());
 		request.setAttribute("message_notification", "You are now logged in.");
 		request.setAttribute("message_type", "success");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("vehicle.jsp").forward(request, response);
 	}
 %>
