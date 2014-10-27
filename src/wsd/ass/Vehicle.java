@@ -5,6 +5,10 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.*;
 
 /**
+ * The Vehicle class is a Bean/POJO which defines a
+ * vehicle in the system. Vehicles are
+ * unique based on their registration number.
+ * 
  * @author Calvin
  *
  */
