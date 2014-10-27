@@ -42,38 +42,38 @@
 		</tbody>
 	</xsl:template>
 
-	<xsl:template match="user:user">
+	<xsl:template match="user">
 		<tr>
-			<xsl:apply-templates select="user:type" />
-			<xsl:apply-templates select="user:username" />
-			<xsl:apply-templates select="user:firstname" />
-			<xsl:apply-templates select="user:lastname" />
+			<xsl:apply-templates select="type" />
+			<xsl:apply-templates select="username" />
+			<xsl:apply-templates select="firstname" />
+			<xsl:apply-templates select="lastname" />
 		</tr>
 	</xsl:template>
 
 	<!-- User type -->
-	<xsl:template match="user:type">
+	<xsl:template match="type">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
 	<!-- Username -->
-	<xsl:template match="user:username">
+	<xsl:template match="username">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
 	<!-- First name -->
-	<xsl:template match="user:firstname">
+	<xsl:template match="firstname">
 		<td>
 			<xsl:apply-templates />
 		</td>
 	</xsl:template>
 
 	<!-- Last name -->
-	<xsl:template match="user:lastname">
+	<xsl:template match="lastname">
 		<td>
 			<xsl:apply-templates />
 		</td>
